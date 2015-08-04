@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_background"
+    android:orientation="vertical"
+    android:padding="@dimen/material_global_margin_16">
+
+    <EditText
+        android:id="@+id/deckTitle"
+        style="@style/MaterialDrawerTheme.TranslucentStatus.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_deck_name" />
+
+    <Button
+        android:id="@+id/addNewDeck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/material_global_margin_16"
+        android:background="@drawable/default_button"
+        android:text="@string/create_new_deck"
+        android:textColor="@android:color/white" />
+</LinearLayout>

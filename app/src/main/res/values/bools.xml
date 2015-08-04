@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="default_page_number_indicator_show_change_page_buttons">true</bool>
+    <bool name="default_page_number_indicator_show_start_end_buttons">true</bool>
+    <bool name="default_page_number_indicator_page_number_text_bold">true</bool>
+</resources>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="transparent">@android:color/transparent</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="default_background">#eeeeee</color>
+
+
+    <color name="gray">#727272</color>
+
+    <color name="action_bar_color">#0277bd</color>
+    <color name="action_bar_color_dark">#01579B</color>
+    <color name="accent">#29B6F6</color>
+
+    <color name="action_bar_text_color">#fafafa</color>
+
+    <!-- fab button -->
+    <color name="fab_ripple">#C5CAE9</color>
+    <color name="default_button">#0277bd</color>
+    <color name="default_button_pressed">#01579b</color>
+
+
+
+    <!-- card colors -->
+    <color name="card_background">#FFF</color>
+    <!-- Used by selector -->
+    <color name="card_pressed">#7E0099CC</color>
+    <color name="card_activated">#CFE9F3</color>
+    <color name="card_foreground_activated">#99CFE9F3</color>
+
+
+    <!-- drawer -->
+    <color name="material_drawer_primary_dark">#01579B</color>
+
+    <!-- popup -->
+    <color name="blue_gray_dark">#263238</color>
+    <color name="blue_gray">#607D8B</color>
+
+
+    <!-- text colors -->
+    <color name="material_text_color_dark">#212121</color>
+    <color name="material_text_color_bright">#ffffff</color>
+    <color name="material_text_color_gray">#9E9E9E</color>
+
+
+    <!-- indicator -->
+    <color name="default_page_number_indicator_text_color">#AFFF</color>
+    <color name="default_page_number_indicator_page_number_text_color">@color/action_bar_color_dark</color>
+    <color name="default_page_number_indicator_pressed_button_color">#3FFF</color>
+
+
+
+
+</resources>

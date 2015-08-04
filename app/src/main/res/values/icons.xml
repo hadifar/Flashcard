@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- icons -->
+    <string name="icon_expand_less">&#xf077;</string>
+    <string name="icon_expand_more">&#xf078;</string>
+    <string name="icon_favorite">&#xf02e;</string>
+    <string name="icon_favorite_outline">&#xf097;</string>
+    <string name="icon_voice">&#xf028;</string>
+    <string name="icon_overflow">&#xf142;</string>
+
+</resources>

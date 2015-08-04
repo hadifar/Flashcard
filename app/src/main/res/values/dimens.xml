@@ -1,0 +1,56 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <dimen name="neg_material_global_margin_2">2dp</dimen>
+    <dimen name="neg_material_global_margin_4">4dp</dimen>
+    <dimen name="neg_material_global_margin_8">8dp</dimen>
+
+    <dimen name="material_global_margin_2">2dp</dimen>
+    <dimen name="material_global_margin_4">4dp</dimen>
+    <dimen name="material_global_margin_8">8dp</dimen>
+    <dimen name="material_global_margin_12">12dp</dimen>
+    <dimen name="material_global_margin_16">16dp</dimen>
+    <dimen name="material_global_margin_24">24dp</dimen>
+    <dimen name="material_global_margin_32">32dp</dimen>
+    <dimen name="material_global_margin_48">48dp</dimen>
+    <dimen name="material_global_margin_64">64dp</dimen>
+    <dimen name="material_global_margin_72">72dp</dimen>
+    <dimen name="material_global_margin_128">128dp</dimen>
+
+
+    <!-- material item height -->
+    <dimen name="material_card_height_96">96dp</dimen>
+    <dimen name="material_card_height_120">120dp</dimen>
+
+    <!--logo in contact us -->
+    <dimen name="logo_thumbnail_width">90dp</dimen>
+    <dimen name="logo_thumbnail_height">90dp</dimen>
+
+    <!-- cards layouts -->
+    <dimen name="card_thumbnail_width">60dp</dimen>
+    <dimen name="card_thumbnail_height">60dp</dimen>
+    <dimen name="card_background_default_radius">2dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+
+    <dimen name="card_expand_padding">2dp</dimen>
+    <dimen name="card_expand_padding_left">10dp</dimen>
+    <dimen name="card_expand_padding_right">10dp</dimen>
+
+
+    <!-- text size -->
+    <dimen name="material_text_size_28">28sp</dimen>
+    <dimen name="material_text_size_24">24sp</dimen>
+    <dimen name="material_text_size_18">18sp</dimen>
+    <dimen name="material_text_size_16">16sp</dimen>
+    <dimen name="material_text_size_14">14sp</dimen>
+    <dimen name="material_text_size_12">12sp</dimen>
+
+
+    <!-- indicator -->
+    <dimen name="default_page_number_indicator_text_size">15dp</dimen>
+    <dimen name="default_page_number_indicator_top_padding">12dp</dimen>
+    <dimen name="default_page_number_indicator_bottom_padding">12dp</dimen>
+
+
+
+</resources>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="MaterialDrawerTheme.TranslucentStatus">
+        <!-- base colors -->
+        <item name="colorPrimary">@color/action_bar_color</item>
+        <item name="colorPrimaryDark">@color/action_bar_color_dark</item>
+        <item name="colorAccent">@color/material_drawer_accent</item>
+
+
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/material_text_color_bright</item>
+        <item name="android:editTextColor">@color/material_text_color_dark</item>
+
+        <!-- MaterialDrawer DEFAULT colors -->
+        <item name="material_drawer_background">#F9F9F9</item>
+        <!-- Material DEFAULT text / items colors -->
+        <item name="material_drawer_icons">#FFF</item>
+        <item name="material_drawer_primary_text">#DE000000</item>
+        <item name="material_drawer_primary_icon">#8A000000</item>
+        <item name="material_drawer_secondary_text">#8A000000</item>
+        <item name="material_drawer_hint_text">#42000000</item>
+        <item name="material_drawer_divider">#1F000000</item>
+        <!-- Material DEFAULT drawer colors -->
+        <item name="material_drawer_selected">#E8E8E8</item>
+        <item name="material_drawer_selected_text">#2196F3</item>
+        <item name="material_drawer_header_selection_text">#FFF</item>
+
+        <!-- edit text style -->
+        <item name="android:editTextStyle">@style/MaterialDrawerTheme.TranslucentStatus.EditText
+        </item>
+        <!-- popup menu style -->
+        <item name="popupMenuStyle">@style/PopupMenu</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/PopupMenu.TextAppearanceLarge
+        </item>
+        <item name="android:textAppearanceSmallPopupMenu">@style/PopupMenu.TextAppearanceSmall
+        </item>
+
+        <item name="android:itemTextAppearance">@style/myCustomMenuTextApearance</item>
+    </style>
+
+    <style name="myCustomMenuTextApearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/material_text_color_dark</item>
+    </style>
+
+    <style name="PopupMenu" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@color/default_background</item>
+    </style>
+
+    <style name="PopupMenu.TextAppearanceLarge" parent="TextAppearance.AppCompat.Light.Widget.PopupMenu.Large">
+        <item name="android:textColor">@color/material_text_color_dark</item>
+    </style>
+
+    <style name="PopupMenu.TextAppearanceSmall" parent="TextAppearance.AppCompat.Light.Widget.PopupMenu.Small">
+        <item name="android:textColor">@color/material_text_color_dark</item>
+    </style>
+
+
+    <!--TextViews -->
+    <style name="Textview">
+        <item name="fontPath">font/Roboto-Light.ttf</item>
+    </style>
+
+    <!-- dark -->
+    <style name="Textview.Dark">
+        <item name="android:textColor">@color/material_text_color_dark</item>
+    </style>
+
+    <style name="Textview.Dark.Smallest">
+        <item name="android:textSize">@dimen/material_text_size_12</item>
+        <item name="android:padding">@dimen/material_global_margin_4</item>
+    </style>
+
+    <style name="Textview.Dark.Smaller">
+        <item name="android:textSize">@dimen/material_text_size_14</item>
+        <item name="android:padding">@dimen/material_global_margin_4</item>
+    </style>
+
+    <style name="Textview.Dark.Small">
+        <item name="android:textSize">@dimen/material_text_size_16</item>
+        <item name="android:padding">@dimen/material_global_margin_4</item>
+    </style>
+
+    <style name="Textview.Dark.Medium">
+        <item name="android:textSize">@dimen/material_text_size_24</item>
+        <item name="android:padding">@dimen/material_global_margin_4</item>
+    </style>
+
+    <style name="Textview.Dark.Large">
+        <item name="android:textSize">@dimen/material_text_size_28</item>
+        <item name="android:padding">@dimen/material_global_margin_4</item>
+    </style>
+
+    <!-- bright -->
+    <style name="Textview.White">
+        <item name="android:textColor">@color/material_text_color_bright</item>
+    </style>
+
+    <style name="Textview.White.Smaller">
+        <item name="android:textSize">@dimen/material_text_size_14</item>
+        <item name="android:padding">@dimen/material_global_margin_2</item>
+    </style>
+
+    <style name="Textview.White.Small">
+        <item name="android:textSize">@dimen/material_text_size_16</item>
+        <item name="android:padding">@dimen/material_global_margin_2</item>
+    </style>
+
+    <style name="Textview.White.Medium">
+        <item name="android:textSize">@dimen/material_text_size_24</item>
+        <item name="android:padding">@dimen/material_global_margin_4</item>
+    </style>
+
+    <style name="Textview.White.Large">
+        <item name="android:textSize">@dimen/material_text_size_28</item>
+        <item name="android:padding">@dimen/material_global_margin_4</item>
+    </style>
+
+
+    <!-- gray -->
+    <style name="Textview.Gray">
+        <item name="android:textColor">@color/material_text_color_gray</item>
+    </style>
+
+    <style name="Textview.Gray.Smaller">
+        <item name="android:textSize">@dimen/material_text_size_14</item>
+        <item name="android:padding">@dimen/material_global_margin_2</item>
+    </style>
+
+    <style name="Textview.SubTitle">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/material_text_size_14</item>
+        <item name="android:padding">@dimen/material_global_margin_4</item>
+    </style>
+
+
+
+
+
+    <!--EDIT TEXT-->
+    <style name="MaterialDrawerTheme.TranslucentStatus.EditText" parent="android:Widget.EditText">
+        <item name="android:background">@drawable/default_edit_text</item>
+        <item name="android:textColor">@color/material_text_color_dark</item>
+        <item name="android:textColorHint">@color/material_text_color_gray</item>
+        <item name="android:paddingTop">@dimen/material_global_margin_12</item>
+        <item name="android:paddingBottom">@dimen/material_global_margin_12</item>
+        <item name="android:paddingLeft">@dimen/material_global_margin_8</item>
+        <item name="android:paddingRight">@dimen/material_global_margin_8</item>
+        <item name="android:inputType">text</item>
+    </style>
+
+</resources>

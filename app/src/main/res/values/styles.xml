@@ -1,0 +1,58 @@
+<resources>
+
+
+    <style name="CardExpandButton">
+        <item name="android:paddingRight">@dimen/card_expand_padding_left</item>
+        <item name="android:paddingBottom">@dimen/card_expand_padding</item>
+        <item name="android:paddingLeft">@dimen/card_expand_padding_right</item>
+        <item name="android:paddingTop">@dimen/card_expand_padding</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_gravity">right</item>
+    </style>
+
+    <!--toolbar font style -->
+    <style name="ToolbarStyle" parent="@android:style/TextAppearance.Medium">
+        <item name="fontPath">font/Roboto-Light.ttf</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <!-- icons styles -->
+    <style name="IconStyle">
+        <item name="fontPath">font/fontawesome-webfont.ttf</item>
+        <item name="android:padding">@dimen/material_global_margin_4</item>
+        <item name="android:textSize">@dimen/material_text_size_18</item>
+    </style>
+
+    <style name="IconStyle.Blue">
+        <item name="android:textColor">@color/action_bar_color_dark</item>
+        <item name="android:layout_marginRight">@dimen/material_global_margin_8</item>
+        <item name="android:layout_marginLeft">@dimen/material_global_margin_8</item>
+    </style>
+
+    <style name="IconStyle.Gray">
+        <item name="android:textColor">@color/material_text_color_gray</item>
+        <item name="android:layout_marginRight">@dimen/material_global_margin_4</item>
+        <item name="android:layout_marginLeft">@dimen/material_global_margin_4</item>
+    </style>
+
+
+    <!-- Animations for Dialogs-->
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_up_dialog</item>
+        <item name="android:windowExitAnimation">@anim/slide_down_dialog</item>
+    </style>
+
+
+    <!--thumbnail image style -->
+    <style name="card_thumbnail_image">
+        <item name="android:layout_width">@dimen/card_thumbnail_width</item>
+        <item name="android:layout_height">@dimen/card_thumbnail_height</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+</resources>

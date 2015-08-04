@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/default_background"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/material_global_margin_16"
+    android:layout_marginStart="@dimen/material_global_margin_16"
+    android:layout_marginRight="@dimen/material_global_margin_16"
+    android:layout_marginEnd="@dimen/material_global_margin_16"
+    android:layout_marginTop="@dimen/material_global_margin_16"
+    android:layout_marginBottom="@dimen/material_global_margin_8">
+
+    <android.support.v4.view.ViewPager
+        android:layout_weight="1"
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+
+    <com.march1905.dope.customui.pagerIndicator.NumericPageIndicator
+        android:id="@+id/pageIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/material_text_color_dark"/>
+</LinearLayout>

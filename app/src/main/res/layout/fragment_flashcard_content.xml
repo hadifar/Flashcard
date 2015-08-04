@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_background"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/card_background">
+
+        <LinearLayout
+            android:id="@+id/textLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_selector"
+            android:clickable="true"
+            android:minHeight="@dimen/material_card_height_120"
+            android:orientation="vertical">
+
+            <TextSwitcher
+                android:id="@+id/flashcardWord"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/material_global_margin_16"
+                android:layout_marginRight="@dimen/material_global_margin_16"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:inAnimation="@android:anim/slide_in_left"
+                android:outAnimation="@android:anim/slide_out_right" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:gravity="end">
+
+                <TextView
+                    style="@style/IconStyle.Blue"
+                    android:id="@+id/buttonVoice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/icon_voice"/>
+
+                <TextView
+                    style="@style/IconStyle.Blue"
+                    android:id="@+id/buttonFavorite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/icon_favorite_outline"/>
+
+                <TextView
+                    style="@style/IconStyle.Blue"
+                    android:id="@+id/buttonExpand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/icon_expand_less"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <include layout="@layout/popup_menu_expand" />
+
+</LinearLayout>

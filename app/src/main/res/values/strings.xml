@@ -1,0 +1,88 @@
+<resources>
+
+    <string name="app_name">Dope</string>
+    <string name="free_and_always_will_be">Free and Open Source</string>
+    <string name="version_code">Version 0.1</string>
+    <string name="copy_right">Copyright 2015 - All Rights Reserved</string>
+
+
+    <!-- menu actions -->
+    <string name="action_settings">Settings</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_delete">Delete</string>
+
+    <!-- drawer -->
+    <string name="new_cat_title">New Category</string>
+    <string name="new_deck_title">New Deck</string>
+    <string name="new_flashcard_title">New FlashCard</string>
+
+    <string name="drawer_item_category">Category</string>
+    <string name="drawer_item_favorites">Favorites</string>
+
+    <string name="drawer_item_rate_us">Rate App on Bazzar</string>
+    <string name="drawer_item_other">Other</string>
+    <string name="drawer_item_settings">Settings</string>
+    <string name="drawer_item_help">Help</string>
+    <string name="drawer_item_open_source">Open Source</string>
+    <string name="drawer_item_contact">Contact</string>
+
+
+
+
+    <!--page indicator -->
+    <string name="default_page_number_indicator_text_template">#i of #N</string>
+    <string name="default_page_number_indicator_start_button_text">&#xf100;</string>
+    <string name="default_page_number_indicator_end_button_text">&#xf101;</string>
+    <string name="default_page_number_indicator_previous_button_text">&#xf104;</string>
+    <string name="default_page_number_indicator_next_button_text">&#xf105;</string>
+
+
+
+    <!-- button -->
+    <string name="ok">OK</string>
+    <string name="cancel">CANCEL</string>
+    <string name="are_you_sure_to_delete">Are you sure to delete this Card ?</string>
+    <string name="create_new_category">CREATE NEW CATEGORY</string>
+    <string name="create_new_deck">CREATE NEW DECK</string>
+    <string name="create_new_flashcard">CREATE NEW FLASHCARD</string>
+
+
+    <!--Toast-->
+    <string name="your_language_not_supported_please_install">کاربر گرامی زبان دستیار صوتی شما میبایست انگلیسی باشد لطفا آنرا نصب کنید و دوباره امتحان کنید</string>
+    <string name="please_install_google_voice">کاربر گرامی برای استفاده از این سرویس میبایست دستیار صوتی گوگل را نصب کنید</string>
+
+
+    <!-- hint-->
+    <string name="hint_category_name">Category Name</string>
+    <string name="hint_category_subtitle">Category Subtitle</string>
+    <string name="hint_deck_name">Deck Name</string>
+    <string name="hint_flashcard_name">Flashcard Name</string>
+    <string name="hint_flashcard_word">Word</string>
+    <string name="hint_flashcard_persian">Persian</string>
+    <string name="hint_flashcard_synonym">Synonym</string>
+    <string name="hint_flashcard_pronunciation">Pronunciation</string>
+    <string name="hint_flashcard_example1">Example 1</string>
+    <string name="hint_flashcard_example2">Example 2</string>
+    <string name="hint_flashcard_example3">Example 3</string>
+
+    <string name="hint_new_category_name">New Category Name</string>
+    <string name="hint_new_deck_name">New Deck Name</string>
+    <string name="hint_new_flashcard_name">New Flashcard Name</string>
+
+
+
+
+    <!-- contact me fragment -->
+    <string name="contact_me">Contact me :</string>
+    <string name="email_to_me">march1905s@gmail.com</string>
+    <string name="tell_a_friend">Tell a friend :</string>
+    <string name="share_me">Share me !</string>
+
+    <string name="share_on_socials">Dope is FlashCard App , It\'s specially design for student ( in all grades and all majors )\n You can create as much as flashcard you want \n It\'s Free</string>
+
+    <string name="more_feature_in_next_version">
+        Next Version Feature :\n- More Books\n- More Customize ability ( font , color &#8230;)\n
+    </string>
+
+
+</resources>

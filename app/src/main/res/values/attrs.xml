@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- page indicator style-->
+    <attr name="numericPageIndicatorStyle" format="reference" />
+    <declare-styleable name="NumericPageIndicator">
+
+        <attr name="textTemplate" format="string" />
+        <!-- Text of the "Start" (or "First page") button. -->
+        <attr name="startButtonText" format="string" />
+        <!-- Text of the "End" (or "Last Page") button. -->
+        <attr name="endButtonText" format="string" />
+        <!-- Text of the "Previous" button. -->
+        <attr name="previousButtonText" format="string" />
+        <!-- Text of the "Next" button. -->
+        <attr name="nextButtonText" format="string" />
+        <!-- Color of regular texts. -->
+        <attr name="android:textColor" />
+        <!-- Color of page number text. -->
+        <attr name="pageNumberTextColor" format="color" />
+        <!-- Whether to show the page number in bold text -->
+        <attr name="pageNumberTextBold" format="boolean" />
+        <!-- Size of title text. -->
+        <attr name="android:textSize" />
+        <!-- Padding between texts and the top of the View. -->
+        <attr name="android:paddingTop" />
+        <!-- Padding between texts and the bottom of the View. -->
+        <attr name="android:paddingBottom" />
+        <!-- View background -->
+        <attr name="android:background" />
+        <!-- Background color of pressed buttons -->
+        <attr name="pressedButtonColor" format="color" />
+        <!-- Whether to show the "next" and "previous" buttons -->
+        <attr name="showChangePageButtons" format="boolean" />
+        <!-- Whether to show the "next" and "previous" buttons -->
+        <attr name="showStartEndButtons" format="boolean" />
+    </declare-styleable>
+
+
+    <!--AutoScaleTextView-->
+    <attr name="autoScaleTextViewStyle" format="reference" />
+    <declare-styleable name="AutoScaleTextView">
+        <attr name="minTextSize" format="dimension" />
+    </declare-styleable>
+
+
+</resources>

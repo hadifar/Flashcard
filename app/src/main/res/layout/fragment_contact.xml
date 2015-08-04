@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_background"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/default_background"
+        android:orientation="vertical"
+        android:padding="@dimen/material_global_margin_16">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/material_global_margin_8">
+
+            <ImageView
+                android:layout_width="@dimen/logo_thumbnail_width"
+                android:layout_height="@dimen/logo_thumbnail_width"
+                android:layout_marginEnd="@dimen/material_global_margin_8"
+                android:layout_marginRight="@dimen/material_global_margin_8"
+                android:src="@mipmap/ic_launcher" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:paddingBottom="@dimen/material_global_margin_4"
+                    android:paddingTop="@dimen/material_global_margin_4"
+                    android:text="@string/app_name"
+                    android:textColor="@color/material_text_color_dark"
+                    android:textSize="@dimen/material_text_size_24" />
+
+                <com.march1905.dope.customui.AutoScaleTextView
+                    style="@style/Textview.Dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/free_and_always_will_be" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            style="@style/Textview.Dark.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/material_global_margin_4"
+            android:paddingRight="@dimen/material_global_margin_4"
+            android:paddingTop="@dimen/material_global_margin_8"
+            android:text="@string/version_code" />
+
+        <TextView
+            style="@style/Textview.Dark.Smallest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/copy_right" />
+
+        <TextView
+            style="@style/Textview.Dark.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="@dimen/material_global_margin_32"
+            android:text="@string/contact_me" />
+
+        <TextView
+            android:id="@+id/mailTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:padding="@dimen/material_global_margin_4"
+            android:text="@string/email_to_me"
+            android:textColor="@color/accent" />
+
+        <TextView
+            style="@style/Textview.Dark.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="@dimen/material_global_margin_8"
+            android:text="@string/tell_a_friend" />
+
+        <TextView
+            android:id="@+id/shareMe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:padding="@dimen/material_global_margin_4"
+            android:text="@string/share_me"
+            android:textColor="@color/accent" />
+
+
+        <TextView
+            style="@style/Textview.Dark.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="@dimen/material_global_margin_8"
+            android:lineSpacingMultiplier="1.2"
+            android:padding="@dimen/material_global_margin_4"
+            android:text="@string/more_feature_in_next_version" />
+
+
+    </LinearLayout>
+</ScrollView>
