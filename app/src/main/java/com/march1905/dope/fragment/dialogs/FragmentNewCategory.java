@@ -18,7 +18,7 @@ import com.march1905.dope.R;
 import com.march1905.dope.activity.MainActivity;
 import com.march1905.dope.core.BundleDataBaseManager;
 import com.march1905.dope.model.Category;
-import com.march1905.dope.utils.GeneralHelper;
+import com.march1905.dope.utils.Utils;
 
 /**
  * Amir Hadifar on 31/07/2015
@@ -52,7 +52,7 @@ public class FragmentNewCategory extends DialogFragment {
                     int mCategoryCount = dataBaseManager.getLastCategoryId() + 1;
 
                     dataBaseManager.addToCategory(new Category(mCategoryCount, categoryName.getText().toString(), "This Category made by User"));
-                    GeneralHelper.hideKeyboard(getActivity());
+                    Utils.hideKeyboard(getActivity());
                     dismiss();
                     ((MainActivity) getActivity()).displayView(MainActivity.CATEGORIES_FRAG, null);
                 } else {

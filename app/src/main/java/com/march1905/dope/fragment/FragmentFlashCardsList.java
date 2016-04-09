@@ -66,7 +66,7 @@ public class FragmentFlashCardsList extends DefaultFragment implements FragmentN
 
 
         //This is for floating Btn
-        if (mBundle.getInt(FragmentCategories.EXTRA_CATEGORY_ID) > DefaultFragment.COUNT_OF_BUNDLE_CATEGORY) {
+        if (mBundle.getInt(FragmentCategories.EXTRA_CATEGORY_ID) > 2) {
             FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.addNewFlashCard);
             fab.setVisibility(View.VISIBLE);
             fab.attachToRecyclerView(mRecyclerView);

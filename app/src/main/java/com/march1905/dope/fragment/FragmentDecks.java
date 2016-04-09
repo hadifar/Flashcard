@@ -67,7 +67,7 @@ public class FragmentDecks extends DefaultFragment implements FragmentNewDeck.On
         adapter = new HeadersAdapter();
         mRecyclerView.setAdapter(adapter);
 
-        if (mBundle.getInt(FragmentCategories.EXTRA_CATEGORY_ID) > DefaultFragment.COUNT_OF_BUNDLE_CATEGORY) {
+        if (mBundle.getInt(FragmentCategories.EXTRA_CATEGORY_ID)>2) {
             FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.addNewDeck);
             fab.setVisibility(View.VISIBLE);
             fab.attachToRecyclerView(mRecyclerView);

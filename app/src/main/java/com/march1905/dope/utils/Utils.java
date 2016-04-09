@@ -3,6 +3,7 @@ package com.march1905.dope.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
@@ -13,7 +14,7 @@ import android.view.inputmethod.InputMethodManager;
  * Twitter : @HadifarAmir
  */
 
-public class GeneralHelper {
+public class Utils {
 
 
     public static void hideKeyboard(Context context) {
@@ -24,6 +25,10 @@ public class GeneralHelper {
         if (view != null) {
             inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
+    }
+
+    public static int dpToPx(int dp) {
+        return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
     }
 
 }

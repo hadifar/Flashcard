@@ -19,7 +19,7 @@ import com.march1905.dope.R;
 import com.march1905.dope.core.BundleDataBaseManager;
 import com.march1905.dope.fragment.FragmentDecks;
 import com.march1905.dope.model.FlashCard;
-import com.march1905.dope.utils.GeneralHelper;
+import com.march1905.dope.utils.Utils;
 
 /**
  * Amir Hadifar on 01/08/2015
@@ -82,7 +82,7 @@ public class FragmentNewFlashCard extends DialogFragment implements DialogInterf
                     dataBaseManager.addToFlashCard(new FlashCard(mFlashCardID, strName, strPersian,
                             strSynonym, strPronunciation, strEx1, strEx2, strEx3, mBundle.getInt(FragmentDecks.EXTRA_DECK_ID)));
 
-                    GeneralHelper.hideKeyboard(getActivity());
+                    Utils.hideKeyboard(getActivity());
                     mCallback.onDBChanged();
                     dismiss();
 

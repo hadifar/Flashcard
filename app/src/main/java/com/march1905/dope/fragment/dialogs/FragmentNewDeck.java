@@ -19,7 +19,7 @@ import com.march1905.dope.R;
 import com.march1905.dope.core.BundleDataBaseManager;
 import com.march1905.dope.fragment.FragmentCategories;
 import com.march1905.dope.model.Deck;
-import com.march1905.dope.utils.GeneralHelper;
+import com.march1905.dope.utils.Utils;
 
 /**
  * Amir Hadifar on 01/08/2015
@@ -55,7 +55,7 @@ public class FragmentNewDeck extends DialogFragment implements DialogInterface.O
                 if (!deckName.getText().toString().isEmpty()) {
                     int mDeckCount = dataBaseManager.getLastDeckId() + 1;
                     dataBaseManager.addToDecks(new Deck(mDeckCount, deckName.getText().toString(), mBundle.getInt(FragmentCategories.EXTRA_CATEGORY_ID)));
-                    GeneralHelper.hideKeyboard(getActivity());
+                    Utils.hideKeyboard(getActivity());
                     mCallback.onDBChanged();
                     dismiss();
                 } else {

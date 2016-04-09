@@ -65,7 +65,7 @@ public class MainActivity extends BaseDrawerActivity implements TextToSpeech.OnI
         activeFragment = (DefaultFragment) getSupportFragmentManager().getFragment(savedInstanceState, "activeFragment");
     }
 
-    @Override
+
     public void init() {
 
         mTextToSpeech = new TextToSpeech(this, this);
