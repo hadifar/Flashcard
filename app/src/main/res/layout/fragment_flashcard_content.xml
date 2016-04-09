@@ -38,25 +38,29 @@
                 android:gravity="end">
 
                 <TextView
-                    style="@style/IconStyle.Blue"
+                    style="@style/IconFont.Large"
                     android:id="@+id/buttonVoice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/icon_voice"/>
+                    android:textColor="@color/color_primary_dark"
+                    android:text="@string/icon_volume_up"/>
 
                 <TextView
-                    style="@style/IconStyle.Blue"
+                    style="@style/IconFont.Large"
                     android:id="@+id/buttonFavorite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/icon_favorite_outline"/>
+                    android:textColor="@color/color_primary_dark"
+
+                    android:text="@string/icon_favorite"/>
 
                 <TextView
-                    style="@style/IconStyle.Blue"
+                    style="@style/IconFont.Large"
                     android:id="@+id/buttonExpand"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/icon_expand_less"/>
+                    android:textColor="@color/color_primary_dark"
+                    android:text="@string/icon_chevron_up"/>
 
             </LinearLayout>
         </LinearLayout>

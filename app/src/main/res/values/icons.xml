@@ -1,12 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- icons -->
-    <string name="icon_expand_less">&#xf077;</string>
-    <string name="icon_expand_more">&#xf078;</string>
-    <string name="icon_favorite">&#xf02e;</string>
-    <string name="icon_favorite_outline">&#xf097;</string>
-    <string name="icon_voice">&#xf028;</string>
-    <string name="icon_overflow">&#xf142;</string>
+
+    <string name="icon_menu"></string>
+    <string name="icon_search"></string>
+    <string name="icon_cloud_off"></string>
+    <string name="icon_alert_circle_o"></string>
+    <string name="icon_more_ver"></string>
+    <string name="icon_account_o"></string>
+    <string name="icon_tv_alt_play"></string>
+    <string name="icon_share"></string>
+    <string name="icon_comments"></string>
+    <string name="icon_favorite"></string>
+    <string name="icon_favorite_outline"></string>
+    <string name="icon_arrow_left"></string>
+    
+    <string name="icon_chevron_left"></string>
+    <string name="icon_chevron_right"></string>
+    <string name="icon_chevron_down"></string>
+    <string name="icon_chevron_up"></string>
+    <string name="icon_caret_right"></string>
+    <string name="icon_caret_left"></string>
+    <string name="icon_mail_send"></string>
+    <string name="icon_comment_more"></string>
+    <string name="icon_info_outline"></string>
+    <string name="icon_account"></string>
+    <string name="icon_account_add"></string>
+    <string name="icon_email"></string>
+    <string name="icon_lock"></string>
+    <string name="icon_accounts_alt"></string>
+    <string name="icon_cloud_upload"></string>
+    <string name="icon_cast_connected"></string>
+    <string name="icon_cast"></string>
+    <string name="icon_pin"></string>
+    <string name="icon_settings"></string>
+    <string name="icon_video_cam"></string>
+    <!--<string name="icon_cloud_download"></string>-->
+    <string name="icon_download"></string>
+    <string name="icon_upload"></string>
+    <string name="icon_accounts_add"></string>
+    <string name="icon_pause"></string>
+    <string name="icon_play"></string>
+    <string name="icon_full_screen"></string>
+    <string name="icon_full_screen_exit"></string>
+    <string name="icon_mail_reply"></string>
+    <string name="icon_replay"></string>
+    <string name="icon_stop"></string>
+    <string name="icon_shuffle"></string>
+    <string name="icon_surrond_sound"></string>
+    <string name="icon_thumbs_up"></string>
+    <string name="icon_thumb_down"></string>
+    <string name="icon_filter"></string>
+    <string name="icon_close"></string>
+    <string name="icon_widgets"></string>
+    <string name="icon_volume_up"></string>
+
+    <string name="icon_case_download"></string>
+    <string name="icon_instagram"></string>
+    <string name="icon_twitter"></string>
+    <string name="icon_google_plus"></string>
+    <string name="icon_facebook"></string>
+
+    <!--page indicator -->
+    <string name="default_page_number_indicator_text_template">#i of #N</string>
+    <string name="default_page_number_indicator_start_button_text"></string>
+    <string name="default_page_number_indicator_end_button_text"></string>
+    <string name="default_page_number_indicator_previous_button_text"></string>
+    <string name="default_page_number_indicator_next_button_text"></string>
 
 </resources>

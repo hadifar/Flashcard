@@ -31,8 +31,8 @@
         android:layout_margin="16dp"
         android:visibility="gone"
         android:src="@mipmap/ic_add_white_18dp"
-        fab:fab_colorNormal="@color/action_bar_color"
-        fab:fab_colorPressed="@color/action_bar_color_dark"
+        fab:fab_colorNormal="@color/color_primary"
+        fab:fab_colorPressed="@color/color_primary_dark"
         fab:fab_colorRipple="@color/fab_ripple" />
 
 </FrameLayout>

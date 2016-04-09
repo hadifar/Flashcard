@@ -1,20 +1,19 @@
 package com.march1905.dope.fragment;
 
-import android.graphics.Typeface;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.os.Bundle;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
 import com.march1905.dope.R;
 import com.march1905.dope.core.BundleDataBaseManager;
 import com.march1905.dope.customui.pagerIndicator.NumericPageIndicator;
 import com.march1905.dope.model.FlashCard;
+import com.march1905.dope.utils.FontHelper;
 
 import java.util.List;
 
@@ -22,7 +21,7 @@ import java.util.List;
  * Amir Hadifar on 29/07/2015
  * Cardy
  * Email : Hadifar.amir@gmail.com
- * Twitter : @HadifarAmir
+ * Twitter : @AmirHadifar
  */
 
 public class FragmentFlashCardViewer extends DefaultFragment {
@@ -51,8 +50,8 @@ public class FragmentFlashCardViewer extends DefaultFragment {
 
         mViewPager.setCurrentItem(mBundle.getInt(FragmentFlashCardsList.EXTRA_FLASHCARD_ID));
 
-        Typeface mFont = Typeface.createFromAsset(getActivity().getApplicationContext().getAssets(), "font/fontawesome-webfont.ttf");
-        pageIndicator.setTypeface(mFont);
+
+        pageIndicator.setTypeface(FontHelper.getInstance(getActivity()).getIconTypeface());
     }
 
 

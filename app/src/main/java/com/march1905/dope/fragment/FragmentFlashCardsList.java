@@ -127,7 +127,7 @@ public class FragmentFlashCardsList extends DefaultFragment implements FragmentN
                 public void onClick(View view) {
                     PopupMenu popupMenu = new PopupMenu(getActivity(), view);
                     MenuInflater inflater = popupMenu.getMenuInflater();
-                    inflater.inflate(R.menu.overflow_menu, popupMenu.getMenu());
+                    inflater.inflate(R.menu.menu_overflow, popupMenu.getMenu());
                     popupMenu.show();
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override

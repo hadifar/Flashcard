@@ -17,6 +17,14 @@
     <dimen name="material_global_margin_72">72dp</dimen>
     <dimen name="material_global_margin_128">128dp</dimen>
 
+    <dimen name="material_global_padding_2">2dp</dimen>
+    <dimen name="material_global_padding_4">4dp</dimen>
+    <dimen name="material_global_padding_8">8dp</dimen>
+    <dimen name="material_global_padding_12">12dp</dimen>
+    <dimen name="material_global_padding_16">16dp</dimen>
+    <dimen name="material_global_padding_24">24dp</dimen>
+    <dimen name="material_global_padding_32">32dp</dimen>
+
 
     <!-- material item height -->
     <dimen name="material_card_height_96">96dp</dimen>

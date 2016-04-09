@@ -10,9 +10,9 @@
 
     <color name="gray">#727272</color>
 
-    <color name="action_bar_color">#0277bd</color>
-    <color name="action_bar_color_dark">#01579B</color>
-    <color name="accent">#29B6F6</color>
+    <color name="color_primary">#0277bd</color>
+    <color name="color_primary_dark">#01579B</color>
+    <color name="color_accent">#29B6F6</color>
 
     <color name="action_bar_text_color">#fafafa</color>
 
@@ -47,7 +47,7 @@
 
     <!-- indicator -->
     <color name="default_page_number_indicator_text_color">#AFFF</color>
-    <color name="default_page_number_indicator_page_number_text_color">@color/action_bar_color_dark</color>
+    <color name="default_page_number_indicator_page_number_text_color">@color/color_primary_dark</color>
     <color name="default_page_number_indicator_pressed_button_color">#3FFF</color>
 
 

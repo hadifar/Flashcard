@@ -25,7 +25,6 @@
 -optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
 
 # --------------------Keep OrmLite--------------------
-
 -keep class com.j256.**
 -keepclassmembers class com.j256.** { *; }
 -keep enum com.j256.**
@@ -38,6 +37,18 @@
 -keepclassmembers class com.march1905.dope.model.** { *; }
 
 
+#Butterknife class proguard
+-keep class butterknife.** { *; }
+-dontwarn butterknife.internal.**
+-keep class **$$ViewBinder { *; }
+
+-keepclasseswithmembernames class * {
+    @butterknife.* <fields>;
+}
+
+-keepclasseswithmembernames class * {
+    @butterknife.* <methods>;
+}
 
 
 -keepattributes Signature

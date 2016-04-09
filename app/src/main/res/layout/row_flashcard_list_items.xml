@@ -21,14 +21,15 @@
 
         <TextView
             android:id="@+id/overflow"
-            style="@style/IconStyle.Gray"
+            style="@style/IconFont.Large"
+            android:textColor="@color/material_text_color_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="@dimen/material_global_margin_2"
-            android:text="@string/icon_overflow" />
+            android:text="@string/icon_more_ver" />
 
         <LinearLayout
             android:layout_width="match_parent"

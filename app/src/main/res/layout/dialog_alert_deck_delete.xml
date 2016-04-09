@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cancel"
-            android:textColor="@color/accent" />
+            android:textColor="@color/color_accent" />
 
         <Button
             android:id="@+id/btnOk"
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ok"
-            android:textColor="@color/accent" />
+            android:textColor="@color/color_accent" />
 
     </LinearLayout>
 

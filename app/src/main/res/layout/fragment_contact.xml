@@ -80,7 +80,7 @@
             android:layout_gravity="start"
             android:padding="@dimen/material_global_margin_4"
             android:text="@string/email_to_me"
-            android:textColor="@color/accent" />
+            android:textColor="@color/color_accent" />
 
         <TextView
             style="@style/Textview.Dark.Small"
@@ -97,7 +97,7 @@
             android:layout_gravity="start"
             android:padding="@dimen/material_global_margin_4"
             android:text="@string/share_me"
-            android:textColor="@color/accent" />
+            android:textColor="@color/color_accent" />
 
 
         <TextView

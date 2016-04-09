@@ -16,7 +16,7 @@ import com.march1905.dope.activity.MainActivity;
  * Amir Hadifar on 27/07/2015
  * Cardy
  * Email : Hadifar.amir@gmail.com
- * Twitter : @HadifarAmir
+ * Twitter : @AmirHadifar
  */
 
 public abstract class DefaultFragment extends Fragment implements FragmentManager.OnBackStackChangedListener {
@@ -133,21 +133,22 @@ public abstract class DefaultFragment extends Fragment implements FragmentManage
      */
     public boolean shouldDisplayHomeUp() {
         //Enable Up button only  if there are entries in the back stack
-        boolean canback = false;
-        try {
-            canback = getFragmentManager().getBackStackEntryCount() > 0;
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        if (canback) {
-//            mainActivity.getDrawer().getActionBarDrawerToggle().setDrawerIndicatorEnabled(false);
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeButtonEnabled(true);
-        } else {
-            actionBar.setDisplayHomeAsUpEnabled(false);
-            actionBar.setHomeButtonEnabled(false);
-//            mainActivity.getDrawer().getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
-        }
-        return canback;
+//        boolean canback = false;
+//        try {
+//            canback = getFragmentManager().getBackStackEntryCount() > 0;
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
+//        if (canback) {
+////            mainActivity.getDrawer().getActionBarDrawerToggle().setDrawerIndicatorEnabled(false);
+//            actionBar.setDisplayHomeAsUpEnabled(true);
+//            actionBar.setHomeButtonEnabled(true);
+//        } else {
+//            actionBar.setDisplayHomeAsUpEnabled(false);
+//            actionBar.setHomeButtonEnabled(false);
+////            mainActivity.getDrawer().getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
+//        }
+//        return canback;
+        return false;
     }
 }

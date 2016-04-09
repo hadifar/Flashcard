@@ -27,7 +27,7 @@ import java.util.Locale;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
-public class MainActivity extends DispatcherActivity implements TextToSpeech.OnInitListener {
+public class MainActivity extends BaseDrawerActivity implements TextToSpeech.OnInitListener {
 
     private static final String TAG_ACTIVE_FRAGMENT = "fragment_active";
 
@@ -196,11 +196,5 @@ public class MainActivity extends DispatcherActivity implements TextToSpeech.OnI
         else
             mTextToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
     }
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-    }
-
 
 }

@@ -4,17 +4,21 @@ import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageManager;
 
+import com.march1905.dope.R;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+
 /**
  * Amir Hadifar on 25/07/2015
  * Flash2Flash
  * Email : Hadifar.amir@gmail.com
- * Twitter : @HadifarAmir
+ * Twitter : @AmirHadifar
  */
 
 public class AppConfig extends Application {
@@ -39,6 +43,13 @@ public class AppConfig extends Application {
             importDatabaseFromAssets();
             SettingsManager.setAppLatestVersionCode(getAppContext(), getAppVersionCode());
         }
+
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                        .setDefaultFontPath("fonts/YekanMob-Regular-v4.ttf")
+                        .setFontAttrId(R.attr.fontPath)
+                        .build());
+
+
 
     }
 

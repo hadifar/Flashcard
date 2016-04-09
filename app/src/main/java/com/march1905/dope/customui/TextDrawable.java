@@ -7,13 +7,7 @@ import android.graphics.drawable.shapes.RectShape;
 import android.graphics.drawable.shapes.RoundRectShape;
 
 import com.march1905.dope.core.AppConfig;
-
-/**
- * Amir Hadifar on 03/08/2015
- * Cardy
- * Email : Hadifar.amir@gmail.com
- * Twitter : @HadifarAmir
- */
+import com.march1905.dope.utils.FontHelper;
 
 public class TextDrawable extends ShapeDrawable {
 
@@ -175,7 +169,7 @@ public class TextDrawable extends ShapeDrawable {
             width = -1;
             height = -1;
             shape = new RectShape();
-            font = Typeface.createFromAsset(AppConfig.getAppContext().getAssets(),"font/Roboto-Light.ttf");
+            font = Typeface.create("sans-serif-light", Typeface.NORMAL);
             fontSize = -1;
             isBold = false;
             toUpperCase = false;

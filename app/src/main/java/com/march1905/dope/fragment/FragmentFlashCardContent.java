@@ -81,11 +81,11 @@ public class FragmentFlashCardContent extends DefaultFragment {
             public void onClick(View view) {
                 if (isPopupVisible) {
                     isPopupVisible = false;
-                    AnimationHelper.changeIconAnim((TextView) view, getString(R.string.icon_expand_less));
+                    AnimationHelper.changeIconAnim((TextView) view, getString(R.string.icon_chevron_down));
                     AnimationHelper.collapse(popupLayout);
                 } else {
                     isPopupVisible = true;
-                    AnimationHelper.changeIconAnim((TextView) view, getString(R.string.icon_expand_more));
+                    AnimationHelper.changeIconAnim((TextView) view, getString(R.string.icon_chevron_up));
                     AnimationHelper.expand(popupLayout);
                 }
             }
@@ -117,7 +117,7 @@ public class FragmentFlashCardContent extends DefaultFragment {
         voice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AnimationHelper.changeIconAnim((TextView) view, getString(R.string.icon_voice));
+                AnimationHelper.changeIconAnim((TextView) view, getString(R.string.icon_volume_up));
                 MainActivity.speakOut(flashCard.getWord());
             }
         });

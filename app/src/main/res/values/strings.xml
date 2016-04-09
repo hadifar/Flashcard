@@ -28,16 +28,6 @@
 
 
 
-
-    <!--page indicator -->
-    <string name="default_page_number_indicator_text_template">#i of #N</string>
-    <string name="default_page_number_indicator_start_button_text">&#xf100;</string>
-    <string name="default_page_number_indicator_end_button_text">&#xf101;</string>
-    <string name="default_page_number_indicator_previous_button_text">&#xf104;</string>
-    <string name="default_page_number_indicator_next_button_text">&#xf105;</string>
-
-
-
     <!-- button -->
     <string name="ok">OK</string>
     <string name="cancel">CANCEL</string>
@@ -83,6 +73,9 @@
     <string name="more_feature_in_next_version">
         Next Version Feature :\n- More Books\n- More Customize ability ( font , color &#8230;)\n
     </string>
+    <string name="menu_home">home</string>
+    <string name="menu_about">about</string>
+    <string name="menu_favorite">favorite</string>
 
 
 </resources>

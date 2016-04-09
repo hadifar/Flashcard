@@ -1,6 +1,7 @@
 package com.march1905.dope.fragment;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
@@ -16,12 +17,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.march1905.dope.R;
+import com.march1905.dope.activity.MainActivity;
 import com.march1905.dope.core.BundleDataBaseManager;
 import com.march1905.dope.customui.TextDrawable;
 import com.march1905.dope.fragment.dialogs.FragmentNewCategory;
 import com.march1905.dope.model.Category;
-import com.march1905.dope.R;
-import com.march1905.dope.activity.MainActivity;
 import com.march1905.dope.utils.ColorGenerator;
 import com.melnykov.fab.FloatingActionButton;
 
@@ -57,7 +58,7 @@ public class FragmentCategories extends DefaultFragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.categoriesList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new HeadersAdapter();
+        adapter = new HeadersAdapter(getActivity());
         mRecyclerView.setAdapter(adapter);
 
 
@@ -75,10 +76,13 @@ public class FragmentCategories extends DefaultFragment {
 
     public class HeadersAdapter extends RecyclerView.Adapter<HeadersAdapter.ViewHolder> {
 
+        private Context mContext;
         private List<Category> mItems;
 
-        public HeadersAdapter() {
+
+        public HeadersAdapter(Context context) {
             mItems = new BundleDataBaseManager().getAllCategories();
+            mContext = context;
         }
 
         @Override
@@ -103,6 +107,7 @@ public class FragmentCategories extends DefaultFragment {
 
             TextDrawable drawable = TextDrawable.builder()
                     .buildRound(mItems.get(position).getTitle().substring(0, 1), generator.getRandomColor());
+
             viewHolder.imageView.setImageDrawable(drawable);
             viewHolder.title.setText(mItems.get(position).getTitle());
             viewHolder.subTitle.setText(mItems.get(position).getSubTitle());
@@ -111,7 +116,7 @@ public class FragmentCategories extends DefaultFragment {
                 public void onClick(View view) {
                     PopupMenu popupMenu = new PopupMenu(getActivity(), view);
                     MenuInflater inflater = popupMenu.getMenuInflater();
-                    inflater.inflate(R.menu.overflow_menu, popupMenu.getMenu());
+                    inflater.inflate(R.menu.menu_overflow, popupMenu.getMenu());
                     popupMenu.show();
 
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
