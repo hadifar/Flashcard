@@ -148,7 +148,7 @@ public class MainActivity extends BaseDrawerActivity implements TextToSpeech.OnI
                // getDrawer().setSelection(position);
             } else {
                 if (fragmentBundle == null) {
-                    setTitle(fragmentTitles.get(position)); // We not change the title of the Action Bar to match our fragment.
+//                    setTitle(fragmentTitles.get(position)); // We not change the title of the Action Bar to match our fragment.
                 } else {
                     setTitle(fragmentBundle.getString(MainActivity.EXTRA_TITLE));
                 }

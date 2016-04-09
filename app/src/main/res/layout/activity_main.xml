@@ -12,9 +12,15 @@
         android:background="@color/default_background"
         android:orientation="vertical">
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar_default" />
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar_default" />
+
+        </android.support.design.widget.AppBarLayout>
 
         <FrameLayout
             android:id="@+id/frame_container"

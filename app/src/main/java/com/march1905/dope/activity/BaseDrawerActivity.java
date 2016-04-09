@@ -201,8 +201,6 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
 
     @OnClick(R.id.icon_toolbar_back)
     public void onBackClick(){
-        if(toolbarBackIcon.getVisibility()==View.GONE)
-            return;
         onBackPressed();
     }
 

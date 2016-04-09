@@ -36,7 +36,6 @@ public abstract class DefaultFragment extends Fragment implements FragmentManage
         super.onInflate(activity, attrs, savedInstanceState);
     }
 
-
     @Override
     public abstract View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
 
@@ -48,7 +47,6 @@ public abstract class DefaultFragment extends Fragment implements FragmentManage
         super.onCreate(savedInstanceState);
         mainActivity = (MainActivity) getActivity();
         getFragmentManager().addOnBackStackChangedListener(this);
-        //setRetainInstance(true);
         shouldDisplayHomeUp();
     }
 
