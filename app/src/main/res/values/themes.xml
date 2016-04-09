@@ -2,34 +2,18 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="MaterialDrawerTheme.TranslucentStatus">
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- base colors -->
         <item name="colorPrimary">@color/action_bar_color</item>
         <item name="colorPrimaryDark">@color/action_bar_color_dark</item>
-        <item name="colorAccent">@color/material_drawer_accent</item>
+        <item name="colorAccent">@color/action_bar_color_dark</item>
 
 
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorSecondary">@color/material_text_color_bright</item>
         <item name="android:editTextColor">@color/material_text_color_dark</item>
 
-        <!-- MaterialDrawer DEFAULT colors -->
-        <item name="material_drawer_background">#F9F9F9</item>
-        <!-- Material DEFAULT text / items colors -->
-        <item name="material_drawer_icons">#FFF</item>
-        <item name="material_drawer_primary_text">#DE000000</item>
-        <item name="material_drawer_primary_icon">#8A000000</item>
-        <item name="material_drawer_secondary_text">#8A000000</item>
-        <item name="material_drawer_hint_text">#42000000</item>
-        <item name="material_drawer_divider">#1F000000</item>
-        <!-- Material DEFAULT drawer colors -->
-        <item name="material_drawer_selected">#E8E8E8</item>
-        <item name="material_drawer_selected_text">#2196F3</item>
-        <item name="material_drawer_header_selection_text">#FFF</item>
 
-        <!-- edit text style -->
-        <item name="android:editTextStyle">@style/MaterialDrawerTheme.TranslucentStatus.EditText
-        </item>
         <!-- popup menu style -->
         <item name="popupMenuStyle">@style/PopupMenu</item>
         <item name="android:textAppearanceLargePopupMenu">@style/PopupMenu.TextAppearanceLarge

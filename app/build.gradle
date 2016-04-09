@@ -30,9 +30,9 @@ ext {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile files('libs/ormlite-android-4.48.jar')
-    compile files('libs/ormlite-core-4.48.jar')
-    compile files('libs/ormlite-jdbc-4.48.jar')
+
+    compile "com.j256.ormlite:ormlite-core:4.48"
+    compile "com.j256.ormlite:ormlite-android:4.48"
 
     compile "com.android.support:appcompat-v7:${supportLibVersion}"
     compile "com.android.support:recyclerview-v7:${supportLibVersion}"
@@ -42,8 +42,4 @@ dependencies {
     compile 'uk.co.chrisjenx:calligraphy:2.1.0'
 
     compile 'com.melnykov:floatingactionbutton:1.3.0'
-
-    compile('com.mikepenz:materialdrawer:3.1.2@aar') {
-        transitive = true
-    }
 }

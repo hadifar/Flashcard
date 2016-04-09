@@ -9,14 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 
 import com.march1905.dope.R;
-import com.mikepenz.iconics.typeface.FontAwesome;
-import com.mikepenz.materialdrawer.Drawer;
-import com.mikepenz.materialdrawer.DrawerBuilder;
-import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SectionDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.Nameable;
+
 
 /**
  * Amir Hadifar on 27/07/2015
@@ -26,12 +19,7 @@ import com.mikepenz.materialdrawer.model.interfaces.Nameable;
  */
 
 public abstract class DispatcherActivity extends AppCompatActivity {
-    //private final String LOG_TAG = getLogTag();
 
-    /**
-     * Nav Drawer stuff
-     */
-    private Drawer result = null;
 
     private ActionBar actionBar;
 
@@ -48,44 +36,6 @@ public abstract class DispatcherActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitleTextAppearance(this, R.style.ToolbarStyle);
         setSupportActionBar(toolbar);
-
-        //set drawer
-        result = new DrawerBuilder()
-                .withActivity(this)
-                .withToolbar(toolbar)
-                .withShowDrawerOnFirstLaunch(true)
-                .addDrawerItems(
-                        new PrimaryDrawerItem().withName(R.string.drawer_item_category).withIcon(FontAwesome.Icon.faw_leanpub),
-                        new PrimaryDrawerItem().withName(R.string.drawer_item_favorites).withIcon(FontAwesome.Icon.faw_bookmark),
-                        new SectionDrawerItem().withName(R.string.drawer_item_other),
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog).setEnabled(false),
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_question).setEnabled(false),
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_rate_us).withIcon(FontAwesome.Icon.faw_star).setEnabled(false),
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_contact).withIcon(FontAwesome.Icon.faw_bullhorn)
-                )
-                .withOnDrawerNavigationListener(new Drawer.OnDrawerNavigationListener() {
-                    @Override
-                    public boolean onNavigationClickListener(View view) {
-                        onBackPressed();
-                        return true;
-                    }
-                })
-                        //.addStickyDrawerItems()
-                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                    @Override
-                    public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
-                        if (drawerItem instanceof Nameable && position != mCurrentPosition) {
-                            mCurrentPosition = position;
-                            result.setSelection(position);
-                            displayView(position, null);
-                        }
-                        return false;
-                    }
-
-                }).build();
-
-        actionBar = getSupportActionBar();
-        result.keyboardSupportEnabled(this, true);
 
 
         if (savedInstanceState != null)
@@ -133,9 +83,10 @@ public abstract class DispatcherActivity extends AppCompatActivity {
     public void onBackPressed() {
 
         // if drawer is open first close drawer
-        if (result.isDrawerOpen()) {
-            result.closeDrawer();
-        } else {
+//        if (result.isDrawerOpen()) {
+//            result.closeDrawer();
+//        } else {
+
             if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
                 // handle by OS
                 super.onBackPressed();
@@ -144,11 +95,7 @@ public abstract class DispatcherActivity extends AppCompatActivity {
                 // fragment change for us :)
                 getSupportFragmentManager().popBackStack();
             }
-        }
-    }
-
-    public Drawer getDrawer() {
-        return result;
+//        }
     }
 
 //    @Override

@@ -140,13 +140,13 @@ public abstract class DefaultFragment extends Fragment implements FragmentManage
             ex.printStackTrace();
         }
         if (canback) {
-            mainActivity.getDrawer().getActionBarDrawerToggle().setDrawerIndicatorEnabled(false);
+//            mainActivity.getDrawer().getActionBarDrawerToggle().setDrawerIndicatorEnabled(false);
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeButtonEnabled(true);
         } else {
             actionBar.setDisplayHomeAsUpEnabled(false);
             actionBar.setHomeButtonEnabled(false);
-            mainActivity.getDrawer().getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
+//            mainActivity.getDrawer().getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
         }
         return canback;
     }
