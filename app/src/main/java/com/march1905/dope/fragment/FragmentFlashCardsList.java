@@ -2,6 +2,7 @@ package com.march1905.dope.fragment;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
@@ -24,7 +25,6 @@ import com.march1905.dope.customui.TextDrawable;
 import com.march1905.dope.fragment.dialogs.FragmentNewFlashCard;
 import com.march1905.dope.model.FlashCard;
 import com.march1905.dope.utils.ColorGenerator;
-import com.melnykov.fab.FloatingActionButton;
 
 import java.util.List;
 
@@ -68,9 +68,8 @@ public class FragmentFlashCardsList extends DefaultFragment implements FragmentN
 
         //This is for floating Btn
         if (mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID) > 2) {
-            FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.addNewFlashCard);
+            FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_add_new_flashcard);
             fab.setVisibility(View.VISIBLE);
-            fab.attachToRecyclerView(mRecyclerView);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

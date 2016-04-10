@@ -1,6 +1,7 @@
 package com.march1905.dope.fragment;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,7 +11,6 @@ import android.view.ViewGroup;
 import com.march1905.dope.R;
 import com.march1905.dope.adapter.CategoryAdapter;
 import com.march1905.dope.fragment.dialogs.FragmentNewCategory;
-import com.melnykov.fab.FloatingActionButton;
 
 /**
  * Amir Hadifar on 27/07/2015
@@ -33,15 +33,14 @@ public class FragmentCategories extends DefaultFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        RecyclerView mRecyclerView = (RecyclerView) view.findViewById(R.id.categoriesList);
+        RecyclerView mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_category);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(linearLayoutManager);
         CategoryAdapter adapter = new CategoryAdapter(getActivity());
         mRecyclerView.setAdapter(adapter);
 
 
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.addNewCategory);
-        fab.attachToRecyclerView(mRecyclerView);
+        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_add_new_category);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

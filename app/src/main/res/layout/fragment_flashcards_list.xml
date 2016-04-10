@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/tools"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:id="@+id/themesFrag"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/default_background">
 
-    <RelativeLayout
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -17,22 +18,26 @@
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:fadingEdge="none"
-            android:scrollbars="none"
+            android:paddingBottom="@dimen/material_global_margin_8"
             android:paddingTop="@dimen/material_global_margin_8"
-            android:paddingBottom="@dimen/material_global_margin_8"/>
+            android:scrollbars="none" />
 
-    </RelativeLayout>
 
-    <com.melnykov.fab.FloatingActionButton
-        android:id="@+id/addNewFlashCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:visibility="gone"
-        android:src="@mipmap/ic_add_white_18dp"
-        fab:fab_colorNormal="@color/color_primary"
-        fab:fab_colorPressed="@color/color_primary_dark"
-        fab:fab_colorRipple="@color/fab_ripple" />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_add_new_flashcard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:src="@mipmap/ic_add_white_18dp"
+            android:visibility="gone"
+            app:layout_anchor="@id/rv_list_category"
+            app:layout_anchorGravity="bottom|right|end"
+            fab:elevation="4dp"
+            fab:fabSize="normal"
+            fab:rippleColor="@color/color_primary" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
 
 </FrameLayout>

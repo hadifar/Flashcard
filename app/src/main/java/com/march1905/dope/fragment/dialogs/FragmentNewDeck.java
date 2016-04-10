@@ -18,7 +18,6 @@ import android.widget.Toast;
 import com.march1905.dope.R;
 import com.march1905.dope.adapter.CategoryAdapter;
 import com.march1905.dope.core.BundleDataBaseManager;
-import com.march1905.dope.fragment.FragmentCategories;
 import com.march1905.dope.model.Deck;
 import com.march1905.dope.utils.Utils;
 
@@ -48,7 +47,7 @@ public class FragmentNewDeck extends DialogFragment implements DialogInterface.O
         }
         View rootView = inflater.inflate(R.layout.fragment_new_deck, container, false);
 
-        final Button btnAddDeck = (Button) rootView.findViewById(R.id.addNewDeck);
+        final Button btnAddDeck = (Button) rootView.findViewById(R.id.fab_add_new_deck);
         final EditText deckName = (EditText) rootView.findViewById(R.id.deckTitle);
         btnAddDeck.setOnClickListener(new View.OnClickListener() {
             @Override

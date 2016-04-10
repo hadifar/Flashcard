@@ -49,7 +49,7 @@ public class FragmentNewFlashCard extends DialogFragment implements DialogInterf
 
         final View rootView = inflater.inflate(R.layout.fragment_new_flashcard, container, false);
 
-        Button btnAddFlashcard = (Button) rootView.findViewById(R.id.addNewFlashCard);
+        Button btnAddFlashcard = (Button) rootView.findViewById(R.id.fab_add_new_flashcard);
         btnAddFlashcard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

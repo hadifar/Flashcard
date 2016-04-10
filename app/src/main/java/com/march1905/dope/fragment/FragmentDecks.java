@@ -2,6 +2,7 @@ package com.march1905.dope.fragment;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
@@ -24,7 +25,6 @@ import com.march1905.dope.customui.TextDrawable;
 import com.march1905.dope.fragment.dialogs.FragmentNewDeck;
 import com.march1905.dope.model.Deck;
 import com.march1905.dope.utils.ColorGenerator;
-import com.melnykov.fab.FloatingActionButton;
 
 import java.util.List;
 
@@ -62,16 +62,15 @@ public class FragmentDecks extends DefaultFragment implements FragmentNewDeck.On
         mBundle = getArguments();
         getActivity().setTitle(mBundle.getString(CategoryAdapter.EXTRA_CATEGORY_TITLE));
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.decksList);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_deck);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(linearLayoutManager);
         adapter = new HeadersAdapter();
         mRecyclerView.setAdapter(adapter);
 
         if (mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID)>2) {
-            FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.addNewDeck);
+            FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_add_new_deck);
             fab.setVisibility(View.VISIBLE);
-            fab.attachToRecyclerView(mRecyclerView);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

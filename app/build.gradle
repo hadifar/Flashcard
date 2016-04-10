@@ -10,7 +10,7 @@ android {
     buildToolsVersion "23.0.3"
     defaultConfig {
         applicationId 'com.march1905.dope'
-        minSdkVersion 11
+        minSdkVersion 14
         targetSdkVersion 23
         versionCode gitCommitCount
         versionName gitTag
@@ -42,5 +42,4 @@ dependencies {
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
     compile 'com.jakewharton:butterknife:7.0.1'
 
-    compile 'com.melnykov:floatingactionbutton:1.3.0'
 }

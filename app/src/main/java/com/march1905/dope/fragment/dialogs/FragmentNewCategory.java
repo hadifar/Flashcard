@@ -40,7 +40,7 @@ public class FragmentNewCategory extends DialogFragment {
         }
         View rootView = inflater.inflate(R.layout.fragment_new_category, container, false);
 
-        final Button btnAddCategory = (Button) rootView.findViewById(R.id.addNewCategory);
+        final Button btnAddCategory = (Button) rootView.findViewById(R.id.fab_add_new_category);
         final EditText categoryName = (EditText) rootView.findViewById(R.id.categoryTitle);
 
 

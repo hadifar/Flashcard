@@ -5,9 +5,9 @@
     <style name="DopeBase" parent="Theme.AppCompat.Light.NoActionBar">
 
         <!-- default colors-->
-        <item name="colorPrimary">@color/color_primary</item>
-        <item name="colorPrimaryDark">@color/color_primary_dark</item>
-        <item name="colorAccent">@color/color_primary_dark</item>
+        <item name="colorPrimary">#0277bd</item>
+        <item name="colorPrimaryDark">#01579B</item>
+        <item name="colorAccent">#29B6F6</item>
 
         <!-- popup menu style-->
         <item name="popupMenuStyle">@style/PopupMenu</item>
