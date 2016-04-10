@@ -1,4 +1,4 @@
-package com.march1905.dope.customui;
+package com.march1905.dope.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;

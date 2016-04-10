@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.march1905.dope.R;
 import com.march1905.dope.core.BundleDataBaseManager;
-import com.march1905.dope.customui.TextDrawable;
+import com.march1905.dope.widget.TextDrawable;
 import com.march1905.dope.model.Category;
 import com.march1905.dope.utils.ColorGenerator;
 

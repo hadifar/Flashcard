@@ -1,4 +1,4 @@
-package com.march1905.dope.customui.pagerIndicator;
+package com.march1905.dope.widget.pagerIndicator;
 
 import android.support.v4.view.ViewPager;
 

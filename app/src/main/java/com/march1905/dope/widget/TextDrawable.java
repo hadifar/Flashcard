@@ -1,13 +1,10 @@
-package com.march1905.dope.customui;
+package com.march1905.dope.widget;
 
 import android.graphics.*;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.graphics.drawable.shapes.RectShape;
 import android.graphics.drawable.shapes.RoundRectShape;
-
-import com.march1905.dope.core.AppConfig;
-import com.march1905.dope.utils.FontHelper;
 
 public class TextDrawable extends ShapeDrawable {
 

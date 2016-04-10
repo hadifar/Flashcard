@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp" />
 
-    <com.march1905.dope.customui.pagerIndicator.NumericPageIndicator
+    <com.march1905.dope.widget.pagerIndicator.NumericPageIndicator
         android:id="@+id/pageIndicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
