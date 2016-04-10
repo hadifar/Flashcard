@@ -14,7 +14,7 @@ import android.widget.TextView;
  * Amir Hadifar on 30/07/2015
  * Cardy
  * Email : Hadifar.amir@gmail.com
- * Twitter : @HadifarAmir
+ * Twitter : @AmirHadifar
  */
 
 public class AnimationHelper {

@@ -1,4 +1,4 @@
-package com.march1905.dope.fragment;
+package com.march1905.dope.ui.fragment;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -18,11 +18,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.march1905.dope.R;
-import com.march1905.dope.activity.MainActivity;
-import com.march1905.dope.adapter.CategoryAdapter;
+import com.march1905.dope.ui.activity.MainActivity;
+import com.march1905.dope.ui.adapter.CategoryAdapter;
 import com.march1905.dope.core.BundleDataBaseManager;
-import com.march1905.dope.widget.TextDrawable;
-import com.march1905.dope.fragment.dialogs.FragmentNewFlashCard;
+import com.march1905.dope.ui.widget.TextDrawable;
+import com.march1905.dope.ui.fragment.dialogs.FragmentNewFlashCard;
 import com.march1905.dope.model.FlashCard;
 import com.march1905.dope.utils.ColorGenerator;
 

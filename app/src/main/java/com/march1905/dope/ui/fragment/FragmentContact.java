@@ -1,4 +1,4 @@
-package com.march1905.dope.fragment;
+package com.march1905.dope.ui.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -1,4 +1,4 @@
-package com.march1905.dope.fragment.dialogs;
+package com.march1905.dope.ui.fragment.dialogs;
 
 import android.graphics.Point;
 import android.os.Build;
@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.march1905.dope.R;
-import com.march1905.dope.activity.MainActivity;
+import com.march1905.dope.ui.activity.MainActivity;
 import com.march1905.dope.core.BundleDataBaseManager;
 import com.march1905.dope.model.Category;
 import com.march1905.dope.utils.Utils;

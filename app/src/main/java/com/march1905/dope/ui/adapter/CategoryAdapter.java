@@ -1,4 +1,4 @@
-package com.march1905.dope.adapter;
+package com.march1905.dope.ui.adapter;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.march1905.dope.R;
 import com.march1905.dope.core.BundleDataBaseManager;
-import com.march1905.dope.widget.TextDrawable;
+import com.march1905.dope.ui.widget.TextDrawable;
 import com.march1905.dope.model.Category;
 import com.march1905.dope.utils.ColorGenerator;
 

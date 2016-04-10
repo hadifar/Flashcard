@@ -11,7 +11,7 @@ import com.march1905.dope.core.AppConfig;
  * Amir Hadifar on 02/08/2015
  * Cardy
  * Email : Hadifar.amir@gmail.com
- * Twitter : @HadifarAmir
+ * Twitter : @AmirHadifar
  */
 
 public class IntentHelper {

@@ -1,4 +1,4 @@
-package com.march1905.dope.fragment;
+package com.march1905.dope.ui.fragment;
 
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -12,10 +12,9 @@ import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
 import com.march1905.dope.R;
-import com.march1905.dope.activity.MainActivity;
+import com.march1905.dope.ui.activity.MainActivity;
 import com.march1905.dope.core.AppDataBaseManager;
 import com.march1905.dope.model.FlashCard;
-import com.march1905.dope.model.FlashCardFavoritedItems;
 import com.march1905.dope.utils.AnimationHelper;
 
 /**

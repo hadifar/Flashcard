@@ -1,4 +1,4 @@
-package com.march1905.dope.widget.pagerIndicator;
+package com.march1905.dope.ui.widget.pagerIndicator;
 
 import android.content.Context;
 import android.content.res.Resources;

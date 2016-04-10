@@ -7,7 +7,7 @@ import java.util.Random;
  * Amir Hadifar on 03/08/2015
  * Cardy
  * Email : Hadifar.amir@gmail.com
- * Twitter : @HadifarAmir
+ * Twitter : @AmirHadifar
  */
 
 public class ColorGenerator {

@@ -1,4 +1,4 @@
-package com.march1905.dope.fragment;
+package com.march1905.dope.ui.fragment;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.march1905.dope.R;
-import com.march1905.dope.adapter.CategoryAdapter;
-import com.march1905.dope.fragment.dialogs.FragmentNewCategory;
+import com.march1905.dope.ui.adapter.CategoryAdapter;
+import com.march1905.dope.ui.fragment.dialogs.FragmentNewCategory;
 
 /**
  * Amir Hadifar on 27/07/2015

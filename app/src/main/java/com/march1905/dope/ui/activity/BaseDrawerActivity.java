@@ -1,4 +1,4 @@
-package com.march1905.dope.activity;
+package com.march1905.dope.ui.activity;
 
 
 import android.content.Context;

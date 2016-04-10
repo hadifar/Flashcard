@@ -40,7 +40,7 @@
                     android:textColor="@color/material_text_color_dark"
                     android:textSize="@dimen/material_text_size_24" />
 
-                <com.march1905.dope.widget.AutoScaleTextView
+                <com.march1905.dope.ui.widget.AutoScaleTextView
                     style="@style/Textview.Dark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

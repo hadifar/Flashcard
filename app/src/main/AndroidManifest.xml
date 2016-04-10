@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:theme="@style/Dope" >
         <activity
-            android:name="com.march1905.dope.activity.MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:theme="@style/Dope"
             android:configChanges="screenSize|orientation"
             android:label="@string/app_name" >

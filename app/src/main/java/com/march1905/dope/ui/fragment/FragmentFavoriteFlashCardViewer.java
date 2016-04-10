@@ -1,4 +1,4 @@
-package com.march1905.dope.fragment;
+package com.march1905.dope.ui.fragment;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import com.march1905.dope.R;
 import com.march1905.dope.core.AppDataBaseManager;
-import com.march1905.dope.widget.pagerIndicator.NumericPageIndicator;
+import com.march1905.dope.ui.widget.pagerIndicator.NumericPageIndicator;
 import com.march1905.dope.model.FlashCard;
 import com.march1905.dope.model.FlashCardFavoritedItems;
 

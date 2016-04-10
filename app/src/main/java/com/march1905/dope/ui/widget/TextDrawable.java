@@ -1,4 +1,4 @@
-package com.march1905.dope.widget;
+package com.march1905.dope.ui.widget;
 
 import android.graphics.*;
 import android.graphics.drawable.ShapeDrawable;

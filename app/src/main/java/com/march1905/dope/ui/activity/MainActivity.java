@@ -1,4 +1,4 @@
-package com.march1905.dope.activity;
+package com.march1905.dope.ui.activity;
 
 
 import android.content.Intent;
@@ -6,25 +6,22 @@ import android.os.Build;
 import android.speech.tts.TextToSpeech;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.SparseArray;
 import android.widget.Toast;
 
 import com.march1905.dope.R;
-import com.march1905.dope.fragment.DefaultFragment;
-import com.march1905.dope.fragment.FragmentCategories;
-import com.march1905.dope.fragment.FragmentContact;
-import com.march1905.dope.fragment.FragmentDecks;
-import com.march1905.dope.fragment.FragmentFavoriteFlashCardList;
-import com.march1905.dope.fragment.FragmentFavoriteFlashCardViewer;
-import com.march1905.dope.fragment.FragmentFlashCardViewer;
-import com.march1905.dope.fragment.FragmentFlashCardsList;
+import com.march1905.dope.ui.fragment.DefaultFragment;
+import com.march1905.dope.ui.fragment.FragmentCategories;
+import com.march1905.dope.ui.fragment.FragmentContact;
+import com.march1905.dope.ui.fragment.FragmentDecks;
+import com.march1905.dope.ui.fragment.FragmentFavoriteFlashCardList;
+import com.march1905.dope.ui.fragment.FragmentFavoriteFlashCardViewer;
+import com.march1905.dope.ui.fragment.FragmentFlashCardViewer;
+import com.march1905.dope.ui.fragment.FragmentFlashCardsList;
 
 import java.util.Locale;
-
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class MainActivity extends BaseDrawerActivity implements TextToSpeech.OnInitListener {
