@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.march1905.dope.R;
+import com.march1905.dope.adapter.CategoryAdapter;
 import com.march1905.dope.core.BundleDataBaseManager;
 import com.march1905.dope.fragment.FragmentCategories;
 import com.march1905.dope.model.Deck;
@@ -54,7 +55,7 @@ public class FragmentNewDeck extends DialogFragment implements DialogInterface.O
             public void onClick(View view) {
                 if (!deckName.getText().toString().isEmpty()) {
                     int mDeckCount = dataBaseManager.getLastDeckId() + 1;
-                    dataBaseManager.addToDecks(new Deck(mDeckCount, deckName.getText().toString(), mBundle.getInt(FragmentCategories.EXTRA_CATEGORY_ID)));
+                    dataBaseManager.addToDecks(new Deck(mDeckCount, deckName.getText().toString(), mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID)));
                     Utils.hideKeyboard(getActivity());
                     mCallback.onDBChanged();
                     dismiss();

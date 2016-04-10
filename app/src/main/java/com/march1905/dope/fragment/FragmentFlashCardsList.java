@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.march1905.dope.R;
 import com.march1905.dope.activity.MainActivity;
+import com.march1905.dope.adapter.CategoryAdapter;
 import com.march1905.dope.core.BundleDataBaseManager;
 import com.march1905.dope.customui.TextDrawable;
 import com.march1905.dope.fragment.dialogs.FragmentNewFlashCard;
@@ -66,7 +67,7 @@ public class FragmentFlashCardsList extends DefaultFragment implements FragmentN
 
 
         //This is for floating Btn
-        if (mBundle.getInt(FragmentCategories.EXTRA_CATEGORY_ID) > 2) {
+        if (mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID) > 2) {
             FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.addNewFlashCard);
             fab.setVisibility(View.VISIBLE);
             fab.attachToRecyclerView(mRecyclerView);
@@ -176,7 +177,7 @@ public class FragmentFlashCardsList extends DefaultFragment implements FragmentN
                 super(itemView);
                 imageView = (ImageView) itemView.findViewById(R.id.imageFlashCard);
                 title = (TextView) itemView.findViewById(R.id.titleDeck);
-                overflow = (TextView) itemView.findViewById(R.id.overflow);
+                overflow = (TextView) itemView.findViewById(R.id.icon_overflow_category);
             }
 
         }

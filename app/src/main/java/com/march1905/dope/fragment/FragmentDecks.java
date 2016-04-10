@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.march1905.dope.R;
 import com.march1905.dope.activity.MainActivity;
+import com.march1905.dope.adapter.CategoryAdapter;
 import com.march1905.dope.core.BundleDataBaseManager;
 import com.march1905.dope.customui.TextDrawable;
 import com.march1905.dope.fragment.dialogs.FragmentNewDeck;
@@ -59,7 +60,7 @@ public class FragmentDecks extends DefaultFragment implements FragmentNewDeck.On
         super.onActivityCreated(savedInstanceState);
 
         mBundle = getArguments();
-        getActivity().setTitle(mBundle.getString(FragmentCategories.EXTRA_CATEGORY_TITLE));
+        getActivity().setTitle(mBundle.getString(CategoryAdapter.EXTRA_CATEGORY_TITLE));
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.decksList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
@@ -67,7 +68,7 @@ public class FragmentDecks extends DefaultFragment implements FragmentNewDeck.On
         adapter = new HeadersAdapter();
         mRecyclerView.setAdapter(adapter);
 
-        if (mBundle.getInt(FragmentCategories.EXTRA_CATEGORY_ID)>2) {
+        if (mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID)>2) {
             FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.addNewDeck);
             fab.setVisibility(View.VISIBLE);
             fab.attachToRecyclerView(mRecyclerView);
@@ -86,7 +87,7 @@ public class FragmentDecks extends DefaultFragment implements FragmentNewDeck.On
 
     @Override
     public void onDBChanged() {
-        mItems = new BundleDataBaseManager().getDecksForCategoryId(mBundle.getInt(FragmentCategories.EXTRA_CATEGORY_ID));
+        mItems = new BundleDataBaseManager().getDecksForCategoryId(mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID));
         adapter.notifyDataSetChanged();
     }
 
@@ -95,7 +96,7 @@ public class FragmentDecks extends DefaultFragment implements FragmentNewDeck.On
 
 
         public HeadersAdapter() {
-            mItems = new BundleDataBaseManager().getDecksForCategoryId(mBundle.getInt(FragmentCategories.EXTRA_CATEGORY_ID));
+            mItems = new BundleDataBaseManager().getDecksForCategoryId(mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID));
         }
 
         @Override
@@ -107,7 +108,7 @@ public class FragmentDecks extends DefaultFragment implements FragmentNewDeck.On
                 public void onClick(View view) {
                     Bundle bundle = new Bundle();
                     Deck item = getItem(mRecyclerView.getChildAdapterPosition(view));
-                    bundle.putInt(FragmentCategories.EXTRA_CATEGORY_ID, item.getCategoryId());
+                    bundle.putInt(CategoryAdapter.EXTRA_CATEGORY_ID, item.getCategoryId());
                     bundle.putInt(EXTRA_DECK_ID, item.getId());
                     bundle.putString(EXTRA_DECK_TITLE, item.getTitle());
                     ((MainActivity) getActivity()).displayView(MainActivity.FLASHCARDS_FRAG, bundle);
@@ -177,7 +178,7 @@ public class FragmentDecks extends DefaultFragment implements FragmentNewDeck.On
                 super(itemView);
                 title = (TextView) itemView.findViewById(R.id.titleDeck);
                 imageView = (ImageView)itemView.findViewById(R.id.imageDeck);
-                overflow = (TextView)itemView.findViewById(R.id.overflow);
+                overflow = (TextView)itemView.findViewById(R.id.icon_overflow_category);
             }
 
         }
