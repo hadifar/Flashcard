@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ import com.march1905.dope.core.BundleDataBaseManager;
 import com.march1905.dope.ui.widget.TextDrawable;
 import com.march1905.dope.model.Category;
 import com.march1905.dope.utils.ColorGenerator;
+import com.march1905.dope.utils.Utils;
 
 import java.util.List;
 
@@ -34,12 +36,16 @@ import butterknife.ButterKnife;
  */
 public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    private static final int ANIMATED_ITEMS_COUNT = 10;
+
     public static final String EXTRA_CATEGORY_ID = "categoryId";
     public static final String EXTRA_CATEGORY_TITLE = "categoryTitle";
 
     private Context mContext;
     private List<Category> mItems;
     private ColorGenerator mColorGenerator;
+
+    private int lastAnimatedPosition = -1;
 
     public CategoryAdapter(Context context) {
         mItems = new BundleDataBaseManager().getAllCategories();
@@ -68,8 +74,25 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, final int position) {
 
+        runEnterAnimation(viewHolder.itemView,position);
         ((ViewHolder) viewHolder).bindView(getItem(position));
 
+    }
+
+    private void runEnterAnimation(View view, int position) {
+        if (position >= ANIMATED_ITEMS_COUNT - 1) {
+            return;
+        }
+        if (position > lastAnimatedPosition) {
+            lastAnimatedPosition = position;
+            view.setTranslationY(Utils.getScreenHeight(mContext));
+            view.animate()
+                    .translationY(0)
+                    .setInterpolator(new DecelerateInterpolator(3.f))
+                    .setDuration(700)
+                    .setStartDelay(500)
+                    .start();
+        }
     }
 
     public Category getItem(int position) {
