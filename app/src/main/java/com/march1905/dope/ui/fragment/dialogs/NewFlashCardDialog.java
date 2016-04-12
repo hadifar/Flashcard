@@ -1,12 +1,7 @@
 package com.march1905.dope.ui.fragment.dialogs;
 
 import android.content.DialogInterface;
-import android.graphics.Point;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.util.TypedValue;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,21 +12,21 @@ import android.widget.Toast;
 
 import com.march1905.dope.R;
 import com.march1905.dope.core.BundleDataBaseManager;
-import com.march1905.dope.ui.fragment.FragmentDecks;
 import com.march1905.dope.model.FlashCard;
+import com.march1905.dope.ui.fragment.FragmentDecks;
 import com.march1905.dope.utils.Utils;
 
 /**
  * Amir Hadifar on 01/08/2015
  * Cardy
  * Email : Hadifar.amir@gmail.com
- * Twitter : @HadifarAmir
+ * Twitter : @AmirHadifar
  */
 
-public class FragmentNewFlashCard extends DialogFragment implements DialogInterface.OnDismissListener {
+public class NewFlashCardDialog extends BaseDialog implements DialogInterface.OnDismissListener {
 
     private Bundle mBundle;
-    private BundleDataBaseManager dataBaseManager = new BundleDataBaseManager();
+    private BundleDataBaseManager dataBaseManager = BundleDataBaseManager.getInstance();
 
     private OnDBChangedListener mCallback;
 
@@ -47,7 +42,7 @@ public class FragmentNewFlashCard extends DialogFragment implements DialogInterf
             getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         }
 
-        final View rootView = inflater.inflate(R.layout.fragment_new_flashcard, container, false);
+        final View rootView = inflater.inflate(R.layout.dialog_new_flashcard, container, false);
 
         Button btnAddFlashcard = (Button) rootView.findViewById(R.id.fab_add_new_flashcard);
         btnAddFlashcard.setOnClickListener(new View.OnClickListener() {
@@ -102,40 +97,6 @@ public class FragmentNewFlashCard extends DialogFragment implements DialogInterf
         mBundle = bundle;
     }
 
-    @SuppressWarnings("deprecation")
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        // change dialog width
-        if (getDialog() != null) {
-
-            int fullWidth;
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
-                Display display = getActivity().getWindowManager().getDefaultDisplay();
-                Point size = new Point();
-                display.getSize(size);
-                fullWidth = size.x;
-            } else {
-                Display display = getActivity().getWindowManager().getDefaultDisplay();
-                fullWidth = display.getWidth();
-            }
-
-            final int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources()
-                    .getDisplayMetrics());
-
-            int w = fullWidth - padding;
-            int h = getDialog().getWindow().getAttributes().height;
-            getDialog().getWindow().setLayout(w, h);
-        }
-    }
-
-    @Override
-    public void onActivityCreated(Bundle arg0) {
-        super.onActivityCreated(arg0);
-        getDialog().getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
-    }
 
     public void setListener(OnDBChangedListener listener) {
         this.mCallback = listener;

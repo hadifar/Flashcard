@@ -16,7 +16,7 @@ import java.util.List;
  * Amir Hadifar on 31/07/2015
  * Cardy
  * Email : Hadifar.amir@gmail.com
- * Twitter : @HadifarAmir
+ * Twitter : @AmirHadifar
  */
 
 public class AppDataBaseManager extends OrmLiteSqliteOpenHelper {
@@ -27,8 +27,14 @@ public class AppDataBaseManager extends OrmLiteSqliteOpenHelper {
     private RuntimeExceptionDao<FlashCardFavoritedItems, Integer> flashCardFavoriteItemsDao = null;
 
 
-    public AppDataBaseManager() {
+    private static AppDataBaseManager instance = new AppDataBaseManager();
+
+    private AppDataBaseManager() {
         super(AppConfig.getAppContext(), DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    public static AppDataBaseManager getInstance(){
+        return instance;
     }
 
     @Override

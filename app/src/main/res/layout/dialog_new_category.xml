@@ -9,7 +9,7 @@
 
     <EditText
         android:id="@+id/categoryTitle"
-        style="@style/MaterialDrawerTheme.TranslucentStatus.EditText"
+        style="@style/EditText.Default"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/material_global_margin_16"
@@ -18,7 +18,7 @@
 
     <EditText
         android:id="@+id/categorySubtitle"
-        style="@style/MaterialDrawerTheme.TranslucentStatus.EditText"
+        style="@style/EditText.Default"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/material_global_margin_16"

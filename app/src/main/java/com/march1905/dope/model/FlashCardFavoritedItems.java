@@ -60,13 +60,13 @@ public class FlashCardFavoritedItems implements Serializable {
     }
 
     public String getCategoryTitle(int deckId) {
-        BundleDataBaseManager db = new BundleDataBaseManager();
+        BundleDataBaseManager db = BundleDataBaseManager.getInstance();
         int catId = db.getDeckItemDao().queryForId(deckId).getCategoryId();
         return db.getMainCategoriesDao().queryForId(catId).getTitle();
     }
 
     public String getDeckTitle(int deckId){
-        return new BundleDataBaseManager().getDeckItemDao().queryForId(deckId).getTitle();
+        return BundleDataBaseManager.getInstance().getDeckItemDao().queryForId(deckId).getTitle();
     }
 
     public int getId() {

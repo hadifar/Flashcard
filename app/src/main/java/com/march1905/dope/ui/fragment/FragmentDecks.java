@@ -2,8 +2,6 @@ package com.march1905.dope.ui.fragment;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,12 +16,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.march1905.dope.R;
-import com.march1905.dope.ui.activity.MainActivity;
-import com.march1905.dope.ui.adapter.CategoryAdapter;
 import com.march1905.dope.core.BundleDataBaseManager;
-import com.march1905.dope.ui.widget.TextDrawable;
-import com.march1905.dope.ui.fragment.dialogs.FragmentNewDeck;
 import com.march1905.dope.model.Deck;
+import com.march1905.dope.ui.activity.MainActivity;
+import com.march1905.dope.ui.fragment.dialogs.NewDeckDialog;
+import com.march1905.dope.ui.widget.TextDrawable;
 import com.march1905.dope.utils.ColorGenerator;
 
 import java.util.List;
@@ -35,7 +32,7 @@ import java.util.List;
  * Twitter : @HadifarAmir
  */
 
-public class FragmentDecks extends DefaultFragment implements FragmentNewDeck.OnDBChangedListener{
+public class FragmentDecks extends DefaultFragment implements NewDeckDialog.OnDBChangedListener{
 
     public static final String EXTRA_DECK_ID = "deckId";
     public static final String EXTRA_DECK_TITLE = "deckTitle";
@@ -60,34 +57,35 @@ public class FragmentDecks extends DefaultFragment implements FragmentNewDeck.On
         super.onActivityCreated(savedInstanceState);
 
         mBundle = getArguments();
-        getActivity().setTitle(mBundle.getString(CategoryAdapter.EXTRA_CATEGORY_TITLE));
-
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_deck);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new HeadersAdapter();
-        mRecyclerView.setAdapter(adapter);
-
-        if (mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID)>2) {
-            FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_add_new_deck);
-            fab.setVisibility(View.VISIBLE);
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    FragmentNewDeck newDeckDialog = new FragmentNewDeck();
-                    newDeckDialog.setBundle(mBundle);
-                    newDeckDialog.setListener(FragmentDecks.this);
-                    newDeckDialog.show(getFragmentManager(),"NewDeckDialog");
-                }
-            });
-        }
+//        TODO uncomment
+//        getActivity().setTitle(mBundle.getString(CategoryAdapter.EXTRA_CATEGORY_TITLE));
+//
+//        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_deck);
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+//        mRecyclerView.setLayoutManager(linearLayoutManager);
+//        adapter = new HeadersAdapter();
+//        mRecyclerView.setAdapter(adapter);
+//
+//        if (mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID)>2) {
+//            FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_add_new_deck);
+//            fab.setVisibility(View.VISIBLE);
+//            fab.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    NewDeckDialog newDeckDialog = new NewDeckDialog();
+//                    newDeckDialog.setBundle(mBundle);
+//                    newDeckDialog.setListener(FragmentDecks.this);
+//                    newDeckDialog.show(getFragmentManager(),"NewDeckDialog");
+//                }
+//            });
+//        }
     }
 
 
     @Override
     public void onDBChanged() {
-        mItems = new BundleDataBaseManager().getDecksForCategoryId(mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID));
-        adapter.notifyDataSetChanged();
+//        mItems = new BundleDataBaseManager().getDecksForCategoryId(mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID));
+//        adapter.notifyDataSetChanged();
     }
 
 
@@ -95,7 +93,7 @@ public class FragmentDecks extends DefaultFragment implements FragmentNewDeck.On
 
 
         public HeadersAdapter() {
-            mItems = new BundleDataBaseManager().getDecksForCategoryId(mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID));
+//            mItems = new BundleDataBaseManager().getDecksForCategoryId(mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID));
         }
 
         @Override
@@ -107,7 +105,7 @@ public class FragmentDecks extends DefaultFragment implements FragmentNewDeck.On
                 public void onClick(View view) {
                     Bundle bundle = new Bundle();
                     Deck item = getItem(mRecyclerView.getChildAdapterPosition(view));
-                    bundle.putInt(CategoryAdapter.EXTRA_CATEGORY_ID, item.getCategoryId());
+//                    bundle.putInt(CategoryAdapter.EXTRA_CATEGORY_ID, item.getCategoryId());
                     bundle.putInt(EXTRA_DECK_ID, item.getId());
                     bundle.putString(EXTRA_DECK_TITLE, item.getTitle());
                     ((MainActivity) getActivity()).displayView(MainActivity.FLASHCARDS_FRAG, bundle);
@@ -185,64 +183,64 @@ public class FragmentDecks extends DefaultFragment implements FragmentNewDeck.On
 
 
     public void DialogEdit(final Deck deck) {
-        final Dialog dialog = new Dialog(getActivity());
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_alert_deck_edit);
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.show();
-
-        final EditText editText = (EditText) dialog.findViewById(R.id.edtTxtDeckName);
-
-        Button btnCancel = (Button) dialog.findViewById(R.id.btnCancel);
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-
-        Button btnOk = (Button) dialog.findViewById(R.id.btnOk);
-        btnOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!editText.getText().toString().isEmpty()) {
-                    deck.setTitle(editText.getText().toString());
-                    new BundleDataBaseManager().editFromDeck(deck);
-                    adapter.notifyDataSetChanged();
-                    dialog.dismiss();
-                } else {
-                    //TODO:show animation on EditText
-                }
-            }
-        });
+//        final Dialog dialog = new Dialog(getActivity());
+//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        dialog.setContentView(R.layout.dialog_alert_deck_edit);
+//        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//        dialog.show();
+//
+//        final EditText editText = (EditText) dialog.findViewById(R.id.edtTxtDeckName);
+//
+//        Button btnCancel = (Button) dialog.findViewById(R.id.btnCancel);
+//        btnCancel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        Button btnOk = (Button) dialog.findViewById(R.id.btnOk);
+//        btnOk.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (!editText.getText().toString().isEmpty()) {
+//                    deck.setTitle(editText.getText().toString());
+//                    BundleDataBaseManager.getInstance().editFromDeck(deck);
+//                    adapter.notifyDataSetChanged();
+//                    dialog.dismiss();
+//                } else {
+//                    //TODO:show animation on EditText
+//                }
+//            }
+//        });
     }
 
     public void DialogDelete(final Deck deck) {
-        final Dialog dialog = new Dialog(getActivity());
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_alert_deck_delete);
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.show();
-
-
-        Button btnCancel = (Button) dialog.findViewById(R.id.btnCancel);
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-
-        Button btnOk = (Button) dialog.findViewById(R.id.btnOk);
-        btnOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new BundleDataBaseManager().removeFromDeck(deck);
-                mItems.remove(deck);
-                adapter.notifyDataSetChanged();
-                dialog.dismiss();
-            }
-        });
+//        final Dialog dialog = new Dialog(getActivity());
+//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        dialog.setContentView(R.layout.dialog_alert_deck_delete);
+//        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//        dialog.show();
+//
+//
+//        Button btnCancel = (Button) dialog.findViewById(R.id.btnCancel);
+//        btnCancel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        Button btnOk = (Button) dialog.findViewById(R.id.btnOk);
+//        btnOk.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                BundleDataBaseManager.getInstance().removeFromDeck(deck);
+//                mItems.remove(deck);
+//                adapter.notifyDataSetChanged();
+//                dialog.dismiss();
+//            }
+//        });
     }
 
 

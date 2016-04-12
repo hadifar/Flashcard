@@ -67,6 +67,6 @@
 
     </android.support.v7.widget.CardView>
 
-    <include layout="@layout/popup_menu_expand" />
+    <include layout="@layout/view_popup_menu_expand" />
 
 </LinearLayout>

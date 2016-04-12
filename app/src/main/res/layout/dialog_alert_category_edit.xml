@@ -1,50 +1,77 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/default_background"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-
-    <EditText
-        android:id="@+id/edtTxtCategoryName"
-        style="@style/MaterialDrawerTheme.TranslucentStatus.EditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/material_global_margin_24"
-        android:layout_marginRight="@dimen/material_global_margin_24"
-        android:layout_marginTop="40dp"
-        android:ellipsize="end"
-        android:hint="@string/hint_new_category_name"
-        android:inputType="textAutoComplete" />
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:gravity="start"
-        android:orientation="horizontal"
-        android:paddingBottom="@dimen/material_global_margin_8"
-        android:paddingLeft="@dimen/material_global_margin_12"
-        android:paddingRight="@dimen/material_global_margin_12"
-        android:paddingTop="@dimen/material_global_margin_8">
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="@dimen/material_global_padding_8">
 
-        <Button
-            android:id="@+id/btnCancel"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/cancel"
-            android:textColor="@color/color_accent" />
 
-        <Button
-            android:id="@+id/btnOk"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/txt_input_layout_first"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ok"
-            android:textColor="@color/color_accent" />
+            android:textColorHint="@color/color_accent"
+            >
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/edittxt_first"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/txt_input_layout_second"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/color_accent"
+            >
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/edittxt_second"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/material_global_margin_16"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btn_dialog_left"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="64dp"
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/material_text_size_16" />
+
+
+            <Button
+                android:id="@+id/btn_dialog_right"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="64dp"
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/material_text_size_16" />
+        </LinearLayout>
 
     </LinearLayout>
 
-
-</LinearLayout>
+</ScrollView>

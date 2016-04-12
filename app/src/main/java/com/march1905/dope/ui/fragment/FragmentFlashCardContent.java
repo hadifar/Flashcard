@@ -21,7 +21,7 @@ import com.march1905.dope.utils.AnimationHelper;
  * Amir Hadifar on 29/07/2015
  * Cardy
  * Email : Hadifar.amir@gmail.com
- * Twitter : @HadifarAmir
+ * Twitter : @AmirHadifar
  */
 
 public class FragmentFlashCardContent extends DefaultFragment {
@@ -30,7 +30,7 @@ public class FragmentFlashCardContent extends DefaultFragment {
     private boolean isAnswer = false;
     private boolean isPopupVisible = false;
 
-    private AppDataBaseManager dataBaseManager = new AppDataBaseManager();
+    private AppDataBaseManager dataBaseManager = AppDataBaseManager.getInstance();
 
 
     @Override

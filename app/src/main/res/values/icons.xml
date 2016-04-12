@@ -14,6 +14,8 @@
     <string name="icon_favorite"></string>
     <string name="icon_favorite_outline"></string>
     <string name="icon_arrow_left"></string>
+    <string name="icon_delete"></string>
+    <string name="icon_edit"></string>
     
     <string name="icon_chevron_left"></string>
     <string name="icon_chevron_right"></string>

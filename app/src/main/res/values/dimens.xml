@@ -53,6 +53,16 @@
     <dimen name="material_text_size_14">14sp</dimen>
     <dimen name="material_text_size_12">12sp</dimen>
 
+    <!--text size && icons size -->
+    <!--<dimen name="text_size_smallest">12sp</dimen>-->
+    <!--<dimen name="text_size_smaller">13sp</dimen>-->
+    <!--<dimen name="text_size_small">14sp</dimen>-->
+    <!--<dimen name="text_size_mediumSmall">16sp</dimen>-->
+    <!--<dimen name="text_size_medium">18sp</dimen>-->
+    <!--<dimen name="text_size_mediumLarge">20sp</dimen>-->
+    <!--<dimen name="text_size_large">22sp</dimen>-->
+    <!--<dimen name="text_size_xLarge">27sp</dimen>-->
+
 
     <!-- indicator -->
     <dimen name="default_page_number_indicator_text_size">15dp</dimen>

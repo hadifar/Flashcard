@@ -20,7 +20,7 @@ import java.util.List;
  * Amir Hadifar on 27/07/2015
  * Cardy
  * Email : Hadifar.amir@gmail.com
- * Twitter : @HadifarAmir
+ * Twitter : @AmirHadifar
  */
 
 public class BundleDataBaseManager extends OrmLiteSqliteOpenHelper {
@@ -32,9 +32,14 @@ public class BundleDataBaseManager extends OrmLiteSqliteOpenHelper {
     private RuntimeExceptionDao<Deck, Integer> deckItemsDao = null;
     private RuntimeExceptionDao<FlashCard, Integer> flashcardDao = null;
 
+    private static BundleDataBaseManager instance = new BundleDataBaseManager();
 
-    public BundleDataBaseManager() {
+    private BundleDataBaseManager() {
         super(AppConfig.getAppContext(), DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    public static BundleDataBaseManager getInstance(){
+        return instance;
     }
 
     @Override

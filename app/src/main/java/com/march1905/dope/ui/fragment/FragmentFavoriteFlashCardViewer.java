@@ -65,7 +65,7 @@ public class FragmentFavoriteFlashCardViewer extends DefaultFragment {
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
-            mItems = new AppDataBaseManager().getFavoritedFlashCardItems();
+            mItems = AppDataBaseManager.getInstance().getFavoritedFlashCardItems();
         }
 
         @Override

@@ -8,7 +8,7 @@
 
     <EditText
         android:id="@+id/deckTitle"
-        style="@style/MaterialDrawerTheme.TranslucentStatus.EditText"
+        style="@style/EditText.Default"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_deck_name" />

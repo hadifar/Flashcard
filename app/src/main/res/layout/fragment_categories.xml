@@ -29,6 +29,7 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
             android:src="@mipmap/ic_add_white_18dp"
+            android:visibility="gone"
             app:layout_anchor="@id/rv_list_category"
             app:layout_anchorGravity="bottom|right|end"
             fab:elevation="4dp"

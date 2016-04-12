@@ -22,7 +22,7 @@ import com.march1905.dope.ui.activity.MainActivity;
 import com.march1905.dope.ui.adapter.CategoryAdapter;
 import com.march1905.dope.core.BundleDataBaseManager;
 import com.march1905.dope.ui.widget.TextDrawable;
-import com.march1905.dope.ui.fragment.dialogs.FragmentNewFlashCard;
+import com.march1905.dope.ui.fragment.dialogs.NewFlashCardDialog;
 import com.march1905.dope.model.FlashCard;
 import com.march1905.dope.utils.ColorGenerator;
 
@@ -32,10 +32,10 @@ import java.util.List;
  * Amir Hadifar on 29/07/2015
  * Cardy
  * Email : Hadifar.amir@gmail.com
- * Twitter : @HadifarAmir
+ * Twitter : @AmirHadifar
  */
 
-public class FragmentFlashCardsList extends DefaultFragment implements FragmentNewFlashCard.OnDBChangedListener {
+public class FragmentFlashCardsList extends DefaultFragment implements NewFlashCardDialog.OnDBChangedListener {
 
     public final static String EXTRA_FLASHCARD_ID = "flashcardId";
     public final static String EXTRA_FLASHCARD_TITLE = "flashcardTitle";
@@ -67,19 +67,20 @@ public class FragmentFlashCardsList extends DefaultFragment implements FragmentN
 
 
         //This is for floating Btn
-        if (mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID) > 2) {
-            FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_add_new_flashcard);
-            fab.setVisibility(View.VISIBLE);
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    FragmentNewFlashCard newDeckDialog = new FragmentNewFlashCard();
-                    newDeckDialog.setBundle(mBundle);
-                    newDeckDialog.setListener(FragmentFlashCardsList.this);
-                    newDeckDialog.show(getFragmentManager(), "NewFlashCard");
-                }
-            });
-        }
+        //TODO uncomment this
+//        if (mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID) > 2) {
+//            FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_add_new_flashcard);
+//            fab.setVisibility(View.VISIBLE);
+//            fab.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    NewFlashCardDialog newDeckDialog = new NewFlashCardDialog();
+//                    newDeckDialog.setBundle(mBundle);
+//                    newDeckDialog.setListener(FragmentFlashCardsList.this);
+//                    newDeckDialog.show(getFragmentManager(), "NewFlashCard");
+//                }
+//            });
+//        }
 
 
     }
@@ -87,7 +88,7 @@ public class FragmentFlashCardsList extends DefaultFragment implements FragmentN
 
     @Override
     public void onDBChanged() {
-        mItems = new BundleDataBaseManager().getFlashCardsForDeckId(mBundle.getInt(FragmentDecks.EXTRA_DECK_ID));
+        mItems =  BundleDataBaseManager.getInstance().getFlashCardsForDeckId(mBundle.getInt(FragmentDecks.EXTRA_DECK_ID));
         adapter.notifyDataSetChanged();
     }
 
@@ -95,7 +96,7 @@ public class FragmentFlashCardsList extends DefaultFragment implements FragmentN
 
 
         public HeadersAdapter() {
-            mItems = new BundleDataBaseManager().getFlashCardsForDeckId(mBundle.getInt(FragmentDecks.EXTRA_DECK_ID));
+            mItems = BundleDataBaseManager.getInstance().getFlashCardsForDeckId(mBundle.getInt(FragmentDecks.EXTRA_DECK_ID));
         }
 
         @Override
@@ -184,63 +185,63 @@ public class FragmentFlashCardsList extends DefaultFragment implements FragmentN
 
 
     public void DialogEdit(final FlashCard flashCard) {
-        final Dialog dialog = new Dialog(getActivity());
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_alert_flashcard_edit);
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.show();
-
-        final EditText editText = (EditText) dialog.findViewById(R.id.edtTxtFlashcardName);
-
-        Button btnCancel = (Button) dialog.findViewById(R.id.btnCancel);
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-
-        Button btnOk = (Button) dialog.findViewById(R.id.btnOk);
-        btnOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!editText.getText().toString().isEmpty()) {
-                    flashCard.setWord(editText.getText().toString());
-                    new BundleDataBaseManager().editFromFlashCard(flashCard);
-                    adapter.notifyDataSetChanged();
-                    dialog.dismiss();
-                } else {
-                    //TODO:show animation on EditText
-                }
-            }
-        });
+//        final Dialog dialog = new Dialog(getActivity());
+//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        dialog.setContentView(R.layout.dialog_alert_flashcard_edit);
+//        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//        dialog.show();
+//
+//        final EditText editText = (EditText) dialog.findViewById(R.id.edtTxtFlashcardName);
+//
+//        Button btnCancel = (Button) dialog.findViewById(R.id.btnCancel);
+//        btnCancel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        Button btnOk = (Button) dialog.findViewById(R.id.btnOk);
+//        btnOk.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (!editText.getText().toString().isEmpty()) {
+//                    flashCard.setWord(editText.getText().toString());
+//                     BundleDataBaseManager.getInstance().editFromFlashCard(flashCard);
+//                    adapter.notifyDataSetChanged();
+//                    dialog.dismiss();
+//                } else {
+//                    //TODO:show animation on EditText
+//                }
+//            }
+//        });
     }
 
     public void DialogDelete(final FlashCard flashCard) {
-        final Dialog dialog = new Dialog(getActivity());
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_alert_flashcard_delete);
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.show();
-
-
-        Button btnCancel = (Button) dialog.findViewById(R.id.btnCancel);
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-
-        Button btnOk = (Button) dialog.findViewById(R.id.btnOk);
-        btnOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new BundleDataBaseManager().removeFromFlashCard(flashCard);
-                mItems.remove(flashCard);
-                adapter.notifyDataSetChanged();
-                dialog.dismiss();
-            }
-        });
+//        final Dialog dialog = new Dialog(getActivity());
+//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        dialog.setContentView(R.layout.dialog_alert_flashcard_delete);
+//        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//        dialog.show();
+//
+//
+//        Button btnCancel = (Button) dialog.findViewById(R.id.btnCancel);
+//        btnCancel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        Button btnOk = (Button) dialog.findViewById(R.id.btnOk);
+//        btnOk.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                 BundleDataBaseManager.getInstance().removeFromFlashCard(flashCard);
+//                mItems.remove(flashCard);
+//                adapter.notifyDataSetChanged();
+//                dialog.dismiss();
+//            }
+//        });
     }
 }

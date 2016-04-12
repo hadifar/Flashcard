@@ -25,27 +25,22 @@
 
     <style name="Textview.Dark.Smallest">
         <item name="android:textSize">@dimen/material_text_size_12</item>
-        <item name="android:padding">@dimen/material_global_margin_4</item>
     </style>
 
     <style name="Textview.Dark.Smaller">
         <item name="android:textSize">@dimen/material_text_size_14</item>
-        <item name="android:padding">@dimen/material_global_margin_4</item>
     </style>
 
     <style name="Textview.Dark.Small">
         <item name="android:textSize">@dimen/material_text_size_16</item>
-        <item name="android:padding">@dimen/material_global_margin_4</item>
     </style>
 
     <style name="Textview.Dark.Medium">
         <item name="android:textSize">@dimen/material_text_size_24</item>
-        <item name="android:padding">@dimen/material_global_margin_4</item>
     </style>
 
     <style name="Textview.Dark.Large">
         <item name="android:textSize">@dimen/material_text_size_28</item>
-        <item name="android:padding">@dimen/material_global_margin_4</item>
     </style>
 
     <!-- bright -->
@@ -55,22 +50,18 @@
 
     <style name="Textview.White.Smaller">
         <item name="android:textSize">@dimen/material_text_size_14</item>
-        <item name="android:padding">@dimen/material_global_margin_2</item>
     </style>
 
     <style name="Textview.White.Small">
         <item name="android:textSize">@dimen/material_text_size_16</item>
-        <item name="android:padding">@dimen/material_global_margin_2</item>
     </style>
 
     <style name="Textview.White.Medium">
         <item name="android:textSize">@dimen/material_text_size_24</item>
-        <item name="android:padding">@dimen/material_global_margin_4</item>
     </style>
 
     <style name="Textview.White.Large">
         <item name="android:textSize">@dimen/material_text_size_28</item>
-        <item name="android:padding">@dimen/material_global_margin_4</item>
     </style>
 
 
@@ -80,7 +71,7 @@
     </style>
 
     <style name="Textview.Gray.Smaller">
-        <item name="android:textSize">@dimen/material_text_size_14</item>
+        <item name="android:textSize">@dimen/material_text_size_16</item>
         <item name="android:padding">@dimen/material_global_margin_2</item>
     </style>
 
@@ -95,7 +86,7 @@
 
 
     <!--EDIT TEXT-->
-    <style name="MaterialDrawerTheme.TranslucentStatus.EditText" parent="android:Widget.EditText">
+    <style name="EditText.Default" parent="android:Widget.EditText">
         <item name="android:background">@drawable/default_edit_text</item>
         <item name="android:textColor">@color/material_text_color_dark</item>
         <item name="android:textColorHint">@color/material_text_color_gray</item>
@@ -150,7 +141,6 @@
         <item name="android:gravity">center</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
-
 
 
 </resources>

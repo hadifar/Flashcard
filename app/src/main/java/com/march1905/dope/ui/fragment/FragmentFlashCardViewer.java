@@ -62,7 +62,7 @@ public class FragmentFlashCardViewer extends DefaultFragment {
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
-            mItems = new BundleDataBaseManager().getFlashCardsForDeckId(mBundle.getInt(FragmentDecks.EXTRA_DECK_ID));
+            mItems = BundleDataBaseManager.getInstance().getFlashCardsForDeckId(mBundle.getInt(FragmentDecks.EXTRA_DECK_ID));
         }
 
         @Override

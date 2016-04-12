@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/material_global_padding_8">
+
+
+    <FrameLayout
+        android:id="@+id/frame_icon_container"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true">
+
+        <TextView
+            android:id="@+id/icon_dialog_icon"
+            style="@style/IconFont.XLarge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/icon_info_outline"
+            android:textColor="@color/color_primary" />
+
+        <!--TODO replace with material progressview-->
+        <android.support.v4.widget.ContentLoadingProgressBar
+            android:id="@+id/pvc_loading"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/text_dialog_title"
+        style="@style/Textview.Dark.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="@dimen/material_global_margin_8"
+        android:layout_marginLeft="@dimen/material_global_margin_8"
+        android:layout_toRightOf="@+id/frame_icon_container"
+        android:layout_toEndOf="@+id/frame_icon_container"
+        android:gravity="center" />
+
+
+    <TextView
+        android:id="@+id/text_dialog_description"
+        style="@style/Textview.Gray.Smaller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_dialog_title"
+        android:layout_marginTop="@dimen/material_global_margin_8"
+        android:gravity="center" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_dialog_description"
+        android:layout_marginTop="@dimen/material_global_margin_16"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btn_dialog_left"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="64dp"
+            android:textColor="@color/color_primary"
+            android:textSize="@dimen/material_text_size_16" />
+
+
+        <Button
+            android:id="@+id/btn_dialog_right"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:minWidth="64dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_primary"
+            android:textSize="@dimen/material_text_size_16" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

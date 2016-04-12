@@ -2,7 +2,7 @@
 
     <string name="app_name">Dope</string>
     <string name="free_and_always_will_be">Free and Open Source</string>
-    <string name="version_code">Version 0.1</string>
+    <string name="version_code">Version 1.0</string>
     <string name="copy_right">Copyright 2015 - All Rights Reserved</string>
 
 
@@ -29,9 +29,17 @@
 
 
     <!-- button -->
-    <string name="ok">OK</string>
-    <string name="cancel">CANCEL</string>
-    <string name="are_you_sure_to_delete">Are you sure to delete this Card ?</string>
+    <string name="btn_no">No</string>
+    <string name="btn_yes">Yes</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_done">Done</string>
+
+
+    <string name="title_are_you_sure_to_delete_category">Are you sure to delete this Category?</string>
+    <string name="title_are_you_sure_to_delete_deck">Are you sure to delete this Deck?</string>
+    <string name="title_are_you_sure_to_delete_flashcard">Are you sure to delete this FlashCard?</string>
+
     <string name="create_new_category">CREATE NEW CATEGORY</string>
     <string name="create_new_deck">CREATE NEW DECK</string>
     <string name="create_new_flashcard">CREATE NEW FLASHCARD</string>
@@ -43,10 +51,10 @@
 
 
     <!-- hint-->
-    <string name="hint_category_name">Category Name</string>
-    <string name="hint_category_subtitle">Category Subtitle</string>
-    <string name="hint_deck_name">Deck Name</string>
-    <string name="hint_flashcard_name">Flashcard Name</string>
+    <string name="hint_category_name">Category name</string>
+    <string name="hint_category_subtitle">Category subtitle</string>
+    <string name="hint_deck_name">Deck name</string>
+    <string name="hint_flashcard_name">Flashcard name</string>
     <string name="hint_flashcard_word">Word</string>
     <string name="hint_flashcard_persian">Persian</string>
     <string name="hint_flashcard_synonym">Synonym</string>
@@ -76,6 +84,8 @@
     <string name="menu_home">home</string>
     <string name="menu_about">about</string>
     <string name="menu_favorite">favorite</string>
+
+    <string name="title_delete">Delete</string>
 
 
 </resources>

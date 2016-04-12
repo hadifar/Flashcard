@@ -17,7 +17,7 @@
 
         <EditText
             android:id="@+id/flashcardWord"
-            style="@style/MaterialDrawerTheme.TranslucentStatus.EditText"
+            style="@style/EditText.Default"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_flashcard_word"
@@ -25,42 +25,42 @@
 
         <EditText
             android:id="@+id/flashcardPronunciation"
-            style="@style/MaterialDrawerTheme.TranslucentStatus.EditText"
+            style="@style/EditText.Default"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_flashcard_pronunciation" />
 
         <EditText
             android:id="@+id/flashcardPersian"
-            style="@style/MaterialDrawerTheme.TranslucentStatus.EditText"
+            style="@style/EditText.Default"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_flashcard_persian" />
 
         <EditText
             android:id="@+id/flashcardSynonym"
-            style="@style/MaterialDrawerTheme.TranslucentStatus.EditText"
+            style="@style/EditText.Default"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_flashcard_synonym" />
 
         <EditText
             android:id="@+id/flashcardEx1"
-            style="@style/MaterialDrawerTheme.TranslucentStatus.EditText"
+            style="@style/EditText.Default"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_flashcard_example1" />
 
         <EditText
             android:id="@+id/flashcardEx2"
-            style="@style/MaterialDrawerTheme.TranslucentStatus.EditText"
+            style="@style/EditText.Default"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_flashcard_example2" />
 
         <EditText
             android:id="@+id/flashcardEx3"
-            style="@style/MaterialDrawerTheme.TranslucentStatus.EditText"
+            style="@style/EditText.Default"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_flashcard_example3" />

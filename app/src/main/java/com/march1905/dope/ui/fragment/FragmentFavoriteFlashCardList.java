@@ -58,7 +58,7 @@ public class FragmentFavoriteFlashCardList extends DefaultFragment {
 
 
         public HeadersAdapter() {
-            mItems = new AppDataBaseManager().getFavoritedFlashCardItems();
+            mItems = AppDataBaseManager.getInstance().getFavoritedFlashCardItems();
 
         }
 

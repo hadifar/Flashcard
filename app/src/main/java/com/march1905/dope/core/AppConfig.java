@@ -36,7 +36,7 @@ public class AppConfig extends Application {
         if(SettingsManager.getAppLatestVersionCode(getAppContext()) <= getAppVersionCode()) {
             //this calls when app has old data
             //creating database files
-            BundleDataBaseManager bundledDataBaseManager = new BundleDataBaseManager();
+            BundleDataBaseManager bundledDataBaseManager = BundleDataBaseManager.getInstance();
             bundledDataBaseManager.init();
             bundledDataBaseManager.clearAllTables();
             //copy data from asset to database
