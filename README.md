@@ -1,7 +1,7 @@
 # Flashcard
 Simple Material Flashcard for Android
 
-This is flashcard which use some good library Like : Ormlight Database , Material Drawer , Calligraphy , ...
+This is flashcard which use some good library Like : Ormlight Database , Calligraphy , ...
 
 Hope this help you Learn more :D
 
