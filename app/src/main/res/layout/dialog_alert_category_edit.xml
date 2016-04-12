@@ -59,6 +59,7 @@
                 android:layout_height="wrap_content"
                 android:minWidth="64dp"
                 android:textColor="@color/color_primary"
+                android:textAllCaps="false"
                 android:textSize="@dimen/material_text_size_16" />
 
 
@@ -69,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:minWidth="64dp"
                 android:textColor="@color/color_primary"
+                android:textAllCaps="false"
                 android:textSize="@dimen/material_text_size_16" />
         </LinearLayout>
 
