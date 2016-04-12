@@ -80,8 +80,6 @@
 
 
 
-
-
     <!--EDIT TEXT-->
     <style name="EditText.Default" parent="android:Widget.EditText">
         <item name="android:background">@drawable/default_edit_text</item>

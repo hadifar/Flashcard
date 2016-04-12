@@ -18,7 +18,6 @@ import com.march1905.dope.model.Category;
 import com.march1905.dope.ui.adapter.CategoryAdapter;
 import com.march1905.dope.ui.fragment.dialogs.EditDialog;
 import com.march1905.dope.ui.fragment.dialogs.MessageDialog;
-import com.march1905.dope.ui.fragment.dialogs.NewCategoryDialog;
 import com.march1905.dope.ui.listeners.DialogButtonsClickListener;
 import com.march1905.dope.ui.listeners.OnCategoryItemClickListener;
 
@@ -74,8 +73,24 @@ public class FragmentCategories extends DefaultFragment implements OnCategoryIte
 
     @OnClick(R.id.fab_add_new_category)
     public void fabBtnClicked() {
-        NewCategoryDialog newCategoryDialog = new NewCategoryDialog();
-        newCategoryDialog.show(getFragmentManager(), "NewCategoryDialog");
+        final EditDialog newCategoryDialog = new EditDialog();
+        newCategoryDialog.init(R.string.hint_category_name, R.string.hint_category_subtitle, "", "", R.string.create_new_category, new DialogButtonsClickListener() {
+            @Override
+            public void onLeftButtonClick() {
+                newCategoryDialog.dismiss();
+            }
+
+            @Override
+            public void onRightButtonClick(String... strings) {
+                int mCategoryCount = BundleDataBaseManager.getInstance().getLastCategoryId() + 1;
+                Category category = new Category(mCategoryCount, strings[0], strings[1]);
+                BundleDataBaseManager.getInstance().addToCategory(category);
+                adapter.addItem(category);
+                newCategoryDialog.dismiss();
+                adapter.notifyDataSetChanged();
+            }
+        });
+        newCategoryDialog.show(getChildFragmentManager(), getClass().getCanonicalName());
     }
 
     @Override
@@ -113,7 +128,7 @@ public class FragmentCategories extends DefaultFragment implements OnCategoryIte
     public void DialogEdit(final Category category) {
 
         final EditDialog editMsg = new EditDialog();
-        editMsg.init(R.string.hint_category_name, R.string.hint_category_subtitle, R.string.btn_cancel, R.string.btn_done, new DialogButtonsClickListener() {
+        editMsg.init(R.string.hint_category_name, R.string.hint_category_subtitle, R.string.btn_cancel, R.string.btn_done, "", new DialogButtonsClickListener() {
             @Override
             public void onLeftButtonClick() {
                 editMsg.dismiss();
@@ -143,7 +158,7 @@ public class FragmentCategories extends DefaultFragment implements OnCategoryIte
             @Override
             public void onRightButtonClick(String... strings) {
                 BundleDataBaseManager.getInstance().removeFromCategory(category);
-                adapter.remove(category);
+                adapter.removeItem(category);
                 adapter.notifyDataSetChanged();
                 deleteMsg.dismiss();
             }

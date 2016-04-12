@@ -86,8 +86,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return items.get(position);
     }
 
-    public void remove(Category category){
+    public void removeItem(Category category) {
         items.remove(category);
+    }
+
+    public void addItem(Category category) {
+        items.add(category);
     }
 
 

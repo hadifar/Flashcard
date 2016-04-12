@@ -238,7 +238,7 @@ public class FragmentFlashCardsList extends DefaultFragment implements NewFlashC
 //            @Override
 //            public void onClick(View view) {
 //                 BundleDataBaseManager.getInstance().removeFromFlashCard(flashCard);
-//                mItems.remove(flashCard);
+//                mItems.removeItem(flashCard);
 //                adapter.notifyDataSetChanged();
 //                dialog.dismiss();
 //            }

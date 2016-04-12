@@ -2,7 +2,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -17,8 +16,8 @@
             android:id="@+id/txt_input_layout_first"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/color_accent"
-            >
+            android:paddingTop="8dp"
+            android:textColorHint="@color/color_accent">
 
             <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/edittxt_first"
@@ -32,8 +31,8 @@
             android:id="@+id/txt_input_layout_second"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/color_accent"
-            >
+            android:paddingTop="8dp"
+            android:textColorHint="@color/color_accent">
 
             <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/edittxt_second"
@@ -44,35 +43,50 @@
         </android.support.design.widget.TextInputLayout>
 
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/material_global_margin_16"
-            android:gravity="right"
-            android:orientation="horizontal">
+            android:layout_marginTop="@dimen/material_global_margin_16">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/btn_dialog_left"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="64dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/color_accent"
+                    android:textSize="@dimen/material_text_size_16" />
+
+
+                <Button
+                    android:id="@+id/btn_dialog_right"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="64dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/color_accent"
+                    android:textSize="@dimen/material_text_size_16" />
+            </LinearLayout>
 
             <Button
-                android:id="@+id/btn_dialog_left"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="64dp"
-                android:textColor="@color/color_primary"
-                android:textAllCaps="false"
-                android:textSize="@dimen/material_text_size_16" />
+                android:id="@+id/btn_dialog_single"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="48dp"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp" />
 
-
-            <Button
-                android:id="@+id/btn_dialog_right"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="64dp"
-                android:textColor="@color/color_primary"
-                android:textAllCaps="false"
-                android:textSize="@dimen/material_text_size_16" />
-        </LinearLayout>
+        </FrameLayout>
 
     </LinearLayout>
 

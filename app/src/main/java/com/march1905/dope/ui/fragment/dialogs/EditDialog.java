@@ -31,6 +31,9 @@ public class EditDialog extends BaseDialog {
     @Bind(R.id.btn_dialog_right)
     Button rightBtn;
 
+    @Bind(R.id.btn_dialog_single)
+    Button createBtn;
+
     @Bind(R.id.edittxt_first)
     EditText firstEditTxt;
 
@@ -47,6 +50,7 @@ public class EditDialog extends BaseDialog {
     private Object secondEtHint;
     private Object leftButtonTextResId;
     private Object rightButtonTextResId;
+    private Object createButtonTexResId;
 
     private String firstHint;
     private String secondHint;
@@ -70,38 +74,46 @@ public class EditDialog extends BaseDialog {
     private void initViews() {
 
         firstHint = this.firstEtHint instanceof String ? (String) this.firstEtHint : getString((Integer) this.firstEtHint);
-        if (firstHint != null) {
+        if (!TextUtils.isEmpty(firstHint)) {
             firstInputLayout.setHint(firstHint);
         } else {
             firstInputLayout.setVisibility(View.GONE);
         }
 
         secondHint = secondEtHint instanceof String ? (String) secondEtHint : getString((Integer) secondEtHint);
-        if (secondHint != null) {
+        if (!TextUtils.isEmpty(secondHint)) {
             secondInputLayout.setHint(secondHint);
         } else {
             secondInputLayout.setVisibility(View.GONE);
         }
 
         String leftBtnRes = leftButtonTextResId instanceof String ? (String) leftButtonTextResId : getString((Integer) leftButtonTextResId);
-        if (leftBtnRes != null) {
+        if (!TextUtils.isEmpty(leftBtnRes)) {
             leftBtn.setText(leftBtnRes);
         } else {
             leftBtn.setVisibility(View.GONE);
         }
         String rightBtnRes = rightButtonTextResId instanceof String ? (String) rightButtonTextResId : getString((Integer) rightButtonTextResId);
-        if (rightBtnRes != null) {
+        if (!TextUtils.isEmpty(rightBtnRes)) {
             rightBtn.setText(rightBtnRes);
         } else {
             rightBtn.setVisibility(View.GONE);
         }
+
+        String createBtnRes = createButtonTexResId instanceof String ? (String) createButtonTexResId : getString((Integer) createButtonTexResId);
+        if (!TextUtils.isEmpty(createBtnRes)) {
+            createBtn.setText(createBtnRes);
+        } else {
+            createBtn.setVisibility(View.GONE);
+        }
     }
 
-    public void init(Object firstEditTxtHint, Object secondEditTxtHint, Object leftButtonTextResId, Object rightButtonTextResId, DialogButtonsClickListener listener) {
+    public void init(Object firstEditTxtHint, Object secondEditTxtHint, Object leftButtonTextResId, Object rightButtonTextResId, Object createButtonTexResId, DialogButtonsClickListener listener) {
         this.firstEtHint = firstEditTxtHint;
         this.secondEtHint = secondEditTxtHint;
         this.leftButtonTextResId = leftButtonTextResId;
         this.rightButtonTextResId = rightButtonTextResId;
+        this.createButtonTexResId = createButtonTexResId;
         this.listener = listener;
     }
 
@@ -121,16 +133,22 @@ public class EditDialog extends BaseDialog {
     @OnClick(R.id.btn_dialog_right)
     public void rightBtnClicked() {
         if (isInputValid()) {
-            if (rightBtn.getVisibility() == View.VISIBLE && listener != null) {
+            if (rightBtn.getVisibility() == View.VISIBLE && listener != null)
                 listener.onRightButtonClick(firstEditTxt.getText().toString(), secondEditTxt.getText().toString());
-            }
         }
-
     }
 
     @OnClick(R.id.btn_dialog_left)
     public void leftBtnClicked() {
         if (leftBtn.getVisibility() == View.VISIBLE && listener != null)
             listener.onLeftButtonClick();
+    }
+
+    @OnClick(R.id.btn_dialog_single)
+    public void createBtnClicked() {
+        if (isInputValid()) {
+            if (createBtn.getVisibility() == View.VISIBLE && listener != null)
+                listener.onRightButtonClick(firstEditTxt.getText().toString(), secondEditTxt.getText().toString());
+        }
     }
 }

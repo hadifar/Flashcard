@@ -236,7 +236,7 @@ public class FragmentDecks extends DefaultFragment implements NewDeckDialog.OnDB
 //            @Override
 //            public void onClick(View view) {
 //                BundleDataBaseManager.getInstance().removeFromDeck(deck);
-//                mItems.remove(deck);
+//                mItems.removeItem(deck);
 //                adapter.notifyDataSetChanged();
 //                dialog.dismiss();
 //            }
