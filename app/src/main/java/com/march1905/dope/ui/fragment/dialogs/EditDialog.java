@@ -59,7 +59,7 @@ public class EditDialog extends BaseDialog {
         if (getDialog() != null) {
             getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         }
-        View view = inflater.inflate(R.layout.dialog_alert_category_edit, container, false);
+        View view = inflater.inflate(R.layout.dialog_edit, container, false);
         ButterKnife.bind(this, view);
 
         initViews();

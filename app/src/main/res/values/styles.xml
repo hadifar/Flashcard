@@ -67,18 +67,15 @@
 
     <!-- gray -->
     <style name="Textview.Gray">
-        <item name="android:textColor">@color/material_text_color_gray</item>
+        <item name="android:textColor">@color/gray</item>
     </style>
 
     <style name="Textview.Gray.Smaller">
         <item name="android:textSize">@dimen/material_text_size_16</item>
-        <item name="android:padding">@dimen/material_global_margin_2</item>
     </style>
 
-    <style name="Textview.SubTitle">
-        <item name="android:textColor">@color/gray</item>
+    <style name="Textview.Gray.Small">
         <item name="android:textSize">@dimen/material_text_size_14</item>
-        <item name="android:padding">@dimen/material_global_margin_4</item>
     </style>
 
 
