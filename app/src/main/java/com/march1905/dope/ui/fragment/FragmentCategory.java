@@ -14,13 +14,16 @@ import android.view.ViewGroup;
 
 import com.march1905.dope.R;
 import com.march1905.dope.core.BundleDataBaseManager;
+import com.march1905.dope.model.BaseEntity;
 import com.march1905.dope.model.Category;
 import com.march1905.dope.ui.activity.MainActivity;
-import com.march1905.dope.ui.adapter.CategoryAdapter;
+import com.march1905.dope.ui.adapter.BaseAdapter;
 import com.march1905.dope.ui.fragment.dialogs.EditDialog;
 import com.march1905.dope.ui.fragment.dialogs.MessageDialog;
 import com.march1905.dope.ui.listeners.DialogButtonsClickListener;
-import com.march1905.dope.ui.listeners.OnCategoryItemClickListener;
+import com.march1905.dope.ui.listeners.OnItemClickListener;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -33,12 +36,9 @@ import butterknife.OnClick;
  * Twitter : @AmirHadifar
  */
 
-public class FragmentCategory extends DefaultFragment implements OnCategoryItemClickListener {
+public class FragmentCategory extends DefaultFragment implements OnItemClickListener {
 
-    public final static String EXTRA_CATEGORY_ID = "category_id";
-    public final static String EXTRA_CATEGORY_TITLE = "title";
-
-    private CategoryAdapter adapter;
+    private BaseAdapter adapter;
 
     @Bind(R.id.rv_list_category)
     RecyclerView recyclerView;
@@ -58,7 +58,11 @@ public class FragmentCategory extends DefaultFragment implements OnCategoryItemC
         super.onActivityCreated(savedInstanceState);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter = new CategoryAdapter(getActivity(), this);
+
+        List<? extends BaseEntity> entityList = BundleDataBaseManager.getInstance().getAllCategories();
+
+        adapter = new BaseAdapter(getActivity(), entityList, this);
+
         recyclerView.setAdapter(adapter);
 
         showFloatingButton();
@@ -98,15 +102,17 @@ public class FragmentCategory extends DefaultFragment implements OnCategoryItemC
     }
 
     @Override
-    public void onRootCategoryClick(Category category) {
+    public void onRootClick(BaseEntity category) {
         Bundle bundle = new Bundle();
-        bundle.putInt(EXTRA_CATEGORY_ID, category.getId());
-        bundle.putString(EXTRA_CATEGORY_TITLE, category.getTitle());
+        bundle.putInt(EXTRA_ID, category.getId());
+        bundle.putString(EXTRA_TITLE, category.getTitle());
         ((MainActivity) getActivity()).displayView(MainActivity.DECKS_FRAG, bundle);
     }
 
     @Override
-    public void onMoreClick(View v, final Category category) {
+    public void onMoreClick(View v, BaseEntity baseEntity) {
+
+        final Category category = (Category) baseEntity;
 
         PopupMenu popupMenu = new PopupMenu(getActivity(), v);
         MenuInflater inflater = popupMenu.getMenuInflater();

@@ -14,19 +14,10 @@ import java.io.Serializable;
  * Twitter : @HadifarAmir
  */
 @DatabaseTable(tableName = "Deck")
-public class Deck implements Serializable {
-
-    @DatabaseField(id = true)
-    private int id;
-
-    @DatabaseField(dataType = DataType.STRING)
-    private String title;
+public class Deck extends BaseEntity implements Serializable {
 
     @DatabaseField(dataType = DataType.INTEGER)
     private int categoryId;
-//
-//    @DatabaseField(dataType = DataType.STRING)
-//    private String subTitle;
 
 
     public Deck() {
@@ -39,16 +30,23 @@ public class Deck implements Serializable {
         this.categoryId = categoryId;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public int getCategoryId() {
         return categoryId;
     }
 
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
     public String getTitle() {
         return title;
+    }
+
+    @Override
+    public String getSubtitle() {
+        return null;
     }
 
     public void setId(int id) {
@@ -65,8 +63,8 @@ public class Deck implements Serializable {
 
     public class ColumnName {
         public static final String ID = "id";
-        public static final String TITLE = "title";
         public static final String CATEGORY_ID = "categoryId";
+//        public static final String TITLE = "title";
         //public static final String SUB_TITLE = "subTitle";
     }
 }

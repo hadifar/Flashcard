@@ -19,6 +19,8 @@ import android.widget.TextView;
 import com.march1905.dope.R;
 import com.march1905.dope.utils.Utils;
 
+import java.util.Stack;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -34,6 +36,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public abstract class BaseDrawerActivity extends AppCompatActivity {
 
+
+    Stack<String> titleStack = new Stack<>();
 
     //toolbar stuff
     @Bind(R.id.toolbar)
@@ -171,8 +175,10 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
     }
 
     public void setToolbarTitle(String title) {
-        if (!TextUtils.isEmpty(title))
+        if (!TextUtils.isEmpty(title)) {
             toolbarTitle.setText(title);
+            titleStack.push(title);
+        }
     }
 
     public void drawerEnable() {
@@ -216,6 +222,8 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
                 super.onBackPressed();
             } else {
                 getSupportFragmentManager().popBackStack();
+                if (!titleStack.isEmpty())
+                    setToolbarTitle(titleStack.pop());
             }
         }
     }

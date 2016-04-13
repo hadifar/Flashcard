@@ -19,6 +19,9 @@ import com.march1905.dope.ui.activity.MainActivity;
 
 public abstract class DefaultFragment extends Fragment implements FragmentManager.OnBackStackChangedListener {
 
+    public static final String EXTRA_ID = "extra_id";
+    public static final String EXTRA_TITLE = "extra_title";
+
     private MainActivity mainActivity;
 
     @Override

@@ -1,7 +1,5 @@
 package com.march1905.dope.ui.fragment;
 
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.widget.CardView;
@@ -12,16 +10,12 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
 import com.march1905.dope.R;
-import com.march1905.dope.ui.activity.MainActivity;
 import com.march1905.dope.core.AppDataBaseManager;
 import com.march1905.dope.model.FlashCard;
 import com.march1905.dope.utils.AnimationHelper;
-
-import java.util.Locale;
 
 /**
  * Amir Hadifar on 29/07/2015

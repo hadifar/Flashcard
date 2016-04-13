@@ -13,40 +13,31 @@ import java.io.Serializable;
  * Twitter : @HadifarAmir
  */
 @DatabaseTable(tableName = "Category")
-public class Category implements Serializable{
-
-    @DatabaseField(id = true)
-    private int id;
-
-    @DatabaseField(dataType = DataType.STRING)
-    private String title;
-
-    @DatabaseField(dataType = DataType.STRING)
-    private String subTitle;
-
-
+public class Category extends BaseEntity implements Serializable {
 
     public Category() {
         //needed by ORMlite
     }
 
-
     public Category(int id, String title, String subTitle) {
         this.id = id;
         this.title = title;
-        this.subTitle = subTitle;
+        this.subtitle = subTitle;
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public String getTitle() {
         return title;
     }
 
-    public String getSubTitle() {
-        return subTitle;
+    @Override
+    public String getSubtitle() {
+        return subtitle;
     }
 
 
@@ -59,12 +50,12 @@ public class Category implements Serializable{
     }
 
     public void setSubTitle(String subTitle) {
-        this.subTitle = subTitle;
+        this.subtitle = subTitle;
     }
 
     public class ColumnName {
         public static final String ID = "id";
-        public static final String TITLE = "title";
-        public static final String SUB_TITLE = "subTitle";
+//        public static final String TITLE = "title";
+//        public static final String SUB_TITLE = "subTitle";
     }
 }

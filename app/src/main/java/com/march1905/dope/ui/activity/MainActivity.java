@@ -19,11 +19,7 @@ import com.march1905.dope.ui.fragment.FragmentFlashCardsList;
 public class MainActivity extends BaseDrawerActivity {
 
     private static final String TAG_ACTIVE_FRAGMENT = "fragment_active";
-    public static final String EXTRA_TITLE = "title";
 
-    // We use this to know which of the items has been selected.
-    // We name the items so we know which one is which.
-    // For the fragments that will be OUTSIDE of the drawer layout we use negative numbers so we avoid a conflict.
     public static final int FLASHCARDS_VIEWER = 3;
     public static final int FLASHCARDS_FRAG = 2;
     public static final int DECKS_FRAG = 1;

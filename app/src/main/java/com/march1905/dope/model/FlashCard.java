@@ -13,10 +13,7 @@ import java.io.Serializable;
  * Twitter : @HadifarAmir
  */
 @DatabaseTable(tableName = "FlashCard")
-public class FlashCard implements Serializable {
-
-    @DatabaseField(id = true)
-    protected int id;
+public class FlashCard extends BaseEntity implements Serializable {
 
     @DatabaseField(dataType = DataType.STRING)
     protected String word;
@@ -87,10 +84,6 @@ public class FlashCard implements Serializable {
         return example3;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public int getDeckId() {
         return deckId;
     }
@@ -135,6 +128,7 @@ public class FlashCard implements Serializable {
     public FlashCard(int id, String word, String persian, String synonym, String pronunciation, String example1, String example2, String example3, int deckId) {
         this.id = id;
         this.word = word;
+        this.title = word;
         this.deckId = deckId;
         this.pronunciation = pronunciation;
         this.persian = persian;
@@ -149,4 +143,22 @@ public class FlashCard implements Serializable {
         public static final String DECK_ID = "deckId";
         public static final String TEXT = "";
     }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+
+    @Override
+    public String getTitle() {
+        return word;
+    }
+
+    @Override
+    public String getSubtitle() {
+        return null;
+    }
+
+
 }
