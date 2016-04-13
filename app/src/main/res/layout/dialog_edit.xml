@@ -17,9 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
-            android:textColorHint="@color/color_accent">
+            android:textColorHint="@color/color_primary">
 
-            <android.support.v7.widget.AppCompatEditText
+            <EditText
                 android:id="@+id/edittxt_first"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -32,9 +32,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
-            android:textColorHint="@color/color_accent">
+            android:textColorHint="@color/color_primary">
 
-            <android.support.v7.widget.AppCompatEditText
+            <EditText
                 android:id="@+id/edittxt_second"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,7 +61,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:minWidth="64dp"
-                    android:textAllCaps="false"
                     android:textColor="@color/color_accent"
                     android:textSize="@dimen/material_text_size_16" />
 
@@ -72,7 +71,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:minWidth="64dp"
-                    android:textAllCaps="false"
                     android:textColor="@color/color_accent"
                     android:textSize="@dimen/material_text_size_16" />
             </LinearLayout>

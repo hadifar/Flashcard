@@ -23,10 +23,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class AppConfig extends Application {
 
-
     private static AppConfig instance;
-
-
 
     @Override
     public void onCreate() {

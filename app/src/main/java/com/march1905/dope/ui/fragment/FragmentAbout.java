@@ -16,7 +16,7 @@ import com.march1905.dope.utils.IntentHelper;
  * Twitter : @HadifarAmir
  */
 
-public class FragmentContact extends DefaultFragment {
+public class FragmentAbout extends DefaultFragment {
 
     private CharSequence mTitle = "";
 
@@ -49,21 +49,5 @@ public class FragmentContact extends DefaultFragment {
             }
         });
 
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        // Get/Backup current title
-        mTitle = getActivity().getTitle();
-
-
-    }
-
-    @Override
-    public void onDestroy() {
-        // Set title back
-        getActivity().setTitle(mTitle);
-        super.onDestroy();
     }
 }

@@ -1,6 +1,9 @@
 package com.march1905.dope.ui.fragment;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.widget.CardView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -9,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
 import com.march1905.dope.R;
@@ -17,6 +21,8 @@ import com.march1905.dope.core.AppDataBaseManager;
 import com.march1905.dope.model.FlashCard;
 import com.march1905.dope.utils.AnimationHelper;
 
+import java.util.Locale;
+
 /**
  * Amir Hadifar on 29/07/2015
  * Cardy
@@ -24,8 +30,9 @@ import com.march1905.dope.utils.AnimationHelper;
  * Twitter : @AmirHadifar
  */
 
-public class FragmentFlashCardContent extends DefaultFragment {
+public class FragmentFlashCardContent extends DefaultFragment /*implements TextToSpeech.OnInitListener */{
 
+    TextToSpeech mTextToSpeech;
     private FlashCard flashCard;
     private boolean isAnswer = false;
     private boolean isPopupVisible = false;
@@ -35,8 +42,6 @@ public class FragmentFlashCardContent extends DefaultFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-
         return inflater.inflate(R.layout.fragment_flashcard_content, container, false);
     }
 
@@ -46,6 +51,8 @@ public class FragmentFlashCardContent extends DefaultFragment {
 
         initCardView(rootView);
         initExpandView(rootView);
+
+//        mTextToSpeech = new TextToSpeech(this, this);
 
     }
 
@@ -112,14 +119,14 @@ public class FragmentFlashCardContent extends DefaultFragment {
 
 
         //void button
-        final TextView voice = (TextView) rootView.findViewById(R.id.buttonVoice);
-        voice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AnimationHelper.changeIconAnim((TextView) view, getString(R.string.icon_volume_up));
-                MainActivity.speakOut(flashCard.getWord());
-            }
-        });
+//        final TextView voice = (TextView) rootView.findViewById(R.id.buttonVoice);
+//        voice.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                AnimationHelper.changeIconAnim((TextView) view, getString(R.string.icon_volume_up));
+//                MainActivity.speakOut(flashCard.getWord());
+//            }
+//        });
 
     }
 
@@ -161,5 +168,42 @@ public class FragmentFlashCardContent extends DefaultFragment {
     public void setCard(FlashCard card) {
         this.flashCard = card;
     }
+
+//
+//    @Override
+//    public void onInit(int status) {
+//        if (status == TextToSpeech.SUCCESS) {
+//
+//            int result = mTextToSpeech.setLanguage(Locale.US);
+//
+//            if (result == TextToSpeech.LANG_MISSING_DATA
+//                    || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+//                Toast.makeText(this, R.string.your_language_not_supported_please_install, Toast.LENGTH_SHORT).show();
+//            }
+//        } else {
+//            Toast.makeText(this, R.string.please_install_google_voice, Toast.LENGTH_LONG).show();
+//            Intent installIntent = new Intent();
+//            installIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+//            startActivity(installIntent);
+//        }
+//
+//    }
+//
+//
+//    public void onDestroy() {
+//        if (mTextToSpeech != null) {
+//            mTextToSpeech.stop();
+//            mTextToSpeech.shutdown();
+//        }
+//        super.onDestroy();
+//    }
+//
+//    public static void speakOut(String text) {
+//        if (Build.VERSION.SDK_INT < 21)
+//            mTextToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+//        else
+//            mTextToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
+//    }
+
 
 }

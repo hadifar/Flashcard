@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import com.march1905.dope.R;
 import com.march1905.dope.core.BundleDataBaseManager;
 import com.march1905.dope.model.Category;
+import com.march1905.dope.ui.activity.MainActivity;
 import com.march1905.dope.ui.adapter.CategoryAdapter;
 import com.march1905.dope.ui.fragment.dialogs.EditDialog;
 import com.march1905.dope.ui.fragment.dialogs.MessageDialog;
@@ -32,16 +33,18 @@ import butterknife.OnClick;
  * Twitter : @AmirHadifar
  */
 
-public class FragmentCategories extends DefaultFragment implements OnCategoryItemClickListener {
+public class FragmentCategory extends DefaultFragment implements OnCategoryItemClickListener {
+
+    public final static String EXTRA_CATEGORY_ID = "category_id";
+    public final static String EXTRA_CATEGORY_TITLE = "title";
+
+    private CategoryAdapter adapter;
 
     @Bind(R.id.rv_list_category)
     RecyclerView recyclerView;
-
     @Bind(R.id.fab_add_new_category)
     FloatingActionButton fab;
 
-
-    private CategoryAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,6 +56,7 @@ public class FragmentCategories extends DefaultFragment implements OnCategoryIte
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter = new CategoryAdapter(getActivity(), this);
         recyclerView.setAdapter(adapter);
@@ -72,7 +76,7 @@ public class FragmentCategories extends DefaultFragment implements OnCategoryIte
     }
 
     @OnClick(R.id.fab_add_new_category)
-    public void fabBtnClicked() {
+    public void fabClicked() {
         final EditDialog newCategoryDialog = new EditDialog();
         newCategoryDialog.init(R.string.hint_category_name, R.string.hint_category_subtitle, "", "", R.string.create_new_category, new DialogButtonsClickListener() {
             @Override
@@ -95,9 +99,10 @@ public class FragmentCategories extends DefaultFragment implements OnCategoryIte
 
     @Override
     public void onRootCategoryClick(Category category) {
-        //TODO:go to deck
-        Category c = adapter.getItem(0);
-
+        Bundle bundle = new Bundle();
+        bundle.putInt(EXTRA_CATEGORY_ID, category.getId());
+        bundle.putString(EXTRA_CATEGORY_TITLE, category.getTitle());
+        ((MainActivity) getActivity()).displayView(MainActivity.DECKS_FRAG, bundle);
     }
 
     @Override
@@ -165,4 +170,6 @@ public class FragmentCategories extends DefaultFragment implements OnCategoryIte
         });
         deleteMsg.show(getFragmentManager(), getClass().getCanonicalName());
     }
+
+
 }
