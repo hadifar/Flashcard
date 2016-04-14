@@ -22,6 +22,7 @@ import com.march1905.dope.ui.fragment.dialogs.EditDialog;
 import com.march1905.dope.ui.fragment.dialogs.MessageDialog;
 import com.march1905.dope.ui.listeners.DialogButtonsClickListener;
 import com.march1905.dope.ui.listeners.OnItemClickListener;
+import com.march1905.dope.utils.ColorGenerator;
 
 import java.util.List;
 
@@ -39,6 +40,7 @@ import butterknife.OnClick;
 public class FragmentCategory extends DefaultFragment implements OnItemClickListener {
 
     private BaseAdapter adapter;
+    private ColorGenerator colorGenerator;
 
     @Bind(R.id.rv_list_category)
     RecyclerView recyclerView;
@@ -60,6 +62,8 @@ public class FragmentCategory extends DefaultFragment implements OnItemClickList
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         List<? extends BaseEntity> entityList = BundleDataBaseManager.getInstance().getAllCategories();
+
+        colorGenerator = ColorGenerator.MATERIAL;
 
         adapter = new BaseAdapter(getActivity(), entityList, this);
 
@@ -91,7 +95,7 @@ public class FragmentCategory extends DefaultFragment implements OnItemClickList
             @Override
             public void onRightButtonClick(String... strings) {
                 int mCategoryCount = BundleDataBaseManager.getInstance().getLastCategoryId() + 1;
-                Category category = new Category(mCategoryCount, strings[0], strings[1]);
+                Category category = new Category(mCategoryCount, strings[0], strings[1], colorGenerator.getRandomColor());
                 BundleDataBaseManager.getInstance().addToCategory(category);
                 adapter.addItem(category);
                 newCategoryDialog.dismiss();

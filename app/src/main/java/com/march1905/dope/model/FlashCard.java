@@ -55,76 +55,6 @@ public class FlashCard extends BaseEntity implements Serializable {
         this.example3 = favItem.getExample3();
     }
 
-
-    public String getWord() {
-        return word;
-    }
-
-    public String getPersian() {
-        return persian;
-    }
-
-    public String getSynonym() {
-        return synonym;
-    }
-
-    public String getPronunciation() {
-        return pronunciation;
-    }
-
-    public String getExample1() {
-        return example1;
-    }
-
-    public String getExample2() {
-        return example2;
-    }
-
-    public String getExample3() {
-        return example3;
-    }
-
-    public int getDeckId() {
-        return deckId;
-    }
-
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setWord(String word) {
-        this.word = word;
-    }
-
-    public void setPersian(String persian) {
-        this.persian = persian;
-    }
-
-    public void setSynonym(String synonym) {
-        this.synonym = synonym;
-    }
-
-    public void setPronunciation(String pronunciation) {
-        this.pronunciation = pronunciation;
-    }
-
-    public void setExample1(String example1) {
-        this.example1 = example1;
-    }
-
-    public void setExample2(String example2) {
-        this.example2 = example2;
-    }
-
-    public void setExample3(String example3) {
-        this.example3 = example3;
-    }
-
-    public void setDeckId(int deckId) {
-        this.deckId = deckId;
-    }
-
     public FlashCard(int id, String word, String persian, String synonym, String pronunciation, String example1, String example2, String example3, int deckId) {
         this.id = id;
         this.word = word;
@@ -138,10 +68,68 @@ public class FlashCard extends BaseEntity implements Serializable {
         this.example3 = example3;
     }
 
-    public class ColumnName {
-        public static final String ID = "id";
-        public static final String DECK_ID = "deckId";
-        public static final String TEXT = "";
+    public String getWord() {
+        return word;
+    }
+
+    public void setWord(String word) {
+        this.word = word;
+    }
+
+    public String getPersian() {
+        return persian;
+    }
+
+    public void setPersian(String persian) {
+        this.persian = persian;
+    }
+
+    public String getSynonym() {
+        return synonym;
+    }
+
+    public void setSynonym(String synonym) {
+        this.synonym = synonym;
+    }
+
+    public String getPronunciation() {
+        return pronunciation;
+    }
+
+    public void setPronunciation(String pronunciation) {
+        this.pronunciation = pronunciation;
+    }
+
+    public String getExample1() {
+        return example1;
+    }
+
+    public void setExample1(String example1) {
+        this.example1 = example1;
+    }
+
+    public String getExample2() {
+        return example2;
+    }
+
+    public void setExample2(String example2) {
+        this.example2 = example2;
+    }
+
+    public String getExample3() {
+        return example3;
+    }
+
+    public void setExample3(String example3) {
+        this.example3 = example3;
+    }
+
+    public int getDeckId() {
+        return deckId;
+    }
+
+    public void setDeckId(int deckId) {
+        this.deckId = deckId;
     }
 
     @Override
@@ -149,6 +137,9 @@ public class FlashCard extends BaseEntity implements Serializable {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
     @Override
     public String getTitle() {
@@ -158,6 +149,12 @@ public class FlashCard extends BaseEntity implements Serializable {
     @Override
     public String getSubtitle() {
         return null;
+    }
+
+    public class ColumnName {
+        public static final String ID = "id";
+        public static final String DECK_ID = "deckId";
+        public static final String TEXT = "";
     }
 
 

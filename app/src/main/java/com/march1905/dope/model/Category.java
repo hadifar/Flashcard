@@ -1,7 +1,5 @@
 package com.march1905.dope.model;
 
-import com.j256.ormlite.field.DataType;
-import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import java.io.Serializable;
@@ -19,10 +17,11 @@ public class Category extends BaseEntity implements Serializable {
         //needed by ORMlite
     }
 
-    public Category(int id, String title, String subTitle) {
+    public Category(int id, String title, String subTitle, int color) {
         this.id = id;
         this.title = title;
         this.subtitle = subTitle;
+        this.color = color;
     }
 
     @Override
