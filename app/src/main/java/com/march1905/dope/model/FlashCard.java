@@ -13,10 +13,7 @@ import java.io.Serializable;
  * Twitter : @HadifarAmir
  */
 @DatabaseTable(tableName = "FlashCard")
-public class FlashCard extends BaseEntity implements Serializable {
-
-    @DatabaseField(dataType = DataType.STRING)
-    protected String word;
+public class FlashCard extends BaseEntity {
 
     @DatabaseField(dataType = DataType.STRING)
     protected String persian;
@@ -46,7 +43,7 @@ public class FlashCard extends BaseEntity implements Serializable {
 
     public FlashCard(FlashCardFavoritedItems favItem) {
         this.id = favItem.getId();
-        this.word = favItem.getWord();
+        this.title = favItem.getWord();
         this.persian = favItem.getPersian();
         this.pronunciation = favItem.getPronunciation();
         this.synonym = favItem.getSynonym();
@@ -56,9 +53,6 @@ public class FlashCard extends BaseEntity implements Serializable {
     }
 
 
-    public String getWord() {
-        return word;
-    }
 
     public String getPersian() {
         return persian;
@@ -94,7 +88,7 @@ public class FlashCard extends BaseEntity implements Serializable {
     }
 
     public void setWord(String word) {
-        this.word = word;
+        this.title = word;
     }
 
     public void setPersian(String persian) {
@@ -127,7 +121,6 @@ public class FlashCard extends BaseEntity implements Serializable {
 
     public FlashCard(int id, String word, String persian, String synonym, String pronunciation, String example1, String example2, String example3, int deckId) {
         this.id = id;
-        this.word = word;
         this.title = word;
         this.deckId = deckId;
         this.pronunciation = pronunciation;
@@ -152,7 +145,7 @@ public class FlashCard extends BaseEntity implements Serializable {
 
     @Override
     public String getTitle() {
-        return word;
+        return title;
     }
 
     @Override

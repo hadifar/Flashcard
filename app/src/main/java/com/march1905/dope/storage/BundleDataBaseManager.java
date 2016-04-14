@@ -1,4 +1,4 @@
-package com.march1905.dope.core;
+package com.march1905.dope.storage;
 
 import android.database.sqlite.SQLiteDatabase;
 
@@ -8,7 +8,7 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.stmt.Where;
 import com.j256.ormlite.table.TableUtils;
-import com.march1905.dope.model.BaseEntity;
+import com.march1905.dope.AppConfig;
 import com.march1905.dope.model.Category;
 import com.march1905.dope.model.Deck;
 import com.march1905.dope.model.FlashCard;
@@ -27,30 +27,30 @@ import java.util.List;
 public class BundleDataBaseManager extends OrmLiteSqliteOpenHelper {
 
     public static final String DATABASE_NAME = "dope";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private RuntimeExceptionDao<Category, Integer> mainCategoriesDao = null;
     private RuntimeExceptionDao<Deck, Integer> deckItemsDao = null;
     private RuntimeExceptionDao<FlashCard, Integer> flashcardDao = null;
 
-    private static BundleDataBaseManager instance = new BundleDataBaseManager();
+    private static BundleDataBaseManager instance = null;
 
     private BundleDataBaseManager() {
-        super(AppConfig.getAppContext(), DATABASE_NAME, null, DATABASE_VERSION);
+        super(AppConfig.getInstance(), DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    public static BundleDataBaseManager getInstance(){
+    public static synchronized BundleDataBaseManager getInstance() {
+        if (instance == null)
+            instance = new BundleDataBaseManager();
         return instance;
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase, com.j256.ormlite.support.ConnectionSource connectionSource) {
         try {
-
             TableUtils.createTable(connectionSource, Category.class);
             TableUtils.createTable(connectionSource, Deck.class);
             TableUtils.createTable(connectionSource, FlashCard.class);
-
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -61,10 +61,11 @@ public class BundleDataBaseManager extends OrmLiteSqliteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, com.j256.ormlite.support.ConnectionSource connectionSource, int oldVersion, int newVersion) {
         try {
             switch (newVersion) {
-                case 1:
-                    TableUtils.createTable(connectionSource, Category.class);
-                    TableUtils.createTable(connectionSource, Deck.class);
-                    TableUtils.createTable(connectionSource, FlashCard.class);
+                case 2:
+                    TableUtils.dropTable(connectionSource, Category.class, true);
+                    TableUtils.dropTable(connectionSource, Deck.class, true);
+                    TableUtils.dropTable(connectionSource, FlashCard.class, true);
+                    onCreate(sqLiteDatabase, connectionSource);
                     break;
             }
         } catch (SQLException e) {
@@ -218,17 +219,6 @@ public class BundleDataBaseManager extends OrmLiteSqliteOpenHelper {
 
     }
 
-
-    public void clearTable(Class dataClass) {
-        SQLiteDatabase db = getWritableDatabase();
-        this.connectionSource = new AndroidConnectionSource(db);
-        try {
-            TableUtils.clearTable(connectionSource, dataClass);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void clearTables(Class... dataClasses) {
         SQLiteDatabase db = getWritableDatabase();
         this.connectionSource = new AndroidConnectionSource(db);
@@ -241,7 +231,6 @@ public class BundleDataBaseManager extends OrmLiteSqliteOpenHelper {
     }
 
     public void clearAllTables() {
-        clearTables(Category.class, FlashCard.class,
-                Deck.class);
+        clearTables(Category.class, FlashCard.class, Deck.class);
     }
 }

@@ -1,6 +1,5 @@
 package com.march1905.dope.ui.fragment;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
@@ -10,14 +9,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.march1905.dope.R;
-import com.march1905.dope.core.BundleDataBaseManager;
+import com.march1905.dope.storage.BundleDataBaseManager;
 import com.march1905.dope.model.Deck;
 import com.march1905.dope.ui.activity.MainActivity;
 import com.march1905.dope.ui.fragment.dialogs.NewDeckDialog;

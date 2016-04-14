@@ -1,4 +1,4 @@
-package com.march1905.dope.core;
+package com.march1905.dope.storage;
 
 import android.content.Context;
 import android.content.SharedPreferences;

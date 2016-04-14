@@ -14,7 +14,7 @@ import java.io.Serializable;
  * Twitter : @HadifarAmir
  */
 @DatabaseTable(tableName = "Deck")
-public class Deck extends BaseEntity implements Serializable {
+public class Deck extends BaseEntity {
 
     @DatabaseField(dataType = DataType.INTEGER)
     private int categoryId;
@@ -24,10 +24,11 @@ public class Deck extends BaseEntity implements Serializable {
         //needed by ORMlite
     }
 
-    public Deck(int id, String title, int categoryId) {
+    public Deck(int id, String title, String subtitle, int categoryId) {
         this.id = id;
         this.title = title;
         this.categoryId = categoryId;
+        this.subtitle = subtitle;
     }
 
     public int getCategoryId() {
@@ -46,7 +47,7 @@ public class Deck extends BaseEntity implements Serializable {
 
     @Override
     public String getSubtitle() {
-        return null;
+        return subtitle;
     }
 
     public void setId(int id) {

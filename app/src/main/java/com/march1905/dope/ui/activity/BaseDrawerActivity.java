@@ -34,10 +34,10 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  * Twitter : @AmirHadifar
  */
 
-public abstract class BaseDrawerActivity extends AppCompatActivity {
+public abstract class BaseDrawerActivity extends BaseActivity {
 
 
-    Stack<String> titleStack = new Stack<>();
+    private Stack<String> titleStack = new Stack<>();
 
     //toolbar stuff
     @Bind(R.id.toolbar)
@@ -67,7 +67,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(final Bundle savedInstanceState) {
+    public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
@@ -78,9 +78,13 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
         if (navigationView != null)
             setupDrawerContent();
 
-        displayView(0, null);
-
+        if (savedInstanceState != null)
+            restoreFragment(savedInstanceState);
+        else
+            displayView(0, null);
     }
+
+    public abstract void restoreFragment(Bundle savedInstanceState);
 
     private void setupToolbar() {
         setSupportActionBar(toolbar);

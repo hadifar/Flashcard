@@ -63,7 +63,7 @@
             style="@style/Textview.Dark.Smallest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/copy_right" />
+            android:text="@string/copy_right_text" />
 
         <TextView
             style="@style/Textview.Dark.Small"

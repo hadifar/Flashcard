@@ -33,6 +33,11 @@ public class MainActivity extends BaseDrawerActivity {
     private DefaultFragment activeFragment = null;
 
     @Override
+    public void restoreFragment(Bundle savedInstanceState) {
+        activeFragment = (DefaultFragment) getSupportFragmentManager().getFragment(savedInstanceState, "activeFragment");
+    }
+
+    @Override
     public void displayView(int position, Bundle fragmentBundle) {
 
         FragmentManager fragmentManager = getSupportFragmentManager(); // Get the fragmentManager for this activity

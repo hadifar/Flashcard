@@ -3,7 +3,7 @@ package com.march1905.dope.model;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
-import com.march1905.dope.core.BundleDataBaseManager;
+import com.march1905.dope.storage.BundleDataBaseManager;
 
 import java.io.Serializable;
 
@@ -50,7 +50,6 @@ public class FlashCardFavoritedItems implements Serializable {
     public FlashCardFavoritedItems(FlashCard flashCard) {
         this.id = flashCard.id;
         this.deckId = flashCard.deckId;
-        this.word = flashCard.word;
         this.persian = flashCard.persian;
         this.synonym = flashCard.synonym;
         this.pronunciation = flashCard.pronunciation;

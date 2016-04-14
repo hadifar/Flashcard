@@ -1,4 +1,4 @@
-package com.march1905.dope.core;
+package com.march1905.dope.storage;
 
 import android.database.sqlite.SQLiteDatabase;
 
@@ -6,6 +6,7 @@ import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
+import com.march1905.dope.AppConfig;
 import com.march1905.dope.model.FlashCard;
 import com.march1905.dope.model.FlashCardFavoritedItems;
 
@@ -30,7 +31,7 @@ public class AppDataBaseManager extends OrmLiteSqliteOpenHelper {
     private static AppDataBaseManager instance = new AppDataBaseManager();
 
     private AppDataBaseManager() {
-        super(AppConfig.getAppContext(), DATABASE_NAME, null, DATABASE_VERSION);
+        super(AppConfig.getInstance(), DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     public static AppDataBaseManager getInstance(){

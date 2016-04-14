@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.march1905.dope.R;
 import com.march1905.dope.ui.activity.MainActivity;
-import com.march1905.dope.core.AppDataBaseManager;
+import com.march1905.dope.storage.AppDataBaseManager;
 import com.march1905.dope.ui.widget.TextDrawable;
 import com.march1905.dope.model.FlashCardFavoritedItems;
 import com.march1905.dope.utils.ColorGenerator;

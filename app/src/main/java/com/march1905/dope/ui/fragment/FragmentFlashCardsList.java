@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.march1905.dope.R;
-import com.march1905.dope.core.BundleDataBaseManager;
+import com.march1905.dope.storage.BundleDataBaseManager;
 import com.march1905.dope.model.FlashCard;
 import com.march1905.dope.ui.activity.MainActivity;
 import com.march1905.dope.ui.fragment.dialogs.NewFlashCardDialog;
@@ -113,9 +113,9 @@ public class FragmentFlashCardsList extends DefaultFragment implements NewFlashC
 
         @Override
         public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-            TextDrawable drawable = TextDrawable.builder().buildRound(mItems.get(position).getWord().substring(0, 1), generator.getRandomColor());
+            TextDrawable drawable = TextDrawable.builder().buildRound(mItems.get(position).getTitle().substring(0, 1), generator.getRandomColor());
             viewHolder.imageView.setImageDrawable(drawable);
-            viewHolder.title.setText(mItems.get(position).getWord());
+            viewHolder.title.setText(mItems.get(position).getTitle());
             viewHolder.overflow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

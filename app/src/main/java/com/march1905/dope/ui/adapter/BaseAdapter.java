@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.march1905.dope.R;
 import com.march1905.dope.model.BaseEntity;
-import com.march1905.dope.model.Category;
 import com.march1905.dope.ui.listeners.OnItemClickListener;
 import com.march1905.dope.ui.widget.TextDrawable;
 import com.march1905.dope.utils.ColorGenerator;
@@ -120,8 +119,8 @@ public class BaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             ButterKnife.bind(this, itemView);
         }
 
-        public void bindView(BaseEntity e) {
-            entity = e;
+        public void bindView(BaseEntity baseEntity) {
+            entity = baseEntity;
             TextDrawable drawable = TextDrawable.builder().buildRound(entity.getTitle().substring(0, 1), colorGenerator.getRandomColor());
             imageView.setImageDrawable(drawable);
             title.setText(entity.getTitle());

@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.march1905.dope.R;
-import com.march1905.dope.core.BundleDataBaseManager;
+import com.march1905.dope.storage.BundleDataBaseManager;
 import com.march1905.dope.model.BaseEntity;
 import com.march1905.dope.model.Category;
 import com.march1905.dope.ui.activity.MainActivity;

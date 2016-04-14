@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.march1905.dope.R;
-import com.march1905.dope.core.BundleDataBaseManager;
+import com.march1905.dope.storage.BundleDataBaseManager;
 import com.march1905.dope.utils.Utils;
 
 /**

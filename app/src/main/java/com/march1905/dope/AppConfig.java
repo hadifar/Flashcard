@@ -1,16 +1,7 @@
-package com.march1905.dope.core;
+package com.march1905.dope;
 
 import android.app.Application;
-import android.content.Context;
 import android.content.pm.PackageManager;
-
-import com.march1905.dope.R;
-
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
@@ -30,22 +21,10 @@ public class AppConfig extends Application {
         super.onCreate();
         instance = this;
 
-        if(SettingsManager.getAppLatestVersionCode(getAppContext()) <= getAppVersionCode()) {
-            //this calls when app has old data
-            //creating database files
-            BundleDataBaseManager bundledDataBaseManager = BundleDataBaseManager.getInstance();
-            bundledDataBaseManager.init();
-            bundledDataBaseManager.clearAllTables();
-            //copy data from asset to database
-            importDatabaseFromAssets();
-            SettingsManager.setAppLatestVersionCode(getAppContext(), getAppVersionCode());
-        }
-
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                        .setDefaultFontPath("fonts/YekanMob-Regular-v4.ttf")
-                        .setFontAttrId(R.attr.fontPath)
-                        .build());
-
+                .setDefaultFontPath("fonts/YekanMob-Regular-v4.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build());
 
 
     }
@@ -99,10 +78,6 @@ public class AppConfig extends Application {
         return instance;
     }
 
-    public static Context getAppContext() {
-        return getInstance().getApplicationContext();
-    }
-
 //    public static String getAppVersion() {
 //        try {
 //            return instance.getPackageManager().getPackageInfo(instance.getPackageName(), 0).versionName;
@@ -125,27 +100,8 @@ public class AppConfig extends Application {
 //        return dbFile.exists();
 //    }
 //
-    private void importDatabaseFromAssets() {
-        try {
-            InputStream myInput = getAssets().open(BundleDataBaseManager.DATABASE_NAME);
-            String DB_PATH = "/data/data/" + getPackageName() + "/databases/";
-            String outFileName = DB_PATH + BundleDataBaseManager.DATABASE_NAME;
-            OutputStream myOutput = new FileOutputStream(outFileName);
-            byte[] buffer = new byte[1024];
-            int length;
-            while ((length = myInput.read(buffer)) > 0) {
-                myOutput.write(buffer, 0, length);
-            }
-            // Close the streams
-            myOutput.flush();
-            myOutput.close();
-            myInput.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
+
 
 //    public static void exportDatabaseToSD() {
 //        try {

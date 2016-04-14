@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
 import com.march1905.dope.R;
-import com.march1905.dope.core.AppDataBaseManager;
+import com.march1905.dope.storage.AppDataBaseManager;
 import com.march1905.dope.model.FlashCard;
 import com.march1905.dope.utils.AnimationHelper;
 
@@ -55,7 +55,7 @@ public class FragmentFlashCardContent extends DefaultFragment /*implements TextT
         //text watcher
         final TextSwitcher word = (TextSwitcher) rootView.findViewById(R.id.flashcardWord);
         word.setFactory(mFactory);
-        word.setText(flashCard.getWord());
+        word.setText(flashCard.getTitle());
 
         //use whole layout to increase touch area
         final LinearLayout textLayout = (LinearLayout) rootView.findViewById(R.id.textLayout);
@@ -64,7 +64,7 @@ public class FragmentFlashCardContent extends DefaultFragment /*implements TextT
             public void onClick(View view) {
                 if (isAnswer) {
                     isAnswer = false;
-                    word.setText(flashCard.getWord());
+                    word.setText(flashCard.getTitle());
                 } else {
                     isAnswer = true;
                     word.setText(flashCard.getPersian());
