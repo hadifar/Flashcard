@@ -21,16 +21,6 @@ public class MainActivity extends BaseDrawerActivity {
 
     private static final String TAG_ACTIVE_FRAGMENT = "fragment_active";
 
-    public static final int FLASHCARDS_VIEWER = 3;
-    public static final int FLASHCARDS_FRAG = 2;
-    public static final int DECKS_FRAG = 1;
-    public static final int CATEGORIES_FRAG = 0;
-
-    public static final int SETTINGS_FRAG = 4;
-    public static final int ABOUT_FRAG = 5;
-    public static final int FAVORITE_FRAG = 6;
-    public static final int FAVORITE_FRAG_VIEWER = 7;
-
     private DefaultFragment activeFragment = null;
 
     @Override
@@ -87,6 +77,11 @@ public class MainActivity extends BaseDrawerActivity {
         } else {
             Log.e("MainActivity", "Error creating fragment"); // if the fragment does not create we Log an error.
         }
+    }
+
+    @Override
+    public void drawerView(int position) {
+
     }
 
 }

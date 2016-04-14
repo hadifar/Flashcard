@@ -5,26 +5,28 @@
         <item
             android:id="@+id/nav_category"
             android:icon="@drawable/ic_style_black_24dp"
-            android:title="Category" />
+            android:title="@string/drawer_item_category" />
         <item
             android:id="@+id/nav_favorites"
             android:icon="@drawable/ic_favorite_black_24dp"
-            android:title="Favorites" />
+            android:title="@string/drawer_item_favorites" />
 
     </group>
 
-    <item android:title="Other">
+    <item android:title="@string/drawer_item_other">
         <menu>
-
             <item
+                android:id="@+id/nav_rate_us"
                 android:icon="@drawable/ic_thumbs_up_down_black_24dp"
-                android:title="Vote" />
+                android:title="@string/drawer_item_rate_us" />
             <item
+                android:id="@+id/nav_feedback"
                 android:icon="@drawable/ic_feedback_black_24dp"
                 android:title="Feedback" />
             <item
+                android:id="@+id/nav_about"
                 android:icon="@drawable/ic_lightbulb_outline_black_24dp"
-                android:title="About" />
+                android:title="@string/drawer_item_about" />
         </menu>
     </item>
 

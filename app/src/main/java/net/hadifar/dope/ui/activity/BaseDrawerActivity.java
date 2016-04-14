@@ -35,10 +35,19 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public abstract class BaseDrawerActivity extends AppCompatActivity {
 
-    private static final String STATE_CHANGE = "stateChanged";
+    public static final int FLASHCARDS_VIEWER = 3;
+    public static final int FLASHCARDS_FRAG = 2;
+    public static final int DECKS_FRAG = 1;
+    public static final int CATEGORIES_FRAG = 0;
+
+    public static final int SETTINGS_FRAG = 4;
+    public static final int ABOUT_FRAG = 5;
+    public static final int FAVORITE_FRAG = 6;
+    public static final int FAVORITE_FRAG_VIEWER = 7;
+
+    private int lastSelectedDrawerItem = 0;
 
     private Stack<String> titleStack = new Stack<>();
-    private boolean isToolbarAnimated = false;
 
     //toolbar stuff
     @Bind(R.id.toolbar)
@@ -73,9 +82,6 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        if (savedInstanceState != null)
-            isToolbarAnimated = savedInstanceState.getBoolean(STATE_CHANGE);
-
         if (toolbar != null)
             setupToolbar();
 
@@ -93,12 +99,35 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
     }
 
     private void setupDrawerContent() {
+        navigationView.getMenu().getItem(0).setChecked(true);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        menuItem.setChecked(true);
-                        drawerLayout.closeDrawers();
+                        if (menuItem.isChecked()) {
+                            drawerLayout.closeDrawer(Gravity.LEFT);
+                        } else {
+
+                            navigationView.getMenu().findItem(lastSelectedDrawerItem).setChecked(false);
+                            lastSelectedDrawerItem = menuItem.getItemId();
+                            navigationView.setCheckedItem(lastSelectedDrawerItem);
+                            drawerLayout.closeDrawer(Gravity.LEFT);
+
+                            switch (lastSelectedDrawerItem) {
+                                case R.id.nav_category:
+                                    displayView(0, null);
+                                    break;
+                                case R.id.nav_favorites:
+                                    displayView(FAVORITE_FRAG, null);
+                                    break;
+                                case R.id.nav_about:
+                                    displayView(ABOUT_FRAG, null);
+                                    break;
+
+                            }
+
+
+                        }
                         return true;
                     }
                 });
@@ -106,6 +135,8 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
 
 
     public abstract void displayView(int position, Bundle fragmentBundle);
+
+    public abstract void drawerView(int position);
 
 
     public void clearBackStack() {

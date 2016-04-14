@@ -27,7 +27,7 @@ public class FragmentAbout extends DefaultFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        getActivity().setTitle(R.string.drawer_item_contact);
+        getActivity().setTitle(R.string.drawer_item_about);
 
         TextView mailTo = (TextView) view.findViewById(R.id.mailTo);
         mailTo.setOnClickListener(new View.OnClickListener() {

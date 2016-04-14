@@ -2,7 +2,6 @@ package net.hadifar.dope.ui.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
@@ -13,15 +12,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import net.hadifar.dope.R;
+import net.hadifar.dope.model.BaseEntity;
 import net.hadifar.dope.model.Category;
+import net.hadifar.dope.storage.BundleDataBaseManager;
 import net.hadifar.dope.ui.activity.MainActivity;
 import net.hadifar.dope.ui.adapter.BaseAdapter;
 import net.hadifar.dope.ui.fragment.dialogs.EditDialog;
-import net.hadifar.dope.ui.listeners.DialogButtonsClickListener;
-import net.hadifar.dope.R;
-import net.hadifar.dope.storage.BundleDataBaseManager;
-import net.hadifar.dope.model.BaseEntity;
 import net.hadifar.dope.ui.fragment.dialogs.MessageDialog;
+import net.hadifar.dope.ui.listeners.DialogButtonsClickListener;
 import net.hadifar.dope.ui.listeners.OnItemClickListener;
 
 import java.util.List;
