@@ -34,8 +34,10 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public abstract class BaseDrawerActivity extends BaseActivity {
 
+    private static final String STATE_CHANGE = "stateChanged";
 
     private Stack<String> titleStack = new Stack<>();
+    private boolean isToolbarAnimated = false;
 
     //toolbar stuff
     @Bind(R.id.toolbar)
@@ -70,6 +72,9 @@ public abstract class BaseDrawerActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        if (savedInstanceState != null)
+            isToolbarAnimated = savedInstanceState.getBoolean(STATE_CHANGE);
+
         if (toolbar != null)
             setupToolbar();
 
@@ -82,11 +87,15 @@ public abstract class BaseDrawerActivity extends BaseActivity {
             displayView(0, null);
     }
 
+
     public abstract void restoreFragment(Bundle savedInstanceState);
 
     private void setupToolbar() {
         setSupportActionBar(toolbar);
-        startToolbarAnimation();
+        if (!isToolbarAnimated) {
+            startToolbarAnimation();
+            isToolbarAnimated = true;
+        }
     }
 
     private void setupDrawerContent() {
@@ -212,6 +221,11 @@ public abstract class BaseDrawerActivity extends BaseActivity {
         onBackPressed();
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(STATE_CHANGE, isToolbarAnimated);
+    }
 
     @Override
     public void onBackPressed() {

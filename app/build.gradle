@@ -13,17 +13,24 @@ android {
         minSdkVersion 14
         targetSdkVersion 23
         versionName gitTag
+        versionCode gitCommitCount
         buildConfigField "String", "GIT_SHA", "\"${gitSha}\""
+
     }
+
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
+
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    productFlavors {
-    }
+    productFlavors {}
 }
 ext {
     supportLibVersion = '23.3.0'
