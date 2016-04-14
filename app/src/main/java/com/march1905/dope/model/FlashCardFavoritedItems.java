@@ -44,6 +44,9 @@ public class FlashCardFavoritedItems implements Serializable {
     @DatabaseField(dataType = DataType.STRING)
     protected String example3;
 
+    @DatabaseField(dataType = DataType.INTEGER)
+    protected int color;
+
     public FlashCardFavoritedItems(){
         //needed for Ormlite
     }
