@@ -1,11 +1,12 @@
 # Flashcard
 Simple Material Flashcard for Android
 
-This is flashcard which use some good library Like : Ormlight Database , Calligraphy , ...
+This is a flashcard app which incorporates several cool libraries:
+- Ormlight Database
+- Calligraphy
+- and more...
 
-Hope this help you Learn more :D
-
-Any commit or question really wellcome ;)
+Any commits or questions are wellcome.
 
 ![APP SCREENSHOT](https://raw.githubusercontent.com/AmirHadifar/Flashcard/master/ScreenShot/Screenshot_1.png)
 
