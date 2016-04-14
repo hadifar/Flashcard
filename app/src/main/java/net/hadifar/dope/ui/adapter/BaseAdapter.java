@@ -120,10 +120,14 @@ public class BaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
 
         public void bindView(BaseEntity baseEntity) {
+
             entity = baseEntity;
-            TextDrawable drawable = TextDrawable.builder().buildRound(entity.getTitle().substring(0, 1), colorGenerator.getRandomColor());
+
+            TextDrawable drawable = TextDrawable.builder().buildRound(entity.getTitle().substring(0, 1), colorGenerator.getRandomColor(entity.getTitle()));
+
             imageView.setImageDrawable(drawable);
             title.setText(entity.getTitle());
+
             if (!TextUtils.isEmpty(entity.getSubtitle()))
                 subTitle.setText(entity.getSubtitle());
             else

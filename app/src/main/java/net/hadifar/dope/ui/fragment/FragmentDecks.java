@@ -29,7 +29,7 @@ import java.util.List;
  * Twitter : @HadifarAmir
  */
 
-public class FragmentDecks extends DefaultFragment implements NewDeckDialog.OnDBChangedListener{
+public class FragmentDecks extends DefaultFragment implements NewDeckDialog.OnDBChangedListener {
 
     private ColorGenerator generator = ColorGenerator.MATERIAL;
     private RecyclerView mRecyclerView;
@@ -106,9 +106,9 @@ public class FragmentDecks extends DefaultFragment implements NewDeckDialog.OnDB
         }
 
         @Override
-        public void onBindViewHolder(ViewHolder viewHolder,final int position) {
+        public void onBindViewHolder(ViewHolder viewHolder, final int position) {
             TextDrawable drawable = TextDrawable.builder()
-                    .buildRound(mItems.get(position).getTitle().substring(0, 1), generator.getRandomColor());
+                    .buildRound(mItems.get(position).getTitle().substring(0, 1), generator.getRandomColor(mItems.get(position).getTitle()));
             viewHolder.imageView.setImageDrawable(drawable);
             viewHolder.title.setText(mItems.get(position).getTitle());
             viewHolder.overflow.setOnClickListener(new View.OnClickListener() {
@@ -165,8 +165,8 @@ public class FragmentDecks extends DefaultFragment implements NewDeckDialog.OnDB
             public ViewHolder(View itemView) {
                 super(itemView);
                 title = (TextView) itemView.findViewById(R.id.titleDeck);
-                imageView = (ImageView)itemView.findViewById(R.id.imageDeck);
-                overflow = (TextView)itemView.findViewById(R.id.icon_overflow_category);
+                imageView = (ImageView) itemView.findViewById(R.id.imageDeck);
+                overflow = (TextView) itemView.findViewById(R.id.icon_overflow_category);
             }
 
         }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -32,7 +33,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  * Twitter : @AmirHadifar
  */
 
-public abstract class BaseDrawerActivity extends BaseActivity {
+public abstract class BaseDrawerActivity extends AppCompatActivity {
 
     private static final String STATE_CHANGE = "stateChanged";
 

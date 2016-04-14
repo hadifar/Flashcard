@@ -2,6 +2,7 @@ package net.hadifar.dope.ui.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
@@ -57,16 +58,14 @@ public class FragmentCategory extends DefaultFragment implements OnItemClickList
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
         List<? extends BaseEntity> entityList = BundleDataBaseManager.getInstance().getAllCategories();
-
         adapter = new BaseAdapter(getActivity(), entityList, this);
-
         recyclerView.setAdapter(adapter);
-
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         showFloatingButton();
+
     }
+
 
     private void showFloatingButton() {
         new Handler().postDelayed(new Runnable() {
@@ -154,7 +153,7 @@ public class FragmentCategory extends DefaultFragment implements OnItemClickList
                 editMsg.dismiss();
             }
         });
-        editMsg.show(getFragmentManager(), getClass().getCanonicalName());
+        editMsg.show(getFragmentManager(), "activeFragment");
     }
 
     public void DialogDelete(final Category category) {
@@ -174,7 +173,7 @@ public class FragmentCategory extends DefaultFragment implements OnItemClickList
                 deleteMsg.dismiss();
             }
         });
-        deleteMsg.show(getFragmentManager(), getClass().getCanonicalName());
+        deleteMsg.show(getFragmentManager(), "activeFragment");
     }
 
 

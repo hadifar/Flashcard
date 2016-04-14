@@ -3,6 +3,7 @@ package net.hadifar.dope.utils;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+
 /**
  * Amir Hadifar on 03/08/2015
  * Cardy
@@ -12,22 +13,11 @@ import java.util.Random;
 
 public class ColorGenerator {
 
-    public static ColorGenerator DEFAULT;
+//    public static ColorGenerator DEFAULT;
 
     public static ColorGenerator MATERIAL;
 
     static {
-        DEFAULT = create(Arrays.asList(
-                0xfff16364,
-                0xfff58559,
-                0xfff9a43e,
-                0xffe4c62e,
-                0xff67bf74,
-                0xff59a2be,
-                0xff2093cd,
-                0xffad62a7,
-                0xff805781
-        ));
         MATERIAL = create(Arrays.asList(
                 0xffe57373,
                 0xfff06292,
@@ -50,7 +40,6 @@ public class ColorGenerator {
     }
 
     private final List<Integer> mColors;
-    private final Random mRandom;
 
     public static ColorGenerator create(List<Integer> colorList) {
         return new ColorGenerator(colorList);
@@ -58,14 +47,11 @@ public class ColorGenerator {
 
     private ColorGenerator(List<Integer> colorList) {
         mColors = colorList;
-        mRandom = new Random(System.currentTimeMillis());
     }
 
-    public int getRandomColor() {
-        return mColors.get(mRandom.nextInt(mColors.size()));
-    }
-
-    public int getColor(Object key) {
-        return mColors.get(Math.abs(key.hashCode()) % mColors.size());
+    public int getRandomColor(String word) {
+        int colorNum = word.hashCode() % 16;
+        colorNum = Math.abs(colorNum);
+        return mColors.get(colorNum);
     }
 }

@@ -113,7 +113,7 @@ public class FragmentFlashCardsList extends DefaultFragment implements NewFlashC
 
         @Override
         public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-            TextDrawable drawable = TextDrawable.builder().buildRound(mItems.get(position).getTitle().substring(0, 1), generator.getRandomColor());
+            TextDrawable drawable = TextDrawable.builder().buildRound(mItems.get(position).getTitle().substring(0, 1), generator.getRandomColor(mItems.get(position).getTitle()));
             viewHolder.imageView.setImageDrawable(drawable);
             viewHolder.title.setText(mItems.get(position).getTitle());
             viewHolder.overflow.setOnClickListener(new View.OnClickListener() {

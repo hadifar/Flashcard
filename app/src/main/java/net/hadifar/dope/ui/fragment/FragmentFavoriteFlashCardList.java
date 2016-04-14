@@ -77,7 +77,7 @@ public class FragmentFavoriteFlashCardList extends DefaultFragment {
         @Override
         public void onBindViewHolder(ViewHolder viewHolder, int position) {
             TextDrawable drawable = TextDrawable.builder()
-                    .buildRound(mItems.get(position).getWord().substring(0, 1), generator.getRandomColor());
+                    .buildRound(mItems.get(position).getWord().substring(0, 1), generator.getRandomColor(mItems.get(position).getWord()));
             viewHolder.imageView.setImageDrawable(drawable);
             viewHolder.title.setText(mItems.get(position).getWord());
         }
