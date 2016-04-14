@@ -97,7 +97,7 @@ public class FragmentCategory extends DefaultFragment implements OnItemClickList
                 adapter.notifyDataSetChanged();
             }
         });
-        newCategoryDialog.show(getChildFragmentManager(), getClass().getCanonicalName());
+        newCategoryDialog.show(getFragmentManager(), getClass().getCanonicalName());
     }
 
     @Override
