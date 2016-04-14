@@ -15,6 +15,7 @@ import com.march1905.dope.core.AppDataBaseManager;
 import com.march1905.dope.ui.widget.pagerIndicator.NumericPageIndicator;
 import com.march1905.dope.model.FlashCard;
 import com.march1905.dope.model.FlashCardFavoritedItems;
+import com.march1905.dope.utils.FontHelper;
 
 import java.util.List;
 
@@ -50,9 +51,9 @@ public class FragmentFavoriteFlashCardViewer extends DefaultFragment {
         NumericPageIndicator pageIndicator = (NumericPageIndicator) view.findViewById(R.id.pageIndicator);
         pageIndicator.setViewPager(mViewPager);
 
-        mViewPager.setCurrentItem(mBundle.getInt(FragmentFavoriteFlashCardList.EXTRA_FAV_FLASHCARD_ID));
+        mViewPager.setCurrentItem(mBundle.getInt(FragmentFavoriteFlashCardList.EXTRA_ID));
 
-        Typeface mFont = Typeface.createFromAsset(getActivity().getApplicationContext().getAssets(), "font/fontawesome-webfont.ttf");
+        Typeface mFont = FontHelper.getInstance(getActivity()).getIconTypeface();
         pageIndicator.setTypeface(mFont);
 
     }

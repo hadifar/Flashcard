@@ -27,16 +27,13 @@ import java.util.List;
 
 public class FragmentFavoriteFlashCardList extends DefaultFragment {
 
-    public final static String EXTRA_FAV_FLASHCARD_ID = "favoriteFlashcardId";
-//    public final static String EXTRA_FAV_FLASHCARD_TITLE = "FavoriteFlashcardTitle";
-
-    RecyclerView mRecyclerView;
+    private RecyclerView mRecyclerView;
     private ColorGenerator generator = ColorGenerator.MATERIAL;
     private CharSequence mTitle = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-       // this.setHasOptionsMenu(true); // We use this so we can have specific ActionBar actions/icons for this fragment
+        // this.setHasOptionsMenu(true); // We use this so we can have specific ActionBar actions/icons for this fragment
         return inflater.inflate(R.layout.fragment_favorite_flashcard_list, container, false);
     }
 
@@ -70,7 +67,7 @@ public class FragmentFavoriteFlashCardList extends DefaultFragment {
                 @Override
                 public void onClick(View view) {
                     Bundle bundle = new Bundle();
-                    bundle.putInt(EXTRA_FAV_FLASHCARD_ID,mRecyclerView.getChildAdapterPosition(view));
+                    bundle.putInt(EXTRA_ID, mRecyclerView.getChildAdapterPosition(view));
                     ((MainActivity) getActivity()).displayView(MainActivity.FAVORITE_FRAG_VIEWER, bundle);
                 }
             });
@@ -112,7 +109,7 @@ public class FragmentFavoriteFlashCardList extends DefaultFragment {
             public ViewHolder(View itemView) {
                 super(itemView);
                 title = (TextView) itemView.findViewById(R.id.titleDeck);
-                imageView = (ImageView)itemView.findViewById(R.id.imageFlashCard);
+                imageView = (ImageView) itemView.findViewById(R.id.imageFlashCard);
             }
 
         }

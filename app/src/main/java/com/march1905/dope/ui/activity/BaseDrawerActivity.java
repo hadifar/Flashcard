@@ -3,11 +3,13 @@ package com.march1905.dope.ui.activity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.IntegerRes;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +18,8 @@ import android.widget.TextView;
 
 import com.march1905.dope.R;
 import com.march1905.dope.utils.Utils;
+
+import java.util.Stack;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -32,6 +36,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public abstract class BaseDrawerActivity extends AppCompatActivity {
 
+
+    Stack<String> titleStack = new Stack<>();
 
     //toolbar stuff
     @Bind(R.id.toolbar)
@@ -72,11 +78,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
         if (navigationView != null)
             setupDrawerContent();
 
-
-        if (savedInstanceState != null)
-            restoreFragment(savedInstanceState);
-        else
-            displayView(0, null);
+        displayView(0, null);
 
     }
 
@@ -99,9 +101,6 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
 
 
     public abstract void displayView(int position, Bundle fragmentBundle);
-
-
-    public abstract void restoreFragment(Bundle savedInstanceState);
 
 
     public void clearBackStack() {
@@ -175,13 +174,20 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
         return toolbarTitle;
     }
 
-    public void drawerEnable(){
+    public void setToolbarTitle(String title) {
+        if (!TextUtils.isEmpty(title)) {
+            toolbarTitle.setText(title);
+            titleStack.push(title);
+        }
+    }
+
+    public void drawerEnable() {
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
         toolbarIconDrawer.setVisibility(View.VISIBLE);
         toolbarBackIcon.setVisibility(View.GONE);
     }
 
-    public void drawerDisable(){
+    public void drawerDisable() {
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         toolbarIconDrawer.setVisibility(View.GONE);
         toolbarBackIcon.setVisibility(View.VISIBLE);
@@ -200,7 +206,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.icon_toolbar_back)
-    public void onBackClick(){
+    public void onBackClick() {
         onBackPressed();
     }
 
@@ -216,6 +222,8 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
                 super.onBackPressed();
             } else {
                 getSupportFragmentManager().popBackStack();
+                if (!titleStack.isEmpty())
+                    setToolbarTitle(titleStack.pop());
             }
         }
     }

@@ -14,12 +14,17 @@ import android.view.ViewGroup;
 
 import com.march1905.dope.R;
 import com.march1905.dope.core.BundleDataBaseManager;
+import com.march1905.dope.model.BaseEntity;
 import com.march1905.dope.model.Category;
-import com.march1905.dope.ui.adapter.CategoryAdapter;
+import com.march1905.dope.ui.activity.MainActivity;
+import com.march1905.dope.ui.adapter.BaseAdapter;
 import com.march1905.dope.ui.fragment.dialogs.EditDialog;
 import com.march1905.dope.ui.fragment.dialogs.MessageDialog;
 import com.march1905.dope.ui.listeners.DialogButtonsClickListener;
-import com.march1905.dope.ui.listeners.OnCategoryItemClickListener;
+import com.march1905.dope.ui.listeners.OnItemClickListener;
+import com.march1905.dope.utils.ColorGenerator;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -32,16 +37,16 @@ import butterknife.OnClick;
  * Twitter : @AmirHadifar
  */
 
-public class FragmentCategories extends DefaultFragment implements OnCategoryItemClickListener {
+public class FragmentCategory extends DefaultFragment implements OnItemClickListener {
+
+    private BaseAdapter adapter;
+    private ColorGenerator colorGenerator;
 
     @Bind(R.id.rv_list_category)
     RecyclerView recyclerView;
-
     @Bind(R.id.fab_add_new_category)
     FloatingActionButton fab;
 
-
-    private CategoryAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,8 +58,15 @@ public class FragmentCategories extends DefaultFragment implements OnCategoryIte
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter = new CategoryAdapter(getActivity(), this);
+
+        List<? extends BaseEntity> entityList = BundleDataBaseManager.getInstance().getAllCategories();
+
+        colorGenerator = ColorGenerator.MATERIAL;
+
+        adapter = new BaseAdapter(getActivity(), entityList, this);
+
         recyclerView.setAdapter(adapter);
 
         showFloatingButton();
@@ -72,7 +84,7 @@ public class FragmentCategories extends DefaultFragment implements OnCategoryIte
     }
 
     @OnClick(R.id.fab_add_new_category)
-    public void fabBtnClicked() {
+    public void fabClicked() {
         final EditDialog newCategoryDialog = new EditDialog();
         newCategoryDialog.init(R.string.hint_category_name, R.string.hint_category_subtitle, "", "", R.string.create_new_category, new DialogButtonsClickListener() {
             @Override
@@ -83,7 +95,7 @@ public class FragmentCategories extends DefaultFragment implements OnCategoryIte
             @Override
             public void onRightButtonClick(String... strings) {
                 int mCategoryCount = BundleDataBaseManager.getInstance().getLastCategoryId() + 1;
-                Category category = new Category(mCategoryCount, strings[0], strings[1]);
+                Category category = new Category(mCategoryCount, strings[0], strings[1], colorGenerator.getRandomColor());
                 BundleDataBaseManager.getInstance().addToCategory(category);
                 adapter.addItem(category);
                 newCategoryDialog.dismiss();
@@ -94,14 +106,17 @@ public class FragmentCategories extends DefaultFragment implements OnCategoryIte
     }
 
     @Override
-    public void onRootCategoryClick(Category category) {
-        //TODO:go to deck
-        Category c = adapter.getItem(0);
-
+    public void onRootClick(BaseEntity category) {
+        Bundle bundle = new Bundle();
+        bundle.putInt(EXTRA_ID, category.getId());
+        bundle.putString(EXTRA_TITLE, category.getTitle());
+        ((MainActivity) getActivity()).displayView(MainActivity.DECKS_FRAG, bundle);
     }
 
     @Override
-    public void onMoreClick(View v, final Category category) {
+    public void onMoreClick(View v, BaseEntity baseEntity) {
+
+        final Category category = (Category) baseEntity;
 
         PopupMenu popupMenu = new PopupMenu(getActivity(), v);
         MenuInflater inflater = popupMenu.getMenuInflater();
@@ -165,4 +180,6 @@ public class FragmentCategories extends DefaultFragment implements OnCategoryIte
         });
         deleteMsg.show(getFragmentManager(), getClass().getCanonicalName());
     }
+
+
 }

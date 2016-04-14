@@ -2,6 +2,7 @@ package com.march1905.dope.ui.fragment;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -34,21 +35,15 @@ import java.util.List;
 
 public class FragmentDecks extends DefaultFragment implements NewDeckDialog.OnDBChangedListener{
 
-    public static final String EXTRA_DECK_ID = "deckId";
-    public static final String EXTRA_DECK_TITLE = "deckTitle";
-
-    Bundle mBundle;
-
     private ColorGenerator generator = ColorGenerator.MATERIAL;
     private RecyclerView mRecyclerView;
     private List<Deck> mItems;
     private HeadersAdapter adapter;
 
-    private CharSequence mTitle = "";
+    private int deckId;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        //this.setHasOptionsMenu(true); // We use this so we can have specific ActionBar actions/icons for this fragment
-
         return inflater.inflate(R.layout.fragment_decks, container, false);
     }
 
@@ -56,16 +51,16 @@ public class FragmentDecks extends DefaultFragment implements NewDeckDialog.OnDB
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        mBundle = getArguments();
-//        TODO uncomment
-//        getActivity().setTitle(mBundle.getString(CategoryAdapter.EXTRA_CATEGORY_TITLE));
-//
-//        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_deck);
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-//        mRecyclerView.setLayoutManager(linearLayoutManager);
-//        adapter = new HeadersAdapter();
-//        mRecyclerView.setAdapter(adapter);
-//
+        Bundle mBundle = getArguments();
+        setTitle(mBundle.getString(EXTRA_TITLE));
+        deckId = mBundle.getInt(FragmentCategory.EXTRA_ID);
+
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_deck);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        mRecyclerView.setLayoutManager(linearLayoutManager);
+        adapter = new HeadersAdapter();
+        mRecyclerView.setAdapter(adapter);
+
 //        if (mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID)>2) {
 //            FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_add_new_deck);
 //            fab.setVisibility(View.VISIBLE);
@@ -84,7 +79,7 @@ public class FragmentDecks extends DefaultFragment implements NewDeckDialog.OnDB
 
     @Override
     public void onDBChanged() {
-//        mItems = new BundleDataBaseManager().getDecksForCategoryId(mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID));
+        mItems = BundleDataBaseManager.getInstance().getDecksForCategoryId(deckId);
 //        adapter.notifyDataSetChanged();
     }
 
@@ -93,7 +88,7 @@ public class FragmentDecks extends DefaultFragment implements NewDeckDialog.OnDB
 
 
         public HeadersAdapter() {
-//            mItems = new BundleDataBaseManager().getDecksForCategoryId(mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID));
+            mItems = BundleDataBaseManager.getInstance().getDecksForCategoryId(deckId);
         }
 
         @Override
@@ -106,8 +101,8 @@ public class FragmentDecks extends DefaultFragment implements NewDeckDialog.OnDB
                     Bundle bundle = new Bundle();
                     Deck item = getItem(mRecyclerView.getChildAdapterPosition(view));
 //                    bundle.putInt(CategoryAdapter.EXTRA_CATEGORY_ID, item.getCategoryId());
-                    bundle.putInt(EXTRA_DECK_ID, item.getId());
-                    bundle.putString(EXTRA_DECK_TITLE, item.getTitle());
+                    bundle.putInt(EXTRA_ID, item.getId());
+                    bundle.putString(EXTRA_TITLE, item.getTitle());
                     ((MainActivity) getActivity()).displayView(MainActivity.FLASHCARDS_FRAG, bundle);
                 }
             });
@@ -242,23 +237,5 @@ public class FragmentDecks extends DefaultFragment implements NewDeckDialog.OnDB
 //            }
 //        });
     }
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        // Get/Backup current title
-        mTitle = getActivity().getTitle();
-
-
-    }
-
-    @Override
-    public void onDestroy() {
-        // Set title back
-        getActivity().setTitle(mTitle);
-        super.onDestroy();
-    }
-
 
 }

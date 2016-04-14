@@ -13,10 +13,7 @@ import java.io.Serializable;
  * Twitter : @HadifarAmir
  */
 @DatabaseTable(tableName = "FlashCard")
-public class FlashCard implements Serializable {
-
-    @DatabaseField(id = true)
-    protected int id;
+public class FlashCard extends BaseEntity implements Serializable {
 
     @DatabaseField(dataType = DataType.STRING)
     protected String word;
@@ -58,90 +55,100 @@ public class FlashCard implements Serializable {
         this.example3 = favItem.getExample3();
     }
 
+    public FlashCard(int id, String word, String persian, String synonym, String pronunciation, String example1, String example2, String example3, int deckId) {
+        this.id = id;
+        this.word = word;
+        this.title = word;
+        this.deckId = deckId;
+        this.pronunciation = pronunciation;
+        this.persian = persian;
+        this.synonym = synonym;
+        this.example1 = example1;
+        this.example2 = example2;
+        this.example3 = example3;
+    }
 
     public String getWord() {
         return word;
-    }
-
-    public String getPersian() {
-        return persian;
-    }
-
-    public String getSynonym() {
-        return synonym;
-    }
-
-    public String getPronunciation() {
-        return pronunciation;
-    }
-
-    public String getExample1() {
-        return example1;
-    }
-
-    public String getExample2() {
-        return example2;
-    }
-
-    public String getExample3() {
-        return example3;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public int getDeckId() {
-        return deckId;
-    }
-
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void setWord(String word) {
         this.word = word;
     }
 
+    public String getPersian() {
+        return persian;
+    }
+
     public void setPersian(String persian) {
         this.persian = persian;
+    }
+
+    public String getSynonym() {
+        return synonym;
     }
 
     public void setSynonym(String synonym) {
         this.synonym = synonym;
     }
 
+    public String getPronunciation() {
+        return pronunciation;
+    }
+
     public void setPronunciation(String pronunciation) {
         this.pronunciation = pronunciation;
+    }
+
+    public String getExample1() {
+        return example1;
     }
 
     public void setExample1(String example1) {
         this.example1 = example1;
     }
 
+    public String getExample2() {
+        return example2;
+    }
+
     public void setExample2(String example2) {
         this.example2 = example2;
+    }
+
+    public String getExample3() {
+        return example3;
     }
 
     public void setExample3(String example3) {
         this.example3 = example3;
     }
 
+    public int getDeckId() {
+        return deckId;
+    }
+
     public void setDeckId(int deckId) {
         this.deckId = deckId;
     }
 
-    public FlashCard(int id, String word, String persian, String synonym, String pronunciation, String example1, String example2, String example3, int deckId) {
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
         this.id = id;
-        this.word = word;
-        this.deckId = deckId;
-        this.pronunciation = pronunciation;
-        this.persian = persian;
-        this.synonym = synonym;
-        this.example1 = example1;
-        this.example2 = example2;
-        this.example3 = example3;
+    }
+
+    @Override
+    public String getTitle() {
+        return word;
+    }
+
+    @Override
+    public String getSubtitle() {
+        return null;
     }
 
     public class ColumnName {
@@ -149,4 +156,6 @@ public class FlashCard implements Serializable {
         public static final String DECK_ID = "deckId";
         public static final String TEXT = "";
     }
+
+
 }

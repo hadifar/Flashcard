@@ -1,8 +1,6 @@
 package com.march1905.dope.ui.fragment;
 
-import android.app.Dialog;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
@@ -11,19 +9,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.march1905.dope.R;
-import com.march1905.dope.ui.activity.MainActivity;
-import com.march1905.dope.ui.adapter.CategoryAdapter;
 import com.march1905.dope.core.BundleDataBaseManager;
-import com.march1905.dope.ui.widget.TextDrawable;
-import com.march1905.dope.ui.fragment.dialogs.NewFlashCardDialog;
 import com.march1905.dope.model.FlashCard;
+import com.march1905.dope.ui.activity.MainActivity;
+import com.march1905.dope.ui.fragment.dialogs.NewFlashCardDialog;
+import com.march1905.dope.ui.widget.TextDrawable;
 import com.march1905.dope.utils.ColorGenerator;
 
 import java.util.List;
@@ -57,7 +51,7 @@ public class FragmentFlashCardsList extends DefaultFragment implements NewFlashC
         super.onActivityCreated(savedInstanceState);
 
         mBundle = getArguments();
-        getActivity().setTitle(mBundle.getString(FragmentDecks.EXTRA_DECK_TITLE));
+        setTitle(mBundle.getString(EXTRA_TITLE));
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.flashcardsList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
@@ -88,7 +82,7 @@ public class FragmentFlashCardsList extends DefaultFragment implements NewFlashC
 
     @Override
     public void onDBChanged() {
-        mItems =  BundleDataBaseManager.getInstance().getFlashCardsForDeckId(mBundle.getInt(FragmentDecks.EXTRA_DECK_ID));
+        mItems = BundleDataBaseManager.getInstance().getFlashCardsForDeckId(mBundle.getInt(EXTRA_ID));
         adapter.notifyDataSetChanged();
     }
 
@@ -96,7 +90,7 @@ public class FragmentFlashCardsList extends DefaultFragment implements NewFlashC
 
 
         public HeadersAdapter() {
-            mItems = BundleDataBaseManager.getInstance().getFlashCardsForDeckId(mBundle.getInt(FragmentDecks.EXTRA_DECK_ID));
+            mItems = BundleDataBaseManager.getInstance().getFlashCardsForDeckId(mBundle.getInt(EXTRA_ID));
         }
 
         @Override
@@ -107,8 +101,8 @@ public class FragmentFlashCardsList extends DefaultFragment implements NewFlashC
                 @Override
                 public void onClick(View view) {
                     Bundle bundle = new Bundle();
-                    bundle.putString(EXTRA_FLASHCARD_TITLE, mBundle.getString(FragmentDecks.EXTRA_DECK_TITLE));
-                    bundle.putInt(FragmentDecks.EXTRA_DECK_ID, mBundle.getInt(FragmentDecks.EXTRA_DECK_ID));
+                    bundle.putString(EXTRA_FLASHCARD_TITLE, mBundle.getString(EXTRA_TITLE));
+                    bundle.putInt(EXTRA_ID, mBundle.getInt(EXTRA_ID));
                     bundle.putInt(EXTRA_FLASHCARD_ID, mRecyclerView.getChildAdapterPosition(view));
 
                     ((MainActivity) getActivity()).displayView(MainActivity.FLASHCARDS_VIEWER, bundle);
@@ -119,8 +113,7 @@ public class FragmentFlashCardsList extends DefaultFragment implements NewFlashC
 
         @Override
         public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-            TextDrawable drawable = TextDrawable.builder()
-                    .buildRound(mItems.get(position).getWord().substring(0, 1), generator.getRandomColor());
+            TextDrawable drawable = TextDrawable.builder().buildRound(mItems.get(position).getWord().substring(0, 1), generator.getRandomColor());
             viewHolder.imageView.setImageDrawable(drawable);
             viewHolder.title.setText(mItems.get(position).getWord());
             viewHolder.overflow.setOnClickListener(new View.OnClickListener() {

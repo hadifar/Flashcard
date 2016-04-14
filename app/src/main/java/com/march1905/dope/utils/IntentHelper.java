@@ -17,7 +17,7 @@ import com.march1905.dope.core.AppConfig;
 public class IntentHelper {
 
     public static void sendEmail(Context context) {
-        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto","march1905s@gmail.com", null));
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto","hadifar.amir@gmail.com", null));
         context.startActivity(Intent.createChooser(emailIntent, "Send email..."));
     }
 

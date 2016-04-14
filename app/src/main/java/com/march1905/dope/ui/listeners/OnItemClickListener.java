@@ -2,6 +2,7 @@ package com.march1905.dope.ui.listeners;
 
 import android.view.View;
 
+import com.march1905.dope.model.BaseEntity;
 import com.march1905.dope.model.Category;
 
 /**
@@ -10,8 +11,9 @@ import com.march1905.dope.model.Category;
  * GitHub  : @AmirHadifar
  * Twitter : @AmirHadifar
  */
-public interface OnCategoryItemClickListener {
+public interface OnItemClickListener {
 
-    public void onRootCategoryClick( Category category);
-    public void onMoreClick(View v , Category category);
+    public void onRootClick(BaseEntity entity);
+
+    public void onMoreClick(View v, BaseEntity entity);
 }

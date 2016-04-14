@@ -8,6 +8,7 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.stmt.Where;
 import com.j256.ormlite.table.TableUtils;
+import com.march1905.dope.model.BaseEntity;
 import com.march1905.dope.model.Category;
 import com.march1905.dope.model.Deck;
 import com.march1905.dope.model.FlashCard;

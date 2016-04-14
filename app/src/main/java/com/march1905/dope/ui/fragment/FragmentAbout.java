@@ -13,19 +13,15 @@ import com.march1905.dope.utils.IntentHelper;
  * Amir Hadifar on 01/08/2015
  * Cardy
  * Email : Hadifar.amir@gmail.com
- * Twitter : @HadifarAmir
+ * Twitter : @AmirHadifar
  */
 
-public class FragmentContact extends DefaultFragment {
-
-    private CharSequence mTitle = "";
+public class FragmentAbout extends DefaultFragment {
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        //this.setHasOptionsMenu(true); // We use this so we can have specific ActionBar actions/icons for this fragment
-
-        return inflater.inflate(R.layout.fragment_contact, container, false);
+        return inflater.inflate(R.layout.fragment_about, container, false);
     }
 
     @Override
@@ -49,21 +45,5 @@ public class FragmentContact extends DefaultFragment {
             }
         });
 
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        // Get/Backup current title
-        mTitle = getActivity().getTitle();
-
-
-    }
-
-    @Override
-    public void onDestroy() {
-        // Set title back
-        getActivity().setTitle(mTitle);
-        super.onDestroy();
     }
 }

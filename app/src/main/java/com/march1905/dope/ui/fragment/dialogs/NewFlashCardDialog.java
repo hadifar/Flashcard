@@ -74,8 +74,8 @@ public class NewFlashCardDialog extends BaseDialog implements DialogInterface.On
 
                     int mFlashCardID = dataBaseManager.getLastFlashCardId() + 1;
 
-                    dataBaseManager.addToFlashCard(new FlashCard(mFlashCardID, strName, strPersian,
-                            strSynonym, strPronunciation, strEx1, strEx2, strEx3, mBundle.getInt(FragmentDecks.EXTRA_DECK_ID)));
+//                    dataBaseManager.addToFlashCard(new FlashCard(mFlashCardID, strName, strPersian,
+//                            strSynonym, strPronunciation, strEx1, strEx2, strEx3, mBundle.getInt(FragmentDecks.EXTRA_DECK_ID)));
 
                     Utils.hideKeyboard(getActivity());
                     mCallback.onDBChanged();

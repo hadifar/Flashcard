@@ -40,17 +40,17 @@
                 android:layout_height="match_parent"
                 android:text="@string/icon_menu"
                 android:textColor="@color/material_text_color_bright" />
-
         </FrameLayout>
 
         <TextView
             android:id="@+id/text_toolbar_title"
-            style="@style/Textview.Dark.Medium"
+            style="@style/Textview.White.Medium"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_toLeftOf="@+id/icon_toolbar_search"
             android:layout_toRightOf="@+id/frame_left_icons"
-            android:gravity="center" />
+            android:gravity="center"
+            android:text="Dope"/>
 
 
         <TextView
