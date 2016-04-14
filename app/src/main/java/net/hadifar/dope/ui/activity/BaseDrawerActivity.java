@@ -82,21 +82,14 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
         if (navigationView != null)
             setupDrawerContent();
 
-        if (savedInstanceState != null)
-            restoreFragment(savedInstanceState);
-        else
-            displayView(0, null);
+        displayView(0, null);
     }
 
 
-    public abstract void restoreFragment(Bundle savedInstanceState);
-
     private void setupToolbar() {
         setSupportActionBar(toolbar);
-        if (!isToolbarAnimated) {
-            startToolbarAnimation();
-            isToolbarAnimated = true;
-        }
+        startToolbarAnimation();
+
     }
 
     private void setupDrawerContent() {
@@ -220,12 +213,6 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
     @OnClick(R.id.icon_toolbar_back)
     public void onBackClick() {
         onBackPressed();
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean(STATE_CHANGE, isToolbarAnimated);
     }
 
     @Override

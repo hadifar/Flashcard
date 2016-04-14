@@ -40,8 +40,6 @@ public abstract class DefaultFragment extends Fragment implements FragmentManage
 
         getFragmentManager().addOnBackStackChangedListener(this);
 
-        setRetainInstance(true);
-
         shouldDisplayHomeUp();
     }
 
