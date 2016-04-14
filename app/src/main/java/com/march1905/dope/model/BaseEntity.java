@@ -20,8 +20,14 @@ public abstract class BaseEntity {
     @DatabaseField(dataType = DataType.STRING)
     public String subtitle;
 
+    @DatabaseField(dataType = DataType.INTEGER)
+    public int color;
 
     public abstract int getId();
     public abstract String getTitle();
     public abstract String getSubtitle();
+
+    public int getColor(){
+        return color;
+    }
 }
