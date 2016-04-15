@@ -30,7 +30,6 @@ public class FragmentFavoriteFlashCardList extends BaseListFragment {
 
     private RecyclerView mRecyclerView;
     private ColorGenerator generator = ColorGenerator.MATERIAL;
-    private CharSequence mTitle = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -73,7 +72,7 @@ public class FragmentFavoriteFlashCardList extends BaseListFragment {
         @Override
         public HeadersAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, final int itemType) {
 
-            View rootView = getActivity().getLayoutInflater().inflate(R.layout.row_favorite_flashcard_list_items, viewGroup, false);
+            View rootView = getActivity().getLayoutInflater().inflate(R.layout.row_base_list_items, viewGroup, false);
             rootView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -119,26 +118,11 @@ public class FragmentFavoriteFlashCardList extends BaseListFragment {
 
             public ViewHolder(View itemView) {
                 super(itemView);
-                title = (TextView) itemView.findViewById(R.id.titleDeck);
-                imageView = (ImageView) itemView.findViewById(R.id.imageFlashCard);
+                title = (TextView) itemView.findViewById(R.id.txt_title_base);
+                imageView = (ImageView) itemView.findViewById(R.id.img_thumbnail_base);
             }
 
         }
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        // Get/Backup current title
-        mTitle = getActivity().getTitle();
-
-
-    }
-
-    @Override
-    public void onDestroy() {
-        // Set title back
-        getActivity().setTitle(mTitle);
-        super.onDestroy();
-    }
 }

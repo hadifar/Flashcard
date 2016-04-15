@@ -107,7 +107,7 @@ public class FragmentFlashCardsList extends BaseListFragment implements NewFlash
         @Override
         public HeadersAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, final int itemType) {
 
-            View rootView = getActivity().getLayoutInflater().inflate(R.layout.row_flashcard_list_items, viewGroup, false);
+            View rootView = getActivity().getLayoutInflater().inflate(R.layout.row_base_list_items, viewGroup, false);
             rootView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -179,8 +179,8 @@ public class FragmentFlashCardsList extends BaseListFragment implements NewFlash
 
             public ViewHolder(View itemView) {
                 super(itemView);
-                imageView = (ImageView) itemView.findViewById(R.id.imageFlashCard);
-                title = (TextView) itemView.findViewById(R.id.titleDeck);
+                imageView = (ImageView) itemView.findViewById(R.id.img_thumbnail_base);
+                title = (TextView) itemView.findViewById(R.id.txt_title_base);
                 overflow = (TextView) itemView.findViewById(R.id.icon_overflow_base);
             }
 
