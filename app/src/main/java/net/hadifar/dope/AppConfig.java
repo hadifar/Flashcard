@@ -151,9 +151,9 @@ public class AppConfig extends Application {
             String DB_PATH;
 
             if (Build.VERSION.SDK_INT >= 17)
-                DB_PATH = AppConfig.getInstance().getApplicationInfo().dataDir + "/databases/";
+                DB_PATH = getApplicationInfo().dataDir + "/databases/";
             else
-                DB_PATH = "/data/data/" + AppConfig.getInstance().getPackageName() + "/databases/";
+                DB_PATH = "/data/data/" + getPackageName() + "/databases/";
 
             String outFileName = DB_PATH + BundleDataBaseManager.DATABASE_NAME;
             OutputStream myOutput = new FileOutputStream(outFileName);

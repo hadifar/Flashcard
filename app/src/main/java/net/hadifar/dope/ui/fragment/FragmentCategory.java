@@ -1,16 +1,11 @@
 package net.hadifar.dope.ui.fragment;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
 import net.hadifar.dope.R;
 import net.hadifar.dope.model.BaseEntity;
@@ -21,12 +16,9 @@ import net.hadifar.dope.ui.adapter.BaseAdapter;
 import net.hadifar.dope.ui.fragment.dialogs.EditDialog;
 import net.hadifar.dope.ui.fragment.dialogs.MessageDialog;
 import net.hadifar.dope.ui.listeners.DialogButtonsClickListener;
-import net.hadifar.dope.ui.listeners.OnItemClickListener;
 
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -36,22 +28,7 @@ import butterknife.OnClick;
  * Twitter : @AmirHadifar
  */
 
-public class FragmentCategory extends DefaultFragment implements OnItemClickListener {
-
-    private BaseAdapter adapter;
-
-    @Bind(R.id.rv_list_category)
-    RecyclerView recyclerView;
-    @Bind(R.id.fab_add_new_category)
-    FloatingActionButton fab;
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_categories, container, false);
-        ButterKnife.bind(this, view);
-        return view;
-    }
+public class FragmentCategory extends BaseListFragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -66,18 +43,7 @@ public class FragmentCategory extends DefaultFragment implements OnItemClickList
     }
 
 
-    private void showFloatingButton() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (!fab.isShown()) {
-                    fab.show();
-                }
-            }
-        }, 1000);
-    }
-
-    @OnClick(R.id.fab_add_new_category)
+    @OnClick(R.id.fab_add_new_card)
     public void fabClicked() {
         final EditDialog newCategoryDialog = new EditDialog();
         newCategoryDialog.init(R.string.hint_category_name, R.string.hint_category_subtitle, "", "", R.string.create_new_category, new DialogButtonsClickListener() {

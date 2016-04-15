@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import net.hadifar.dope.model.BaseEntity;
 import net.hadifar.dope.model.FlashCard;
 import net.hadifar.dope.ui.activity.MainActivity;
 import net.hadifar.dope.ui.widget.TextDrawable;
@@ -29,7 +30,7 @@ import java.util.List;
  * Twitter : @AmirHadifar
  */
 
-public class FragmentFlashCardsList extends DefaultFragment implements NewFlashCardDialog.OnDBChangedListener {
+public class FragmentFlashCardsList extends BaseListFragment implements NewFlashCardDialog.OnDBChangedListener {
 
     public final static String EXTRA_FLASHCARD_ID = "flashcardId";
     public final static String EXTRA_FLASHCARD_TITLE = "flashcardTitle";
@@ -84,6 +85,16 @@ public class FragmentFlashCardsList extends DefaultFragment implements NewFlashC
     public void onDBChanged() {
         mItems = BundleDataBaseManager.getInstance().getFlashCardsForDeckId(mBundle.getInt(EXTRA_ID));
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onRootClick(BaseEntity entity) {
+
+    }
+
+    @Override
+    public void onMoreClick(View v, BaseEntity entity) {
+
     }
 
     public class HeadersAdapter extends RecyclerView.Adapter<HeadersAdapter.ViewHolder> {

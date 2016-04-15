@@ -13,7 +13,7 @@
 
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_list_category"
+            android:id="@+id/rv_list_base"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
@@ -23,7 +23,7 @@
             android:scrollbars="none" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_add_new_category"
+            android:id="@+id/fab_add_new_card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"

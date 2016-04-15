@@ -122,10 +122,10 @@ public class EditDialog extends BaseDialog {
         if ((firstEditTxt == null || TextUtils.isEmpty(firstEditTxt.getText())) && firstInputLayout.getVisibility() == View.VISIBLE) {
             firstInputLayout.setError("Set " + firstHint);
             return false;
-        } else if ((secondEditTxt == null || TextUtils.isEmpty(secondEditTxt.getText())) && secondInputLayout.getVisibility() == View.VISIBLE) {
+        } /*else if ((secondEditTxt == null || TextUtils.isEmpty(secondEditTxt.getText())) && secondInputLayout.getVisibility() == View.VISIBLE) {
             secondInputLayout.setError("Set " + secondHint);
             return false;
-        }
+        }*/
 
         return true;
     }

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import net.hadifar.dope.model.BaseEntity;
 import net.hadifar.dope.model.FlashCardFavoritedItems;
 import net.hadifar.dope.ui.activity.MainActivity;
 import net.hadifar.dope.ui.widget.TextDrawable;
@@ -25,7 +26,7 @@ import java.util.List;
  * Twitter : @HadifarAmir
  */
 
-public class FragmentFavoriteFlashCardList extends DefaultFragment {
+public class FragmentFavoriteFlashCardList extends BaseListFragment {
 
     private RecyclerView mRecyclerView;
     private ColorGenerator generator = ColorGenerator.MATERIAL;
@@ -46,6 +47,16 @@ public class FragmentFavoriteFlashCardList extends DefaultFragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.setAdapter(new HeadersAdapter());
+
+    }
+
+    @Override
+    public void onRootClick(BaseEntity entity) {
+
+    }
+
+    @Override
+    public void onMoreClick(View v, BaseEntity entity) {
 
     }
 

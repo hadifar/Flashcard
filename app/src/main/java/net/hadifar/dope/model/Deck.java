@@ -56,6 +56,10 @@ public class Deck extends BaseEntity {
         this.title = title;
     }
 
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
+    }
+
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }

@@ -53,6 +53,7 @@
     <string name="hint_category_name">Category name</string>
     <string name="hint_category_subtitle">Category subtitle</string>
     <string name="hint_deck_name">Deck name</string>
+    <string name="hint_deck_subtitle">Deck subtitle</string>
     <string name="hint_flashcard_name">Flashcard name</string>
     <string name="hint_flashcard_word">Word</string>
     <string name="hint_flashcard_persian">Persian</string>
