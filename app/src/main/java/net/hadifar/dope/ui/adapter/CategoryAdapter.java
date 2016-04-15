@@ -11,7 +11,7 @@
 //
 //import R;
 //import com.march1905.dope.core.BundleDataBaseManager;
-//import com.march1905.dope.ui.listeners.OnItemClickListener;
+//import com.march1905.dope.ui.listeners.OnCardClickListener;
 //import com.march1905.dope.ui.widget.TextDrawable;
 //import com.march1905.dope.model.Category;
 //import com.march1905.dope.utils.ColorGenerator;
@@ -39,10 +39,10 @@
 //
 //    private int lastAnimatedPosition = -1;
 //
-//    private OnItemClickListener listener;
+//    private OnCardClickListener listener;
 //
 //
-//    public CategoryAdapter(Context context, OnItemClickListener listener) {
+//    public CategoryAdapter(Context context, OnCardClickListener listener) {
 //        this.items = BundleDataBaseManager.getInstance().getAllCategories();
 //        this.mContext = context;
 //        this.colorGenerator = ColorGenerator.MATERIAL;

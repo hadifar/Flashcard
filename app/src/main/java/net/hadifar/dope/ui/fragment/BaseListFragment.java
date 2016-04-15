@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import net.hadifar.dope.R;
 import net.hadifar.dope.ui.adapter.BaseAdapter;
-import net.hadifar.dope.ui.listeners.OnItemClickListener;
+import net.hadifar.dope.ui.listeners.OnCardClickListener;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
  * GitHub  : @AmirHadifar
  * Twitter : @AmirHadifar
  */
-public abstract class BaseListFragment extends DefaultFragment implements OnItemClickListener {
+public abstract class BaseListFragment extends DefaultFragment implements OnCardClickListener {
 
     protected BaseAdapter adapter;
 

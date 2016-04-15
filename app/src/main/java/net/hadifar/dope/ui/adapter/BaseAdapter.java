@@ -15,7 +15,7 @@ import net.hadifar.dope.utils.ColorGenerator;
 import net.hadifar.dope.utils.Utils;
 import net.hadifar.dope.R;
 import net.hadifar.dope.model.BaseEntity;
-import net.hadifar.dope.ui.listeners.OnItemClickListener;
+import net.hadifar.dope.ui.listeners.OnCardClickListener;
 
 import java.util.List;
 
@@ -39,10 +39,10 @@ public class BaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private int lastAnimatedPosition = -1;
 
-    private OnItemClickListener listener;
+    private OnCardClickListener listener;
 
 
-    public BaseAdapter(Context context, List<BaseEntity> items, OnItemClickListener listener) {
+    public BaseAdapter(Context context, List<BaseEntity> items, OnCardClickListener listener) {
         this.items = items;
         this.mContext = context;
         this.colorGenerator = ColorGenerator.MATERIAL;

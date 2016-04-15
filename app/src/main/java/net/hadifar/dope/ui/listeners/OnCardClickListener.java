@@ -10,7 +10,7 @@ import net.hadifar.dope.model.BaseEntity;
  * GitHub  : @AmirHadifar
  * Twitter : @AmirHadifar
  */
-public interface OnItemClickListener {
+public interface OnCardClickListener {
 
     public void onRootClick(BaseEntity entity);
 
