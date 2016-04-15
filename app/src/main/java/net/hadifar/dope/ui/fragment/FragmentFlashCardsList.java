@@ -170,7 +170,7 @@ public class FragmentFlashCardsList extends DefaultFragment implements NewFlashC
                 super(itemView);
                 imageView = (ImageView) itemView.findViewById(R.id.imageFlashCard);
                 title = (TextView) itemView.findViewById(R.id.titleDeck);
-                overflow = (TextView) itemView.findViewById(R.id.icon_overflow_category);
+                overflow = (TextView) itemView.findViewById(R.id.icon_overflow_base);
             }
 
         }

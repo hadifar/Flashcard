@@ -99,7 +99,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
     }
 
     private void setupDrawerContent() {
-        navigationView.getMenu().getItem(0).setChecked(true);
+        navigationView.getMenu().getItem(CATEGORIES_FRAG).setChecked(true);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -115,7 +115,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
 
                             switch (lastSelectedDrawerItem) {
                                 case R.id.nav_category:
-                                    displayView(0, null);
+                                    displayView(CATEGORIES_FRAG, null);
                                     break;
                                 case R.id.nav_favorites:
                                     displayView(FAVORITE_FRAG, null);

@@ -58,7 +58,7 @@ public class FragmentCategory extends DefaultFragment implements OnItemClickList
         super.onActivityCreated(savedInstanceState);
 
         List<? extends BaseEntity> entityList = BundleDataBaseManager.getInstance().getAllCategories();
-        adapter = new BaseAdapter(getActivity(), entityList, this);
+        adapter = new BaseAdapter(getActivity(), (List<BaseEntity>) entityList, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         showFloatingButton();
@@ -92,8 +92,8 @@ public class FragmentCategory extends DefaultFragment implements OnItemClickList
                 Category category = new Category(mCategoryCount, strings[0], strings[1]);
                 BundleDataBaseManager.getInstance().addToCategory(category);
                 adapter.addItem(category);
-                newCategoryDialog.dismiss();
                 adapter.notifyDataSetChanged();
+                newCategoryDialog.dismiss();
             }
         });
         newCategoryDialog.show(getFragmentManager(), getClass().getCanonicalName());
@@ -132,7 +132,6 @@ public class FragmentCategory extends DefaultFragment implements OnItemClickList
             }
         });
     }
-
 
     public void DialogEdit(final Category category) {
 

@@ -52,7 +52,7 @@
 //    @Override
 //    public RecyclerView.ViewHolder onCreateViewHolder(final ViewGroup viewGroup, final int itemType) {
 //
-//        View rootView = LayoutInflater.from(mContext).inflate(R.layout.row_category_list_items, viewGroup, false);
+//        View rootView = LayoutInflater.from(mContext).inflate(R.layout.row_base_list_items, viewGroup, false);
 //        return new ViewHolder(rootView);
 //    }
 //

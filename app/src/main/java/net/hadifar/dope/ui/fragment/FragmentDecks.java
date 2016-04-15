@@ -166,7 +166,7 @@ public class FragmentDecks extends DefaultFragment implements NewDeckDialog.OnDB
                 super(itemView);
                 title = (TextView) itemView.findViewById(R.id.titleDeck);
                 imageView = (ImageView) itemView.findViewById(R.id.imageDeck);
-                overflow = (TextView) itemView.findViewById(R.id.icon_overflow_category);
+                overflow = (TextView) itemView.findViewById(R.id.icon_overflow_base);
             }
 
         }

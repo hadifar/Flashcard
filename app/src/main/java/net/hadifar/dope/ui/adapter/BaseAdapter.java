@@ -35,14 +35,14 @@ public class BaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context mContext;
     private ColorGenerator colorGenerator;
-    private List<? extends BaseEntity> items;
+    private List<BaseEntity> items;
 
     private int lastAnimatedPosition = -1;
 
     private OnItemClickListener listener;
 
 
-    public BaseAdapter(Context context, List<? extends BaseEntity> items, OnItemClickListener listener) {
+    public BaseAdapter(Context context, List<BaseEntity> items, OnItemClickListener listener) {
         this.items = items;
         this.mContext = context;
         this.colorGenerator = ColorGenerator.MATERIAL;
@@ -52,7 +52,7 @@ public class BaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(final ViewGroup viewGroup, final int itemType) {
 
-        View rootView = LayoutInflater.from(mContext).inflate(R.layout.row_category_list_items, viewGroup, false);
+        View rootView = LayoutInflater.from(mContext).inflate(R.layout.row_base_list_items, viewGroup, false);
         return new ViewHolder(rootView);
     }
 
@@ -89,7 +89,7 @@ public class BaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public void addItem(BaseEntity entity) {
-        items.remove(entity);
+        items.add(entity);
     }
 
 
@@ -105,11 +105,11 @@ public class BaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.txt_title_category)
+        @Bind(R.id.txt_title_base)
         public TextView title;
-        @Bind(R.id.txt_subtitle_category)
+        @Bind(R.id.txt_subtitle_base)
         public TextView subTitle;
-        @Bind(R.id.image_thumbnail_category)
+        @Bind(R.id.img_thumbnail_base)
         public ImageView imageView;
 
         private BaseEntity entity;
@@ -134,7 +134,7 @@ public class BaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 subTitle.setVisibility(View.GONE);
         }
 
-        @OnClick(R.id.icon_overflow_category)
+        @OnClick(R.id.icon_overflow_base)
         public void onClickOverflow(View view) {
             if (listener != null)
                 listener.onMoreClick(view, entity);
