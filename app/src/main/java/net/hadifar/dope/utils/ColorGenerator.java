@@ -50,8 +50,7 @@ public class ColorGenerator {
     }
 
     public int getRandomColor(String word) {
-        int colorNum = word.hashCode() % 16;
-        colorNum = Math.abs(colorNum);
+        int colorNum = Math.abs(word.hashCode() % 16);
         return mColors.get(colorNum);
     }
 }

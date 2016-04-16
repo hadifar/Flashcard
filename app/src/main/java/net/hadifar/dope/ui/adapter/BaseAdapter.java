@@ -31,8 +31,6 @@ import butterknife.OnClick;
  */
 public class BaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private static final int ANIMATED_ITEMS_COUNT = 8;
-
     private Context mContext;
     private ColorGenerator colorGenerator;
     private List<BaseEntity> items;
@@ -65,9 +63,7 @@ public class BaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     private void runEnterAnimation(View view, int position) {
-        if (position >= ANIMATED_ITEMS_COUNT - 1) {
-            return;
-        }
+
         if (position > lastAnimatedPosition) {
             lastAnimatedPosition = position;
             view.setTranslationY(Utils.getScreenHeight(mContext));

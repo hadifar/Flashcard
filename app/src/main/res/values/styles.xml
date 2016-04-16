@@ -123,8 +123,8 @@
 
     <!-- Animations for Dialogs-->
     <style name="DialogAnimation">
-        <item name="android:windowEnterAnimation">@anim/slide_up_dialog</item>
-        <item name="android:windowExitAnimation">@anim/slide_down_dialog</item>
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_down</item>
     </style>
 
 
