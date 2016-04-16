@@ -51,7 +51,6 @@ public class FlashCard extends BaseEntity {
     }
 
 
-
     public String getPersian() {
         return persian;
     }
@@ -85,8 +84,12 @@ public class FlashCard extends BaseEntity {
         this.id = id;
     }
 
-    public void setWord(String word) {
-        this.title = word;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
     }
 
     public void setPersian(String persian) {
@@ -132,7 +135,7 @@ public class FlashCard extends BaseEntity {
     public class ColumnName {
         public static final String ID = "id";
         public static final String DECK_ID = "deckId";
-        public static final String TEXT = "";
+//        public static final String TEXT = "";
     }
 
     @Override
@@ -148,7 +151,7 @@ public class FlashCard extends BaseEntity {
 
     @Override
     public String getSubtitle() {
-        return null;
+        return subtitle;
     }
 
 

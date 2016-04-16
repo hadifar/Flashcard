@@ -11,8 +11,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import net.hadifar.dope.storage.BundleDataBaseManager;
+import net.hadifar.dope.ui.listeners.DialogButtonsClickListener;
 import net.hadifar.dope.utils.Utils;
 import net.hadifar.dope.R;
+
+import butterknife.ButterKnife;
 
 /**
  * Amir Hadifar on 01/08/2015
@@ -21,17 +24,15 @@ import net.hadifar.dope.R;
  * Twitter : @AmirHadifar
  */
 
-public class NewFlashCardDialog extends BaseDialog implements DialogInterface.OnDismissListener {
+public class EditLargeDialog extends BaseDialog implements DialogInterface.OnDismissListener {
 
-    private Bundle mBundle;
-    private BundleDataBaseManager dataBaseManager = BundleDataBaseManager.getInstance();
 
-    private OnDBChangedListener mCallback;
 
-    public interface OnDBChangedListener {
-        public void onDBChanged();
-    }
+    private Object leftButtonTextResId;
+    private Object rightButtonTextResId;
+    private Object createButtonTexResId;
 
+    private DialogButtonsClickListener listener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,8 +40,26 @@ public class NewFlashCardDialog extends BaseDialog implements DialogInterface.On
         if (getDialog() != null) {
             getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         }
+        View view = inflater.inflate(R.layout.dialog_edit_large, container, false);
+        ButterKnife.bind(this, view);
 
-        final View rootView = inflater.inflate(R.layout.dialog_new_flashcard, container, false);
+        initViews();
+
+        return view;
+    }
+
+    private void initViews(){
+
+    }
+
+ /*   @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        if (getDialog() != null) {
+            getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        }
+
+        final View rootView = inflater.inflate(R.layout.dialog_edit_large, container, false);
 
         Button btnAddFlashcard = (Button) rootView.findViewById(R.id.fab_add_new_flashcard);
         btnAddFlashcard.setOnClickListener(new View.OnClickListener() {
@@ -75,8 +94,6 @@ public class NewFlashCardDialog extends BaseDialog implements DialogInterface.On
 //                    dataBaseManager.addToFlashCard(new FlashCard(mFlashCardID, strName, strPersian,
 //                            strSynonym, strPronunciation, strEx1, strEx2, strEx3, mBundle.getInt(FragmentDecks.EXTRA_DECK_ID)));
 
-                    Utils.hideKeyboard(getActivity());
-                    mCallback.onDBChanged();
                     dismiss();
 
                 } else {
@@ -88,15 +105,13 @@ public class NewFlashCardDialog extends BaseDialog implements DialogInterface.On
 
 
         return rootView;
+    }*/
+
+    public void init(Object leftButtonTextResId, Object rightButtonTextResId, Object createButtonTexResId, DialogButtonsClickListener listener) {
+        this.leftButtonTextResId = leftButtonTextResId;
+        this.rightButtonTextResId = rightButtonTextResId;
+        this.createButtonTexResId = createButtonTexResId;
+        this.listener = listener;
     }
 
-
-    public void setBundle(Bundle bundle) {
-        mBundle = bundle;
-    }
-
-
-    public void setListener(OnDBChangedListener listener) {
-        this.mCallback = listener;
-    }
 }

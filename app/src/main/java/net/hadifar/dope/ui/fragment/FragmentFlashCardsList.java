@@ -3,25 +3,25 @@ package net.hadifar.dope.ui.fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import net.hadifar.dope.model.BaseEntity;
+import net.hadifar.dope.model.Deck;
 import net.hadifar.dope.model.FlashCard;
 import net.hadifar.dope.ui.activity.MainActivity;
-import net.hadifar.dope.ui.widget.TextDrawable;
-import net.hadifar.dope.utils.ColorGenerator;
+import net.hadifar.dope.ui.adapter.BaseAdapter;
+import net.hadifar.dope.ui.fragment.dialogs.EditLargeDialog;
+import net.hadifar.dope.ui.fragment.dialogs.EditSmallDialog;
+import net.hadifar.dope.ui.fragment.dialogs.MessageDialog;
+import net.hadifar.dope.ui.listeners.DialogButtonsClickListener;
 import net.hadifar.dope.R;
 import net.hadifar.dope.storage.BundleDataBaseManager;
-import net.hadifar.dope.ui.fragment.dialogs.NewFlashCardDialog;
 
 import java.util.List;
+
+import butterknife.OnClick;
 
 /**
  * Amir Hadifar on 29/07/2015
@@ -30,222 +30,138 @@ import java.util.List;
  * Twitter : @AmirHadifar
  */
 
-public class FragmentFlashCardsList extends BaseListFragment implements NewFlashCardDialog.OnDBChangedListener {
+public class FragmentFlashCardsList extends BaseListFragment {
 
-    public final static String EXTRA_FLASHCARD_ID = "flashcardId";
-    public final static String EXTRA_FLASHCARD_TITLE = "flashcardTitle";
-    Bundle mBundle;
+    public final static String EXTRA_DECK_ID = "extra_deck_id";
 
-    private ColorGenerator generator = ColorGenerator.MATERIAL;
-    private List<FlashCard> mItems;
-    private RecyclerView mRecyclerView;
-    private HeadersAdapter adapter;
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        //this.setHasOptionsMenu(true); // We use this so we can have specific ActionBar actions/icons for this fragment
-        return inflater.inflate(R.layout.fragment_flashcards_list, container, false);
-    }
+    private int selectedDeckId;
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        mBundle = getArguments();
-        setTitle(mBundle.getString(EXTRA_TITLE));
+        getBundles();
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.flashcardsList);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new HeadersAdapter();
-        mRecyclerView.setAdapter(adapter);
+        List<? extends BaseEntity> entityList = BundleDataBaseManager.getInstance().getFlashCardsForDeckId(selectedDeckId);
+        adapter = new BaseAdapter(getActivity(), (List<BaseEntity>) entityList, this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-
-        //This is for floating Btn
-        //TODO uncomment this
-//        if (mBundle.getInt(CategoryAdapter.EXTRA_CATEGORY_ID) > 2) {
-//            FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_add_new_flashcard);
-//            fab.setVisibility(View.VISIBLE);
-//            fab.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    NewFlashCardDialog newDeckDialog = new NewFlashCardDialog();
-//                    newDeckDialog.setBundle(mBundle);
-//                    newDeckDialog.setListener(FragmentFlashCardsList.this);
-//                    newDeckDialog.show(getFragmentManager(), "NewFlashCard");
-//                }
-//            });
-//        }
-
+        showFloatingButton();
 
     }
 
+    private void getBundles() {
+        Bundle mBundle = getArguments();
+        setTitle(mBundle.getString(EXTRA_TITLE));
+        selectedDeckId = mBundle.getInt(EXTRA_ID);
+    }
 
-    @Override
-    public void onDBChanged() {
-        mItems = BundleDataBaseManager.getInstance().getFlashCardsForDeckId(mBundle.getInt(EXTRA_ID));
-        adapter.notifyDataSetChanged();
+
+    @OnClick(R.id.fab_add_new_card)
+    public void fabClicked() {
+        final EditLargeDialog editLargeDialog = new EditLargeDialog();
+        editLargeDialog.init("", "", R.string.create_new_flashcard, new DialogButtonsClickListener() {
+            @Override
+            public void onLeftButtonClick() {
+                editLargeDialog.dismiss();
+            }
+
+            @Override
+            public void onRightButtonClick(String... strings) {
+
+                int newFlashcardId = BundleDataBaseManager.getInstance().getLastFlashCardId() + 1;
+                FlashCard flashCard = new FlashCard(newFlashcardId, strings[0], strings[1], strings[2], strings[3], strings[4], strings[5], strings[6], selectedDeckId);
+                BundleDataBaseManager.getInstance().addToFlashCard(flashCard);
+                adapter.addItem(flashCard);
+                adapter.notifyDataSetChanged();
+                editLargeDialog.dismiss();
+            }
+        });
+        editLargeDialog.show(getFragmentManager(), getClass().getCanonicalName());
     }
 
     @Override
     public void onRootClick(BaseEntity entity) {
 
+        Bundle bundle = new Bundle();
+        bundle.putString(EXTRA_TITLE, entity.getTitle());
+        bundle.putInt(EXTRA_ID, entity.getId());
+        bundle.putInt(EXTRA_DECK_ID, selectedDeckId);
+
+        ((MainActivity) getActivity()).displayView(MainActivity.FLASHCARDS_VIEWER, bundle);
     }
 
     @Override
-    public void onMoreClick(View v, BaseEntity entity) {
+    public void onMoreClick(View v, final BaseEntity baseEntity) {
+
+        PopupMenu popupMenu = new PopupMenu(getActivity(), v);
+        MenuInflater inflater = popupMenu.getMenuInflater();
+        inflater.inflate(R.menu.menu_overflow, popupMenu.getMenu());
+        popupMenu.show();
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_edit:
+                        DialogEdit(baseEntity);
+                        return true;
+                    case R.id.action_delete:
+//                        DialogDelete(flashcard);
+                        return true;
+                }
+                return false;
+            }
+        });
 
     }
 
-    public class HeadersAdapter extends RecyclerView.Adapter<HeadersAdapter.ViewHolder> {
 
+    public void DialogEdit(final BaseEntity entity) {
 
-        public HeadersAdapter() {
-            mItems = BundleDataBaseManager.getInstance().getFlashCardsForDeckId(mBundle.getInt(EXTRA_ID));
-        }
+        final FlashCard flashCard = BundleDataBaseManager.getInstance().getFlashcard4Id(entity.id);
 
-        @Override
-        public HeadersAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, final int itemType) {
-
-            View rootView = getActivity().getLayoutInflater().inflate(R.layout.row_base_list_items, viewGroup, false);
-            rootView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString(EXTRA_FLASHCARD_TITLE, mBundle.getString(EXTRA_TITLE));
-                    bundle.putInt(EXTRA_ID, mBundle.getInt(EXTRA_ID));
-                    bundle.putInt(EXTRA_FLASHCARD_ID, mRecyclerView.getChildAdapterPosition(view));
-
-                    ((MainActivity) getActivity()).displayView(MainActivity.FLASHCARDS_VIEWER, bundle);
-                }
-            });
-            return new ViewHolder(rootView);
-        }
-
-        @Override
-        public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-            TextDrawable drawable = TextDrawable.builder().buildRound(mItems.get(position).getTitle().substring(0, 1), generator.getRandomColor(mItems.get(position).getTitle()));
-            viewHolder.imageView.setImageDrawable(drawable);
-            viewHolder.title.setText(mItems.get(position).getTitle());
-            viewHolder.overflow.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    PopupMenu popupMenu = new PopupMenu(getActivity(), view);
-                    MenuInflater inflater = popupMenu.getMenuInflater();
-                    inflater.inflate(R.menu.menu_overflow, popupMenu.getMenu());
-                    popupMenu.show();
-                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                        @Override
-                        public boolean onMenuItemClick(MenuItem item) {
-                            switch (item.getItemId()) {
-                                case R.id.action_edit:
-                                    DialogEdit(mItems.get(position));
-                                    return true;
-                                case R.id.action_delete:
-                                    DialogDelete(mItems.get(position));
-                                    return true;
-                            }
-                            return false;
-                        }
-                    });
-                }
-            });
-        }
-
-        public FlashCard getItem(int position) {
-            return mItems.get(position);
-        }
-
-
-        @Override
-        public long getItemId(int position) {
-            return getItem(position).getId();
-        }
-
-        @Override
-        public int getItemCount() {
-            return mItems.size();
-        }
-
-        @Override
-        public void onAttachedToRecyclerView(RecyclerView recyclerView) {
-            super.onAttachedToRecyclerView(recyclerView);
-        }
-
-        public class ViewHolder extends RecyclerView.ViewHolder {
-            public TextView title;
-            public ImageView imageView;
-            public TextView overflow;
-
-            public ViewHolder(View itemView) {
-                super(itemView);
-                imageView = (ImageView) itemView.findViewById(R.id.img_thumbnail_base);
-                title = (TextView) itemView.findViewById(R.id.txt_title_base);
-                overflow = (TextView) itemView.findViewById(R.id.icon_overflow_base);
+        final EditSmallDialog editMsg = new EditSmallDialog();
+        editMsg.init(R.string.hint_deck_name, R.string.hint_deck_subtitle, R.string.btn_cancel, R.string.btn_done, "", new DialogButtonsClickListener() {
+            @Override
+            public void onLeftButtonClick() {
+                editMsg.dismiss();
             }
 
-        }
+            @Override
+            public void onRightButtonClick(String... strings) {
+                //TODO update content of flashcard
+                flashCard.setTitle(strings[0]);
+                flashCard.setSubtitle(strings[1]);
+                BundleDataBaseManager.getInstance().editFromFlashCard(flashCard);
+                adapter.notifyDataSetChanged();
+                editMsg.dismiss();
+            }
+        });
+        editMsg.show(getFragmentManager(), "activeFragment");
     }
 
+    public void DialogDelete(BaseEntity entity) {
 
-    public void DialogEdit(final FlashCard flashCard) {
-//        final Dialog dialog = new Dialog(getActivity());
-//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        dialog.setContentView(R.layout.dialog_alert_flashcard_edit);
-//        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//        dialog.show();
-//
-//        final EditText editText = (EditText) dialog.findViewById(R.id.edtTxtFlashcardName);
-//
-//        Button btnCancel = (Button) dialog.findViewById(R.id.btnCancel);
-//        btnCancel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                dialog.dismiss();
-//            }
-//        });
-//
-//        Button btnOk = (Button) dialog.findViewById(R.id.btnOk);
-//        btnOk.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (!editText.getText().toString().isEmpty()) {
-//                    flashCard.setWord(editText.getText().toString());
-//                     BundleDataBaseManager.getInstance().editFromFlashCard(flashCard);
-//                    adapter.notifyDataSetChanged();
-//                    dialog.dismiss();
-//                } else {
-//                    //TODO:show animation on EditText
-//                }
-//            }
-//        });
+        final FlashCard flashCard = BundleDataBaseManager.getInstance().getFlashcard4Id(entity.id);
+
+        final MessageDialog deleteMsg = new MessageDialog();
+        deleteMsg.init(R.string.title_delete, R.string.icon_delete, R.string.title_are_you_sure_to_delete_category, R.string.btn_no, R.string.btn_yes, false, new DialogButtonsClickListener() {
+            @Override
+            public void onLeftButtonClick() {
+                deleteMsg.dismiss();
+            }
+
+            @Override
+            public void onRightButtonClick(String... strings) {
+                BundleDataBaseManager.getInstance().removeFromFlashCard(flashCard);
+                adapter.removeItem(flashCard);
+                adapter.notifyDataSetChanged();
+                deleteMsg.dismiss();
+            }
+        });
+        deleteMsg.show(getFragmentManager(), "activeFragment");
     }
 
-    public void DialogDelete(final FlashCard flashCard) {
-//        final Dialog dialog = new Dialog(getActivity());
-//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        dialog.setContentView(R.layout.dialog_alert_flashcard_delete);
-//        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//        dialog.show();
-//
-//
-//        Button btnCancel = (Button) dialog.findViewById(R.id.btnCancel);
-//        btnCancel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                dialog.dismiss();
-//            }
-//        });
-//
-//        Button btnOk = (Button) dialog.findViewById(R.id.btnOk);
-//        btnOk.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                 BundleDataBaseManager.getInstance().removeFromFlashCard(flashCard);
-//                mItems.removeItem(flashCard);
-//                adapter.notifyDataSetChanged();
-//                dialog.dismiss();
-//            }
-//        });
-    }
 }

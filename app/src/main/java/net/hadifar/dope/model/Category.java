@@ -13,12 +13,16 @@ public class Category extends BaseEntity {
 
     public Category() {
         //needed by ORMlite
-    }
+         }
 
     public Category(int id, String title, String subtitle) {
         this.id = id;
         this.title = title;
         this.subtitle = subtitle;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
@@ -36,18 +40,18 @@ public class Category extends BaseEntity {
         return subtitle;
     }
 
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    @Override
     public void setTitle(String title) {
         this.title = title;
     }
 
-    public void setSubTitle(String subTitle) {
-        this.subtitle = subTitle;
+    @Override
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
     }
+
+
+
 
     public class ColumnName {
         public static final String ID = "id";

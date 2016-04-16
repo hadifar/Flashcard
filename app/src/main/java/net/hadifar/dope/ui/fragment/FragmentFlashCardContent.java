@@ -24,7 +24,7 @@ import net.hadifar.dope.R;
  * Twitter : @AmirHadifar
  */
 
-public class FragmentFlashCardContent extends DefaultFragment /*implements TextToSpeech.OnInitListener */{
+public class FragmentFlashCardContent extends BaseFragment /*implements TextToSpeech.OnInitListener */{
 
     TextToSpeech mTextToSpeech;
     private FlashCard flashCard;

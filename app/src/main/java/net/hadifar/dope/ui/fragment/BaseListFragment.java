@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
  * GitHub  : @AmirHadifar
  * Twitter : @AmirHadifar
  */
-public abstract class BaseListFragment extends DefaultFragment implements OnCardClickListener {
+public abstract class BaseListFragment extends BaseFragment implements OnCardClickListener {
 
     protected BaseAdapter adapter;
 

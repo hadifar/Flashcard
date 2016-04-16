@@ -22,8 +22,6 @@ public abstract class BaseEntity implements Serializable {
     @DatabaseField(dataType = DataType.STRING)
     public String subtitle;
 
-    public BaseEntity() {
-    }
 
 
     public abstract int getId();
@@ -31,4 +29,8 @@ public abstract class BaseEntity implements Serializable {
     public abstract String getTitle();
 
     public abstract String getSubtitle();
+
+    public abstract void setTitle(String title);
+
+    public abstract void setSubtitle(String subtitle);
 }

@@ -26,7 +26,7 @@ import java.util.List;
  * Twitter : @HadifarAmir
  */
 
-public class FragmentFavoriteFlashCardViewer extends DefaultFragment {
+public class FragmentFavoriteFlashCardViewer extends BaseFragment {
 
     Bundle mBundle;
 

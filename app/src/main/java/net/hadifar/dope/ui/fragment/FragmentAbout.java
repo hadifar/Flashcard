@@ -16,7 +16,7 @@ import net.hadifar.dope.utils.IntentHelper;
  * Twitter : @AmirHadifar
  */
 
-public class FragmentAbout extends DefaultFragment {
+public class FragmentAbout extends BaseFragment {
 
 
     @Override

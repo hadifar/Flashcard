@@ -13,7 +13,7 @@ import net.hadifar.dope.model.Deck;
 import net.hadifar.dope.storage.BundleDataBaseManager;
 import net.hadifar.dope.ui.activity.MainActivity;
 import net.hadifar.dope.ui.adapter.BaseAdapter;
-import net.hadifar.dope.ui.fragment.dialogs.EditDialog;
+import net.hadifar.dope.ui.fragment.dialogs.EditSmallDialog;
 import net.hadifar.dope.ui.fragment.dialogs.MessageDialog;
 import net.hadifar.dope.ui.listeners.DialogButtonsClickListener;
 
@@ -91,7 +91,7 @@ public class FragmentDecks extends BaseListFragment {
 
     @OnClick(R.id.fab_add_new_card)
     public void fabClicked() {
-        final EditDialog newDeckDialog = new EditDialog();
+        final EditSmallDialog newDeckDialog = new EditSmallDialog();
         newDeckDialog.init(R.string.hint_deck_name, R.string.hint_deck_subtitle, "", "", R.string.create_new_deck, new DialogButtonsClickListener() {
             @Override
             public void onLeftButtonClick() {
@@ -114,7 +114,7 @@ public class FragmentDecks extends BaseListFragment {
 
     public void DialogEdit(final Deck deck) {
 
-        final EditDialog editMsg = new EditDialog();
+        final EditSmallDialog editMsg = new EditSmallDialog();
         editMsg.init(R.string.hint_deck_name, R.string.hint_deck_subtitle, R.string.btn_cancel, R.string.btn_done, "", new DialogButtonsClickListener() {
             @Override
             public void onLeftButtonClick() {

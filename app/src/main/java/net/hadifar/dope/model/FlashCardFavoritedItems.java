@@ -3,6 +3,7 @@ package net.hadifar.dope.model;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+
 import net.hadifar.dope.storage.BundleDataBaseManager;
 
 import java.io.Serializable;
@@ -44,9 +45,10 @@ public class FlashCardFavoritedItems implements Serializable {
     @DatabaseField(dataType = DataType.STRING)
     protected String example3;
 
-    public FlashCardFavoritedItems(){
+    public FlashCardFavoritedItems() {
         //needed for Ormlite
     }
+
     public FlashCardFavoritedItems(FlashCard flashCard) {
         this.id = flashCard.id;
         this.deckId = flashCard.deckId;
@@ -59,13 +61,15 @@ public class FlashCardFavoritedItems implements Serializable {
     }
 
     public String getCategoryTitle(int deckId) {
-        BundleDataBaseManager db = BundleDataBaseManager.getInstance();
-        int catId = db.getDeckItemDao().queryForId(deckId).getCategoryId();
-        return db.getMainCategoriesDao().queryForId(catId).getTitle();
+//        BundleDataBaseManager db = BundleDataBaseManager.getInstance();
+//        int catId = db.queryForId(deckId).getCategoryId();
+//        return db.getMainCategoriesDao().queryForId(catId).getTitle();
+        return null;
     }
 
-    public String getDeckTitle(int deckId){
-        return BundleDataBaseManager.getInstance().getDeckItemDao().queryForId(deckId).getTitle();
+    public String getDeckTitle(int deckId) {
+//        return BundleDataBaseManager.getInstance().getDeckItemDao().queryForId(deckId).getTitle();
+        return null;
     }
 
     public int getId() {

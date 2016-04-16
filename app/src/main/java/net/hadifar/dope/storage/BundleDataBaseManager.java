@@ -8,6 +8,7 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.stmt.Where;
 import com.j256.ormlite.table.TableUtils;
+
 import net.hadifar.dope.AppConfig;
 import net.hadifar.dope.model.Category;
 import net.hadifar.dope.model.Deck;
@@ -80,7 +81,7 @@ public class BundleDataBaseManager extends OrmLiteSqliteOpenHelper {
 
 
     //Category region
-    public RuntimeExceptionDao<Category, Integer> getMainCategoriesDao() {
+    private RuntimeExceptionDao<Category, Integer> getMainCategoriesDao() {
         if (mainCategoriesDao == null) {
             mainCategoriesDao = getRuntimeExceptionDao(Category.class);
         }
@@ -122,7 +123,7 @@ public class BundleDataBaseManager extends OrmLiteSqliteOpenHelper {
     }
 
     //deck region
-    public RuntimeExceptionDao<Deck, Integer> getDeckItemDao() {
+    private RuntimeExceptionDao<Deck, Integer> getDeckItemDao() {
         if (deckItemsDao == null) {
             deckItemsDao = getRuntimeExceptionDao(Deck.class);
         }
@@ -172,7 +173,7 @@ public class BundleDataBaseManager extends OrmLiteSqliteOpenHelper {
 
 
     //flash card region
-    public RuntimeExceptionDao<FlashCard, Integer> getFlashCardDao() {
+    private RuntimeExceptionDao<FlashCard, Integer> getFlashCardDao() {
         if (flashcardDao == null) {
             flashcardDao = getRuntimeExceptionDao(FlashCard.class);
         }
@@ -200,6 +201,10 @@ public class BundleDataBaseManager extends OrmLiteSqliteOpenHelper {
         getFlashCardDao().delete(flashCard);
         long s = getFlashCardDao().countOf();
 
+    }
+
+    public FlashCard getFlashcard4Id(int id) {
+        return getFlashCardDao().queryForId(id);
     }
 
     public List<FlashCard> getFlashCardsForDeckId(int deckId) {

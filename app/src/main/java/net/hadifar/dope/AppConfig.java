@@ -36,7 +36,7 @@ public class AppConfig extends Application {
             //creating database files
             BundleDataBaseManager bundledDataBaseManager = BundleDataBaseManager.getInstance();
             bundledDataBaseManager.init();
-            bundledDataBaseManager.clearAllTables();
+//            bundledDataBaseManager.clearAllTables();
             //copy data from asset to database
             importDatabaseFromAssets();
             SettingsManager.setAppLatestVersionCode(this, getAppVersionCode());

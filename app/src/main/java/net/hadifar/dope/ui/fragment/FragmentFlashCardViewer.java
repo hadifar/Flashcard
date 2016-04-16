@@ -24,7 +24,7 @@ import java.util.List;
  * Twitter : @AmirHadifar
  */
 
-public class FragmentFlashCardViewer extends DefaultFragment {
+public class FragmentFlashCardViewer extends BaseFragment {
 
     private Bundle mBundle;
 
@@ -40,7 +40,7 @@ public class FragmentFlashCardViewer extends DefaultFragment {
         mBundle = getArguments();
         if (mBundle == null)
             mBundle = savedInstanceState;
-        getActivity().setTitle(mBundle.getString(FragmentFlashCardsList.EXTRA_FLASHCARD_TITLE));
+//        getActivity().setTitle(mBundle.getString(FragmentFlashCardsList.EXTRA_FLASHCARD_TITLE));
 
         SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
         ViewPager mViewPager = (ViewPager) view.findViewById(R.id.pager);
@@ -48,7 +48,7 @@ public class FragmentFlashCardViewer extends DefaultFragment {
         NumericPageIndicator pageIndicator = (NumericPageIndicator) view.findViewById(R.id.pageIndicator);
         pageIndicator.setViewPager(mViewPager);
 
-        mViewPager.setCurrentItem(mBundle.getInt(FragmentFlashCardsList.EXTRA_FLASHCARD_ID));
+//        mViewPager.setCurrentItem(mBundle.getInt(FragmentFlashCardsList.EXTRA_FLASHCARD_ID));
 
 
         pageIndicator.setTypeface(FontHelper.getInstance(getActivity()).getIconTypeface());

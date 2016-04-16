@@ -17,7 +17,7 @@ import net.hadifar.dope.ui.activity.MainActivity;
  * Twitter : @AmirHadifar
  */
 
-public abstract class DefaultFragment extends Fragment implements FragmentManager.OnBackStackChangedListener {
+public abstract class BaseFragment extends Fragment implements FragmentManager.OnBackStackChangedListener {
 
     public static final String EXTRA_ID = "extra_id";
     public static final String EXTRA_TITLE = "extra_title";

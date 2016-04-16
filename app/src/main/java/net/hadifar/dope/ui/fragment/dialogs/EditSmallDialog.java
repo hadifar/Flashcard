@@ -23,7 +23,7 @@ import butterknife.OnClick;
  * GitHub  : @AmirHadifar
  * Twitter : @AmirHadifar
  */
-public class EditDialog extends BaseDialog {
+public class EditSmallDialog extends BaseDialog {
 
     @Bind(R.id.btn_dialog_left)
     Button leftBtn;
@@ -63,7 +63,7 @@ public class EditDialog extends BaseDialog {
         if (getDialog() != null) {
             getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         }
-        View view = inflater.inflate(R.layout.dialog_edit, container, false);
+        View view = inflater.inflate(R.layout.dialog_edit_small, container, false);
         ButterKnife.bind(this, view);
 
         initViews();

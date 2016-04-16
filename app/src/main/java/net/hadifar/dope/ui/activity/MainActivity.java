@@ -8,7 +8,7 @@ import android.util.Log;
 import net.hadifar.dope.R;
 import net.hadifar.dope.ui.fragment.FragmentFlashCardViewer;
 
-import net.hadifar.dope.ui.fragment.DefaultFragment;
+import net.hadifar.dope.ui.fragment.BaseFragment;
 import net.hadifar.dope.ui.fragment.FragmentCategory;
 import net.hadifar.dope.ui.fragment.FragmentAbout;
 import net.hadifar.dope.ui.fragment.FragmentDecks;
@@ -21,7 +21,7 @@ public class MainActivity extends BaseDrawerActivity {
 
     private static final String TAG_ACTIVE_FRAGMENT = "fragment_active";
 
-    private DefaultFragment activeFragment = null;
+    private BaseFragment activeFragment = null;
 
     @Override
     public void displayView(int position, Bundle fragmentBundle) {

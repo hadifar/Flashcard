@@ -13,7 +13,7 @@ import net.hadifar.dope.model.Category;
 import net.hadifar.dope.storage.BundleDataBaseManager;
 import net.hadifar.dope.ui.activity.MainActivity;
 import net.hadifar.dope.ui.adapter.BaseAdapter;
-import net.hadifar.dope.ui.fragment.dialogs.EditDialog;
+import net.hadifar.dope.ui.fragment.dialogs.EditSmallDialog;
 import net.hadifar.dope.ui.fragment.dialogs.MessageDialog;
 import net.hadifar.dope.ui.listeners.DialogButtonsClickListener;
 
@@ -28,7 +28,7 @@ import butterknife.OnClick;
  * Twitter : @AmirHadifar
  */
 
-public class FragmentCategory extends BaseListFragment {
+public class FragmentCategory extends BaseListFragment  {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class FragmentCategory extends BaseListFragment {
 
     @OnClick(R.id.fab_add_new_card)
     public void fabClicked() {
-        final EditDialog newCategoryDialog = new EditDialog();
+        final EditSmallDialog newCategoryDialog = new EditSmallDialog();
         newCategoryDialog.init(R.string.hint_category_name, R.string.hint_category_subtitle, "", "", R.string.create_new_category, new DialogButtonsClickListener() {
             @Override
             public void onLeftButtonClick() {
@@ -101,7 +101,7 @@ public class FragmentCategory extends BaseListFragment {
 
     public void DialogEdit(final Category category) {
 
-        final EditDialog editMsg = new EditDialog();
+        final EditSmallDialog editMsg = new EditSmallDialog();
         editMsg.init(R.string.hint_category_name, R.string.hint_category_subtitle, R.string.btn_cancel, R.string.btn_done, "", new DialogButtonsClickListener() {
             @Override
             public void onLeftButtonClick() {
@@ -111,7 +111,7 @@ public class FragmentCategory extends BaseListFragment {
             @Override
             public void onRightButtonClick(String... strings) {
                 category.setTitle(strings[0]);
-                category.setSubTitle(strings[1]);
+                category.setSubtitle(strings[1]);
                 BundleDataBaseManager.getInstance().editFromCategory(category);
                 adapter.notifyDataSetChanged();
                 editMsg.dismiss();
