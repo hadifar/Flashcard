@@ -16,6 +16,7 @@ import net.hadifar.dope.ui.adapter.BaseListAdapter;
 import net.hadifar.dope.ui.fragment.dialogs.EditSmallDialog;
 import net.hadifar.dope.ui.fragment.dialogs.MessageDialog;
 import net.hadifar.dope.ui.listeners.DialogButtonsClickListener;
+import net.hadifar.dope.ui.listeners.OnCardClickListener;
 
 import java.util.List;
 
@@ -28,7 +29,7 @@ import butterknife.OnClick;
  * Twitter : @AmirHadifar
  */
 
-public class FragmentCategory extends BaseListFragment  {
+public class FragmentCategory extends BaseListFragment implements OnCardClickListener {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {

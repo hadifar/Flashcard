@@ -17,6 +17,7 @@ import net.hadifar.dope.ui.fragment.dialogs.MessageDialog;
 import net.hadifar.dope.ui.listeners.DialogButtonsClickListener;
 import net.hadifar.dope.R;
 import net.hadifar.dope.storage.BundleDataBaseManager;
+import net.hadifar.dope.ui.listeners.OnCardClickListener;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ import butterknife.OnClick;
  * Twitter : @AmirHadifar
  */
 
-public class FragmentFlashCardsList extends BaseListFragment {
+public class FragmentFlashCardsList extends BaseListFragment implements OnCardClickListener {
 
     public final static String EXTRA_DECK_ID = "extra_deck_id";
 

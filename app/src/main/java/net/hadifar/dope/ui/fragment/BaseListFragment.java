@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import net.hadifar.dope.R;
+import net.hadifar.dope.ui.adapter.BaseAdapter;
 import net.hadifar.dope.ui.adapter.BaseListAdapter;
 import net.hadifar.dope.ui.listeners.OnCardClickListener;
 
@@ -21,9 +22,9 @@ import butterknife.ButterKnife;
  * GitHub  : @AmirHadifar
  * Twitter : @AmirHadifar
  */
-public abstract class BaseListFragment extends BaseFragment implements OnCardClickListener {
+public abstract class BaseListFragment extends BaseFragment {
 
-    protected BaseListAdapter adapter;
+    protected BaseAdapter adapter;
 
     @Bind(R.id.rv_list_base)
     RecyclerView recyclerView;

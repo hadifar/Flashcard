@@ -29,10 +29,9 @@ import butterknife.OnClick;
  * GitHub  : @AmirHadifar
  * Twitter : @AmirHadifar
  */
-public class BaseListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class BaseListAdapter extends BaseAdapter {
 
     private Context mContext;
-    private ColorGenerator colorGenerator;
     private List<BaseEntity> items;
 
     private int lastAnimatedPosition = -1;
@@ -43,7 +42,6 @@ public class BaseListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public BaseListAdapter(Context context, List<BaseEntity> items, OnCardClickListener listener) {
         this.items = items;
         this.mContext = context;
-        this.colorGenerator = ColorGenerator.MATERIAL;
         this.listener = listener;
     }
 
@@ -80,14 +78,15 @@ public class BaseListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return items.get(position);
     }
 
+    @Override
     public void removeItem(BaseEntity entity) {
         items.remove(entity);
     }
 
+    @Override
     public void addItem(BaseEntity entity) {
         items.add(entity);
     }
-
 
     @Override
     public long getItemId(int position) {
@@ -124,9 +123,10 @@ public class BaseListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             imageView.setImageDrawable(drawable);
             title.setText(entity.getTitle());
 
-            if (!TextUtils.isEmpty(entity.getSubtitle()))
+            if (!TextUtils.isEmpty(entity.getSubtitle())) {
+                subTitle.setVisibility(View.VISIBLE);
                 subTitle.setText(entity.getSubtitle());
-            else
+            } else
                 subTitle.setVisibility(View.GONE);
         }
 

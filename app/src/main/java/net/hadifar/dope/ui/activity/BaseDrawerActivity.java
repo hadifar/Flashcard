@@ -39,6 +39,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
     public static final int FLASHCARDS_FRAG = 2;
     public static final int DECKS_FRAG = 1;
     public static final int CATEGORIES_FRAG = 0;
+    public static final int LEARNING_FRAG = 10;
 
     public static final int SETTINGS_FRAG = 4;
     public static final int ABOUT_FRAG = 5;
@@ -122,6 +123,9 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
                                     break;
                                 case R.id.nav_about:
                                     displayView(ABOUT_FRAG, null);
+                                    break;
+                                case R.id.nav_feedback:
+                                    displayView(LEARNING_FRAG, null);
                                     break;
 
                             }

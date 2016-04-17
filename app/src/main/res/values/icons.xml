@@ -70,4 +70,12 @@
     <string name="default_page_number_indicator_previous_button_text"></string>
     <string name="default_page_number_indicator_next_button_text"></string>
 
+
+    <string-array name="icons_learning_method">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
 </resources>

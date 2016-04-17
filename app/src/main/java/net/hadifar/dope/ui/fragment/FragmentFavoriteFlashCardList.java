@@ -49,15 +49,6 @@ public class FragmentFavoriteFlashCardList extends BaseListFragment {
 
     }
 
-    @Override
-    public void onRootClick(BaseEntity entity) {
-
-    }
-
-    @Override
-    public void onMoreClick(View v, BaseEntity entity) {
-
-    }
 
     public class HeadersAdapter extends RecyclerView.Adapter<HeadersAdapter.ViewHolder> {
 

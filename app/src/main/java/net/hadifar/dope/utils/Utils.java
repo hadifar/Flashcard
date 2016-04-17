@@ -19,7 +19,7 @@ import android.view.inputmethod.InputMethodManager;
 
 public class Utils {
 
-//    private static int screenWidth = 0;
+    private static int screenWidth = 0;
     private static int screenHeight = 0;
 
     public static void hideKeyboard(Context context) {
@@ -48,5 +48,16 @@ public class Utils {
         return screenHeight;
     }
 
+    public static int getScreenWidth(Context c) {
+        if (screenWidth == 0) {
+            WindowManager wm = (WindowManager) c.getSystemService(Context.WINDOW_SERVICE);
+            Display display = wm.getDefaultDisplay();
+            Point size = new Point();
+            display.getSize(size);
+            screenWidth = size.x;
+        }
+
+        return screenWidth;
+    }
 
 }

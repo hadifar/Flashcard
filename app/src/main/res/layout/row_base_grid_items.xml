@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:paddingBottom="8dp"
+    android:paddingTop="8dp">
+
+    <net.hadifar.dope.ui.widget.Polygon
+        android:id="@+id/cv_polygon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:fill_percent="100"
+        app:sides="6" />
+
+    <TextView
+        android:id="@+id/icon_polygon"
+        style="@style/IconFont.XLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="56sp"
+        android:visibility="gone"/>
+
+</FrameLayout>
