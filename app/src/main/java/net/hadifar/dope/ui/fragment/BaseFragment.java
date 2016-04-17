@@ -53,7 +53,7 @@ public abstract class BaseFragment extends Fragment implements FragmentManager.O
         try {
             canBack = getFragmentManager().getBackStackEntryCount() > 0;
         } catch (Exception ex) {
-            Log.e(getClass().getCanonicalName(), ex.getMessage());
+//            Log.e(getClass().getCanonicalName(), ex.getMessage());getMessage
         }
 
         if (canBack) {

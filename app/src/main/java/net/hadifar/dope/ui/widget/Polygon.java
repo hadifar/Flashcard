@@ -2,6 +2,7 @@ package net.hadifar.dope.ui.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
@@ -98,6 +99,8 @@ public class Polygon extends View {
     }
 
 
+    CornerPathEffect corEffect = new CornerPathEffect(5);
+
     @Override
     protected void onDraw(Canvas canvas) {
         int measuredWidth = getMeasuredWidth();
@@ -109,6 +112,8 @@ public class Polygon extends View {
 
         float a = (float) (Math.PI * 2) / 6;
         polyPath.reset();
+        fillPaint.setPathEffect(corEffect);
+        fillPaint.setShadowLayer(10.0f, 0.0f, 2.0f, 0xFF000000);
 
 
         polyPath.moveTo(radius, 0);

@@ -38,7 +38,6 @@ public class BaseListAdapter extends BaseAdapter {
 
     private OnCardClickListener listener;
 
-
     public BaseListAdapter(Context context, List<BaseEntity> items, OnCardClickListener listener) {
         this.items = items;
         this.mContext = context;
