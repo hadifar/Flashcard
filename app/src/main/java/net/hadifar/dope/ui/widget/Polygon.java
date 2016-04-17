@@ -1,18 +1,11 @@
 package net.hadifar.dope.ui.widget;
 
 import android.content.Context;
-import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
-
-import net.hadifar.dope.R;
 
 /**
  * Created by Amir on 4/17/2016 AD
@@ -22,19 +15,9 @@ import net.hadifar.dope.R;
  */
 public class Polygon extends View {
 
-    private int sides = 2;
-    private int strokeColor = 0xff000000;
-    private int strokeWidth = 0;
     private int fillColor = 0xffffffff;
-    private float startAngle = -90;
-    private boolean showInscribedCircle = false;
-    private float fillPercent = 1;
-    private int fillBitmapResourceId = -1;
 
     private Paint fillPaint;
-    private Paint strokePaint;
-    private Paint inscribedCirclePaint;
-
     private Path polyPath;
 
     public Polygon(Context context) {
@@ -43,62 +26,24 @@ public class Polygon extends View {
 
     public Polygon(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(attrs);
+        init();
     }
 
     public Polygon(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(attrs);
+        init();
     }
 
-    private void init(AttributeSet attrs) {
-        TypedArray polyAttributes = getContext().obtainStyledAttributes(attrs, R.styleable.Polygon);
-
-        sides = polyAttributes.getInt(R.styleable.Polygon_sides, sides);
-        strokeColor = polyAttributes.getColor(R.styleable.Polygon_stroke_color, strokeColor);
-        strokeWidth = polyAttributes.getInt(R.styleable.Polygon_stroke_width, strokeWidth);
-        fillColor = polyAttributes.getColor(R.styleable.Polygon_fill_color, fillColor);
-        startAngle = polyAttributes.getFloat(R.styleable.Polygon_start_angle, startAngle);
-        showInscribedCircle = polyAttributes.getBoolean(R.styleable.Polygon_inscribed_circle, showInscribedCircle);
-        fillBitmapResourceId = polyAttributes.getResourceId(R.styleable.Polygon_fill_bitmap, fillBitmapResourceId);
-        float fillPct = polyAttributes.getFloat(R.styleable.Polygon_fill_percent, 100);
-
-        polyAttributes.recycle();
+    private void init() {
 
         fillPaint = new Paint();
         fillPaint.setColor(fillColor);
         fillPaint.setStyle(Paint.Style.FILL);
 
-        if (fillBitmapResourceId != -1) {
-            Bitmap fillBitmap = BitmapFactory.decodeResource(getResources(), fillBitmapResourceId);
-            BitmapShader fillShader = new BitmapShader(fillBitmap, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
-            fillPaint.setShader(fillShader);
-        }
-
-        if (strokeWidth > 0) {
-            strokePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-            strokePaint.setColor(strokeColor);
-            strokePaint.setStrokeWidth(strokeWidth);
-            strokePaint.setStyle(Paint.Style.STROKE);
-        }
-
-        if (showInscribedCircle) {
-            inscribedCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-            inscribedCirclePaint.setColor(0xff000000);
-            inscribedCirclePaint.setStrokeWidth(1);
-            inscribedCirclePaint.setStyle(Paint.Style.STROKE);
-        }
-
         polyPath = new Path();
         polyPath.setFillType(Path.FillType.WINDING);
 
-        if (fillPct < 100) {
-            fillPercent = fillPct / 100;
-        }
 
-        if (fillPercent < 0 || fillPercent > 100) {
-            fillPercent = 1;
-        }
     }
 
     @Override
@@ -161,36 +106,25 @@ public class Polygon extends View {
         int y = (measuredHeight / 2);
         int radius = Math.min(x, y);
 
-        if (sides < 3) return;
 
-        float a = (float) (Math.PI * 2) / sides;
-        int workingRadius = radius;
+        float a = (float) (Math.PI * 2) / 6;
         polyPath.reset();
 
-        // The poly is created as a shape in a path.
-        // If there is a hole in the poly, draw a 2nd shape inset from the first
-        for (int j = 0; j < ((fillPercent < 1) ? 2 : 1); j++) {
-            polyPath.moveTo(workingRadius, 0);
-            for (int i = 1; i < sides; i++) {
-                polyPath.lineTo((float) (workingRadius * Math.cos(a * i)),
-                        (float) (workingRadius * Math.sin(a * i)));
-            }
-            polyPath.close();
 
-            workingRadius -= radius * fillPercent;
-            a = -a;
+        polyPath.moveTo(radius, 0);
+        for (int i = 1; i < 6; i++) {
+            polyPath.lineTo((float) (radius * Math.cos(a * i)),
+                    (float) (radius * Math.sin(a * i)));
         }
+        polyPath.close();
 
         canvas.save();
         canvas.translate(x, y);
-        canvas.rotate(startAngle);
+        canvas.rotate(-90);
         canvas.drawPath(polyPath, fillPaint);
 
         canvas.restore();
 
-        if (showInscribedCircle) {
-            canvas.drawCircle(x, y, radius, inscribedCirclePaint);
-        }
         super.onDraw(canvas);
     }
 
