@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
-            android:src="@mipmap/ic_add_white_18dp"
+            android:src="@drawable/ic_add_white_24dp"
             android:visibility="gone"
             app:layout_anchor="@id/rv_list_category"
             app:layout_anchorGravity="bottom|right|end"

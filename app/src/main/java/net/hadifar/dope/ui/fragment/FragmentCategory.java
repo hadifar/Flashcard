@@ -12,7 +12,7 @@ import net.hadifar.dope.model.BaseEntity;
 import net.hadifar.dope.model.Category;
 import net.hadifar.dope.storage.BundleDataBaseManager;
 import net.hadifar.dope.ui.activity.MainActivity;
-import net.hadifar.dope.ui.adapter.BaseAdapter;
+import net.hadifar.dope.ui.adapter.BaseListAdapter;
 import net.hadifar.dope.ui.fragment.dialogs.EditSmallDialog;
 import net.hadifar.dope.ui.fragment.dialogs.MessageDialog;
 import net.hadifar.dope.ui.listeners.DialogButtonsClickListener;
@@ -35,7 +35,7 @@ public class FragmentCategory extends BaseListFragment  {
         super.onActivityCreated(savedInstanceState);
 
         List<? extends BaseEntity> entityList = BundleDataBaseManager.getInstance().getAllCategories();
-        adapter = new BaseAdapter(getActivity(), (List<BaseEntity>) entityList, this);
+        adapter = new BaseListAdapter(getActivity(), (List<BaseEntity>) entityList, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         showFloatingButton();

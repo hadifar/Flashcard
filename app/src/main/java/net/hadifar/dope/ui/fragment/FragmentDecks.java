@@ -12,7 +12,7 @@ import net.hadifar.dope.model.BaseEntity;
 import net.hadifar.dope.model.Deck;
 import net.hadifar.dope.storage.BundleDataBaseManager;
 import net.hadifar.dope.ui.activity.MainActivity;
-import net.hadifar.dope.ui.adapter.BaseAdapter;
+import net.hadifar.dope.ui.adapter.BaseListAdapter;
 import net.hadifar.dope.ui.fragment.dialogs.EditSmallDialog;
 import net.hadifar.dope.ui.fragment.dialogs.MessageDialog;
 import net.hadifar.dope.ui.listeners.DialogButtonsClickListener;
@@ -41,7 +41,7 @@ public class FragmentDecks extends BaseListFragment {
         getBundles();
 
         List<? extends BaseEntity> entityList = BundleDataBaseManager.getInstance().getDecksForCategoryId(selectedCategoryId);
-        adapter = new BaseAdapter(getActivity(), (List<BaseEntity>) entityList, this);
+        adapter = new BaseListAdapter(getActivity(), (List<BaseEntity>) entityList, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 

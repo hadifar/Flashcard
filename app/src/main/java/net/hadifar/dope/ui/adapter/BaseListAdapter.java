@@ -29,7 +29,7 @@ import butterknife.OnClick;
  * GitHub  : @AmirHadifar
  * Twitter : @AmirHadifar
  */
-public class BaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class BaseListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context mContext;
     private ColorGenerator colorGenerator;
@@ -40,7 +40,7 @@ public class BaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private OnCardClickListener listener;
 
 
-    public BaseAdapter(Context context, List<BaseEntity> items, OnCardClickListener listener) {
+    public BaseListAdapter(Context context, List<BaseEntity> items, OnCardClickListener listener) {
         this.items = items;
         this.mContext = context;
         this.colorGenerator = ColorGenerator.MATERIAL;

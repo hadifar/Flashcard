@@ -6,12 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="@dimen/material_global_margin_16"
-    android:layout_marginStart="@dimen/material_global_margin_16"
-    android:layout_marginRight="@dimen/material_global_margin_16"
-    android:layout_marginEnd="@dimen/material_global_margin_16"
-    android:layout_marginTop="@dimen/material_global_margin_16"
-    android:layout_marginBottom="@dimen/material_global_margin_8">
+    android:padding="@dimen/material_global_padding_16">
 
     <android.support.v4.view.ViewPager
         android:layout_weight="1"
