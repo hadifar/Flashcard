@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/AmirHadifar/Flashcard.svg?branch=master)](https://travis-ci.org/AmirHadifar/Flashcard)
+#Material Flashcard [![Build Status](https://travis-ci.org/AmirHadifar/Flashcard.svg?branch=master)](https://travis-ci.org/AmirHadifar/Flashcard)
 
 **Material Flashcard for Android**
 
