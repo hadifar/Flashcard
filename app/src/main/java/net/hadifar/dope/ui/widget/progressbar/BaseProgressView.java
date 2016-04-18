@@ -21,7 +21,7 @@ abstract class BaseProgressView extends View {
     protected int color = getResources().getColor(R.color.color_accent), backgroundColor = Color.WHITE;
     protected int textColor = getResources().getColor(R.color.color_primary_dark);
     protected int shadowColor = getResources().getColor(R.color.default_shader);
-    protected int textSize = 26;
+    protected int textSize = 36;
     protected int height, width;
 
     protected Context context;
