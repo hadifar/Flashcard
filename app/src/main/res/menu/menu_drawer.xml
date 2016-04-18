@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <group android:checkableBehavior="single">
         <item
@@ -15,6 +16,13 @@
 
     <item android:title="@string/drawer_item_other">
         <menu>
+
+            <item
+                android:id="@+id/nav_night_mode"
+                android:icon="@drawable/ic_brightness_3_black_24dp"
+                android:title="@string/nav_night_mode"
+                app:actionLayout="@layout/view_night_mode_switch" />
+
             <item
                 android:id="@+id/nav_rate_us"
                 android:icon="@drawable/ic_thumbs_up_down_black_24dp"

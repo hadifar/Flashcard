@@ -1,22 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/default_background"
-    android:orientation="vertical"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/material_global_padding_16">
+    android:clickable="true">
 
-    <android.support.v4.view.ViewPager
-        android:layout_weight="1"
-        android:id="@+id/pager"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp" />
+        android:layout_height="match_parent"
+        android:background="@color/default_background"
+        android:orientation="vertical">
 
-    <net.hadifar.dope.ui.widget.pagerIndicator.NumericPageIndicator
-        android:id="@+id/pageIndicator"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/material_text_color_dark"/>
-</LinearLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <net.hadifar.dope.ui.widget.progressbar.LinearProgress
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            app:background_color="#9e9e9e"
+            app:background_stroke_width="2dp"
+            app:progress="0"
+            app:progress_color="@color/color_accent"
+            app:stroke_width="3dp" />
+
+        <net.hadifar.dope.ui.widget.pagerIndicator.NumericPageIndicator
+            android:id="@+id/pageIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:background="#353342"
+            android:textColor="@color/white"
+            app:pageNumberTextColor="@color/color_accent" />
+    </LinearLayout>
+</FrameLayout>

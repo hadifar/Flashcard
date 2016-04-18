@@ -22,6 +22,7 @@ public abstract class BaseFragment extends Fragment implements FragmentManager.O
     public static final String EXTRA_ID = "extra_id";
     public static final String EXTRA_TITLE = "extra_title";
 
+
     private MainActivity mainActivity;
 
     @Override
@@ -37,6 +38,8 @@ public abstract class BaseFragment extends Fragment implements FragmentManager.O
         mainActivity = (MainActivity) getActivity();
 
         getFragmentManager().addOnBackStackChangedListener(this);
+
+        setRetainInstance(true);
 
         shouldDisplayHomeUp();
     }

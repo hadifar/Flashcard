@@ -61,7 +61,8 @@ public class FragmentDecks extends BaseListFragment implements OnCardClickListen
         bundle.putInt(EXTRA_CATEGORY_ID, selectedCategoryId);
         bundle.putInt(EXTRA_ID, entity.getId());
         bundle.putString(EXTRA_TITLE, entity.getTitle());
-        ((MainActivity) getActivity()).displayView(MainActivity.FLASHCARDS_FRAG, bundle);
+        ((MainActivity) getActivity()).displayView(MainActivity.FLASHCARDS_VIEWER, bundle);
+
     }
 
     @Override

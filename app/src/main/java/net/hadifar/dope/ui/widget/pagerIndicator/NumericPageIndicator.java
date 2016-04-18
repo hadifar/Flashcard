@@ -1,3 +1,4 @@
+package net.hadifar.dope.ui.widget.pagerIndicator;
 /*
  * Copyright (C) 2013 Manuel Peinado
  *
@@ -13,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.hadifar.dope.ui.widget.pagerIndicator;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -35,6 +35,16 @@ import android.view.View;
 
 import net.hadifar.dope.R;
 
+
+/**
+ * Class that implements a ViewPager indicator fully compatible with with Jake Wharton's
+ * ViewPagerIndicator library.
+ * <p/>
+ * It displays the number of the current page, and (optionally) the total number of pages.
+ * This information is formatted using a customizable template.
+ * <p/>
+ * It can also display buttons to go to the previous page and to the next page.
+ */
 public class NumericPageIndicator extends View implements PageIndicator {
     protected static final String TAG = NumericPageIndicator.class.getSimpleName();
     private ViewPager mViewPager;
@@ -54,8 +64,6 @@ public class NumericPageIndicator extends View implements PageIndicator {
     private final Rect mRectNextText = new Rect();
     private final Rect mRectPrevious = new Rect();
     private final Rect mRectNext = new Rect();
-    private final Rect mRectStartText = new Rect();
-    private final Rect mRectEndText = new Rect();
     private final Rect mRectStart = new Rect();
     private final Rect mRectEnd = new Rect();
     private boolean mPreviousDown;
@@ -64,8 +72,7 @@ public class NumericPageIndicator extends View implements PageIndicator {
     private boolean mEndDown;
     private float mWidthNextText;
     private float mWidthPreviousText;
-    private float mWidthStartText;
-    private float mWidthEndText;
+
     private int mColorPressedButton;
     private boolean mShowChangePageButtons;
     private boolean mShowStartEndButtons;
@@ -78,8 +85,8 @@ public class NumericPageIndicator extends View implements PageIndicator {
     private String mTextLastPart;
     private String mTextPreviousButton;
     private String mTextNextButton;
-    private String mTextStartButton;
-    private String mTextEndButton;
+
+
     private static final String TEMPLATE_PAGE_NUMBER_PLACEHOLDER = "#i";
     private static final String TEMPLATE_PAGE_COUNT_PLACEHOLDER = "#N";
 
@@ -119,14 +126,6 @@ public class NumericPageIndicator extends View implements PageIndicator {
         }
         parseTextTemplate();
 
-        mTextStartButton = a.getString(R.styleable.NumericPageIndicator_startButtonText);
-        if (mTextStartButton == null) {
-            mTextStartButton = res.getString(R.string.default_page_number_indicator_start_button_text);
-        }
-        mTextEndButton = a.getString(R.styleable.NumericPageIndicator_endButtonText);
-        if (mTextEndButton == null) {
-            mTextEndButton = res.getString(R.string.default_page_number_indicator_end_button_text);
-        }
         mTextPreviousButton = a.getString(R.styleable.NumericPageIndicator_previousButtonText);
         if (mTextPreviousButton == null) {
             mTextPreviousButton = res.getString(R.string.default_page_number_indicator_previous_button_text);
@@ -134,7 +133,6 @@ public class NumericPageIndicator extends View implements PageIndicator {
         mTextNextButton = a.getString(R.styleable.NumericPageIndicator_nextButtonText);
         if (mTextNextButton == null) {
             mTextNextButton = res.getString(R.string.default_page_number_indicator_next_button_text);
-
         }
 
         mColorText = a.getColor(R.styleable.NumericPageIndicator_android_textColor, defaultTextColor);
@@ -193,19 +191,19 @@ public class NumericPageIndicator extends View implements PageIndicator {
     /**
      * Returns the text of the "start page" button
      */
-    public String getStartButtonText() {
-        return mTextStartButton;
-    }
+//    public String getStartButtonText() {
+//        return mTextStartButton;
+//    }
 
     /**
      * Sets the text of the "start page" button
      *
      * @param textStartButton The desired text
      */
-    public void setStartButtonText(String textStartButton) {
-        this.mTextStartButton = textStartButton;
-        invalidate();
-    }
+//    public void setStartButtonText(String textStartButton) {
+//        this.mTextStartButton = textStartButton;
+//        invalidate();
+//    }
 
     /**
      * Returns the text of the "next page" button
@@ -217,7 +215,6 @@ public class NumericPageIndicator extends View implements PageIndicator {
     /**
      * Sets the text of the "next page" button
      *
-     * //@param textPreviousButton The desired text
      */
     public void setNextButtonText(String textNextButton) {
         this.mTextNextButton = textNextButton;
@@ -244,19 +241,19 @@ public class NumericPageIndicator extends View implements PageIndicator {
     /**
      * Returns the text of the "end page" button
      */
-    public String getEndButtonText() {
-        return mTextEndButton;
-    }
+//    public String getEndButtonText() {
+//        return mTextEndButton;
+//    }
 
     /**
      * Sets the text of the "end page" button
      *
-     * //@param textStartButton The desired text
+     *
      */
-    public void setEndButtonText(String textEndButton) {
-        this.mTextEndButton = textEndButton;
-        invalidate();
-    }
+//    public void setEndButtonText(String textEndButton) {
+//        this.mTextEndButton = textEndButton;
+//        invalidate();
+//    }
 
     public int getTextColor() {
         return mColorText;
@@ -366,7 +363,7 @@ public class NumericPageIndicator extends View implements PageIndicator {
      * necessary because when we draw the text we'll draw the page number
      * independently, as it has to fade out when the uses swipes to a new page
      *
-     * //@param template The text template to be parsed (e.g. "Page #i of #N)
+     *
      */
     private void parseTextTemplate() {
         final String placeholder = TEMPLATE_PAGE_NUMBER_PLACEHOLDER;
@@ -479,13 +476,13 @@ public class NumericPageIndicator extends View implements PageIndicator {
             if (mCurrentPage == 0) {
                 mPaintText.setAlpha((int) (nextPageWeight * textStartAlpha + currentPageWeight * textEndAlpha));
             }
-            canvas.drawText(mTextStartButton, mRectStart.centerX() - mWidthStartText / 2, mRectStartText.bottom, mPaintText);
+//            canvas.drawText(mTextStartButton, mRectStart.centerX() - mWidthStartText / 2, mRectStartText.bottom, mPaintText);
             mPaintText.setAlpha(Color.alpha(mColorText));
             if (mCurrentPage < count - 1) {
                 if (mCurrentPage == count - 2) {
                     mPaintText.setAlpha((int) (currentPageWeight * textStartAlpha + nextPageWeight * textEndAlpha));
                 }
-                canvas.drawText(mTextEndButton, mRectEnd.centerX() - mWidthEndText / 2, mRectEndText.bottom, mPaintText);
+//                canvas.drawText(mTextEndButton, mRectEnd.centerX() - mWidthEndText / 2, mRectEndText.bottom, mPaintText);
                 mPaintText.setAlpha(Color.alpha(mColorText));
             }
         }
@@ -613,18 +610,6 @@ public class NumericPageIndicator extends View implements PageIndicator {
 
         float leftOffset = 0;
         float rightOffset = 0;
-        if (mShowStartEndButtons) {
-            mWidthStartText = mPaintText.measureText(mTextStartButton);
-            final float startButtonWidth = mWidthStartText + 2 * horizontalPadding;
-            mWidthEndText = mPaintText.measureText(mTextEndButton);
-            final float endButtonWidth = mWidthEndText + 2 * horizontalPadding;
-            mRectStartText.set((int) horizontalPadding, (int) mPaddingTop, (int) startButtonWidth, (int) mTextBottom);
-            mRectEndText.set((int) (w - endButtonWidth), (int) mPaddingTop, (int) (w - horizontalPadding), (int) mTextBottom);
-            mRectStart.set(0, 0, (int) startButtonWidth, h);
-            mRectEnd.set((int) (w - startButtonWidth), 0, w, h);
-            leftOffset = startButtonWidth;
-            rightOffset = endButtonWidth;
-        }
 
         if (mShowChangePageButtons) {
             mWidthPreviousText = mPaintText.measureText(mTextPreviousButton);

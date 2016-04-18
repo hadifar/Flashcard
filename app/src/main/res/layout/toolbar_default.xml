@@ -18,11 +18,11 @@
         android:gravity="center_vertical">
 
         <FrameLayout
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:id="@+id/frame_left_icons"
             android:layout_width="48dp"
-            android:layout_height="48dp">
+            android:layout_height="48dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
             <TextView
                 android:id="@+id/icon_toolbar_back"
@@ -30,8 +30,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/icon_chevron_left"
-                android:visibility="gone"
-                android:textColor="@color/material_text_color_bright" />
+                android:textColor="@color/material_text_color_bright"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/icon_toolbar_drawer"
@@ -50,7 +50,7 @@
             android:layout_toLeftOf="@+id/icon_toolbar_search"
             android:layout_toRightOf="@+id/frame_left_icons"
             android:gravity="center"
-            android:text="Dope"/>
+            android:text="Dope" />
 
 
         <TextView
@@ -60,6 +60,7 @@
             android:layout_height="48dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:background="?attr/selectableItemBackground"
             android:text="@string/icon_search"
             android:textColor="@color/material_text_color_bright" />
 

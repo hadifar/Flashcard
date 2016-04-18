@@ -52,6 +52,8 @@
     <color name="default_page_number_indicator_page_number_text_color">@color/color_primary_dark</color>
     <color name="default_page_number_indicator_pressed_button_color">#3FFF</color>
 
+    <!--progress bar-->
+    <color name="default_shader">#33000000</color>
 
 
 

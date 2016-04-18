@@ -39,6 +39,7 @@ public class FragmentCategory extends BaseListFragment implements OnCardClickLis
         adapter = new BaseListAdapter(getActivity(), (List<BaseEntity>) entityList, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
         showFloatingButton();
 
     }

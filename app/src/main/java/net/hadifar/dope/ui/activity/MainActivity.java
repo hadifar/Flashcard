@@ -14,7 +14,6 @@ import net.hadifar.dope.ui.fragment.FragmentAbout;
 import net.hadifar.dope.ui.fragment.FragmentDecks;
 import net.hadifar.dope.ui.fragment.FragmentFavoriteFlashCardList;
 import net.hadifar.dope.ui.fragment.FragmentFavoriteFlashCardViewer;
-import net.hadifar.dope.ui.fragment.FragmentFlashCardsList;
 import net.hadifar.dope.ui.fragment.FragmentLearningMethod;
 
 
@@ -53,10 +52,10 @@ public class MainActivity extends BaseDrawerActivity {
                 break;
             case SETTINGS_FRAG:
                 break;
-            case FLASHCARDS_FRAG:
-                activeFragment = new FragmentFlashCardsList();
-                fragmentTransaction.addToBackStack(null);
-                break;
+//            case FLASHCARDS_FRAG:
+//                activeFragment = new FragmentFlashCardsList();
+//                fragmentTransaction.addToBackStack(null);
+//                break;
             case FLASHCARDS_VIEWER:
                 activeFragment = new FragmentFlashCardViewer();
                 fragmentTransaction.addToBackStack(null);

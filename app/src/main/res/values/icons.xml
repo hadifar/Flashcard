@@ -65,10 +65,10 @@
 
     <!--page indicator -->
     <string name="default_page_number_indicator_text_template">#i of #N</string>
-    <string name="default_page_number_indicator_start_button_text"></string>
-    <string name="default_page_number_indicator_end_button_text"></string>
-    <string name="default_page_number_indicator_previous_button_text"></string>
-    <string name="default_page_number_indicator_next_button_text"></string>
+    <!--<string name="default_page_number_indicator_start_button_text"></string>-->
+    <!--<string name="default_page_number_indicator_end_button_text"></string>-->
+    <string name="default_page_number_indicator_previous_button_text">PRE</string>
+    <string name="default_page_number_indicator_next_button_text">NEX</string>
 
 
     <string-array name="icons_learning_method">

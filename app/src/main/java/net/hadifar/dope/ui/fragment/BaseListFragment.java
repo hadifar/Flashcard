@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 
 import net.hadifar.dope.R;
 import net.hadifar.dope.ui.adapter.BaseAdapter;
-import net.hadifar.dope.ui.adapter.BaseListAdapter;
-import net.hadifar.dope.ui.listeners.OnCardClickListener;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -35,6 +33,7 @@ public abstract class BaseListFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_base_list, container, false);
         ButterKnife.bind(this, view);
+
         return view;
     }
 

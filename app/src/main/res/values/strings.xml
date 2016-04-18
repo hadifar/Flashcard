@@ -1,7 +1,7 @@
 <resources>
 
     <string name="app_name">Dope</string>
-    <string name="free_and_always_will_be">Free and Open Source</string>
+    <string name="free_and_open_source">Free and Open Source</string>
     <string name="version_code">Version 1.0</string>
     <string name="copy_right_text">&#169; 2015-2016 Dope Flashcard All Right Reserved</string>
 
@@ -85,6 +85,7 @@
     <string name="menu_favorite">favorite</string>
 
     <string name="title_delete">Delete</string>
+    <string name="nav_night_mode">Night mode</string>
 
 
 </resources>
