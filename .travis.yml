@@ -19,4 +19,4 @@ before_script:
 
 script:
   - android list target
-  - ./gradlew connectedAndroidTest
+  - ./gradlew connectedCheck
