@@ -8,6 +8,7 @@ def gitCommitCount = 100 + Integer.parseInt('git rev-list --count HEAD'.execute(
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
+
     defaultConfig {
         applicationId 'net.hadifar.dope'
         minSdkVersion 14
@@ -16,6 +17,10 @@ android {
         versionCode gitCommitCount
         buildConfigField "String", "GIT_SHA", "\"${gitSha}\""
 
+    }
+
+    lintOptions {
+        abortOnError false
     }
 
     compileOptions {
