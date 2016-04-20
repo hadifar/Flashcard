@@ -1,9 +1,6 @@
 package net.hadifar.dope.ui.fragment;
 
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.support.v7.widget.CardView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -12,16 +9,13 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
+import net.hadifar.dope.R;
 import net.hadifar.dope.model.FlashCard;
 import net.hadifar.dope.storage.AppDataBaseManager;
-import net.hadifar.dope.ui.widget.Toaster;
+import net.hadifar.dope.ui.activity.MainActivity;
 import net.hadifar.dope.utils.AnimationHelper;
-import net.hadifar.dope.R;
-
-import java.util.Locale;
 
 /**
  * Amir Hadifar on 29/07/2015
@@ -30,9 +24,9 @@ import java.util.Locale;
  * Twitter : @AmirHadifar
  */
 
-public class FragmentFlashCardContent extends BaseFragment implements TextToSpeech.OnInitListener {
 
-    private TextToSpeech mTextToSpeech = null;
+public class FragmentFlashCardContent extends BaseFragment {
+
 
     private FlashCard flashCard;
     private boolean isAnswer = false;
@@ -44,17 +38,15 @@ public class FragmentFlashCardContent extends BaseFragment implements TextToSpee
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mTextToSpeech = new TextToSpeech(getActivity(), this);
         return inflater.inflate(R.layout.fragment_flashcard_content, container, false);
     }
 
     @Override
     public void onViewCreated(final View rootView, Bundle savedInstanceState) {
 
-
         initCardView(rootView);
-        initExpandView(rootView);
 
+        initExpandView(rootView);
 
     }
 
@@ -125,7 +117,7 @@ public class FragmentFlashCardContent extends BaseFragment implements TextToSpee
             @Override
             public void onClick(View view) {
                 AnimationHelper.changeIconAnim((TextView) view, getString(R.string.icon_volume_up));
-                speakOut(flashCard.getTitle());
+                ((MainActivity) getActivity()).speakOut(flashCard.getTitle());
             }
         });
 
@@ -168,42 +160,6 @@ public class FragmentFlashCardContent extends BaseFragment implements TextToSpee
 
     public void setCard(FlashCard card) {
         this.flashCard = card;
-    }
-
-
-    @Override
-    public void onInit(int status) {
-        if (status == TextToSpeech.SUCCESS) {
-
-            int result = mTextToSpeech.setLanguage(Locale.US);
-
-            if (result == TextToSpeech.LANG_MISSING_DATA
-                    || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                Toaster.toast(getActivity(), R.string.your_language_not_supported_please_install, Toast.LENGTH_SHORT);
-            }
-        } else {
-            Toast.makeText(getActivity(), R.string.please_install_google_voice, Toast.LENGTH_LONG).show();
-            Intent installIntent = new Intent();
-            installIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
-            startActivity(installIntent);
-        }
-
-    }
-
-
-    public void onDestroy() {
-        if (mTextToSpeech != null) {
-            mTextToSpeech.stop();
-            mTextToSpeech.shutdown();
-        }
-        super.onDestroy();
-    }
-
-    public void speakOut(String text) {
-        if (Build.VERSION.SDK_INT < 21)
-            mTextToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
-        else
-            mTextToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
     }
 
 

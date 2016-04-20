@@ -89,6 +89,8 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
         if (navigationView != null)
             setupDrawerContent();
 
+        init();
+
         displayView(0, null);
     }
 
@@ -140,7 +142,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
 
     public abstract void displayView(int position, Bundle fragmentBundle);
 
-    public abstract void drawerView(int position);
+    public abstract void init();
 
 
     public void clearBackStack() {
