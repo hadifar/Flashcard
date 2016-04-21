@@ -89,8 +89,6 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
         if (navigationView != null)
             setupDrawerContent();
 
-        init();
-
         displayView(0, null);
     }
 
@@ -141,8 +139,6 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
 
 
     public abstract void displayView(int position, Bundle fragmentBundle);
-
-    public abstract void init();
 
 
     public void clearBackStack() {
@@ -196,20 +192,12 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
                 .start();
     }
 
-    public Toolbar getToolbar() {
-        return toolbar;
-    }
-
     public FrameLayout getFrameIcons() {
         return toolbarFrameIcons;
     }
 
     public TextView getSearchIcon() {
         return toolbarSearchIcon;
-    }
-
-    public TextView getBackIcon() {
-        return toolbarBackIcon;
     }
 
     public TextView getAppLogo() {
@@ -222,7 +210,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
             titleStack.push(title);
         }
     }
-
+    
     public void drawerEnable() {
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
         toolbarIconDrawer.setVisibility(View.VISIBLE);

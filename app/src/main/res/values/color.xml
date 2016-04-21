@@ -12,11 +12,29 @@
 
     <color name="gray">#727272</color>
 
+
     <color name="color_primary">#0277bd</color>
     <color name="color_primary_dark">#01579B</color>
     <color name="color_accent">#29B6F6</color>
 
     <color name="action_bar_text_color">#fafafa</color>
+
+
+    <color name="black_transparent_70">#b2000000</color>
+    <color name="black_transparent_65">#a5000000</color>
+    <color name="black_transparent_60">#9a000000</color>
+    <color name="black_transparent_50">#7f000000</color>
+    <color name="black_transparent_38">#70000000</color>
+    <color name="black_transparent_30">#4c000000</color>
+    <color name="black_transparent_17">#22000000</color>
+    <color name="black_transparent_7">#12000000</color>
+
+    <color name="white_transparent_90">#e1ffffff</color>
+    <color name="white_transparent_60">#bfffffff</color>
+    <color name="white_transparent_30">#5affffff</color>
+    <color name="white_transparent_15">#26ffffff</color>
+    <color name="white_transparent_5">#11ffffff</color>
+
 
     <!-- fab button -->
     <color name="fab_ripple">#C5CAE9</color>

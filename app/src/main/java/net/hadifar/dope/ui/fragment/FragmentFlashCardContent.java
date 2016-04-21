@@ -1,6 +1,7 @@
 package net.hadifar.dope.ui.fragment;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.ViewSwitcher;
 import net.hadifar.dope.R;
 import net.hadifar.dope.model.FlashCard;
 import net.hadifar.dope.storage.AppDataBaseManager;
+import net.hadifar.dope.ui.activity.FlashCardViewerActivity;
 import net.hadifar.dope.ui.activity.MainActivity;
 import net.hadifar.dope.utils.AnimationHelper;
 
@@ -25,7 +27,7 @@ import net.hadifar.dope.utils.AnimationHelper;
  */
 
 
-public class FragmentFlashCardContent extends BaseFragment {
+public class FragmentFlashCardContent extends Fragment {
 
 
     private FlashCard flashCard;
@@ -117,7 +119,7 @@ public class FragmentFlashCardContent extends BaseFragment {
             @Override
             public void onClick(View view) {
                 AnimationHelper.changeIconAnim((TextView) view, getString(R.string.icon_volume_up));
-                ((MainActivity) getActivity()).speakOut(flashCard.getTitle());
+                ((FlashCardViewerActivity) getActivity()).speakOut(flashCard.getTitle());
             }
         });
 

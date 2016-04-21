@@ -45,13 +45,13 @@ public abstract class BaseListFragment extends BaseFragment {
             public void run() {
                 if (!fab.isShown()) {
                     fab.show();
-                    setupFabListener();
+                    setupFabBehavior();
                 }
             }
         }, 1000);
     }
 
-    private void setupFabListener() {
+    private void setupFabBehavior() {
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {

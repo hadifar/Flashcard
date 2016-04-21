@@ -11,6 +11,7 @@ import net.hadifar.dope.R;
 import net.hadifar.dope.model.BaseEntity;
 import net.hadifar.dope.model.Deck;
 import net.hadifar.dope.storage.BundleDataBaseManager;
+import net.hadifar.dope.ui.activity.FlashCardViewerActivity;
 import net.hadifar.dope.ui.activity.MainActivity;
 import net.hadifar.dope.ui.adapter.BaseListAdapter;
 import net.hadifar.dope.ui.fragment.dialogs.EditSmallDialog;
@@ -61,7 +62,8 @@ public class FragmentDecks extends BaseListFragment implements OnCardClickListen
         bundle.putInt(EXTRA_CATEGORY_ID, selectedCategoryId);
         bundle.putInt(EXTRA_ID, entity.getId());
         bundle.putString(EXTRA_TITLE, entity.getTitle());
-        ((MainActivity) getActivity()).displayView(MainActivity.FLASHCARDS_VIEWER, bundle);
+        ((MainActivity) getActivity()).displayView(MainActivity.FLASHCARDS_FRAG, bundle);
+//        startActivity(FlashCardViewerActivity.createIntent(getActivity(), entity.getId()));
 
     }
 

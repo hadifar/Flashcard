@@ -1,6 +1,7 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
 
+    <dimen name="status_bar_height">0dp</dimen>
     <!--<dimen name="neg_material_global_margin_2">-2dp</dimen>-->
     <!--<dimen name="neg_material_global_margin_4">-4dp</dimen>-->
     <!--<dimen name="neg_material_global_margin_8">-8dp</dimen>-->

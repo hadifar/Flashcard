@@ -44,7 +44,6 @@ public class FragmentCategory extends BaseListFragment implements OnCardClickLis
 
     }
 
-
     @OnClick(R.id.fab_add_new_card)
     public void fabClicked() {
         final EditSmallDialog newCategoryDialog = new EditSmallDialog();

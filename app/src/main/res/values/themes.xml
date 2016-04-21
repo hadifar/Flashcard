@@ -19,24 +19,13 @@
 
     <style name="Dope" parent="DopeBase" />
 
-
-
-
-
-    <style name="PopupMenu" parent="Widget.AppCompat.PopupMenu">
-        <item name="android:popupBackground">@color/default_background</item>
-    </style>
-
-    <style name="CustomMenuTextAppearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
-        <item name="android:textColor">@color/material_text_color_dark</item>
-    </style>
-
-    <style name="PopupMenu.TextAppearanceLarge" parent="TextAppearance.AppCompat.Light.Widget.PopupMenu.Large">
-        <item name="android:textColor">@color/material_text_color_dark</item>
-    </style>
-
-    <style name="PopupMenu.TextAppearanceSmall" parent="TextAppearance.AppCompat.Light.Widget.PopupMenu.Small">
-        <item name="android:textColor">@color/material_text_color_dark</item>
+    <style name="Dope.Transparent" parent="Dope">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:backgroundDimEnabled">false</item>
     </style>
 
 
