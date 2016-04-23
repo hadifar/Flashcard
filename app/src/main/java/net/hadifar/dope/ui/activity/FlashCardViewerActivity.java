@@ -33,7 +33,7 @@ public class FlashCardViewerActivity extends BaseActivity implements TextToSpeec
 
     private int selectedDockId = 1;
 
-    private TextToSpeech mTextToSpeech = new TextToSpeech(this, this);
+    private TextToSpeech mTextToSpeech;
 
     public static Intent createIntent(Context context, int selectedDeckId) {
         Intent intent = new Intent(context, FlashCardViewerActivity.class);
@@ -54,8 +54,14 @@ public class FlashCardViewerActivity extends BaseActivity implements TextToSpeec
             selectedDockId = savedInstanceState.getInt(EXTRA_ID, 1);
         }
 
+        initData();
+
         setupViewPager();
 
+    }
+
+    private void initData() {
+        mTextToSpeech = new TextToSpeech(this, this);
     }
 
     private void setupViewPager() {

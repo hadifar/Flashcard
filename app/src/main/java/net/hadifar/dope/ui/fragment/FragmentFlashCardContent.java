@@ -1,5 +1,6 @@
 package net.hadifar.dope.ui.fragment;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -16,8 +17,11 @@ import net.hadifar.dope.R;
 import net.hadifar.dope.model.FlashCard;
 import net.hadifar.dope.storage.AppDataBaseManager;
 import net.hadifar.dope.ui.activity.FlashCardViewerActivity;
-import net.hadifar.dope.ui.activity.MainActivity;
 import net.hadifar.dope.utils.AnimationHelper;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Amir Hadifar on 29/07/2015
@@ -29,6 +33,14 @@ import net.hadifar.dope.utils.AnimationHelper;
 
 public class FragmentFlashCardContent extends Fragment {
 
+    @Bind(R.id.flashcardWord)
+    TextSwitcher word;
+
+    @Bind(R.id.popupLayout)
+    CardView popupLayout;
+
+    @Bind(R.id.btn_favorite)
+    TextView favorite;
 
     private FlashCard flashCard;
     private boolean isAnswer = false;
@@ -40,88 +52,32 @@ public class FragmentFlashCardContent extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_flashcard_content, container, false);
+
+        View root = inflater.inflate(R.layout.fragment_flashcard_content, container, false);
+        ButterKnife.bind(this, root);
+        return root;
     }
 
     @Override
     public void onViewCreated(final View rootView, Bundle savedInstanceState) {
 
-        initCardView(rootView);
+        populateData();
 
         initExpandView(rootView);
 
     }
 
-    public void initCardView(View rootView) {
-
+    public void populateData() {
         //text watcher
-        final TextSwitcher word = (TextSwitcher) rootView.findViewById(R.id.flashcardWord);
         word.setFactory(mFactory);
         word.setText(flashCard.getTitle());
 
-        //use whole layout to increase touch area
-        final LinearLayout textLayout = (LinearLayout) rootView.findViewById(R.id.textLayout);
-        textLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (isAnswer) {
-                    isAnswer = false;
-                    word.setText(flashCard.getTitle());
-                } else {
-                    isAnswer = true;
-                    word.setText(flashCard.getPersian());
-                }
-            }
-        });
-
-        //expand layout
-        final CardView popupLayout = (CardView) rootView.findViewById(R.id.popupLayout);
-        //button expand
-        final TextView buttonExpand = (TextView) rootView.findViewById(R.id.buttonExpand);
-        buttonExpand.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (isPopupVisible) {
-                    isPopupVisible = false;
-                    AnimationHelper.changeIconAnim((TextView) view, getString(R.string.icon_chevron_down));
-                    AnimationHelper.collapse(popupLayout);
-                } else {
-                    isPopupVisible = true;
-                    AnimationHelper.changeIconAnim((TextView) view, getString(R.string.icon_chevron_up));
-                    AnimationHelper.expand(popupLayout);
-                }
-            }
-        });
-
-        //bookmark button
-        final TextView bookmark = (TextView) rootView.findViewById(R.id.buttonFavorite);
         if (dataBaseManager.isFavoritedFlashCard(flashCard.getId())) {
-            bookmark.setText(R.string.icon_favorite);
+            favorite.setText(R.string.icon_favorite);
         } else {
-            bookmark.setText(R.string.icon_favorite_outline);
+            favorite.setText(R.string.icon_favorite_outline);
         }
-        bookmark.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (dataBaseManager.isFavoritedFlashCard(flashCard.getId())) {
-                    dataBaseManager.removeFlashCardItemFromFavorites(flashCard.getId());
-                    AnimationHelper.changeIconAnim((TextView) v, getString(R.string.icon_favorite_outline));
-                } else {
-                    dataBaseManager.addFlashCardToFavoritedItems(flashCard);
-                    AnimationHelper.changeIconAnim((TextView) v, getString(R.string.icon_favorite));
-                }
-            }
-        });
 
-
-        final TextView voice = (TextView) rootView.findViewById(R.id.buttonVoice);
-        voice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AnimationHelper.changeIconAnim((TextView) view, getString(R.string.icon_volume_up));
-                ((FlashCardViewerActivity) getActivity()).speakOut(flashCard.getTitle());
-            }
-        });
 
     }
 
@@ -154,15 +110,61 @@ public class FragmentFlashCardContent extends Fragment {
             TextView t = new TextView(getActivity());
             t.setLayoutParams(new TextSwitcher.LayoutParams(TextSwitcher.LayoutParams.MATCH_PARENT, TextSwitcher.LayoutParams.MATCH_PARENT));
             t.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
-            t.setTextAppearance(getActivity(), R.style.Textview_Dark_Large);
+
+            if (Build.VERSION.SDK_INT < 23) {
+                t.setTextAppearance(getActivity(), R.style.Textview_Dark_Medium);
+            } else {
+                t.setTextAppearance(R.style.Textview_Dark_Medium);
+            }
             t.setBackgroundResource(R.color.transparent);
             return t;
         }
     };
 
+
     public void setCard(FlashCard card) {
         this.flashCard = card;
     }
 
+    @OnClick(R.id.textLayout)
+    public void onClickTextLayout() {
+        if (isAnswer) {
+            isAnswer = false;
+            word.setText(flashCard.getTitle());
+        } else {
+            isAnswer = true;
+            word.setText(flashCard.getPersian());
+        }
+    }
+
+    @OnClick(R.id.btn_expand)
+    public void onClickExpand(View view) {
+        if (isPopupVisible) {
+            isPopupVisible = false;
+            AnimationHelper.changeIconAnim((TextView) view, getString(R.string.icon_chevron_up));
+            AnimationHelper.collapse(popupLayout);
+        } else {
+            isPopupVisible = true;
+            AnimationHelper.changeIconAnim((TextView) view, getString(R.string.icon_chevron_down));
+            AnimationHelper.expand(popupLayout);
+        }
+    }
+
+    @OnClick(R.id.btn_voice)
+    public void onClickVoice(View view) {
+        AnimationHelper.changeIconAnim((TextView) view, getString(R.string.icon_volume_up));
+        ((FlashCardViewerActivity) getActivity()).speakOut(flashCard.getTitle());
+    }
+
+    @OnClick(R.id.btn_favorite)
+    public void onClickFavorite(View v) {
+        if (dataBaseManager.isFavoritedFlashCard(flashCard.getId())) {
+            dataBaseManager.removeFlashCardItemFromFavorites(flashCard.getId());
+            AnimationHelper.changeIconAnim((TextView) v, getString(R.string.icon_favorite_outline));
+        } else {
+            dataBaseManager.addFlashCardToFavoritedItems(flashCard);
+            AnimationHelper.changeIconAnim((TextView) v, getString(R.string.icon_favorite));
+        }
+    }
 
 }

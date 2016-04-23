@@ -7,17 +7,16 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import net.hadifar.dope.R;
 import net.hadifar.dope.model.BaseEntity;
 import net.hadifar.dope.model.FlashCard;
+import net.hadifar.dope.storage.BundleDataBaseManager;
 import net.hadifar.dope.ui.activity.FlashCardViewerActivity;
-import net.hadifar.dope.ui.activity.MainActivity;
 import net.hadifar.dope.ui.adapter.BaseListAdapter;
 import net.hadifar.dope.ui.fragment.dialogs.EditLargeDialog;
 import net.hadifar.dope.ui.fragment.dialogs.EditSmallDialog;
 import net.hadifar.dope.ui.fragment.dialogs.MessageDialog;
 import net.hadifar.dope.ui.listeners.DialogButtonsClickListener;
-import net.hadifar.dope.R;
-import net.hadifar.dope.storage.BundleDataBaseManager;
 import net.hadifar.dope.ui.listeners.OnCardClickListener;
 
 import java.util.List;
