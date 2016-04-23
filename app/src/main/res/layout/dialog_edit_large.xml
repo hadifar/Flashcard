@@ -21,7 +21,7 @@
 
 
             <EditText
-                android:id="@+id/flashcardWord"
+                android:id="@+id/txtswitcher_word"
                 style="@style/EditText.Default"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

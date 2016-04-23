@@ -4,11 +4,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
@@ -33,12 +33,10 @@ import butterknife.OnClick;
 
 public class FragmentFlashCardContent extends Fragment {
 
-    @Bind(R.id.flashcardWord)
+    @Bind(R.id.txtswitcher_word)
     TextSwitcher word;
-
-    @Bind(R.id.popupLayout)
+    @Bind(R.id.popup_layout)
     CardView popupLayout;
-
     @Bind(R.id.btn_favorite)
     TextView favorite;
 
@@ -47,7 +45,7 @@ public class FragmentFlashCardContent extends Fragment {
     private boolean isPopupVisible = false;
 
 
-    private AppDataBaseManager dataBaseManager = AppDataBaseManager.getInstance();
+    private AppDataBaseManager dataBaseManager;
 
 
     @Override
@@ -68,6 +66,8 @@ public class FragmentFlashCardContent extends Fragment {
     }
 
     public void populateData() {
+
+        dataBaseManager = AppDataBaseManager.getInstance();
         //text watcher
         word.setFactory(mFactory);
         word.setText(flashCard.getTitle());
@@ -96,7 +96,7 @@ public class FragmentFlashCardContent extends Fragment {
         ex2.setText("2 - " + flashCard.getExample2());
 
         TextView ex3 = (TextView) rootView.findViewById(R.id.example3);
-        if (flashCard.getExample3() == null || flashCard.getExample3().equals("")) {
+        if (TextUtils.isEmpty(flashCard.getExample3())) {
             ex3.setVisibility(View.INVISIBLE);
         } else
             ex3.setText("3 - " + flashCard.getExample3());

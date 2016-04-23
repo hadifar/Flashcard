@@ -31,7 +31,7 @@
                 android:textColor="@color/color_primary_dark" />
 
             <TextSwitcher
-                android:id="@+id/flashcardWord"
+                android:id="@+id/txtswitcher_word"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/material_global_margin_8"
@@ -47,7 +47,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/flashcardWord"
+                android:layout_below="@+id/txtswitcher_word"
                 android:clickable="true"
                 android:gravity="end"
                 android:minHeight="36dp">
