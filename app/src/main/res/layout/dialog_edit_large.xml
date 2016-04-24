@@ -7,21 +7,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/material_global_padding_16">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/default_background"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/material_global_margin_16"
-            android:paddingLeft="@dimen/material_global_margin_16"
-            android:paddingRight="@dimen/material_global_margin_16"
-            android:paddingTop="@dimen/material_global_margin_32">
+            android:orientation="vertical">
 
 
             <EditText
-                android:id="@+id/txtswitcher_word"
+                android:id="@+id/et_word"
                 style="@style/EditText.Default"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -29,28 +26,29 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/flashcardPronunciation"
+                android:id="@+id/et_pronunciation"
                 style="@style/EditText.Default"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_flashcard_pronunciation" />
 
             <EditText
-                android:id="@+id/flashcardPersian"
+                android:id="@+id/et_translate"
                 style="@style/EditText.Default"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_flashcard_persian" />
 
             <EditText
-                android:id="@+id/flashcardSynonym"
+                android:id="@+id/et_synonym"
                 style="@style/EditText.Default"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_flashcard_synonym" />
 
-            <EditText
-                android:id="@+id/flashcardEx1"
+            <!-- should be replace with list-->
+            <!--<EditText
+                android:id="@+id/et_ex"
                 style="@style/EditText.Default"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,16 +66,8 @@
                 style="@style/EditText.Default"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_flashcard_example3" />
+                android:hint="@string/hint_flashcard_example3" />-->
 
-            <Button
-                android:id="@+id/fab_add_new_flashcard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/material_global_margin_16"
-                android:background="@drawable/default_button"
-                android:text="@string/create_new_flashcard"
-                android:textColor="@android:color/white" />
         </LinearLayout>
 
         <FrameLayout
@@ -86,6 +76,7 @@
             android:layout_marginTop="@dimen/material_global_margin_16">
 
             <LinearLayout
+                android:id="@+id/btn_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
@@ -113,7 +104,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/btn_dialog_single"
+                android:id="@+id/btn_dialog_create"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

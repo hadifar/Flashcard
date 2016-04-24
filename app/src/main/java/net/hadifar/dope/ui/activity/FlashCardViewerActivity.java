@@ -45,6 +45,8 @@ public class FlashCardViewerActivity extends BaseActivity implements TextToSpeec
     public void onCreate(Bundle savedInstanceState) {
         //todo translucent color issue
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_to_right);
+
         setContentView(R.layout.activity_flashcard_viewer);
         ButterKnife.bind(this);
 
@@ -109,6 +111,13 @@ public class FlashCardViewerActivity extends BaseActivity implements TextToSpeec
             mTextToSpeech.shutdown();
         }
         super.onDestroy();
+    }
+
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_out_back_to_left, R.anim.slide_in_back_from_right);
     }
 
     @Override

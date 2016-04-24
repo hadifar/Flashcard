@@ -92,8 +92,8 @@ public class FlashCard extends BaseEntity {
         this.subtitle = subtitle;
     }
 
-    public void setPersian(String persian) {
-        this.persian = persian;
+    public void setTranslate(String translate) {
+        this.persian = translate;
     }
 
     public void setSynonym(String synonym) {

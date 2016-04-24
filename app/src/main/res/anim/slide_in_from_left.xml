@@ -1,0 +1,12 @@
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:zAdjustment="top">
+    <translate
+        android:duration="400"
+        android:fromXDelta="-100%p"
+        android:toXDelta="0%p" />
+
+    <alpha
+        android:duration="400"
+        android:fromAlpha="0.8"
+        android:toAlpha="1.0" />
+</set>

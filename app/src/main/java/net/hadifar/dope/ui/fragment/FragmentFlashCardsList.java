@@ -17,6 +17,7 @@ import net.hadifar.dope.ui.fragment.dialogs.EditLargeDialog;
 import net.hadifar.dope.ui.fragment.dialogs.EditSmallDialog;
 import net.hadifar.dope.ui.fragment.dialogs.MessageDialog;
 import net.hadifar.dope.ui.listeners.DialogButtonsClickListener;
+import net.hadifar.dope.ui.listeners.LargeDialogClickListener;
 import net.hadifar.dope.ui.listeners.OnCardClickListener;
 
 import java.util.List;
@@ -60,18 +61,17 @@ public class FragmentFlashCardsList extends BaseListFragment implements OnCardCl
 
     @OnClick(R.id.fab_add_new_card)
     public void fabClicked() {
+
         final EditLargeDialog editLargeDialog = new EditLargeDialog();
-        editLargeDialog.init("", "", R.string.create_new_flashcard, new DialogButtonsClickListener() {
+        editLargeDialog.init(null, "", "", R.string.create_new_flashcard, new LargeDialogClickListener() {
             @Override
             public void onLeftButtonClick() {
                 editLargeDialog.dismiss();
             }
 
             @Override
-            public void onRightButtonClick(String... strings) {
+            public void onRightButtonClick(FlashCard flashCard) {
 
-                int newFlashcardId = BundleDataBaseManager.getInstance().getLastFlashCardId() + 1;
-                FlashCard flashCard = new FlashCard(newFlashcardId, strings[0], strings[1], strings[2], strings[3], strings[4], strings[5], strings[6], selectedDeckId);
                 BundleDataBaseManager.getInstance().addToFlashCard(flashCard);
                 adapter.addItem(flashCard);
                 adapter.notifyDataSetChanged();
@@ -124,23 +124,23 @@ public class FragmentFlashCardsList extends BaseListFragment implements OnCardCl
 
         final FlashCard flashCard = BundleDataBaseManager.getInstance().getFlashcard4Id(entity.id);
 
-        final EditSmallDialog editMsg = new EditSmallDialog();
-        editMsg.init(R.string.hint_deck_name, R.string.hint_deck_subtitle, R.string.btn_cancel, R.string.btn_done, "", new DialogButtonsClickListener() {
-            @Override
-            public void onLeftButtonClick() {
-                editMsg.dismiss();
-            }
-
-            @Override
-            public void onRightButtonClick(String... strings) {
-                //TODO update content of flashcard
-                flashCard.setTitle(strings[0]);
-                flashCard.setSubtitle(strings[1]);
-                BundleDataBaseManager.getInstance().editFromFlashCard(flashCard);
-                adapter.notifyDataSetChanged();
-                editMsg.dismiss();
-            }
-        });
+        final EditLargeDialog editMsg = new EditLargeDialog();
+//        editMsg.init(R.string.btn_ok, R.string.btn_cancel, R.string.btn_cancel, R.string.btn_done, "", new DialogButtonsClickListener() {
+//            @Override
+//            public void onLeftButtonClick() {
+//                editMsg.dismiss();
+//            }
+//
+//            @Override
+//            public void onRightButtonClick(String... strings) {
+//                //TODO update content of flashcard
+//                flashCard.setTitle(strings[0]);
+//                flashCard.setSubtitle(strings[1]);
+//                BundleDataBaseManager.getInstance().editFromFlashCard(flashCard);
+//                adapter.notifyDataSetChanged();
+//                editMsg.dismiss();
+//            }
+//        });
         editMsg.show(getFragmentManager(), "activeFragment");
     }
 
