@@ -204,13 +204,14 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
         return toolbarTitle;
     }
 
-    public void setToolbarTitle(String title) {
-        if (!TextUtils.isEmpty(title)) {
-            toolbarTitle.setText(title);
-            titleStack.push(title);
+    public void setToolbarTitle(String newTitle) {
+        if (!TextUtils.isEmpty(newTitle)) {
+            String currentTitle = toolbarTitle.getText().toString();
+            titleStack.push(currentTitle);
+            toolbarTitle.setText(newTitle);
         }
     }
-    
+
     public void drawerEnable() {
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
         toolbarIconDrawer.setVisibility(View.VISIBLE);
@@ -251,8 +252,9 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
                 super.onBackPressed();
             } else {
                 getSupportFragmentManager().popBackStack();
-                if (!titleStack.isEmpty())
-                    setToolbarTitle(titleStack.pop());
+                if (!titleStack.isEmpty()) {
+                    toolbarTitle.setText(titleStack.pop());
+                }
             }
         }
     }

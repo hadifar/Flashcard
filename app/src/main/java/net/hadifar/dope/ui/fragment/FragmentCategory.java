@@ -41,7 +41,6 @@ public class FragmentCategory extends BaseListFragment implements OnCardClickLis
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         showFloatingButton();
-
     }
 
     @OnClick(R.id.fab_add_new_card)

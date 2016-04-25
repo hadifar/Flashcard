@@ -39,8 +39,6 @@ public abstract class BaseFragment extends Fragment implements FragmentManager.O
 
         getFragmentManager().addOnBackStackChangedListener(this);
 
-        setRetainInstance(true);
-
         shouldDisplayHomeUp();
     }
 
