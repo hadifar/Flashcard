@@ -109,7 +109,6 @@ public class FragmentDecks extends BaseListFragment implements OnCardClickListen
                 Deck deck = new Deck(newDeckId, strings[0], strings[1], selectedCategoryId);
                 BundleDataBaseManager.getInstance().addToDecks(deck);
                 adapter.addItem(deck);
-                adapter.notifyDataSetChanged();
                 newDeckDialog.dismiss();
             }
         });

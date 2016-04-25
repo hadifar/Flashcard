@@ -125,22 +125,21 @@ public class FragmentFlashCardsList extends BaseListFragment implements OnCardCl
         final FlashCard flashCard = BundleDataBaseManager.getInstance().getFlashcard4Id(entity.id);
 
         final EditLargeDialog editMsg = new EditLargeDialog();
-//        editMsg.init(R.string.btn_ok, R.string.btn_cancel, R.string.btn_cancel, R.string.btn_done, "", new DialogButtonsClickListener() {
-//            @Override
-//            public void onLeftButtonClick() {
-//                editMsg.dismiss();
-//            }
-//
-//            @Override
-//            public void onRightButtonClick(String... strings) {
-//                //TODO update content of flashcard
-//                flashCard.setTitle(strings[0]);
-//                flashCard.setSubtitle(strings[1]);
-//                BundleDataBaseManager.getInstance().editFromFlashCard(flashCard);
-//                adapter.notifyDataSetChanged();
-//                editMsg.dismiss();
-//            }
-//        });
+        editMsg.init(flashCard, R.string.btn_cancel, R.string.btn_done, "", new LargeDialogClickListener() {
+            @Override
+            public void onLeftButtonClick() {
+                editMsg.dismiss();
+            }
+
+            @Override
+            public void onRightButtonClick(FlashCard flashCard) {
+                BundleDataBaseManager.getInstance().editFromFlashCard(flashCard);
+                entity.setTitle(flashCard.getTitle());
+                entity.setSubtitle(flashCard.getSubtitle());
+                adapter.addItem(entity);
+                editMsg.dismiss();
+            }
+        });
         editMsg.show(getFragmentManager(), "activeFragment");
     }
 
@@ -159,7 +158,6 @@ public class FragmentFlashCardsList extends BaseListFragment implements OnCardCl
             public void onRightButtonClick(String... strings) {
                 BundleDataBaseManager.getInstance().removeFromFlashCard(flashCard);
                 adapter.removeItem(flashCard);
-                adapter.notifyDataSetChanged();
                 deleteMsg.dismiss();
             }
         });

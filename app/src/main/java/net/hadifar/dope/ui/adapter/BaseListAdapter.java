@@ -80,11 +80,13 @@ public class BaseListAdapter extends BaseAdapter {
     @Override
     public void removeItem(BaseEntity entity) {
         items.remove(entity);
+        notifyDataSetChanged();
     }
 
     @Override
     public void addItem(BaseEntity entity) {
         items.add(entity);
+        notifyDataSetChanged();
     }
 
     @Override

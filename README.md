@@ -9,7 +9,6 @@ This is Material Flashcard specially designed for Android. Actually it's based o
 
 Used Open Source repository
 -------
-* [NumericPageIndicator][1]
 * [Ormlite][2]
 * [instaMaterial][3]
 
@@ -17,11 +16,10 @@ Used Open Source repository
 
 Contact
 -------
-If you have any question or find bug I really appreciate to contact with me: hadifar.amir@gmail.com
+If you have any question or find bug I really appreciate to contact with me with Issue.
 
 
 
 
-[1]: https://github.com/ManuelPeinado/NumericPageIndicator
 [2]: https://github.com/j256/ormlite-android
 [3]: https://github.com/frogermcs/InstaMaterial

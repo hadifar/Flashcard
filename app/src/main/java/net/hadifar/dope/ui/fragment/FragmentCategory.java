@@ -133,7 +133,6 @@ public class FragmentCategory extends BaseListFragment implements OnCardClickLis
             public void onRightButtonClick(String... strings) {
                 BundleDataBaseManager.getInstance().removeFromCategory(category);
                 adapter.removeItem(category);
-                adapter.notifyDataSetChanged();
                 deleteMsg.dismiss();
             }
         });
