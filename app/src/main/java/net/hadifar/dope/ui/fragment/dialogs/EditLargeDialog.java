@@ -9,10 +9,9 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
-import net.hadifar.dope.model.FlashCard;
-import net.hadifar.dope.storage.BundleDataBaseManager;
-import net.hadifar.dope.ui.listeners.LargeDialogClickListener;
 import net.hadifar.dope.R;
+import net.hadifar.dope.model.FlashCard;
+import net.hadifar.dope.ui.listeners.LargeDialogClickListener;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

@@ -1,8 +1,8 @@
 package net.hadifar.dope.ui.activity;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 
 import net.hadifar.dope.R;
@@ -14,6 +14,7 @@ import net.hadifar.dope.ui.fragment.FragmentFlashCardsList;
 import net.hadifar.dope.ui.fragment.FragmentLearningMethod;
 
 
+
 public class MainActivity extends BaseDrawerActivity {
 
     private static final String TAG_ACTIVE_FRAGMENT = "fragment_active";
@@ -23,7 +24,7 @@ public class MainActivity extends BaseDrawerActivity {
     @Override
     public void displayView(int position, Bundle fragmentBundle) {
 
-        FragmentManager fragmentManager = getSupportFragmentManager(); // Get the fragmentManager for this activity
+        FragmentManager fragmentManager = getFragmentManager(); // Get the fragmentManager for this activity
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         switch (position) {
@@ -52,7 +53,7 @@ public class MainActivity extends BaseDrawerActivity {
 //                activeFragment = new FragmentFavoriteFlashCardViewer();
 //                fragmentTransaction.addToBackStack(null);
 //                break;
-//            case SETTINGS_FRAG:
+//           break case SETTINGS_FRAG:
 //                break;
 //            case FLASHCARDS_VIEWER:
 //                activeFragment = new FragmentFlashCardViewer();
@@ -74,7 +75,7 @@ public class MainActivity extends BaseDrawerActivity {
 
 
             fragmentTransaction
-                    .setCustomAnimations(R.anim.alpha_in, R.anim.alpha_out, R.anim.alpha_in, R.anim.alpha_out) // Animations for the fragment out...
+                    .setCustomAnimations(R.animator.alpha_in, R.animator.alpha_out, R.animator.alpha_in, R.animator.alpha_out) // Animations for the fragment out...
                     .add(R.id.frame_container, activeFragment, TAG_ACTIVE_FRAGMENT) // We then replace whatever is inside FrameLayout to our activeFragment
                     .commit();
 

@@ -1,10 +1,10 @@
 package net.hadifar.dope.ui.activity;
 
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,6 +16,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import net.hadifar.dope.R;
+import net.hadifar.dope.ui.fragment.FragmentSettings;
 import net.hadifar.dope.utils.Utils;
 
 import java.util.Stack;
@@ -50,6 +51,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
 
     private Stack<String> titleStack = new Stack<>();
 
+    MenuItem previousMenuItem;
     //toolbar stuff
     @Bind(R.id.toolbar)
     Toolbar toolbar;
@@ -102,46 +104,60 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
     }
 
     private void setupDrawerContent() {
-        navigationView.getMenu().getItem(CATEGORIES_FRAG).setChecked(true);
+        //set category item as default
+        previousMenuItem = navigationView.getMenu().findItem(R.id.nav_category);
+        previousMenuItem.setChecked(true);
+
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        if (menuItem.isChecked()) {
-                            drawerLayout.closeDrawer(Gravity.LEFT);
-                        } else {
 
-                            navigationView.getMenu().findItem(lastSelectedDrawerItem).setChecked(false);
-                            lastSelectedDrawerItem = menuItem.getItemId();
-                            navigationView.setCheckedItem(lastSelectedDrawerItem);
-                            drawerLayout.closeDrawer(Gravity.LEFT);
+                        drawerLayout.closeDrawer(Gravity.LEFT);
 
-                            switch (lastSelectedDrawerItem) {
-                                case R.id.nav_category:
-                                    displayView(CATEGORIES_FRAG, null);
-                                    break;
-                                case R.id.nav_favorites:
-                                    displayView(FAVORITE_FRAG, null);
-                                    break;
-                                case R.id.nav_about:
-                                    displayView(ABOUT_FRAG, null);
-                                    break;
-                                case R.id.nav_feedback:
-                                    displayView(LEARNING_FRAG, null);
-                                    break;
+                        if (previousMenuItem.getItemId() == menuItem.getItemId())
+                            return true;
 
-                            }
+                        menuItem.setCheckable(true);
+                        menuItem.setChecked(true);
+                        previousMenuItem.setChecked(false);
+                        previousMenuItem = menuItem;
 
+                        switch (menuItem.getItemId()) {
+                            case R.id.nav_category:
+                                displayView(CATEGORIES_FRAG, null);
+                                break;
+                            case R.id.nav_favorites:
+                                displayView(FAVORITE_FRAG, null);
+                                break;
+                            case R.id.nav_about:
+                                displayView(ABOUT_FRAG, null);
+                                break;
+                            case R.id.nav_feedback:
+                                displayView(LEARNING_FRAG, null);
+                                break;
+                            case R.id.nav_settings:
+                                getFragmentManager()
+                                        .beginTransaction()
+                                        .setCustomAnimations(R.animator.alpha_in, R.animator.alpha_out, R.animator.alpha_in, R.animator.alpha_out)
+                                        .addToBackStack(null)
+                                        .add(R.id.frame_container, new FragmentSettings())
+                                        .commit();
+                                break;
 
                         }
+
+
                         return true;
                     }
-                });
+                }
+
+        );
     }
 
 
     public void clearBackStack() {
-        FragmentManager manager = getSupportFragmentManager();
+        FragmentManager manager = getFragmentManager();
         if (manager.getBackStackEntryCount() > 0) {
             FragmentManager.BackStackEntry first = manager.getBackStackEntryAt(0);
             manager.popBackStack(first.getId(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
@@ -248,10 +264,10 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
         if (drawerLayout.isDrawerOpen(Gravity.LEFT)) {
             drawerLayout.closeDrawer(Gravity.LEFT);
         } else {
-            if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+            if (getFragmentManager().getBackStackEntryCount() == 0) {
                 super.onBackPressed();
             } else {
-                getSupportFragmentManager().popBackStack();
+                getFragmentManager().popBackStack();
                 if (!titleStack.isEmpty()) {
                     toolbarTitle.setText(titleStack.pop());
                 }

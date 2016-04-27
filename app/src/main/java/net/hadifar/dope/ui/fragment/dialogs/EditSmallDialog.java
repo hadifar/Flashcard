@@ -10,8 +10,8 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
-import net.hadifar.dope.ui.listeners.DialogButtonsClickListener;
 import net.hadifar.dope.R;
+import net.hadifar.dope.ui.listeners.DialogButtonsClickListener;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
