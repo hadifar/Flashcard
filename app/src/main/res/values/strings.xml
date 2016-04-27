@@ -81,11 +81,12 @@
         Next Version Feature :\n- More Books\n- More Customize ability ( font , color &#8230;)\n
     </string>
     <string name="menu_home">home</string>
-    <string name="menu_about">about</string>
-    <string name="menu_favorite">favorite</string>
+    <string name="menu_about">About</string>
+    <string name="menu_favorite">Favorite</string>
 
     <string name="title_delete">Delete</string>
     <string name="nav_night_mode">Night mode</string>
+    <string name="menu_learning">Learning methods</string>
 
 
 </resources>

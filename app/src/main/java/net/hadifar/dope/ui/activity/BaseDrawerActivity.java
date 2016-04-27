@@ -77,6 +77,8 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
 
 
+    public abstract void displayView(int position, Bundle fragmentBundle);
+
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +91,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
         if (navigationView != null)
             setupDrawerContent();
 
+
         displayView(0, null);
     }
 
@@ -96,7 +99,6 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
     private void setupToolbar() {
         setSupportActionBar(toolbar);
         startToolbarAnimation();
-
     }
 
     private void setupDrawerContent() {
@@ -136,9 +138,6 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
                     }
                 });
     }
-
-
-    public abstract void displayView(int position, Bundle fragmentBundle);
 
 
     public void clearBackStack() {
@@ -204,7 +203,8 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
         return toolbarTitle;
     }
 
-    public void setToolbarTitle(String newTitle) {
+    public void setToolbarTitle(Object object) {
+        String newTitle = object instanceof String ? (String) object : getString((Integer) object);
         if (!TextUtils.isEmpty(newTitle)) {
             String currentTitle = toolbarTitle.getText().toString();
             titleStack.push(currentTitle);

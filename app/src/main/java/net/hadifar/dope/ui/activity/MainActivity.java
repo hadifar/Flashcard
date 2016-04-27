@@ -35,9 +35,14 @@ public class MainActivity extends BaseDrawerActivity {
                 activeFragment = new FragmentDecks();
                 fragmentTransaction.addToBackStack(null);
                 break;
+            case FLASHCARDS_FRAG:
+                activeFragment = new FragmentFlashCardsList();
+                fragmentTransaction.addToBackStack(null);
+                break;
             case LEARNING_FRAG:
                 activeFragment = new FragmentLearningMethod();
                 fragmentTransaction.addToBackStack(null);
+                setToolbarTitle(R.string.menu_learning);
                 break;
 //            case FAVORITE_FRAG:
 //                activeFragment = new FragmentFavoriteFlashCardList();
@@ -49,10 +54,6 @@ public class MainActivity extends BaseDrawerActivity {
 //                break;
 //            case SETTINGS_FRAG:
 //                break;
-            case FLASHCARDS_FRAG:
-                activeFragment = new FragmentFlashCardsList();
-                fragmentTransaction.addToBackStack(null);
-                break;
 //            case FLASHCARDS_VIEWER:
 //                activeFragment = new FragmentFlashCardViewer();
 //                fragmentTransaction.addToBackStack(null);
@@ -60,6 +61,7 @@ public class MainActivity extends BaseDrawerActivity {
             case ABOUT_FRAG:
                 activeFragment = new FragmentAbout();
                 fragmentTransaction.addToBackStack(null);
+                setToolbarTitle(R.string.menu_about);
             default:
                 break;
         }
@@ -69,6 +71,7 @@ public class MainActivity extends BaseDrawerActivity {
             if (fragmentBundle != null) {
                 activeFragment.setArguments(fragmentBundle);
             }
+
 
             fragmentTransaction
                     .setCustomAnimations(R.anim.alpha_in, R.anim.alpha_out, R.anim.alpha_in, R.anim.alpha_out) // Animations for the fragment out...
