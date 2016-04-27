@@ -28,6 +28,7 @@
 
 
     <!-- material item height -->
+    <dimen name="material_card_height_72">72dp</dimen>
     <dimen name="material_card_height_96">96dp</dimen>
     <dimen name="material_card_height_120">120dp</dimen>
 
