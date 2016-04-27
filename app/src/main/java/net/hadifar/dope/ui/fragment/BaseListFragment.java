@@ -30,6 +30,7 @@ public abstract class BaseListFragment extends BaseFragment {
     @Bind(R.id.fab_add_new_card)
     FloatingActionButton fab;
 
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_base_list, container, false);

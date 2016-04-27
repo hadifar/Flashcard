@@ -231,12 +231,14 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
     public void drawerEnable() {
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
         toolbarIconDrawer.setVisibility(View.VISIBLE);
+        toolbarSearchIcon.setVisibility(View.VISIBLE);
         toolbarBackIcon.setVisibility(View.GONE);
     }
 
     public void drawerDisable() {
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         toolbarIconDrawer.setVisibility(View.GONE);
+        toolbarSearchIcon.setVisibility(View.INVISIBLE);
         toolbarBackIcon.setVisibility(View.VISIBLE);
     }
 

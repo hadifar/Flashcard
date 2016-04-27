@@ -37,7 +37,6 @@
                 android:background="@color/transparent"
                 android:gravity="center"
                 android:inAnimation="@android:anim/slide_in_left"
-                android:minHeight="@dimen/material_card_height_72"
                 android:outAnimation="@android:anim/slide_out_right" />
 
             <LinearLayout
