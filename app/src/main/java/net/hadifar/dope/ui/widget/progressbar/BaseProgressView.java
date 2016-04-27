@@ -25,7 +25,7 @@ abstract class BaseProgressView extends View {
     protected int height, width;
 
     protected Context context;
-    protected boolean isRoundEdge;
+    protected boolean isRoundEdge = true;
     protected boolean isShadowed;
     protected OnProgressTrackListener listener;
 

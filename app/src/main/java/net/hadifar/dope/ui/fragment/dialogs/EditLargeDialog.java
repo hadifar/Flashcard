@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import net.hadifar.dope.model.FlashCard;
+import net.hadifar.dope.storage.BundleDataBaseManager;
 import net.hadifar.dope.ui.listeners.LargeDialogClickListener;
 import net.hadifar.dope.R;
 
@@ -135,17 +136,10 @@ public class EditLargeDialog extends BaseDialog {
         this.flashCard = flashcard;
     }
 
-    @OnClick(R.id.btn_dialog_create)
-    public void onCreateFlashcard() {
-        fillFlashcard();
-        if (listener != null) {
-            listener.onRightButtonClick(flashCard);
-        }
-    }
-
     private void fillFlashcard() {
-        if (flashCard == null)
+        if (flashCard == null) {
             flashCard = new FlashCard();
+        }
 
         String txt = wordEditTxt.getText().toString();
         if (!TextUtils.isEmpty(txt)) {
@@ -180,12 +174,11 @@ public class EditLargeDialog extends BaseDialog {
             listener.onLeftButtonClick();
     }
 
-    @OnClick(R.id.btn_dialog_right)
+    @OnClick({R.id.btn_dialog_right, R.id.btn_dialog_create})
     public void rightBtnClick() {
         if (listener != null) {
             fillFlashcard();
             listener.onRightButtonClick(flashCard);
         }
     }
-
 }

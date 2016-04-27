@@ -54,8 +54,8 @@ public class FragmentCategory extends BaseListFragment implements OnCardClickLis
 
             @Override
             public void onRightButtonClick(String... strings) {
-                int mCategoryCount = BundleDataBaseManager.getInstance().getLastCategoryId() + 1;
-                Category category = new Category(mCategoryCount, strings[0], strings[1]);
+                int newCategoryId = BundleDataBaseManager.getInstance().getLastCategoryId() + 1;
+                Category category = new Category(newCategoryId, strings[0], strings[1]);
                 BundleDataBaseManager.getInstance().addToCategory(category);
                 adapter.addItem(category);
                 adapter.notifyDataSetChanged();

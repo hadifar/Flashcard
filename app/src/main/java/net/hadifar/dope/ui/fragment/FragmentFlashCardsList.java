@@ -72,7 +72,14 @@ public class FragmentFlashCardsList extends BaseListFragment implements OnCardCl
             @Override
             public void onRightButtonClick(FlashCard flashCard) {
 
+                //create new id for flashcard
+                int newId = BundleDataBaseManager.getInstance().getLastFlashCardId() + 1;
+                flashCard.setId(newId);
+                //assign parent id
+                flashCard.setDeckId(selectedDeckId);
+                //add to DB
                 BundleDataBaseManager.getInstance().addToFlashCard(flashCard);
+
                 adapter.addItem(flashCard);
                 adapter.notifyDataSetChanged();
                 editLargeDialog.dismiss();

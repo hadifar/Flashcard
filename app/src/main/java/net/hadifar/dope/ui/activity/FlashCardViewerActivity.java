@@ -12,6 +12,7 @@ import android.widget.Toast;
 import net.hadifar.dope.R;
 import net.hadifar.dope.ui.adapter.FragmentContentAdapter;
 import net.hadifar.dope.ui.widget.Toaster;
+import net.hadifar.dope.ui.widget.progressbar.LinearProgress;
 
 import java.util.Locale;
 
@@ -30,10 +31,15 @@ public class FlashCardViewerActivity extends BaseActivity implements TextToSpeec
 
     private final static String EXTRA_ID = "extra_id";
 
-
     private int selectedDockId = 1;
 
     private TextToSpeech mTextToSpeech;
+
+    @Bind(R.id.lp_progressbar)
+    LinearProgress progress;
+
+    @Bind(R.id.pager)
+    ViewPager viewPager;
 
     public static Intent createIntent(Context context, int selectedDeckId) {
         Intent intent = new Intent(context, FlashCardViewerActivity.class);
@@ -67,9 +73,35 @@ public class FlashCardViewerActivity extends BaseActivity implements TextToSpeec
     }
 
     private void setupViewPager() {
-        ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+
         FragmentContentAdapter mSectionsPagerAdapter = new FragmentContentAdapter(getSupportFragmentManager(), selectedDockId);
+        final int totalCount = mSectionsPagerAdapter.getCount();
+
         viewPager.setAdapter(mSectionsPagerAdapter);
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                updateProgress(position, totalCount);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+        updateProgress(0, totalCount);
+    }
+
+    private void updateProgress(int position, int totalCount) {
+        int percent = (int) Math.ceil(((position + 1) * 100) / totalCount);
+        progress.setProgress(percent);
     }
 
     public void speakOut(String text) {
@@ -78,7 +110,6 @@ public class FlashCardViewerActivity extends BaseActivity implements TextToSpeec
         else
             mTextToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
     }
-
 
     @OnClick(R.id.btn_close_viewer)
     public void onCloseViewerClick() {
