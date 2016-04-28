@@ -1,10 +1,10 @@
 package net.hadifar.dope.ui.activity;
 
 
-import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,10 +13,10 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import net.hadifar.dope.R;
-import net.hadifar.dope.ui.fragment.FragmentSettings;
 import net.hadifar.dope.utils.Utils;
 
 import java.util.Stack;
@@ -52,24 +52,20 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
     private Stack<String> titleStack = new Stack<>();
 
     MenuItem previousMenuItem;
+
     //toolbar stuff
     @Bind(R.id.toolbar)
     Toolbar toolbar;
 
-    @Bind(R.id.frame_left_icons)
-    FrameLayout toolbarFrameIcons;
+    @Bind(R.id.icon_toolbar_left)
+    TextView toolbarLeftIcon;
 
-    @Bind(R.id.icon_toolbar_drawer)
-    TextView toolbarIconDrawer;
-
-    @Bind(R.id.icon_toolbar_search)
-    TextView toolbarSearchIcon;
-
-    @Bind(R.id.icon_toolbar_back)
-    TextView toolbarBackIcon;
+    @Bind(R.id.icon_toolbar_right)
+    TextView toolbarRightIcon;
 
     @Bind(R.id.text_toolbar_title)
     TextView toolbarTitle;
+
 
     //drawer stuff
     @Bind(R.id.navigation_view)
@@ -152,7 +148,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
 
 
     public void clearBackStack() {
-        FragmentManager manager = getFragmentManager();
+        FragmentManager manager = getSupportFragmentManager();
         if (manager.getBackStackEntryCount() > 0) {
             FragmentManager.BackStackEntry first = manager.getBackStackEntryAt(0);
             manager.popBackStack(first.getId(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
@@ -162,11 +158,11 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
     private void startToolbarAnimation() {
 
         int actionbarSize = Utils.dpToPx(56);
-        getFrameIcons().setTranslationY(-actionbarSize);
+        getLeftIcon().setTranslationY(-actionbarSize);
         getAppLogo().setTranslationY(-actionbarSize);
         getSearchIcon().setTranslationY(-actionbarSize);
 
-        getFrameIcons().animate()
+        getLeftIcon().animate()
                 .translationY(0)
                 .setDuration(300)
                 .setStartDelay(300);
@@ -202,15 +198,15 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
                 .start();
     }
 
-    public FrameLayout getFrameIcons() {
-        return toolbarFrameIcons;
+    public TextView getLeftIcon() {
+        return toolbarLeftIcon;
     }
 
     public TextView getSearchIcon() {
-        return toolbarSearchIcon;
+        return toolbarRightIcon;
     }
 
-    public TextView getAppLogo() {
+    public View getAppLogo() {
         return toolbarTitle;
     }
 
@@ -225,34 +221,30 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
 
     public void drawerEnable() {
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
-        toolbarIconDrawer.setVisibility(View.VISIBLE);
-        toolbarSearchIcon.setVisibility(View.VISIBLE);
-        toolbarBackIcon.setVisibility(View.GONE);
+        toolbarLeftIcon.setText(R.string.icon_menu);
+        toolbarRightIcon.setVisibility(View.VISIBLE);
     }
 
     public void drawerDisable() {
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        toolbarIconDrawer.setVisibility(View.GONE);
-        toolbarSearchIcon.setVisibility(View.INVISIBLE);
-        toolbarBackIcon.setVisibility(View.VISIBLE);
+        toolbarLeftIcon.setText(R.string.icon_chevron_left);
+        toolbarRightIcon.setVisibility(View.INVISIBLE);
     }
 
 
-    @OnClick(R.id.icon_toolbar_drawer)
+    @OnClick(R.id.icon_toolbar_left)
     public void onDrawerClick() {
-        if (toolbarIconDrawer.getVisibility() == View.GONE)
-            return;
-        if (drawerLayout.isDrawerOpen(Gravity.LEFT)) {
-            drawerLayout.closeDrawer(Gravity.LEFT);
+        if (toolbarLeftIcon.getText() == getString(R.string.icon_chevron_left)) {
+            onBackPressed();
         } else {
-            drawerLayout.openDrawer(Gravity.LEFT);
+            if (drawerLayout.isDrawerOpen(Gravity.LEFT)) {
+                drawerLayout.closeDrawer(Gravity.LEFT);
+            } else {
+                drawerLayout.openDrawer(Gravity.LEFT);
+            }
         }
     }
 
-    @OnClick(R.id.icon_toolbar_back)
-    public void onBackClick() {
-        onBackPressed();
-    }
 
     @Override
     public void onBackPressed() {
@@ -261,10 +253,10 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
         if (drawerLayout.isDrawerOpen(Gravity.LEFT)) {
             drawerLayout.closeDrawer(Gravity.LEFT);
         } else {
-            if (getFragmentManager().getBackStackEntryCount() == 0) {
+            if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
                 super.onBackPressed();
             } else {
-                getFragmentManager().popBackStack();
+                getSupportFragmentManager().popBackStack();
                 if (!titleStack.isEmpty()) {
                     toolbarTitle.setText(titleStack.pop());
                 }

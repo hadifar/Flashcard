@@ -17,47 +17,33 @@
         android:layout_height="match_parent"
         android:gravity="center_vertical">
 
-        <FrameLayout
-            android:id="@+id/frame_left_icons"
+        <TextView
+            android:id="@+id/icon_toolbar_left"
+            style="@style/IconFont.Large"
             android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            android:text="@string/icon_menu"
+            android:textColor="@color/material_text_color_bright" />
 
-            <TextView
-                android:id="@+id/icon_toolbar_back"
-                style="@style/IconFont.Large"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/icon_chevron_left"
-                android:textColor="@color/material_text_color_bright"
-                android:visibility="gone" />
-
-            <TextView
-                android:id="@+id/icon_toolbar_drawer"
-                style="@style/IconFont.Large"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/icon_menu"
-                android:textColor="@color/material_text_color_bright" />
-        </FrameLayout>
 
         <TextView
             android:id="@+id/text_toolbar_title"
             style="@style/Textview.White.Medium"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_toLeftOf="@+id/icon_toolbar_search"
-            android:layout_toRightOf="@+id/frame_left_icons"
-            android:gravity="center_vertical"
-            android:text="Dope" />
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/icon_toolbar_right"
+            android:layout_toRightOf="@+id/icon_toolbar_left"
+            android:gravity="center"
+            android:text="@string/nav_category"/>
 
 
         <TextView
-            android:id="@+id/icon_toolbar_search"
+            android:id="@+id/icon_toolbar_right"
             style="@style/IconFont.Large"
             android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:background="?attr/selectableItemBackground"
