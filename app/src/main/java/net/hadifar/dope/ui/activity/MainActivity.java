@@ -43,7 +43,7 @@ public class MainActivity extends BaseDrawerActivity {
             case LEARNING_FRAG:
                 activeFragment = new FragmentLearningMethod();
                 fragmentTransaction.addToBackStack(null);
-                setToolbarTitle(R.string.menu_learning);
+                setToolbarTitle(R.string.menu_favorite);
                 break;
 //            case FAVORITE_FRAG:
 //                activeFragment = new FragmentFavoriteFlashCardList();

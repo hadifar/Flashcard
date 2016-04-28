@@ -124,10 +124,10 @@ public class FlashCardViewerActivity extends BaseActivity implements TextToSpeec
 
             if (result == TextToSpeech.LANG_MISSING_DATA
                     || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                Toaster.toast(this, R.string.your_language_not_supported_please_install, Toast.LENGTH_SHORT);
+                Toaster.toast(this, R.string.msg_your_language_not_supported_please_install, Toast.LENGTH_SHORT);
             }
         } else {
-            Toaster.toast(this, R.string.please_install_google_voice, Toast.LENGTH_LONG);
+            Toaster.toast(this, R.string.msg_please_install_google_voice, Toast.LENGTH_LONG);
             Intent installIntent = new Intent();
             installIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
             startActivity(installIntent);

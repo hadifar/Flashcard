@@ -46,7 +46,7 @@ public class FragmentCategory extends BaseListFragment implements OnCardClickLis
     @OnClick(R.id.fab_add_new_card)
     public void fabClicked() {
         final EditSmallDialog newCategoryDialog = new EditSmallDialog();
-        newCategoryDialog.init(R.string.hint_category_name, R.string.hint_category_subtitle, "", "", R.string.create_new_category, new DialogButtonsClickListener() {
+        newCategoryDialog.init(R.string.hint_category_name, R.string.hint_category_subtitle, "", "", R.string.btn_create_new_category, new DialogButtonsClickListener() {
             @Override
             public void onLeftButtonClick() {
                 newCategoryDialog.dismiss();
@@ -123,7 +123,7 @@ public class FragmentCategory extends BaseListFragment implements OnCardClickLis
     public void DialogDelete(final Category category) {
 
         final MessageDialog deleteMsg = new MessageDialog();
-        deleteMsg.init(R.string.title_delete, R.string.icon_delete, R.string.title_are_you_sure_to_delete_category, R.string.btn_no, R.string.btn_yes, false, new DialogButtonsClickListener() {
+        deleteMsg.init(R.string.title_delete, R.string.icon_delete, R.string.msg_are_you_sure_to_delete_category, R.string.btn_no, R.string.btn_yes, false, new DialogButtonsClickListener() {
             @Override
             public void onLeftButtonClick() {
                 deleteMsg.dismiss();

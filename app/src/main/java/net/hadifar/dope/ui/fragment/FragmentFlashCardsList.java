@@ -62,7 +62,7 @@ public class FragmentFlashCardsList extends BaseListFragment implements OnCardCl
     public void fabClicked() {
 
         final EditLargeDialog editLargeDialog = new EditLargeDialog();
-        editLargeDialog.init(null, "", "", R.string.create_new_flashcard, new LargeDialogClickListener() {
+        editLargeDialog.init(null, "", "", R.string.btn_create_new_flashcard, new LargeDialogClickListener() {
             @Override
             public void onLeftButtonClick() {
                 editLargeDialog.dismiss();
@@ -154,7 +154,7 @@ public class FragmentFlashCardsList extends BaseListFragment implements OnCardCl
         final FlashCard flashCard = BundleDataBaseManager.getInstance().getFlashcard4Id(entity.id);
 
         final MessageDialog deleteMsg = new MessageDialog();
-        deleteMsg.init(R.string.title_delete, R.string.icon_delete, R.string.title_are_you_sure_to_delete_category, R.string.btn_no, R.string.btn_yes, false, new DialogButtonsClickListener() {
+        deleteMsg.init(R.string.title_delete, R.string.icon_delete, R.string.msg_are_you_sure_to_delete_category, R.string.btn_no, R.string.btn_yes, false, new DialogButtonsClickListener() {
             @Override
             public void onLeftButtonClick() {
                 deleteMsg.dismiss();

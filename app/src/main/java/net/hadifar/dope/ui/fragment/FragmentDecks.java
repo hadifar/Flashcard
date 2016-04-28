@@ -95,7 +95,7 @@ public class FragmentDecks extends BaseListFragment implements OnCardClickListen
     @OnClick(R.id.fab_add_new_card)
     public void fabClicked() {
         final EditSmallDialog newDeckDialog = new EditSmallDialog();
-        newDeckDialog.init(R.string.hint_deck_name, R.string.hint_deck_subtitle, "", "", R.string.create_new_deck, new DialogButtonsClickListener() {
+        newDeckDialog.init(R.string.hint_deck_name, R.string.hint_deck_subtitle, "", "", R.string.btn_create_new_deck, new DialogButtonsClickListener() {
             @Override
             public void onLeftButtonClick() {
                 newDeckDialog.dismiss();
@@ -138,7 +138,7 @@ public class FragmentDecks extends BaseListFragment implements OnCardClickListen
     public void DialogDelete(final Deck deck) {
 
         final MessageDialog deleteMsg = new MessageDialog();
-        deleteMsg.init(R.string.title_delete, R.string.icon_delete, R.string.title_are_you_sure_to_delete_deck, R.string.btn_no, R.string.btn_yes, false, new DialogButtonsClickListener() {
+        deleteMsg.init(R.string.title_delete, R.string.icon_delete, R.string.msg_are_you_sure_to_delete_deck, R.string.btn_no, R.string.btn_yes, false, new DialogButtonsClickListener() {
             @Override
             public void onLeftButtonClick() {
                 deleteMsg.dismiss();

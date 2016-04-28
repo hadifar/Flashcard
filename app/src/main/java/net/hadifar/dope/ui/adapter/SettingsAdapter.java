@@ -23,6 +23,7 @@ import butterknife.ButterKnife;
  */
 public class SettingsAdapter extends BaseAdapter {
 
+
     private final Context mContext;
     private List<String> items;
 
@@ -34,8 +35,11 @@ public class SettingsAdapter extends BaseAdapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(final ViewGroup viewGroup, final int itemType) {
 
+
         View rootView = LayoutInflater.from(mContext).inflate(R.layout.row_setting_items, viewGroup, false);
         return new ViewHolder(rootView);
+
+
     }
 
     @Override
