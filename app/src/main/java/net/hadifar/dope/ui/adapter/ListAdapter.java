@@ -31,6 +31,8 @@ import butterknife.OnClick;
  */
 public class ListAdapter extends BaseAdapter {
 
+    public ColorGenerator colorGenerator = ColorGenerator.MATERIAL;
+
     private Context mContext;
     private List<BaseEntity> items;
 
@@ -77,15 +79,15 @@ public class ListAdapter extends BaseAdapter {
         return items.get(position);
     }
 
-    @Override
-    public void removeItem(BaseEntity entity) {
+
+    public void removeItem(Object entity) {
         items.remove(entity);
         notifyDataSetChanged();
     }
 
-    @Override
-    public void addItem(BaseEntity entity) {
-        items.add(entity);
+
+    public void addItem(Object entity) {
+        items.add((BaseEntity) entity);
         notifyDataSetChanged();
     }
 

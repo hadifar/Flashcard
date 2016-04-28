@@ -10,7 +10,12 @@
     <color name="default_hint">#808080</color>
 
 
+    <color name="gray_lightest">#EEEEEE</color>
+    <color name="gray_lighter">#E0E0E0</color>
+    <color name="gray_light">#9E9E9E</color>
     <color name="gray">#727272</color>
+    <color name="gray_dark">#616161</color>
+    <color name="gray_darker">#424242</color>
 
 
     <color name="color_primary">#0277bd</color>
@@ -42,7 +47,6 @@
     <color name="default_button_pressed">#01579b</color>
 
 
-
     <!-- card colors -->
     <color name="card_background">#FFF</color>
     <!-- Used by selector -->
@@ -67,12 +71,12 @@
 
     <!-- indicator -->
     <color name="default_page_number_indicator_text_color">#AFFF</color>
-    <color name="default_page_number_indicator_page_number_text_color">@color/color_primary_dark</color>
+    <color name="default_page_number_indicator_page_number_text_color">@color/color_primary_dark
+    </color>
     <color name="default_page_number_indicator_pressed_button_color">#3FFF</color>
 
     <!--progress bar-->
     <color name="default_shader">#33000000</color>
-
 
 
 </resources>

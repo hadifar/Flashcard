@@ -12,8 +12,6 @@ import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import net.hadifar.dope.R;
@@ -46,8 +44,6 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
     public static final int ABOUT_FRAG = 5;
     public static final int FAVORITE_FRAG = 6;
     public static final int FAVORITE_FRAG_VIEWER = 7;
-
-    private int lastSelectedDrawerItem = 0;
 
     private Stack<String> titleStack = new Stack<>();
 
@@ -103,6 +99,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
         //set category item as default
         previousMenuItem = navigationView.getMenu().findItem(R.id.nav_category);
         previousMenuItem.setChecked(true);
+        previousMenuItem.setCheckable(true);
 
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -253,12 +250,24 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
         if (drawerLayout.isDrawerOpen(Gravity.LEFT)) {
             drawerLayout.closeDrawer(Gravity.LEFT);
         } else {
-            if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+
+            int backStackCount = getSupportFragmentManager().getBackStackEntryCount();
+
+            if (backStackCount == 0) {
+                //nothing exist in backStack OS handle it
                 super.onBackPressed();
             } else {
+
                 getSupportFragmentManager().popBackStack();
+
                 if (!titleStack.isEmpty()) {
                     toolbarTitle.setText(titleStack.pop());
+                }
+
+                if (backStackCount == 1) {
+                    previousMenuItem = navigationView.getMenu().findItem(R.id.nav_category);
+                    previousMenuItem.setChecked(true);
+                    previousMenuItem.setCheckable(true);
                 }
             }
         }

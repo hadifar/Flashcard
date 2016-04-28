@@ -14,10 +14,8 @@ import net.hadifar.dope.utils.ColorGenerator;
  */
 public abstract class BaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    public ColorGenerator colorGenerator = ColorGenerator.MATERIAL;
+//    //left blank
+    public abstract void addItem(Object entity);
 
-    //left blank
-    public abstract void addItem(BaseEntity entity);
-
-    public abstract void removeItem(BaseEntity entity);
+    public abstract void removeItem(Object entity);
 }

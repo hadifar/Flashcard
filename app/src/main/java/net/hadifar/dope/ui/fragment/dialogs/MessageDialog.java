@@ -8,8 +8,8 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import net.hadifar.dope.ui.listeners.DialogButtonsClickListener;
 import net.hadifar.dope.R;
+import net.hadifar.dope.ui.listeners.DialogButtonsClickListener;
 
 /**
  * Created by Amir on 4/11/2016 AD

@@ -56,6 +56,10 @@
         <item name="android:textSize">@dimen/material_text_size_16</item>
     </style>
 
+    <style name="Textview.White.MediumSmall">
+        <item name="android:textSize">@dimen/material_text_size_20</item>
+    </style>
+
     <style name="Textview.White.Medium">
         <item name="android:textSize">@dimen/material_text_size_24</item>
     </style>

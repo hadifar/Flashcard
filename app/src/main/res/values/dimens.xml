@@ -50,6 +50,7 @@
     <!-- text size -->
     <dimen name="material_text_size_28">28sp</dimen>
     <dimen name="material_text_size_24">24sp</dimen>
+    <dimen name="material_text_size_20">20sp</dimen>
     <dimen name="material_text_size_18">18sp</dimen>
     <dimen name="material_text_size_16">16sp</dimen>
     <dimen name="material_text_size_14">14sp</dimen>
