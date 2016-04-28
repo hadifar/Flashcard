@@ -29,7 +29,7 @@ import butterknife.OnClick;
  * GitHub  : @AmirHadifar
  * Twitter : @AmirHadifar
  */
-public class BaseListAdapter extends BaseAdapter {
+public class ListAdapter extends BaseAdapter {
 
     private Context mContext;
     private List<BaseEntity> items;
@@ -38,7 +38,7 @@ public class BaseListAdapter extends BaseAdapter {
 
     private OnCardClickListener listener;
 
-    public BaseListAdapter(Context context, List<BaseEntity> items, OnCardClickListener listener) {
+    public ListAdapter(Context context, List<BaseEntity> items, OnCardClickListener listener) {
         this.items = items;
         this.mContext = context;
         this.listener = listener;

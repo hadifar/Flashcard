@@ -31,7 +31,7 @@ import butterknife.OnClick;
  * GitHub  : @AmirHadifar
  * Twitter : @AmirHadifar
  */
-public class BaseGridAdapter extends BaseAdapter {
+public class GridAdapter extends BaseAdapter {
 
     private static final int GRID_ANIMATION_DELAY = 600;
     private static final Interpolator INTERPOLATOR = new DecelerateInterpolator();
@@ -47,7 +47,7 @@ public class BaseGridAdapter extends BaseAdapter {
 
     private OnPolygonClickListener listener;
 
-    public BaseGridAdapter(Context context, OnPolygonClickListener listener) {
+    public GridAdapter(Context context, OnPolygonClickListener listener) {
         this.context = context;
         this.cellSize = Utils.getScreenWidth(context) / 2;
         this.icons = Arrays.asList(context.getResources().getStringArray(R.array.icons_learning_method));

@@ -137,12 +137,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
                                 displayView(LEARNING_FRAG, null);
                                 break;
                             case R.id.nav_settings:
-                                getFragmentManager()
-                                        .beginTransaction()
-                                        .setCustomAnimations(R.animator.alpha_in, R.animator.alpha_out, R.animator.alpha_in, R.animator.alpha_out)
-                                        .addToBackStack(null)
-                                        .add(R.id.frame_container, new FragmentSettings())
-                                        .commit();
+                                displayView(SETTINGS_FRAG, null);
                                 break;
 
                         }

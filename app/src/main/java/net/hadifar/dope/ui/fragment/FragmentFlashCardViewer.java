@@ -7,7 +7,7 @@
 //import android.view.ViewGroup;
 //
 //import net.hadifar.dope.R;
-//import net.hadifar.dope.ui.adapter.FragmentContentAdapter;
+//import net.hadifar.dope.ui.adapter.ContentAdapter;
 //
 ///**
 // * Amir Hadifar on 29/07/2015
@@ -45,7 +45,7 @@
 //
 //    private void setupViewPager(View view) {
 //        ViewPager mViewPager = (ViewPager) view.findViewById(R.id.pager);
-//        FragmentContentAdapter mSectionsPagerAdapter = new FragmentContentAdapter(getFragmentManager(), selectedDockId);
+//        ContentAdapter mSectionsPagerAdapter = new ContentAdapter(getFragmentManager(), selectedDockId);
 //        mViewPager.setAdapter(mSectionsPagerAdapter);
 //    }
 //

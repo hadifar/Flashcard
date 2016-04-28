@@ -1,7 +1,7 @@
 package net.hadifar.dope.ui.fragment.dialogs;
 
-import android.app.DialogFragment;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.LayoutInflater;

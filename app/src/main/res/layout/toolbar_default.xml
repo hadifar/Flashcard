@@ -49,7 +49,7 @@
             android:layout_height="48dp"
             android:layout_toLeftOf="@+id/icon_toolbar_search"
             android:layout_toRightOf="@+id/frame_left_icons"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:text="Dope" />
 
 

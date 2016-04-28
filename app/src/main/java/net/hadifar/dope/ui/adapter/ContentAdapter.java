@@ -16,12 +16,12 @@ import java.util.List;
  * GitHub  : @AmirHadifar
  * Twitter : @AmirHadifar
  */
-public class FragmentContentAdapter extends FragmentStatePagerAdapter {
+public class ContentAdapter extends FragmentStatePagerAdapter {
 
     private Fragment fragment;
     private List<FlashCard> items;
 
-    public FragmentContentAdapter(FragmentManager fm, int selectedDock) {
+    public ContentAdapter(FragmentManager fm, int selectedDock) {
         super(fm);
         items = BundleDataBaseManager.getInstance().getFlashCardsForDeckId(selectedDock);
     }

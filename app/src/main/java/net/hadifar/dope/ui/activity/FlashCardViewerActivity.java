@@ -6,11 +6,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.v4.view.ViewPager;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import net.hadifar.dope.R;
-import net.hadifar.dope.ui.adapter.FragmentContentAdapter;
+import net.hadifar.dope.ui.adapter.ContentAdapter;
 import net.hadifar.dope.ui.widget.Toaster;
 import net.hadifar.dope.ui.widget.progressbar.LinearProgress;
 
@@ -74,7 +73,7 @@ public class FlashCardViewerActivity extends BaseActivity implements TextToSpeec
 
     private void setupViewPager() {
 
-        FragmentContentAdapter mSectionsPagerAdapter = new FragmentContentAdapter(getSupportFragmentManager(), selectedDockId);
+        ContentAdapter mSectionsPagerAdapter = new ContentAdapter(getSupportFragmentManager(), selectedDockId);
         final int totalCount = mSectionsPagerAdapter.getCount();
 
         viewPager.setAdapter(mSectionsPagerAdapter);
