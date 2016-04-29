@@ -3,25 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="48dp"
+    android:background="@drawable/card_selector"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    app:cardCornerRadius="0dp">
+    app:cardCornerRadius="0dp"
+    app:contentPaddingLeft="16dp"
+    app:contentPaddingRight="16dp">
 
-    <FrameLayout
+    <TextView
+        android:id="@+id/txt_setting_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
-        android:background="@drawable/card_selector"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
-
-        <TextView
-            android:id="@+id/txt_setting_title"
-            style="@style/Textview.Dark.Small"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical" />
-    </FrameLayout>
+        android:gravity="center_vertical"
+        android:textColor="@color/material_text_color_dark"
+        android:textSize="@dimen/material_text_size_16" />
 
 </android.support.v7.widget.CardView>

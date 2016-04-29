@@ -11,8 +11,11 @@ import android.util.Log;
 import android.view.View;
 
 import net.hadifar.dope.R;
+import net.hadifar.dope.utils.Utils;
 
 public class DividerItemDecorator extends RecyclerView.ItemDecoration {
+
+    private final int defaultMargin = Utils.dpToPx(16);
 
     private Drawable mDivider;
 
@@ -49,6 +52,10 @@ public class DividerItemDecorator extends RecyclerView.ItemDecoration {
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
 
-
+        int pos = parent.getChildAdapterPosition(view);
+        //TODO change this due to settings options
+        if (pos == 6) {
+            outRect.top = defaultMargin;
+        }
     }
 }

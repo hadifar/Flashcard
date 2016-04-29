@@ -58,10 +58,6 @@ public class MainActivity extends BaseDrawerActivity {
                 fragmentTransaction.addToBackStack(null);
                 setToolbarTitle(R.string.nav_settings);
                 break;
-//            case FLASHCARDS_VIEWER:
-//                activeFragment = new FragmentFlashCardViewer();
-//                fragmentTransaction.addToBackStack(null);
-//                break;
             case ABOUT_FRAG:
                 activeFragment = new FragmentAbout();
                 fragmentTransaction.addToBackStack(null);

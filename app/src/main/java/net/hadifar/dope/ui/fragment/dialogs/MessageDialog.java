@@ -70,13 +70,14 @@ public class MessageDialog extends BaseDialog {
             rightButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    dismiss();
                     if (listener != null)
                         listener.onRightButtonClick();
+                    dismiss();
                 }
             });
-        } else
+        } else {
             rightButton.setVisibility(View.GONE);
+        }
 
         // Config left button
         final Button leftButton = (Button) root.findViewById(R.id.btn_dialog_left);
@@ -86,13 +87,14 @@ public class MessageDialog extends BaseDialog {
             leftButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    dismiss();
                     if (listener != null)
                         listener.onLeftButtonClick();
+                    dismiss();
                 }
             });
-        } else
+        } else {
             leftButton.setVisibility(View.GONE);
+        }
 
         if (showLoadingProgress) {
 //            ProgressView progressView = (ProgressView) root.findViewById(R.id.pvc_loading);

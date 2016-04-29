@@ -32,7 +32,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  * Twitter : @AmirHadifar
  */
 
-public abstract class BaseDrawerActivity extends AppCompatActivity {
+public abstract class BaseDrawerActivity extends BaseActivity {
 
     public static final int FLASHCARDS_VIEWER = 3;
     public static final int FLASHCARDS_FRAG = 2;

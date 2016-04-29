@@ -6,7 +6,6 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
 import net.hadifar.dope.model.BaseEntity;
-import net.hadifar.dope.ui.adapter.SettingsAdapter;
 import net.hadifar.dope.ui.listeners.OnPolygonClickListener;
 
 /**
@@ -21,7 +20,7 @@ public class FragmentLearningMethod extends BaseListFragment implements OnPolygo
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        adapter = new SettingsAdapter(getActivity());
+
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
     }

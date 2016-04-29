@@ -46,9 +46,9 @@ public class FragmentSettings extends BaseFragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new DividerItemDecorator(getActivity()));
+//        recyclerView.setAdapter(adapter);adapter
 
         List<SectionAdapter.Section> sections = new ArrayList<SectionAdapter.Section>();
-
         //Sections
         sections.add(new SectionAdapter.Section(0, "Section 1"));
         sections.add(new SectionAdapter.Section(5, "Section 2"));
@@ -61,6 +61,71 @@ public class FragmentSettings extends BaseFragment {
         mSectionedAdapter.setSections(sections.toArray(dummy));
 
         recyclerView.setAdapter(mSectionedAdapter);
-
     }
+
+//
+//    public class SettingsAdapter extends BaseAdapter {
+//
+//        private final Context mContext;
+//        private List<Object> items;
+//
+//        public SettingsAdapter(Context context) {
+//            mContext = context;
+//            items = new ArrayList<>();
+//        }
+//
+//        @Override
+//        public RecyclerView.ViewHolder onCreateViewHolder(final ViewGroup viewGroup, final int itemType) {
+//
+//                    View rootView = LayoutInflater.from(mContext).inflate(R.layout.row_setting_items, viewGroup, false);
+//                    return new ViewHolder(rootView);
+//
+//
+//
+//        }
+//
+//        @Override
+//        public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, final int position) {
+//
+//            ((ViewHolder) viewHolder).bindView((String) getItem(position));
+//
+//        }
+//
+//
+//        public Object getItem(int position) {
+//            return items.get(position);
+//        }
+//
+//
+//        @Override
+//        public void removeItem(Object entity) {
+//        }
+//
+//
+//        @Override
+//        public void addItem(Object entity) {
+//        }
+//
+//
+//        @Override
+//        public int getItemCount() {
+//            return items.size();
+//        }
+//
+//        public class ViewHolder extends RecyclerView.ViewHolder {
+//
+//            @Bind(R.id.txt_setting_title)
+//            TextView setting;
+//
+//            public ViewHolder(View itemView) {
+//                super(itemView);
+//                ButterKnife.bind(this, itemView);
+//            }
+//
+//            public void bindView(String s) {
+//                setting.setText(s);
+//            }
+//        }
+//
+//    }
 }
