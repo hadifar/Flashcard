@@ -71,7 +71,7 @@
 
     <!-- gray -->
     <style name="Textview.Gray">
-        <item name="android:textColor">@color/gray</item>
+        <item name="android:textColor">@color/gray_dark</item>
     </style>
 
     <style name="Textview.Gray.Smaller">

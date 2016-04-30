@@ -10,12 +10,12 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import net.hadifar.dope.ui.widget.TextDrawable;
-import net.hadifar.dope.utils.ColorGenerator;
-import net.hadifar.dope.utils.Utils;
 import net.hadifar.dope.R;
 import net.hadifar.dope.model.BaseEntity;
 import net.hadifar.dope.ui.listeners.OnCardClickListener;
+import net.hadifar.dope.ui.widget.TextDrawable;
+import net.hadifar.dope.utils.ColorGenerator;
+import net.hadifar.dope.utils.Utils;
 
 import java.util.List;
 

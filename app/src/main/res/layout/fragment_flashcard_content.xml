@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/card_selector"
             android:clickable="true"
-            android:minHeight="@dimen/material_card_height_120"
+            android:minHeight="@dimen/material_card_height_96"
             android:orientation="vertical">
 
             <TextView
@@ -32,16 +32,16 @@
                 android:id="@+id/txtswitcher_word"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/material_global_margin_8"
-                android:layout_marginRight="@dimen/material_global_margin_8"
                 android:background="@color/transparent"
                 android:gravity="center"
                 android:inAnimation="@android:anim/slide_in_left"
-                android:outAnimation="@android:anim/slide_out_right" />
+                android:outAnimation="@android:anim/slide_out_right"
+                android:padding="8dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
                 android:clickable="true"
                 android:gravity="end"
                 android:minHeight="36dp">
@@ -51,9 +51,10 @@
                     style="@style/IconFont.Large"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginRight="4dp"
-                    android:padding="8dp"
+                    android:minHeight="36dp"
+                    android:minWidth="36dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
                     android:text="@string/icon_attachment_alt"
                     android:textColor="@color/color_primary_dark" />
 
@@ -62,8 +63,10 @@
                     style="@style/IconFont.Large"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="4dp"
-                    android:padding="8dp"
+                    android:minHeight="36dp"
+                    android:minWidth="36dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
                     android:text="@string/icon_volume_up"
                     android:textColor="@color/color_primary_dark" />
 
@@ -72,9 +75,9 @@
                     style="@style/IconFont.Large"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginRight="4dp"
-                    android:padding="8dp"
+                    android:minHeight="36dp"
+                    android:minWidth="36dp"
+                    android:paddingLeft="8dp"
                     android:text="@string/icon_favorite"
                     android:textColor="@color/color_primary_dark" />
 

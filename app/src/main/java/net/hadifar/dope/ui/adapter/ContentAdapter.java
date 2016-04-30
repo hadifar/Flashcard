@@ -18,7 +18,6 @@ import java.util.List;
  */
 public class ContentAdapter extends FragmentStatePagerAdapter {
 
-    private Fragment fragment;
     private List<FlashCard> items;
 
     public ContentAdapter(FragmentManager fm, int selectedDock) {
@@ -29,7 +28,7 @@ public class ContentAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        fragment = new FragmentFlashCardContent();
+        Fragment fragment = new FragmentFlashCardContent();
         ((FragmentFlashCardContent) fragment).setCard(items.get(position));
         return fragment;
     }
