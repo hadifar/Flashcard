@@ -10,5 +10,8 @@
     <!-- Enable App crash Tracking-->
     <bool name="ga_reportUncaughtExceptions">true</bool>
 
+    <!--  The property id associated with this analytics tracker -->
+    <!--You should fill this with your own trackingId -->
+    <string name="ga_trackingId"></string>
 
 </resources>
