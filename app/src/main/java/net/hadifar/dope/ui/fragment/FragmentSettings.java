@@ -78,10 +78,14 @@ public class FragmentSettings extends BaseFragment {
     private void initSettings() {
         settings = new ArrayList<>();
         settings.add(new SettingEntity(SETTING_HEADER, R.string.setting_settings, null));
-        settings.add(new SettingEntity(SETTING_SIMPLE_TEXT, R.string.setting_language, SettingsManager.getLanguage(getActivity())));
+        settings.add(new SettingEntity(SETTING_SIMPLE_TEXT, R.string.setting_language, null));
         settings.add(new SettingEntity(SETTING_SWITCH, R.string.setting_animation, null));
         settings.add(new SettingEntity(SETTING_HEADER, R.string.setting_support, null));
         settings.add(new SettingEntity(SETTING_SIMPLE_TEXT, R.string.setting_open_source_licenses, R.string.setting_license_details));
+        settings.add(new SettingEntity(SETTING_SWITCH, R.string.setting_animation, null));
+        settings.add(new SettingEntity(SETTING_SWITCH, R.string.setting_animation, null));
+        settings.add(new SettingEntity(SETTING_SWITCH, R.string.setting_animation, null));
+        settings.add(new SettingEntity(SETTING_SWITCH, R.string.setting_animation, null));
 
     }
 
@@ -155,7 +159,10 @@ public class FragmentSettings extends BaseFragment {
         public class SimpleHolder extends RecyclerView.ViewHolder implements OnBindView {
 
             @Bind(R.id.txt_setting_title)
-            TextView setting;
+            TextView title;
+
+            @Bind(R.id.txt_setting_subtitle)
+            TextView subtitle;
 
             public SimpleHolder(View itemView) {
                 super(itemView);
@@ -163,7 +170,13 @@ public class FragmentSettings extends BaseFragment {
             }
 
             public void bindView(SettingEntity settingEntity) {
-                setting.setText(settingEntity.getTitle());
+                title.setText(settingEntity.getTitle());
+
+                if (settingEntity.getSubtitle() != null) {
+                    subtitle.setText(settingEntity.getSubtitle());
+                } else {
+                    subtitle.setVisibility(View.GONE);
+                }
             }
         }
 

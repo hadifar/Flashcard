@@ -10,9 +10,9 @@ public class SettingEntity {
 
     int settingType;
     Integer title;
-    Object subtitle;
+    Integer subtitle;
 
-    public SettingEntity(int settingType, Integer titleResId, Object subTitleResId) {
+    public SettingEntity(int settingType, Integer titleResId, Integer subTitleResId) {
         this.settingType = settingType;
         this.title = titleResId;
         this.subtitle = subTitleResId;
@@ -26,7 +26,7 @@ public class SettingEntity {
         return title;
     }
 
-    public Object getSubtitle() {
+    public Integer getSubtitle() {
         return subtitle;
     }
 

@@ -8,8 +8,11 @@
         android:id="@+id/rv_settings_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:clipToPadding="false"
         android:fadingEdge="none"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:scrollbars="none" />
 
 </FrameLayout>
