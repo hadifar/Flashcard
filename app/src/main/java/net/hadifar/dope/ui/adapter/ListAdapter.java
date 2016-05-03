@@ -65,12 +65,14 @@ public class ListAdapter extends BaseAdapter {
 
         if (position > lastAnimatedPosition) {
             lastAnimatedPosition = position;
-            view.setTranslationY(Utils.getScreenHeight(mContext));
+
+            long animationDelay = position * 30;
+
+            view.setAlpha(0);
             view.animate()
-                    .translationY(0)
-                    .setInterpolator(new DecelerateInterpolator(3.f))
-                    .setDuration(700)
-                    .setStartDelay(500)
+                    .alpha(1)
+                    .setDuration(500)
+                    .setStartDelay(animationDelay)
                     .start();
         }
     }

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,6 @@ import android.widget.TextView;
 
 import net.hadifar.dope.R;
 import net.hadifar.dope.model.SettingEntity;
-import net.hadifar.dope.storage.SettingsManager;
 import net.hadifar.dope.ui.adapter.BaseAdapter;
 import net.hadifar.dope.ui.listeners.OnBindView;
 import net.hadifar.dope.utils.Utils;
@@ -82,10 +82,10 @@ public class FragmentSettings extends BaseFragment {
         settings.add(new SettingEntity(SETTING_SWITCH, R.string.setting_animation, null));
         settings.add(new SettingEntity(SETTING_HEADER, R.string.setting_support, null));
         settings.add(new SettingEntity(SETTING_SIMPLE_TEXT, R.string.setting_open_source_licenses, R.string.setting_license_details));
-        settings.add(new SettingEntity(SETTING_SWITCH, R.string.setting_animation, null));
-        settings.add(new SettingEntity(SETTING_SWITCH, R.string.setting_animation, null));
-        settings.add(new SettingEntity(SETTING_SWITCH, R.string.setting_animation, null));
-        settings.add(new SettingEntity(SETTING_SWITCH, R.string.setting_animation, null));
+        settings.add(new SettingEntity(SETTING_SIMPLE_TEXT, R.string.setting_animation, null));
+        settings.add(new SettingEntity(SETTING_SIMPLE_TEXT, R.string.setting_animation, null));
+        settings.add(new SettingEntity(SETTING_SIMPLE_TEXT, R.string.setting_animation, null));
+        settings.add(new SettingEntity(SETTING_SIMPLE_TEXT, R.string.setting_animation, null));
 
     }
 
@@ -102,6 +102,9 @@ public class FragmentSettings extends BaseFragment {
                 case SETTING_SIMPLE_TEXT:
                     rootView = LayoutInflater.from(getActivity()).inflate(R.layout.row_setting_items, viewGroup, false);
                     return new SimpleHolder(rootView);
+                case SETTING_SWITCH:
+                    rootView = LayoutInflater.from(getActivity()).inflate(R.layout.row_setting_switch, viewGroup, false);
+                    return new SwitchHolder(rootView);
                 default:
                     return null;
             }
@@ -111,6 +114,8 @@ public class FragmentSettings extends BaseFragment {
         public int getItemViewType(int position) {
             if (position == settingSettings || position == settingSupport)
                 return SETTING_HEADER;
+            else if (position == settingAnimation)
+                return SETTING_SWITCH;
             else
                 return SETTING_SIMPLE_TEXT;
         }
@@ -144,7 +149,7 @@ public class FragmentSettings extends BaseFragment {
         public class HeaderHolder extends RecyclerView.ViewHolder implements OnBindView {
 
             @Bind(R.id.txt_setting_title)
-            TextView setting;
+            TextView title;
 
             public HeaderHolder(View itemView) {
                 super(itemView);
@@ -152,7 +157,7 @@ public class FragmentSettings extends BaseFragment {
             }
 
             public void bindView(SettingEntity settingEntity) {
-                setting.setText(settingEntity.getTitle());
+                title.setText(settingEntity.getTitle());
             }
         }
 
@@ -177,6 +182,24 @@ public class FragmentSettings extends BaseFragment {
                 } else {
                     subtitle.setVisibility(View.GONE);
                 }
+            }
+        }
+
+        public class SwitchHolder extends RecyclerView.ViewHolder implements OnBindView {
+
+            @Bind(R.id.txt_setting_title)
+            TextView title;
+
+            @Bind(R.id.switch_setting_switch)
+            SwitchCompat switchCompat;
+
+            public SwitchHolder(View itemView) {
+                super(itemView);
+                ButterKnife.bind(this, itemView);
+            }
+
+            public void bindView(SettingEntity settingEntity) {
+                title.setText(settingEntity.getTitle());
             }
         }
 
