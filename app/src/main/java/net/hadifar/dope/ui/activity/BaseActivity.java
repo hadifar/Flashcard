@@ -18,17 +18,16 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //sending uncaughtExceptions to analytics server
-        //todo uncomment this
-        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
-            @Override
-            public void uncaughtException(Thread thread, Throwable throwable) {
-                try {
-                    AnalyticsTrackers.analyticLogCrash(BaseActivity.this, throwable);
-                    startActivity(new Intent(BaseActivity.this, ExceptionActivity.class));
-                    System.exit(0);
-                } catch (Exception e) {}
-            }
-        });
+//        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+//            @Override
+//            public void uncaughtException(Thread thread, Throwable throwable) {
+//                try {
+//                    AnalyticsTrackers.analyticLogCrash(BaseActivity.this, throwable);
+//                    startActivity(new Intent(BaseActivity.this, ExceptionActivity.class));
+//                    System.exit(0);
+//                } catch (Exception e) {}
+//            }
+//        });
     }
 
 

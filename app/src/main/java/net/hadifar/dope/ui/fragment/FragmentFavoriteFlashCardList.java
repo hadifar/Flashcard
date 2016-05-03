@@ -50,7 +50,7 @@
 //    }
 //
 //
-//    public class HeadersAdapter extends RecyclerView.Adapter<HeadersAdapter.ViewHolder> {
+//    public class HeadersAdapter extends RecyclerView.Adapter<HeadersAdapter.HeaderHolder> {
 //
 //        private List<FlashCardFavoritedItems> mItems;
 //
@@ -61,7 +61,7 @@
 //        }
 //
 //        @Override
-//        public HeadersAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, final int itemType) {
+//        public HeadersAdapter.HeaderHolder onCreateViewHolder(ViewGroup viewGroup, final int itemType) {
 //
 //            View rootView = getActivity().getLayoutInflater().inflate(R.layout.row_base_list_items, viewGroup, false);
 //            rootView.setOnClickListener(new View.OnClickListener() {
@@ -72,11 +72,11 @@
 //                    ((MainActivity) getActivity()).displayView(MainActivity.FAVORITE_FRAG_VIEWER, bundle);
 //                }
 //            });
-//            return new ViewHolder(rootView);
+//            return new HeaderHolder(rootView);
 //        }
 //
 //        @Override
-//        public void onBindViewHolder(ViewHolder viewHolder, int position) {
+//        public void onBindViewHolder(HeaderHolder viewHolder, int position) {
 //            TextDrawable drawable = TextDrawable.builder()
 //                    .buildRound(mItems.get(position).getWord().substring(0, 1), generator.getRandomColor(mItems.get(position).getWord()));
 //            viewHolder.imageView.setImageDrawable(drawable);
@@ -103,11 +103,11 @@
 //            super.onAttachedToRecyclerView(recyclerView);
 //        }
 //
-//        public class ViewHolder extends RecyclerView.ViewHolder {
+//        public class HeaderHolder extends RecyclerView.HeaderHolder {
 //            public TextView title;
 //            public ImageView imageView;
 //
-//            public ViewHolder(View itemView) {
+//            public HeaderHolder(View itemView) {
 //                super(itemView);
 //                title = (TextView) itemView.findViewById(R.id.txt_title_base);
 //                imageView = (ImageView) itemView.findViewById(R.id.img_thumbnail_base);

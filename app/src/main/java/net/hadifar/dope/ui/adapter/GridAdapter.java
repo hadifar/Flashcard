@@ -56,23 +56,23 @@
 //    }
 //
 //    @Override
-//    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+//    public RecyclerView.HeaderHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 //        final View view = LayoutInflater.from(context).inflate(R.layout.row_base_grid_items, parent, false);
 //        StaggeredGridLayoutManager.LayoutParams layoutParams = (StaggeredGridLayoutManager.LayoutParams) view.getLayoutParams();
 //        layoutParams.height = cellSize;
 //        layoutParams.width = cellSize;
 //
 //        view.setLayoutParams(layoutParams);
-//        return new ViewHolder(view);
+//        return new HeaderHolder(view);
 //    }
 //
 //    @Override
-//    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
-//        runAnimation((ViewHolder) viewHolder, position);
-//        ((ViewHolder) viewHolder).bindView(getItem(position));
+//    public void onBindViewHolder(RecyclerView.HeaderHolder viewHolder, int position) {
+//        runAnimation((HeaderHolder) viewHolder, position);
+//        ((HeaderHolder) viewHolder).bindView(getItem(position));
 //    }
 //
-//    private void runAnimation(final ViewHolder holder, int position) {
+//    private void runAnimation(final HeaderHolder holder, int position) {
 //
 //        if (!lockedAnimations) {
 //            if (lastAnimatedItem == holder.getPosition()) {
@@ -120,14 +120,14 @@
 //    public void removeItem(BaseEntity entity) {
 //    }
 //
-//    public class ViewHolder extends RecyclerView.ViewHolder {
+//    public class HeaderHolder extends RecyclerView.HeaderHolder {
 //        @Bind(R.id.cv_polygon)
 //        Polygon polygon;
 //
 //        @Bind(R.id.icon_polygon)
 //        TextView iconView;
 //
-//        public ViewHolder(View view) {
+//        public HeaderHolder(View view) {
 //            super(view);
 //            ButterKnife.bind(this, view);
 //        }
