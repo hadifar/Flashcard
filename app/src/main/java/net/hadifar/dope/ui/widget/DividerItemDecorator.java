@@ -15,12 +15,13 @@ import net.hadifar.dope.utils.Utils;
 
 public class DividerItemDecorator extends RecyclerView.ItemDecoration {
 
-    private final int defaultMargin = Utils.dpToPx(16);
+    private int defaultMargin = 0;
 
     private Drawable mDivider;
 
     public DividerItemDecorator(Context context) {
         mDivider = ContextCompat.getDrawable(context, R.drawable.default_divider);
+        defaultMargin = Utils.dpToPx(16);
     }
 
     @Override
