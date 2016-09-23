@@ -2,7 +2,6 @@ package net.hadifar.dope.storage;
 
 import android.database.sqlite.SQLiteDatabase;
 
-import com.j256.ormlite.android.AndroidConnectionSource;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.stmt.QueryBuilder;
@@ -94,7 +93,7 @@ public class BundleDataBaseManager extends OrmLiteSqliteOpenHelper {
 
     public int getLastCategoryId() {
         try {
-            return getMainCategoriesDao().query(getMainCategoriesDao().queryBuilder().orderBy(Category.ColumnName.ID, false).limit(1).prepare()).get(0).getId();
+            return getMainCategoriesDao().query(getMainCategoriesDao().queryBuilder().orderBy(Category.ColumnName.ID, false).limit(1L).prepare()).get(0).getId();
         } catch (Exception e) {
             return 0;
         }
@@ -132,7 +131,7 @@ public class BundleDataBaseManager extends OrmLiteSqliteOpenHelper {
 
     public int getLastDeckId() {
         try {
-            return getDeckItemDao().query(getDeckItemDao().queryBuilder().orderBy(Deck.ColumnName.ID, false).limit(1).prepare()).get(0).getId();
+            return getDeckItemDao().query(getDeckItemDao().queryBuilder().orderBy(Deck.ColumnName.ID, false).limit(1L).prepare()).get(0).getId();
         } catch (Exception e) {
             return 0;
         }
@@ -167,7 +166,7 @@ public class BundleDataBaseManager extends OrmLiteSqliteOpenHelper {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            return new ArrayList<Deck>();
+            return new ArrayList<>();
         }
     }
 
@@ -186,7 +185,7 @@ public class BundleDataBaseManager extends OrmLiteSqliteOpenHelper {
 
     public int getLastFlashCardId() {
         try {
-            return getFlashCardDao().query(getFlashCardDao().queryBuilder().orderBy(FlashCard.ColumnName.ID, false).limit(1).prepare()).get(0).getId();
+            return getFlashCardDao().query(getFlashCardDao().queryBuilder().orderBy(FlashCard.ColumnName.ID, false).limit(1L).prepare()).get(0).getId();
         } catch (Exception e) {
             return 0;
         }
@@ -197,9 +196,9 @@ public class BundleDataBaseManager extends OrmLiteSqliteOpenHelper {
     }
 
     public void removeFromFlashCard(FlashCard flashCard) {
-        long pre = getFlashCardDao().countOf();
+//        long pre = getFlashCardDao().countOf();
         getFlashCardDao().delete(flashCard);
-        long s = getFlashCardDao().countOf();
+//        long s = getFlashCardDao().countOf();
 
     }
 
@@ -219,23 +218,23 @@ public class BundleDataBaseManager extends OrmLiteSqliteOpenHelper {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            return new ArrayList<FlashCard>();
+            return new ArrayList<>();
         }
 
     }
 
-    public void clearTables(Class... dataClasses) {
-        SQLiteDatabase db = getWritableDatabase();
-        this.connectionSource = new AndroidConnectionSource(db);
-        try {
-            for (Class cls : dataClasses)
-                TableUtils.clearTable(connectionSource, cls);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void clearTables(Class... dataClasses) {
+//        SQLiteDatabase db = getWritableDatabase();
+//        this.connectionSource = new AndroidConnectionSource(db);
+//        try {
+//            for (Class cls : dataClasses)
+//                TableUtils.clearTable(connectionSource, cls);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
-    public void clearAllTables() {
-        clearTables(Category.class, FlashCard.class, Deck.class);
-    }
+//    public void clearAllTables() {
+//        clearTables(Category.class, FlashCard.class, Deck.class);
+//    }
 }

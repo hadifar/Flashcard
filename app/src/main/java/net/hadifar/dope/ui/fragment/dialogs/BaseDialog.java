@@ -53,7 +53,6 @@ public abstract class BaseDialog extends DialogFragment {
     @Override
     public void onActivityCreated(Bundle arg0) {
         super.onActivityCreated(arg0);
-        setRetainInstance(true);
         getDialog().getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
     }
 

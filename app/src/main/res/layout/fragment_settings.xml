@@ -1,18 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/default_background">
+    android:background="@color/default_background"
+    android:clipToPadding="false"
+    android:padding="16dp"
+    android:scrollbars="none">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_settings_list"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:clipToPadding="false"
-        android:fadingEdge="none"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:scrollbars="none" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/txt_setting_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:paddingTop="16dp"
+            android:text="@string/title_settings"
+            android:textColor="@color/color_accent"
+            android:textSize="@dimen/material_text_size_16"
+            tools:text="Settings" />
+
+
+        <TextView
+            android:id="@+id/txt_language"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:text="@string/title_language"
+            android:textColor="@color/material_text_color_dark"
+            android:textSize="@dimen/material_text_size_16" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_lighter" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:minHeight="48dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_setting_animation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:text="@string/title_animation"
+                android:textColor="@color/material_text_color_dark"
+                android:textSize="@dimen/material_text_size_16" />
+
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/switch_animation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_lighter" />
+
+
+        <TextView
+            android:id="@+id/txt_support_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:paddingTop="16dp"
+            android:text="@string/title_support"
+            android:textColor="@color/color_accent"
+            android:textSize="@dimen/material_text_size_16"
+            tools:text="Support" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_open_source"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:text="@string/title_open_source_licenses"
+                android:textColor="@color/material_text_color_dark"
+                android:textSize="@dimen/material_text_size_16"
+                tools:text="Open source licenses" />
+
+            <TextView
+                android:id="@+id/txt_setting_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:text="@string/title_licenses_details"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/material_text_size_12"
+                tools:text="Licenses details for open source software" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

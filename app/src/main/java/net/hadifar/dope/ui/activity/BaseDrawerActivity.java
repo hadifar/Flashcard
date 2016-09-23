@@ -264,6 +264,7 @@ public abstract class BaseDrawerActivity extends BaseActivity {
                     toolbarTitle.setText(titleStack.pop());
                 }
 
+
                 if (backStackCount == 1) {
                     previousMenuItem = navigationView.getMenu().findItem(R.id.nav_category);
                     previousMenuItem.setChecked(true);
@@ -271,11 +272,6 @@ public abstract class BaseDrawerActivity extends BaseActivity {
                 }
             }
         }
-    }
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
 }

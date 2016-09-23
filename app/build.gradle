@@ -6,13 +6,13 @@ def gitTag = 'git describe --tags'.execute([], project.rootDir).text.trim()
 def gitCommitCount = 100 + Integer.parseInt('git rev-list --count HEAD'.execute([], project.rootDir).text.trim())
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 24
     buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId 'net.hadifar.dope'
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 24
         versionName gitTag
         versionCode gitCommitCount
         buildConfigField "String", "GIT_SHA", "\"${gitSha}\""
@@ -38,7 +38,9 @@ android {
     productFlavors {}
 }
 ext {
-    supportLibVersion = '23.3.0'
+    supportLibVersion = '24.2.1'
+    firebaseLibVersion = '9.4.0'
+    ormLibVersion = '5.0'
 }
 
 dependencies {
@@ -49,10 +51,15 @@ dependencies {
     compile "com.android.support:cardview-v7:${supportLibVersion}"
     compile "com.android.support:design:${supportLibVersion}"
 
-    compile 'com.j256.ormlite:ormlite-core:4.48'
-    compile 'com.j256.ormlite:ormlite-android:4.48'
+    compile "com.google.firebase:firebase-crash:${firebaseLibVersion}"
+    compile "com.google.firebase:firebase-core:${firebaseLibVersion}"
+
+    compile "com.j256.ormlite:ormlite-core:${ormLibVersion}"
+    compile "com.j256.ormlite:ormlite-android:${ormLibVersion}"
+
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
     compile 'com.jakewharton:butterknife:7.0.1'
 
-    compile 'com.google.android.gms:play-services-analytics:8.4.0'
 }
+
+apply plugin: 'com.google.gms.google-services'

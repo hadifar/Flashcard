@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
@@ -8,6 +9,7 @@
     app:contentInsetEnd="0dp"
     app:contentInsetLeft="0dp"
     app:contentInsetRight="0dp"
+    tools:showIn="@layout/activity_main"
     app:contentInsetStart="0dp"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
@@ -20,10 +22,11 @@
         <TextView
             android:id="@+id/icon_toolbar_left"
             style="@style/IconFont.Large"
-            android:layout_width="48dp"
+            android:layout_width="?attr/actionBarSize"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:background="@drawable/default_selector_button"
             android:text="@string/icon_menu"
             android:textColor="@color/material_text_color_bright" />
 
@@ -36,17 +39,17 @@
             android:layout_toLeftOf="@+id/icon_toolbar_right"
             android:layout_toRightOf="@+id/icon_toolbar_left"
             android:gravity="center"
-            android:text="@string/nav_category"/>
+            android:text="@string/nav_category" />
 
 
         <TextView
             android:id="@+id/icon_toolbar_right"
             style="@style/IconFont.Large"
-            android:layout_width="48dp"
+            android:layout_width="?attr/actionBarSize"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:background="?attr/selectableItemBackground"
+            android:background="@drawable/default_selector_button"
             android:text="@string/icon_search"
             android:textColor="@color/material_text_color_bright" />
 

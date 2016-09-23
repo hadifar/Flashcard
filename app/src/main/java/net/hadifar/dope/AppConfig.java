@@ -3,12 +3,6 @@ package net.hadifar.dope;
 import android.app.Application;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.text.TextUtils;
-
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.StandardExceptionParser;
-import com.google.android.gms.analytics.Tracker;
 
 import net.hadifar.dope.storage.BundleDataBaseManager;
 import net.hadifar.dope.storage.SettingsManager;
@@ -53,27 +47,10 @@ public class AppConfig extends Application {
                 .setFontAttrId(net.hadifar.dope.R.attr.fontPath)
                 .build());
 
-
-        AnalyticsTrackers.initialize(this);
-        AnalyticsTrackers.getInstance().get(AnalyticsTrackers.Target.APP);
-
     }
 
 
-    public synchronized Tracker getGoogleAnalyticsTracker() {
-        AnalyticsTrackers analyticsTrackers = AnalyticsTrackers.getInstance();
-        return analyticsTrackers.get(AnalyticsTrackers.Target.APP);
-    }
 
-    public void trackException(String exception) {
-        if (!TextUtils.isEmpty(exception)) {
-            Tracker t = getGoogleAnalyticsTracker();
-            t.send(new HitBuilders.ExceptionBuilder()
-                    .setDescription(exception)
-                    .build()
-            );
-        }
-    }
 
     public static int getAppVersionCode() {
         try {

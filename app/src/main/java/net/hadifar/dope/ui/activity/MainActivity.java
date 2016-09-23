@@ -83,5 +83,4 @@ public class MainActivity extends BaseDrawerActivity {
         }
     }
 
-
 }

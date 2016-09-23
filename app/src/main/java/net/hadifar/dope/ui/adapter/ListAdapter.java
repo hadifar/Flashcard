@@ -38,6 +38,7 @@ public class ListAdapter extends BaseAdapter {
 
     private int lastAnimatedPosition = -1;
 
+
     private OnCardClickListener listener;
 
     public ListAdapter(Context context, List<BaseEntity> items, OnCardClickListener listener) {
@@ -66,13 +67,12 @@ public class ListAdapter extends BaseAdapter {
         if (position > lastAnimatedPosition) {
             lastAnimatedPosition = position;
 
-            long animationDelay = position * 30;
-
-            view.setAlpha(0);
+            view.setTranslationY(Utils.getScreenHeight(mContext));
             view.animate()
-                    .alpha(1)
-                    .setDuration(500)
-                    .setStartDelay(animationDelay)
+                    .translationY(0)
+                    .setInterpolator(new DecelerateInterpolator(3.f))
+                    .setDuration(700)
+                    .setStartDelay(500)
                     .start();
         }
     }

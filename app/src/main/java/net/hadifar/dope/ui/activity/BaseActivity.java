@@ -1,10 +1,10 @@
 package net.hadifar.dope.ui.activity;
 
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import net.hadifar.dope.AnalyticsTrackers;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by Amir on 4/14/2016 AD
@@ -30,5 +30,9 @@ public abstract class BaseActivity extends AppCompatActivity {
 //        });
     }
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
 }

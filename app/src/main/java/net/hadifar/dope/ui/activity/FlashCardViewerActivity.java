@@ -149,9 +149,4 @@ public class FlashCardViewerActivity extends BaseActivity implements TextToSpeec
         super.finish();
         overridePendingTransition(R.anim.slide_out_back_to_left, R.anim.slide_in_back_from_right);
     }
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-    }
 }
