@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 
 import net.hadifar.dope.R;
+import net.hadifar.dope.storage.SettingsManager;
 import net.hadifar.dope.ui.fragment.BaseFragment;
 import net.hadifar.dope.ui.fragment.FragmentAbout;
 import net.hadifar.dope.ui.fragment.FragmentCategory;
@@ -65,9 +66,12 @@ public class MainActivity extends BaseDrawerActivity {
                 activeFragment.setArguments(fragmentBundle);
             }
 
+            if (SettingsManager.isAnimationEnabled(this)) {
+                fragmentTransaction
+                        .setCustomAnimations(R.anim.alpha_in, R.anim.alpha_out, R.anim.alpha_in, R.anim.alpha_out);
+            }
 
             fragmentTransaction
-                    .setCustomAnimations(R.anim.alpha_in, R.anim.alpha_out, R.anim.alpha_in, R.anim.alpha_out) // Animations for the fragment out...
                     .add(R.id.frame_container, activeFragment, TAG_ACTIVE_FRAGMENT) // We then replace whatever is inside FrameLayout to our activeFragment
                     .commit();
 

@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import net.hadifar.dope.R;
+import net.hadifar.dope.storage.SettingsManager;
 import net.hadifar.dope.utils.IntentHelper;
 import net.hadifar.dope.utils.Utils;
 
@@ -89,7 +90,8 @@ public abstract class BaseDrawerActivity extends BaseActivity {
 
     private void setupToolbar() {
         setSupportActionBar(toolbar);
-        startToolbarAnimation();
+        if (SettingsManager.isAnimationEnabled(this))
+            startToolbarAnimation();
     }
 
     private void setupDrawerContent() {

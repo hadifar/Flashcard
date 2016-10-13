@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import net.hadifar.dope.R;
 import net.hadifar.dope.model.BaseEntity;
+import net.hadifar.dope.storage.SettingsManager;
 import net.hadifar.dope.ui.listeners.OnCardClickListener;
 import net.hadifar.dope.ui.widget.TextDrawable;
 import net.hadifar.dope.utils.ColorGenerator;
@@ -37,6 +38,7 @@ public class ListAdapter extends BaseAdapter {
     private List<BaseEntity> items;
 
     private int lastAnimatedPosition = -1;
+    private boolean isAnimationEnable;
 
 
     private OnCardClickListener listener;
@@ -45,19 +47,20 @@ public class ListAdapter extends BaseAdapter {
         this.items = items;
         this.mContext = context;
         this.listener = listener;
+        this.isAnimationEnable = SettingsManager.isAnimationEnabled(context);
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(final ViewGroup viewGroup, final int itemType) {
-
         View rootView = LayoutInflater.from(mContext).inflate(R.layout.row_base_list_items, viewGroup, false);
         return new ViewHolder(rootView);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, final int position) {
-
-        runEnterAnimation(viewHolder.itemView, position);
+        if (isAnimationEnable) {
+            runEnterAnimation(viewHolder.itemView, position);
+        }
         ((ViewHolder) viewHolder).bindView(getItem(position));
 
     }
