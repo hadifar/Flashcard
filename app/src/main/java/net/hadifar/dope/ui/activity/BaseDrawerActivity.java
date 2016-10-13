@@ -1,12 +1,10 @@
 package net.hadifar.dope.ui.activity;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -15,6 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import net.hadifar.dope.R;
+import net.hadifar.dope.utils.IntentHelper;
 import net.hadifar.dope.utils.Utils;
 
 import java.util.Stack;
@@ -22,7 +21,6 @@ import java.util.Stack;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 /**
@@ -38,7 +36,7 @@ public abstract class BaseDrawerActivity extends BaseActivity {
     public static final int FLASHCARDS_FRAG = 2;
     public static final int DECKS_FRAG = 1;
     public static final int CATEGORIES_FRAG = 0;
-    public static final int LEARNING_FRAG = 10;
+    public static final int FEEDBACK_FRAG = 10;
 
     public static final int SETTINGS_FRAG = 4;
     public static final int ABOUT_FRAG = 5;
@@ -126,7 +124,10 @@ public abstract class BaseDrawerActivity extends BaseActivity {
                                 displayView(ABOUT_FRAG, null);
                                 break;
                             case R.id.nav_feedback:
-                                displayView(LEARNING_FRAG, null);
+                                IntentHelper.sendEmail(BaseDrawerActivity.this);
+                                break;
+                            case R.id.nav_rate_us:
+                                IntentHelper.voteForAppInBazaar(BaseDrawerActivity.this);
                                 break;
                             case R.id.nav_settings:
                                 displayView(SETTINGS_FRAG, null);

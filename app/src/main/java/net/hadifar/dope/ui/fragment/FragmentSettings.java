@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import net.hadifar.dope.R;
 import net.hadifar.dope.model.SettingEntity;
+import net.hadifar.dope.ui.fragment.dialogs.LiecenceDialog;
 
 import java.util.List;
 
@@ -26,7 +27,6 @@ public class FragmentSettings extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
         ButterKnife.bind(this, view);
-
         return view;
     }
 
@@ -40,6 +40,12 @@ public class FragmentSettings extends BaseFragment {
     @OnClick(R.id.txt_language)
     public void onLanguageClick() {
 
+    }
+
+    @OnClick(R.id.ll_open_source)
+    public void onLiecenceClick(){
+        LiecenceDialog dialog = new LiecenceDialog();
+        dialog.show(getFragmentManager(),"OpenSourceDialog");
     }
 
 

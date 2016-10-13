@@ -104,4 +104,20 @@
     <string name="title_support">Support</string>
 
 
+    <array name="list_licence_title">
+        <item>Copyright 2013 Square, Inc.</item>
+        <item>Copyright 2013 Jake Wharton</item>
+        <item>Copyright 2004 Android</item>
+        <item>Copyright 200x OrmLite</item>
+
+    </array>
+
+    <array name="list_licence_description">
+        <item>Licensed under the Apache License, Version 2.0 (the "License")</item>
+        <item>Licensed under the Apache License, Version 2.0 (the "License")</item>
+        <item>Licensed under the Apache License, Version 2.0 (the "License")</item>
+        <item>ISC License</item>
+    </array>
+
+
 </resources>

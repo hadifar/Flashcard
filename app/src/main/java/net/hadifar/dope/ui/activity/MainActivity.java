@@ -14,6 +14,7 @@ import net.hadifar.dope.ui.fragment.FragmentFavoriteFlashCardList;
 import net.hadifar.dope.ui.fragment.FragmentFlashCardsList;
 import net.hadifar.dope.ui.fragment.FragmentLearningMethod;
 import net.hadifar.dope.ui.fragment.FragmentSettings;
+import net.hadifar.dope.utils.IntentHelper;
 
 
 public class MainActivity extends BaseDrawerActivity {
@@ -40,11 +41,6 @@ public class MainActivity extends BaseDrawerActivity {
             case FLASHCARDS_FRAG:
                 activeFragment = new FragmentFlashCardsList();
                 fragmentTransaction.addToBackStack(null);
-                break;
-            case LEARNING_FRAG:
-                activeFragment = new FragmentLearningMethod();
-                fragmentTransaction.addToBackStack(null);
-                setToolbarTitle(R.string.menu_favorite);
                 break;
             case FAVORITE_FRAG:
                 activeFragment = new FragmentFavoriteFlashCardList();
