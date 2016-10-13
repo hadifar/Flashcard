@@ -13,6 +13,7 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "FlashCard")
 public class FlashCard extends BaseEntity {
 
+
     @DatabaseField(dataType = DataType.STRING)
     protected String persian;
 

@@ -51,6 +51,7 @@ public class FlashCardFavoritedItems implements Serializable {
 
     public FlashCardFavoritedItems(FlashCard flashCard) {
         this.id = flashCard.id;
+        this.word = flashCard.title;
         this.deckId = flashCard.deckId;
         this.persian = flashCard.persian;
         this.synonym = flashCard.synonym;

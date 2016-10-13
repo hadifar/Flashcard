@@ -85,7 +85,6 @@ public abstract class BaseDrawerActivity extends BaseActivity {
         if (navigationView != null)
             setupDrawerContent();
 
-
         displayView(0, null);
     }
 

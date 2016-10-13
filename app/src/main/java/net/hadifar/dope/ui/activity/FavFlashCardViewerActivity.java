@@ -5,29 +5,35 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.widget.Toast;
 
 import net.hadifar.dope.R;
-import net.hadifar.dope.ui.adapter.ContentAdapter;
+import net.hadifar.dope.model.FlashCard;
+import net.hadifar.dope.model.FlashCardFavoritedItems;
+import net.hadifar.dope.storage.AppDataBaseManager;
+import net.hadifar.dope.ui.fragment.FragmentFlashCardContent;
 import net.hadifar.dope.ui.widget.Toaster;
 import net.hadifar.dope.ui.widget.progressbar.LinearProgress;
 
+import java.util.List;
 import java.util.Locale;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
- * Created by Amir on 4/21/2016 AD
+ * Created by Amir on 10/13/2016 AD
  * Project : Flashcard
  * GitHub  : @AmirHadifar
  * Twitter : @AmirHadifar
  */
-public class FlashCardViewerActivity extends BaseActivity implements TextToSpeech.OnInitListener {
 
+public class FavFlashCardViewerActivity extends BaseActivity implements TextToSpeech.OnInitListener {
     private final static String EXTRA_ID = "extra_id";
 
     private int selectedDockId = 1;
@@ -41,7 +47,7 @@ public class FlashCardViewerActivity extends BaseActivity implements TextToSpeec
     ViewPager viewPager;
 
     public static Intent createIntent(Context context, int selectedDeckId) {
-        Intent intent = new Intent(context, FlashCardViewerActivity.class);
+        Intent intent = new Intent(context, FavFlashCardViewerActivity.class);
         intent.putExtra(EXTRA_ID, selectedDeckId);
         return intent;
     }
@@ -71,7 +77,7 @@ public class FlashCardViewerActivity extends BaseActivity implements TextToSpeec
 
     private void setupViewPager() {
 
-        ContentAdapter mSectionsPagerAdapter = new ContentAdapter(getSupportFragmentManager(), selectedDockId);
+        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         final int totalCount = mSectionsPagerAdapter.getCount();
 
         viewPager.setAdapter(mSectionsPagerAdapter);
@@ -93,7 +99,7 @@ public class FlashCardViewerActivity extends BaseActivity implements TextToSpeec
             }
         });
 
-//        updateProgress(0, totalCount);
+        updateProgress(0, totalCount);
     }
 
     private void updateProgress(int position, int totalCount) {
@@ -145,5 +151,35 @@ public class FlashCardViewerActivity extends BaseActivity implements TextToSpeec
     public void finish() {
         super.finish();
         overridePendingTransition(R.anim.slide_out_back_to_left, R.anim.slide_in_back_from_right);
+    }
+
+
+    public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
+
+        private Fragment mFragment;
+        private List<FlashCardFavoritedItems> mItems;
+
+        public SectionsPagerAdapter(FragmentManager fm) {
+            super(fm);
+            mItems = AppDataBaseManager.getInstance().getFavoritedFlashCardItems();
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+
+            mFragment = new FragmentFlashCardContent();
+            ((FragmentFlashCardContent) mFragment).setCard(new FlashCard(mItems.get(position)));
+            return mFragment;
+        }
+
+        @Override
+        public int getCount() {
+            return mItems.size();
+        }
+
+        @Override
+        public int getItemPosition(Object object) {
+            return super.getItemPosition(object);
+        }
     }
 }

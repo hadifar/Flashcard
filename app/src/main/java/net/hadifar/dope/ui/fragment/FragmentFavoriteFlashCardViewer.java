@@ -33,7 +33,7 @@
 //
 //    @Override
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        return inflater.inflate(R.layout.fragment_flashcard_viewer, container, false);
+//        return inflater.inflate(R.layout.activity_flashcard_viewer, container, false);
 //    }
 //
 //    @Override
@@ -43,7 +43,7 @@
 //        if (mBundle == null)
 //            mBundle = savedInstanceState;
 //
-//        getActivity().setTitle(R.string.drawer_item_favorites);
+//        getActivity().setTitle(R.string.nav_favorite);
 //
 //        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
 //        ViewPager mViewPager = (ViewPager) view.findViewById(R.id.pager);
@@ -59,33 +59,6 @@
 //    }
 //
 //
-//    public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
 //
-//        private Fragment mFragment;
-//        private List<FlashCardFavoritedItems> mItems;
-//
-//        public SectionsPagerAdapter(FragmentManager fm) {
-//            super(fm);
-//            mItems = AppDataBaseManager.getInstance().getFavoritedFlashCardItems();
-//        }
-//
-//        @Override
-//        public Fragment getItem(int position) {
-//
-//            mFragment = new FragmentFlashCardContent();
-//            ((FragmentFlashCardContent) mFragment).setCard(new FlashCard(mItems.get(position)));
-//            return mFragment;
-//        }
-//
-//        @Override
-//        public int getCount() {
-//            return mItems.size();
-//        }
-//
-//        @Override
-//        public int getItemPosition(Object object) {
-//            return super.getItemPosition(object);
-//        }
-//    }
 //
 //}

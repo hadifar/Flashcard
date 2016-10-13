@@ -38,6 +38,15 @@
             android:screenOrientation="portrait"
             android:theme="@style/Dope.Transparent" />
 
+        <activity
+            android:name=".ui.activity.FavFlashCardViewerActivity"
+            android:configChanges="screenSize|orientation"
+            android:theme="@style/Dope.Transparent">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activity.MainActivity" />
+        </activity>
+
     </application>
 
 </manifest>

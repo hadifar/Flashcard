@@ -10,6 +10,7 @@ import net.hadifar.dope.ui.fragment.BaseFragment;
 import net.hadifar.dope.ui.fragment.FragmentAbout;
 import net.hadifar.dope.ui.fragment.FragmentCategory;
 import net.hadifar.dope.ui.fragment.FragmentDecks;
+import net.hadifar.dope.ui.fragment.FragmentFavoriteFlashCardList;
 import net.hadifar.dope.ui.fragment.FragmentFlashCardsList;
 import net.hadifar.dope.ui.fragment.FragmentLearningMethod;
 import net.hadifar.dope.ui.fragment.FragmentSettings;
@@ -45,14 +46,10 @@ public class MainActivity extends BaseDrawerActivity {
                 fragmentTransaction.addToBackStack(null);
                 setToolbarTitle(R.string.menu_favorite);
                 break;
-//            case FAVORITE_FRAG:
-//                activeFragment = new FragmentFavoriteFlashCardList();
-//                fragmentTransaction.addToBackStack(null);
-//                break;
-//            case FAVORITE_FRAG_VIEWER:
-//                activeFragment = new FragmentFavoriteFlashCardViewer();
-//                fragmentTransaction.addToBackStack(null);
-//                break;
+            case FAVORITE_FRAG:
+                activeFragment = new FragmentFavoriteFlashCardList();
+                fragmentTransaction.addToBackStack(null);
+                break;
             case SETTINGS_FRAG:
                 activeFragment = new FragmentSettings();
                 fragmentTransaction.addToBackStack(null);
