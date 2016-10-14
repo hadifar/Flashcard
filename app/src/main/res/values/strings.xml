@@ -102,6 +102,21 @@
     <string name="title_open_source_licenses">Open source licenses</string>
     <string name="title_licenses_details">Licenses details for open source software</string>
     <string name="title_support">Support</string>
+    <string name="title_title">title</string>
+    <string name="hint_enter_note">Add some note</string>
+    <string name="title_time">Time</string>
+    <string name="title_duration">Duration</string>
+    <string name="hint_from">From</string>
+    <string name="hint_to">To</string>
+    <string name="action_save">Save</string>
+    <string name="msg_error_title_can_not_be_empty">Title can\'t be empty</string>
+    <string name="nav_reminder">Reminder</string>
+    <string name="msg_delete_reminder">Do you want to delete reminder?</string>
+    <string name="action_abort">abort</string>
+    <string name="action_yes">Yes</string>
+    <string name="title_reminder_time_is_passed">Wrong timing</string>
+    <string name="msg_reminder_time_is_passed">Time you set is passed try to set time from future.</string>
+    <string name="title_new_reminder">New Reminder</string>
 
 
     <array name="list_licence_title">

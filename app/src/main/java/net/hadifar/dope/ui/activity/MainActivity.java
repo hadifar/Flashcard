@@ -13,9 +13,8 @@ import net.hadifar.dope.ui.fragment.FragmentCategory;
 import net.hadifar.dope.ui.fragment.FragmentDecks;
 import net.hadifar.dope.ui.fragment.FragmentFavoriteFlashCardList;
 import net.hadifar.dope.ui.fragment.FragmentFlashCardsList;
-import net.hadifar.dope.ui.fragment.FragmentLearningMethod;
 import net.hadifar.dope.ui.fragment.FragmentSettings;
-import net.hadifar.dope.utils.IntentHelper;
+import net.hadifar.dope.ui.fragment.ReminderListFragment;
 
 
 public class MainActivity extends BaseDrawerActivity {
@@ -46,6 +45,11 @@ public class MainActivity extends BaseDrawerActivity {
             case FAVORITE_FRAG:
                 activeFragment = new FragmentFavoriteFlashCardList();
                 fragmentTransaction.addToBackStack(null);
+                break;
+            case REMINDER_FRAG:
+                activeFragment = new ReminderListFragment();
+                fragmentTransaction.addToBackStack(null);
+                setToolbarTitle(R.string.nav_reminder);
                 break;
             case SETTINGS_FRAG:
                 activeFragment = new FragmentSettings();

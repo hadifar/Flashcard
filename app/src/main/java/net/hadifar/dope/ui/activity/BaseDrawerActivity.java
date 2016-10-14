@@ -43,6 +43,7 @@ public abstract class BaseDrawerActivity extends BaseActivity {
     public static final int ABOUT_FRAG = 5;
     public static final int FAVORITE_FRAG = 6;
     public static final int FAVORITE_FRAG_VIEWER = 7;
+    public static final int REMINDER_FRAG = 8;
 
     private Stack<String> titleStack = new Stack<>();
 
@@ -121,6 +122,9 @@ public abstract class BaseDrawerActivity extends BaseActivity {
                                 break;
                             case R.id.nav_favorites:
                                 displayView(FAVORITE_FRAG, null);
+                                break;
+                            case R.id.nav_reminder:
+                                displayView(REMINDER_FRAG, null);
                                 break;
                             case R.id.nav_about:
                                 displayView(ABOUT_FRAG, null);

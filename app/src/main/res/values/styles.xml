@@ -82,6 +82,10 @@
         <item name="android:textSize">@dimen/material_text_size_14</item>
     </style>
 
+    <style name="Textview.Gray.MediumSmall">
+        <item name="android:textSize">16sp</item>
+    </style>
+
 
     <!--EDIT TEXT-->
     <style name="EditText.Default" parent="android:Widget.EditText">

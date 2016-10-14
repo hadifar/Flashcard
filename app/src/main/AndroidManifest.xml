@@ -47,6 +47,16 @@
                 android:value=".ui.activity.MainActivity" />
         </activity>
 
+
+        <activity
+            android:name=".ui.activity.ReminderActivity"
+            android:configChanges="screenSize|orientation"
+            android:theme="@style/Dope.Transparent">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activity.MainActivity" />
+        </activity>
+
     </application>
 
 </manifest>

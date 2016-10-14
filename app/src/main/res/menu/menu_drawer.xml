@@ -11,6 +11,12 @@
             android:id="@+id/nav_favorites"
             android:icon="@drawable/ic_favorite_black_24dp"
             android:title="@string/nav_favorite" />
+
+        <item
+            android:id="@+id/nav_reminder"
+            android:icon="@drawable/ic_reminder"
+            android:title="@string/nav_reminder" />
+
     </group>
 
     <group

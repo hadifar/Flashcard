@@ -60,6 +60,7 @@ dependencies {
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
     compile 'com.jakewharton:butterknife:7.0.1'
 
+    compile 'com.wdullaer:materialdatetimepicker:2.5.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
