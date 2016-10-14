@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "227178267441",
+    "firebase_url": "https://dope-c632f.firebaseio.com",
+    "project_id": "dope-c632f",
+    "storage_bucket": "dope-c632f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227178267441:android:eafe644c152425e9",
+        "android_client_info": {
+          "package_name": "net.hadifar.dope"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "227178267441-kepo6mbpl5v8pjvipbt3nj6139abdg6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARBwenSZG2F-mYo2yABjcTxhdHOXVK5MI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
